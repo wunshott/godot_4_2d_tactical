@@ -1,0 +1,50 @@
+[gd_scene load_steps=5 format=3 uid="uid://d01is2s65njqg"]
+
+[ext_resource type="Theme" uid="uid://dy51vb6uy42fp" path="res://Themes/HUD_THEME_1.tres" id="1_sxda5"]
+[ext_resource type="Script" path="res://HUD/Inventory/inventory_drag_and_drop.gd" id="2_rn30w"]
+[ext_resource type="Texture2D" uid="uid://c8pxkh44m4l0e" path="res://assets/kenney_pixel-ui-pack/9-Slice/Ancient/grey_pressed.png" id="3_f437q"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_82oeu"]
+texture = ExtResource("3_f437q")
+
+[node name="InventoryPanel" type="Control"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 16.0
+offset_bottom = 16.0
+scale = Vector2(0.993313, 1)
+size_flags_horizontal = 6
+theme = ExtResource("1_sxda5")
+script = ExtResource("2_rn30w")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_type_variation = &"PanelContainer3"
+theme_override_styles/panel = SubResource("StyleBoxTexture_82oeu")
+
+[node name="item_sprite" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2

@@ -1,0 +1,13 @@
+[gd_scene load_steps=8 format=3 uid="uid://ruktb6f7gn5u"]
+
+[ext_resource type="Script" path="res://top_down/Injuries/injury_table.gd" id="1_00ped"]
+[ext_resource type="Resource" uid="uid://uy6nyaytdijv" path="res://top_down/Injuries/InjuryResources/ArmorDamage/Arm/ReducedHitMinor.tres" id="2_uefnr"]
+[ext_resource type="Resource" uid="uid://bobm05cx2kpkn" path="res://top_down/Injuries/InjuryResources/ArmorDamage/Arm/ArmorArmBleedMinor.tres" id="3_wi28v"]
+[ext_resource type="Resource" uid="uid://ce8x86c8o731m" path="res://top_down/Injuries/InjuryResources/ArmorDamage/Arm/ArmorArmGlance.tres" id="4_s1cde"]
+[ext_resource type="Resource" uid="uid://ddci4g0mk8ic4" path="res://top_down/Injuries/InjuryResources/ArmorDamage/Arm/ArmorArmWepDrop.tres" id="5_hovw3"]
+[ext_resource type="Resource" uid="uid://luoqt8tn5aoe" path="res://top_down/Injuries/InjuryResources/ArmorDamage/Arm/ArmorDamageBasic.tres" id="6_r68uc"]
+[ext_resource type="Resource" uid="uid://dgre3t8k4nal5" path="res://top_down/Injuries/InjuryResources/ArmorDamage/Arm/ReducedACMinor.tres" id="7_f8uw6"]
+
+[node name="InjuryTable" type="Node"]
+script = ExtResource("1_00ped")
+ArmArmorInjuries = Array[Resource("res://top_down/Injuries/InjuryResources/injury.gd")]([ExtResource("3_wi28v"), ExtResource("4_s1cde"), ExtResource("5_hovw3"), ExtResource("6_r68uc"), ExtResource("7_f8uw6"), ExtResource("2_uefnr")])

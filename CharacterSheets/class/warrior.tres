@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="Class" load_steps=2 format=3 uid="uid://ldknhdxp6wxu"]
+
+[ext_resource type="Script" path="res://CharacterSheets/class/class_template.gd" id="1_wj2vr"]
+
+[resource]
+script = ExtResource("1_wj2vr")
+class_title = "warrior"
+right_arm_dice = Array[int]([3, 6])
+right_weapon = Array[int]([8])
+equipped_right_arm_armor_dice = Array[int]([5])
+left_arm_dice = Array[int]([3, 6])
+left_weapon = Array[int]([3, 3])
+equipped_left_arm_armor_dice = Array[int]([5])
+right_leg_dice = Array[int]([5, 5])
+right_leg_armor_dice = Array[int]([5])
+left_leg_dice = Array[int]([5, 5])
+left_leg_armor_dice = Array[int]([5])
+torso_dice = Array[int]([5, 6, 6])
+equipped_torso_armor_dice = Array[int]([4, 5, 7])
+head_dice = Array[int]([2, 3, 3])
+equipped_helmet_dice = Array[int]([4, 5, 5])

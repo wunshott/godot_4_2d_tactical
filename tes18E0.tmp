@@ -1,0 +1,230 @@
+[gd_scene load_steps=11 format=3 uid="uid://byrkw0k57x4aq"]
+
+[ext_resource type="Script" path="res://test_array_compare.gd" id="1_q7isn"]
+[ext_resource type="Resource" uid="uid://bigp0rsmwiix5" path="res://CharacterSheets/class/rogue.tres" id="2_5vja3"]
+[ext_resource type="Script" path="res://sims_test.gd" id="2_ao1cg"]
+[ext_resource type="Resource" uid="uid://ldknhdxp6wxu" path="res://CharacterSheets/class/warrior.tres" id="3_byiis"]
+[ext_resource type="Script" path="res://ButtonSignals.gd" id="5_lsl6y"]
+[ext_resource type="Script" path="res://DiceRollerBox.gd" id="6_0e3i7"]
+[ext_resource type="Script" path="res://AttackDefenseDice.gd" id="6_udwf5"]
+[ext_resource type="Texture2D" uid="uid://cjg2mhnm8dv8q" path="res://assets/customs/colored-transparent_packed.png" id="8_uftby"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6nu5r"]
+atlas = ExtResource("8_uftby")
+region = Rect2(672, 240, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_62788"]
+atlas = ExtResource("8_uftby")
+region = Rect2(688, 240, 16, 16)
+
+[node name="Node" type="Node"]
+script = ExtResource("1_q7isn")
+player_class = ExtResource("2_5vja3")
+enemy_class = ExtResource("3_byiis")
+player_dodge_threshold = 8
+target_dodge_threshold = 1
+target_weapon_graze_threshold = 4
+number_of_battles = 10
+
+[node name="sims" type="Node" parent="."]
+script = ExtResource("2_ao1cg")
+
+[node name="ButtonSignals" type="Node" parent="."]
+script = ExtResource("5_lsl6y")
+
+[node name="Buttons" type="Node" parent="."]
+
+[node name="Player" type="Label" parent="Buttons"]
+offset_right = 168.0
+offset_bottom = 23.0
+text = "Player Attack Buttons"
+
+[node name="PlayerButtons" type="VBoxContainer" parent="Buttons"]
+offset_left = -1.0
+offset_top = 23.0
+offset_right = 167.0
+offset_bottom = 229.0
+
+[node name="TargetHead" type="Button" parent="Buttons/PlayerButtons"]
+layout_mode = 2
+text = "Head"
+
+[node name="TargetTorso" type="Button" parent="Buttons/PlayerButtons"]
+layout_mode = 2
+text = "Torso"
+
+[node name="TargetRightArm" type="Button" parent="Buttons/PlayerButtons"]
+layout_mode = 2
+text = "Right Arm"
+
+[node name="TargetLeftArm" type="Button" parent="Buttons/PlayerButtons"]
+layout_mode = 2
+text = "Left Arm"
+
+[node name="TargetLeftLeg" type="Button" parent="Buttons/PlayerButtons"]
+layout_mode = 2
+text = "Left Leg"
+
+[node name="TargetRightLeg" type="Button" parent="Buttons/PlayerButtons"]
+layout_mode = 2
+text = "Right Leg"
+
+[node name="Enemy" type="Label" parent="Buttons"]
+offset_left = 222.0
+offset_right = 394.0
+offset_bottom = 23.0
+text = "Enemy Attack Buttons"
+
+[node name="EnemyButtons" type="VBoxContainer" parent="Buttons"]
+offset_left = 222.0
+offset_top = 26.0
+offset_right = 390.0
+offset_bottom = 259.0
+
+[node name="PlayerHead" type="Button" parent="Buttons/EnemyButtons"]
+layout_mode = 2
+text = "Head"
+
+[node name="PlayerTorso" type="Button" parent="Buttons/EnemyButtons"]
+layout_mode = 2
+text = "Torso"
+
+[node name="PlayerRightArm" type="Button" parent="Buttons/EnemyButtons"]
+layout_mode = 2
+text = "Right Arm"
+
+[node name="PlayerLeftArm" type="Button" parent="Buttons/EnemyButtons"]
+layout_mode = 2
+text = "Left Arm"
+
+[node name="PlayerLeftLeg" type="Button" parent="Buttons/EnemyButtons"]
+layout_mode = 2
+text = "Left Leg"
+
+[node name="PlayerRightLeg" type="Button" parent="Buttons/EnemyButtons"]
+layout_mode = 2
+text = "Right Leg"
+
+[node name="Fight" type="Button" parent="Buttons"]
+offset_left = 75.0
+offset_top = 273.0
+offset_right = 172.0
+offset_bottom = 304.0
+text = "Fight Battle"
+
+[node name="Cancel" type="Button" parent="Buttons"]
+offset_left = 260.0
+offset_top = 271.0
+offset_right = 394.0
+offset_bottom = 302.0
+text = "Cancel Selection"
+
+[node name="EnemyButtons" type="Node" parent="."]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+offset_left = 6.0
+offset_top = 305.0
+offset_right = 189.0
+offset_bottom = 345.0
+
+[node name="PlayHpLabel" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+text = "Player HP:
+"
+
+[node name="PlayerHp" type="ProgressBar" parent="HBoxContainer"]
+custom_minimum_size = Vector2(100, 15)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+step = 1.0
+show_percentage = false
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="."]
+offset_left = 210.0
+offset_top = 300.0
+offset_right = 393.0
+offset_bottom = 340.0
+
+[node name="EnemyHpLabel" type="Label" parent="HBoxContainer2"]
+layout_mode = 2
+text = "Enemy HP:
+"
+
+[node name="EnemyHp" type="ProgressBar" parent="HBoxContainer2"]
+custom_minimum_size = Vector2(100, 15)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+step = 1.0
+show_percentage = false
+
+[node name="DiceRollerBox" type="VBoxContainer" parent="."]
+offset_left = 32.0
+offset_top = 401.0
+offset_right = 369.0
+offset_bottom = 467.0
+script = ExtResource("6_0e3i7")
+arm_dice = Array[int]([3, 3, 5, 5])
+stamina_dice = Array[int]([6, 6, 6, 6])
+
+[node name="RollDiceButton" type="Button" parent="DiceRollerBox"]
+layout_mode = 2
+text = "Roll Dice Button
+"
+
+[node name="AttackDefenseDice" type="HBoxContainer" parent="DiceRollerBox"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("6_udwf5")
+
+[node name="AttackDice" type="Label" parent="DiceRollerBox/AttackDefenseDice"]
+layout_mode = 2
+text = "AttackDice"
+
+[node name="Button" type="Button" parent="DiceRollerBox/AttackDefenseDice"]
+layout_mode = 2
+text = "<"
+
+[node name="CurrentDice" type="HBoxContainer" parent="DiceRollerBox/AttackDefenseDice"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="DiceRollerBox/AttackDefenseDice/CurrentDice"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+size_flags_horizontal = 3
+texture = SubResource("AtlasTexture_6nu5r")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="TextureRect2" type="TextureRect" parent="DiceRollerBox/AttackDefenseDice/CurrentDice"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+size_flags_horizontal = 3
+texture = SubResource("AtlasTexture_62788")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Button2" type="Button" parent="DiceRollerBox/AttackDefenseDice"]
+layout_mode = 2
+text = ">"
+
+[node name="DefenseDIce" type="Label" parent="DiceRollerBox/AttackDefenseDice"]
+layout_mode = 2
+text = "Defense Dice"
+
+[connection signal="pressed" from="Buttons/PlayerButtons/TargetHead" to="ButtonSignals" method="_on_target_head_pressed"]
+[connection signal="pressed" from="Buttons/PlayerButtons/TargetTorso" to="ButtonSignals" method="_on_target_torso_pressed"]
+[connection signal="pressed" from="Buttons/PlayerButtons/TargetRightArm" to="ButtonSignals" method="_on_target_right_arm_pressed"]
+[connection signal="pressed" from="Buttons/PlayerButtons/TargetLeftArm" to="ButtonSignals" method="_on_target_left_arm_pressed"]
+[connection signal="pressed" from="Buttons/PlayerButtons/TargetLeftLeg" to="ButtonSignals" method="_on_target_left_leg_pressed"]
+[connection signal="pressed" from="Buttons/PlayerButtons/TargetRightLeg" to="ButtonSignals" method="_on_target_right_leg_pressed"]
+[connection signal="pressed" from="Buttons/EnemyButtons/PlayerHead" to="ButtonSignals" method="_on_player_head_pressed"]
+[connection signal="pressed" from="Buttons/EnemyButtons/PlayerTorso" to="ButtonSignals" method="_on_player_torso_pressed"]
+[connection signal="pressed" from="Buttons/EnemyButtons/PlayerRightArm" to="ButtonSignals" method="_on_player_right_arm_pressed"]
+[connection signal="pressed" from="Buttons/EnemyButtons/PlayerLeftArm" to="ButtonSignals" method="_on_player_left_arm_pressed"]
+[connection signal="pressed" from="Buttons/EnemyButtons/PlayerLeftLeg" to="ButtonSignals" method="_on_player_left_leg_pressed"]
+[connection signal="pressed" from="Buttons/EnemyButtons/PlayerRightLeg" to="ButtonSignals" method="_on_player_right_leg_pressed"]
+[connection signal="pressed" from="Buttons/Fight" to="ButtonSignals" method="_on_fight_pressed"]
+[connection signal="pressed" from="Buttons/Cancel" to="ButtonSignals" method="_on_cancel_pressed"]

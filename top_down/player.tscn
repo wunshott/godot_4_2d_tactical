@@ -1,0 +1,97 @@
+[gd_scene load_steps=20 format=3 uid="uid://daupiatx27twp"]
+
+[ext_resource type="Script" path="res://top_down/player.gd" id="1_bqpha"]
+[ext_resource type="PackedScene" uid="uid://dluyq3akqpowy" path="res://top_down/Stats/stats.tscn" id="3_1f5km"]
+[ext_resource type="Texture2D" uid="uid://cjg2mhnm8dv8q" path="res://assets/customs/colored-transparent_packed.png" id="3_eiqh1"]
+[ext_resource type="Script" path="res://top_down/Path.gd" id="4_x5rhd"]
+[ext_resource type="Texture2D" uid="uid://dvckrkp7pytci" path="res://assets/kenney_1-bit-pack/Tilesheet/colored-transparent_packed.png" id="5_6sppu"]
+[ext_resource type="PackedScene" uid="uid://bfteryvy3beu4" path="res://top_down/Inventory/inventory.tscn" id="5_315wl"]
+[ext_resource type="Resource" uid="uid://dqaeun4g832f0" path="res://top_down/Items/Weapons/Fist.tres" id="6_gnh22"]
+[ext_resource type="Script" path="res://top_down/Movement_Reticle.gd" id="6_tjg1w"]
+[ext_resource type="Resource" uid="uid://c8jw3k12xqfnr" path="res://top_down/Items/Armor/iron_helmet.tres" id="7_2qdlh"]
+[ext_resource type="PackedScene" uid="uid://bgermilahkoxh" path="res://Actions/attack_patterns/attack_pattern.tscn" id="7_ef2w6"]
+[ext_resource type="Resource" uid="uid://berx3gtyf4lft" path="res://top_down/Items/Armor/no_armor.tres" id="7_fypcp"]
+[ext_resource type="Resource" uid="uid://b57rgbu848qwr" path="res://top_down/Items/Armor/iron_Chest_plate.tres" id="8_i0st6"]
+[ext_resource type="Resource" uid="uid://danrkv4wfq7ut" path="res://top_down/Items/Weapons/wooden_sword.tres" id="9_6t3m2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_87ycp"]
+atlas = ExtResource("3_eiqh1")
+region = Rect2(432, 0, 16, 16)
+
+[sub_resource type="Curve" id="Curve_i8382"]
+min_value = 0.25
+max_value = 0.5
+_data = [Vector2(0.0360825, 1.49451), 0.0, 0.0, 0, 0]
+point_count = 1
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gjrf6"]
+atlas = ExtResource("5_6sppu")
+region = Rect2(576, 192, 16, 16)
+
+[sub_resource type="Animation" id="Animation_waker"]
+resource_name = "modulate_transparency"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.301961)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kf2gf"]
+_data = {
+"modulate_transparency": SubResource("Animation_waker")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0ccn3"]
+size = Vector2(16, 16)
+
+[node name="Player" type="Node2D"]
+script = ExtResource("1_bqpha")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_87ycp")
+
+[node name="Path" type="Line2D" parent="."]
+width = 2.0
+width_curve = SubResource("Curve_i8382")
+texture_mode = 1
+script = ExtResource("4_x5rhd")
+
+[node name="Movement_Reticle" type="Sprite2D" parent="Path"]
+self_modulate = Color(1, 1, 1, 0.301961)
+texture = SubResource("AtlasTexture_gjrf6")
+script = ExtResource("6_tjg1w")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Path/Movement_Reticle"]
+libraries = {
+"": SubResource("AnimationLibrary_kf2gf")
+}
+autoplay = "modulate_transparency"
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_0ccn3")
+
+[node name="Stats" parent="." instance=ExtResource("3_1f5km")]
+
+[node name="Inventory" parent="." instance=ExtResource("5_315wl")]
+equipped_weapon_dict = {
+"BeltSlot": null,
+"LeftHand": ExtResource("6_gnh22"),
+"RightHand": ExtResource("6_gnh22")
+}
+equipped_armor_dict = {
+"Head": ExtResource("7_fypcp")
+}
+inventory = Array[Resource("res://top_down/Items/item_template.gd")]([ExtResource("7_2qdlh"), ExtResource("8_i0st6"), ExtResource("9_6t3m2")])
+
+[node name="AttackPattern" parent="." instance=ExtResource("7_ef2w6")]
+position = Vector2(8, 8)

@@ -1,0 +1,338 @@
+[gd_scene load_steps=11 format=3 uid="uid://dorxqcjuxk1oe"]
+
+[ext_resource type="PackedScene" uid="uid://4hlv03aaaker" path="res://HUD/head.tscn" id="1_k41lq"]
+[ext_resource type="PackedScene" uid="uid://ct3ldkov33gsa" path="res://HUD/Meters/armor_hp_bar.tscn" id="2_10543"]
+[ext_resource type="PackedScene" uid="uid://dev3j4dlaux6o" path="res://HUD/Inventory/equipment_panel_drag_and_Drop.tscn" id="3_f4gvo"]
+[ext_resource type="Texture2D" uid="uid://cjg2mhnm8dv8q" path="res://assets/customs/colored-transparent_packed.png" id="4_s12nf"]
+[ext_resource type="Texture2D" uid="uid://dlmy4kj6caua8" path="res://assets/Pixel Bodies/pixel_Body_Arm.png" id="5_i1fr4"]
+[ext_resource type="Texture2D" uid="uid://b0m2ep8i222g6" path="res://assets/Pixel Bodies/pixel_Body_Torso.png" id="6_fknqp"]
+[ext_resource type="Texture2D" uid="uid://bc8vxjivtoblu" path="res://assets/Pixel Bodies/pixel_Body_Groin.png" id="7_53qyw"]
+[ext_resource type="Texture2D" uid="uid://gdnsq0dtatdn" path="res://assets/Pixel Bodies/pixel_Body_Leg.png" id="8_10kks"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nkoik"]
+atlas = ExtResource("4_s12nf")
+region = Rect2(624, 224, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ae6e"]
+atlas = ExtResource("4_s12nf")
+region = Rect2(624, 224, 16, 16)
+
+[node name="CharacterBody" type="GridContainer"]
+columns = 5
+
+[node name="ReferenceRect" type="ReferenceRect" parent="."]
+layout_mode = 2
+
+[node name="ReferenceRect5" type="ReferenceRect" parent="."]
+layout_mode = 2
+
+[node name="Head" parent="." instance=ExtResource("1_k41lq")]
+layout_mode = 2
+
+[node name="ReferenceRect2" type="ReferenceRect" parent="."]
+layout_mode = 2
+
+[node name="ReferenceRect8" type="ReferenceRect" parent="."]
+layout_mode = 2
+
+[node name="ReferenceRect9" type="ReferenceRect" parent="."]
+layout_mode = 2
+
+[node name="ReferenceRect12" type="ReferenceRect" parent="."]
+layout_mode = 2
+
+[node name="Neck" type="TextureRect" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = SubResource("AtlasTexture_nkoik")
+stretch_mode = 5
+
+[node name="EquipmentPanel2" parent="Neck" instance=ExtResource("3_f4gvo")]
+layout_mode = 1
+
+[node name="ReferenceRect18" type="ReferenceRect" parent="."]
+layout_mode = 2
+
+[node name="ReferenceRect19" type="ReferenceRect" parent="."]
+layout_mode = 2
+
+[node name="PlaceholderWeaponSlot" type="TextureRect" parent="."]
+layout_mode = 2
+texture = SubResource("AtlasTexture_4ae6e")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="EquipmentPanel2" parent="PlaceholderWeaponSlot" instance=ExtResource("3_f4gvo")]
+layout_mode = 1
+
+[node name="RightArm" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(48, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("5_i1fr4")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="RightArmArmor" parent="RightArm" instance=ExtResource("2_10543")]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -24.0
+offset_top = -10.0
+offset_right = 24.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 8
+
+[node name="EquipmentPanel" parent="RightArm" instance=ExtResource("3_f4gvo")]
+layout_mode = 1
+offset_left = 16.0
+offset_top = 53.5
+offset_right = 32.0
+offset_bottom = 69.5
+
+[node name="Sprite2D" type="Sprite2D" parent="RightArm"]
+position = Vector2(-104, 139)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("5_i1fr4")
+
+[node name="Torso" type="TextureRect" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("6_fknqp")
+expand_mode = 5
+stretch_mode = 5
+
+[node name="LefttArmArmorHp4" parent="Torso" instance=ExtResource("2_10543")]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -24.0
+offset_top = 5.0
+offset_right = 24.0
+offset_bottom = 19.0
+grow_horizontal = 2
+
+[node name="EquipmentPanel2" parent="Torso" instance=ExtResource("3_f4gvo")]
+layout_mode = 1
+
+[node name="LeftArm" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(48, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+texture = ExtResource("5_i1fr4")
+expand_mode = 3
+stretch_mode = 5
+flip_h = true
+
+[node name="EquipmentPanel3" parent="LeftArm" instance=ExtResource("3_f4gvo")]
+layout_mode = 1
+
+[node name="LefttArmArmorHp3" parent="LeftArm" instance=ExtResource("2_10543")]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -24.0
+offset_top = -10.0
+offset_right = 24.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+
+[node name="PlaceholderWeaponSlot2" type="TextureRect" parent="."]
+layout_mode = 2
+texture = SubResource("AtlasTexture_nkoik")
+expand_mode = 3
+
+[node name="EquipmentPanel4" parent="PlaceholderWeaponSlot2" instance=ExtResource("3_f4gvo")]
+layout_mode = 1
+
+[node name="ReferenceRect15" type="ReferenceRect" parent="."]
+layout_mode = 2
+
+[node name="ReferenceRect20" type="ReferenceRect" parent="."]
+layout_mode = 2
+
+[node name="Belt" type="TextureRect" parent="."]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = SubResource("AtlasTexture_nkoik")
+
+[node name="EquipmentPanel5" parent="Belt" instance=ExtResource("3_f4gvo")]
+layout_mode = 1
+
+[node name="ReferenceRect21" type="ReferenceRect" parent="."]
+layout_mode = 2
+
+[node name="ReferenceRect22" type="ReferenceRect" parent="."]
+layout_mode = 2
+
+[node name="ReferenceRect4" type="ReferenceRect" parent="."]
+layout_mode = 2
+
+[node name="ReferenceRect10" type="ReferenceRect" parent="."]
+layout_mode = 2
+
+[node name="Groin" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(48, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("7_53qyw")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="GroinArmor" parent="Groin" instance=ExtResource("2_10543")]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -24.0
+offset_right = 24.0
+offset_bottom = 30.0
+grow_horizontal = 2
+
+[node name="EquipmentPanel6" parent="Groin" instance=ExtResource("3_f4gvo")]
+layout_mode = 1
+
+[node name="ReferenceRect11" type="ReferenceRect" parent="."]
+layout_mode = 2
+
+[node name="ReferenceRect13" type="ReferenceRect" parent="."]
+layout_mode = 2
+
+[node name="ReferenceRect16" type="ReferenceRect" parent="."]
+layout_mode = 2
+
+[node name="ReferenceRect14" type="ReferenceRect" parent="."]
+layout_mode = 2
+
+[node name="LegContainer" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(48, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="RightLeg" type="TextureRect" parent="LegContainer"]
+custom_minimum_size = Vector2(48, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("8_10kks")
+expand_mode = 5
+stretch_mode = 5
+
+[node name="RightlegArmorHp2" parent="LegContainer/RightLeg" instance=ExtResource("2_10543")]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -24.0
+offset_right = 24.0
+offset_bottom = 30.0
+grow_horizontal = 2
+
+[node name="RightLeg" type="VBoxContainer" parent="LegContainer/RightLeg"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -52.0
+offset_right = 20.0
+offset_bottom = 52.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="LegContainer/RightLeg/RightLeg"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_bottom = 15
+
+[node name="EquipmentPanel7" parent="LegContainer/RightLeg/RightLeg" instance=ExtResource("3_f4gvo")]
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="MarginContainer" type="MarginContainer" parent="LegContainer/RightLeg/RightLeg"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_top = 45
+theme_override_constants/margin_bottom = 0
+
+[node name="EquipmentPanel8" parent="LegContainer/RightLeg/RightLeg" instance=ExtResource("3_f4gvo")]
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="LeftLeg" type="TextureRect" parent="LegContainer"]
+custom_minimum_size = Vector2(48, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("8_10kks")
+expand_mode = 5
+stretch_mode = 5
+flip_h = true
+
+[node name="RightLegArmorHp" parent="LegContainer/LeftLeg" instance=ExtResource("2_10543")]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -24.0
+offset_right = 24.0
+offset_bottom = 30.0
+grow_horizontal = 2
+
+[node name="LeftLeg" type="VBoxContainer" parent="LegContainer/LeftLeg"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -52.0
+offset_right = 20.0
+offset_bottom = 52.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="LegContainer/LeftLeg/LeftLeg"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_bottom = 15
+
+[node name="EquipmentPanel9" parent="LegContainer/LeftLeg/LeftLeg" instance=ExtResource("3_f4gvo")]
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="MarginContainer" type="MarginContainer" parent="LegContainer/LeftLeg/LeftLeg"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_top = 45
+theme_override_constants/margin_bottom = 0
+
+[node name="EquipmentPanel10" parent="LegContainer/LeftLeg/LeftLeg" instance=ExtResource("3_f4gvo")]
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="ReferenceRect7" type="ReferenceRect" parent="."]
+layout_mode = 2
+
+[node name="ReferenceRect17" type="ReferenceRect" parent="."]
+layout_mode = 2

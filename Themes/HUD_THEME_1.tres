@@ -1,0 +1,187 @@
+[gd_resource type="Theme" load_steps=42 format=3 uid="uid://dy51vb6uy42fp"]
+
+[ext_resource type="FontFile" uid="uid://c43en0kx4k05a" path="res://assets/Fonts/kenney_kenney-fonts (1)/Kenney Mini Square Mono.ttf" id="1_4m56l"]
+[ext_resource type="FontFile" uid="uid://63cjhghuwd30" path="res://assets/Fonts/kenney_kenney-fonts (1)/Kenney High Square.ttf" id="1_88xwo"]
+[ext_resource type="Texture2D" uid="uid://c2vrkdn7mq5pi" path="res://assets/customs/Combat_Square.png" id="1_f50pw"]
+[ext_resource type="FontFile" uid="uid://cg1dmt25pqevv" path="res://assets/Fonts/kenney_kenney-fonts (1)/Kenney Mini Square.ttf" id="1_klito"]
+[ext_resource type="Texture2D" uid="uid://cjvc7lifyrab1" path="res://assets/UI Borders/kenney_ui-pack-rpg-expansion/PNG/panelInset_blue.png" id="2_mx5ep"]
+[ext_resource type="Texture2D" uid="uid://dysqtp3pcjbfl" path="res://assets/UI Borders/kenney_ui-pack-rpg-expansion/PNG/buttonSquare_blue_pressed.png" id="2_vyukr"]
+[ext_resource type="Texture2D" uid="uid://cpey3npy6ksb2" path="res://assets/UI Borders/kenney_ui-pack-rpg-expansion/PNG/buttonSquare_beige.png" id="3_cf2n4"]
+[ext_resource type="FontFile" uid="uid://bc6666dkg2jv8" path="res://assets/Fonts/kenney_kenney-fonts (1)/Kenney Pixel Square.ttf" id="7_pexj8"]
+[ext_resource type="Texture2D" uid="uid://din2r82jpa848" path="res://assets/UI Borders/kenney_ui-pack-rpg-expansion/PNG/panelInset_brown.png" id="7_ruueg"]
+[ext_resource type="FontFile" uid="uid://khpsu3okj02v" path="res://assets/Fonts/kenney_kenney-fonts (1)/Kenney Pixel.ttf" id="8_qwcgo"]
+[ext_resource type="Texture2D" uid="uid://cxek6448wnv6b" path="res://assets/UIpackSheet_transparent.png" id="9_4at10"]
+[ext_resource type="Texture2D" uid="uid://b77sxp8p25wb7" path="res://assets/kenney_fantasy-ui-borders/PNG/Default/Transparent border/panel-transparent-border-025.png" id="10_4ky3e"]
+[ext_resource type="Texture2D" uid="uid://cjg2mhnm8dv8q" path="res://assets/customs/colored-transparent_packed.png" id="11_xvg7a"]
+[ext_resource type="Texture2D" uid="uid://b5facyphr41gt" path="res://assets/kenney_fantasy-ui-borders/PNG/Default/Transparent center/panel-transparent-center-014.png" id="13_6e103"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tcpwj"]
+texture = ExtResource("1_f50pw")
+texture_margin_left = 15.0
+texture_margin_top = 15.0
+texture_margin_right = 16.0
+texture_margin_bottom = 15.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3kms6"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0dxts"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gh6y2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_228ex"]
+atlas = ExtResource("11_xvg7a")
+region = Rect2(640, 208, 16, 16)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5htb1"]
+texture = SubResource("AtlasTexture_228ex")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1h1s5"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mwxys"]
+texture = ExtResource("2_vyukr")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_um22k"]
+texture = ExtResource("3_cf2n4")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pg1x7"]
+texture = ExtResource("3_cf2n4")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2kqyq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vbcbb"]
+atlas = SubResource("AtlasTexture_2kqyq")
+region = Rect2(784, 184, 16, 16)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nku1f"]
+texture = SubResource("AtlasTexture_vbcbb")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nuiek"]
+atlas = ExtResource("9_4at10")
+region = Rect2(108, 396, 16, 16)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pv51c"]
+texture = SubResource("AtlasTexture_nuiek")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+modulate_color = Color(1, 1, 1, 0.34902)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wepy7"]
+texture = ExtResource("2_mx5ep")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_raq4r"]
+texture = ExtResource("10_4ky3e")
+texture_margin_left = 22.0
+texture_margin_top = 22.0
+texture_margin_right = 22.0
+texture_margin_bottom = 22.0
+modulate_color = Color(0.345098, 0.521569, 0.392157, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0sftg"]
+atlas = ExtResource("11_xvg7a")
+region = Rect2(768, 160, 16, 16)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qno6k"]
+texture = SubResource("AtlasTexture_0sftg")
+texture_margin_top = 4.0
+texture_margin_right = 11.0
+texture_margin_bottom = 11.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vo3e2"]
+texture = ExtResource("13_6e103")
+texture_margin_left = 10.0
+texture_margin_top = 5.0
+texture_margin_right = 5.0
+texture_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_x4b5f"]
+texture = ExtResource("7_ruueg")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_la0d7"]
+atlas = ExtResource("11_xvg7a")
+region = Rect2(560, 96, 16, 16)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gctpk"]
+texture = SubResource("AtlasTexture_la0d7")
+modulate_color = Color(1, 1, 0.254902, 0.513726)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aobuc"]
+atlas = ExtResource("11_xvg7a")
+region = Rect2(560, 96, 16, 16)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l4dda"]
+texture = SubResource("AtlasTexture_aobuc")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cjon1"]
+atlas = ExtResource("11_xvg7a")
+region = Rect2(560, 96, 16, 16)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xkdme"]
+texture = SubResource("AtlasTexture_cjon1")
+modulate_color = Color(1, 0.121569, 0.121569, 1)
+
+[resource]
+AttackPixelContainer/base_type = &"PanelContainer"
+AttackPixelContainer/styles/panel = SubResource("StyleBoxTexture_tcpwj")
+BlankButton/base_type = &"Button"
+BlankButton/styles/disabled = SubResource("StyleBoxTexture_3kms6")
+BlankButton/styles/focus = SubResource("StyleBoxTexture_0dxts")
+BlankButton/styles/hover = SubResource("StyleBoxTexture_gh6y2")
+BlankButton/styles/normal = SubResource("StyleBoxTexture_5htb1")
+BlankButton/styles/pressed = SubResource("StyleBoxTexture_1h1s5")
+Button/colors/font_hover_color = Color(0.721624, 0.00600496, 0.277256, 1)
+Button/fonts/font = ExtResource("1_4m56l")
+Button/styles/disabled = SubResource("StyleBoxTexture_mwxys")
+Button/styles/hover = SubResource("StyleBoxTexture_um22k")
+Button/styles/normal = SubResource("StyleBoxTexture_pg1x7")
+Button/styles/pressed = SubResource("StyleBoxTexture_nku1f")
+Fonts/fonts/large = ExtResource("1_88xwo")
+Fonts/fonts/normal = ExtResource("1_klito")
+Label/font_sizes/font_size = 16
+Label/fonts/font = ExtResource("7_pexj8")
+LineEdit/font_sizes/font_size = 15
+LineEdit/fonts/font = ExtResource("8_qwcgo")
+Panel/styles/panel = SubResource("StyleBoxTexture_pv51c")
+PanelContainer/styles/panel = SubResource("StyleBoxTexture_wepy7")
+PanelContainer2/base_type = &"PanelContainer"
+PanelContainer2/styles/panel = SubResource("StyleBoxTexture_raq4r")
+PanelContainer3/base_type = &"PanelContainer"
+PanelContainer3/styles/panel = SubResource("StyleBoxTexture_qno6k")
+PanelContainer4/base_type = &"PanelContainer"
+PanelContainer4/styles/panel = SubResource("StyleBoxTexture_vo3e2")
+ParchmentPanelContainer/base_type = &"PanelContainer"
+ParchmentPanelContainer/styles/panel = SubResource("StyleBoxTexture_x4b5f")
+SwordButton/base_type = &"Button"
+SwordButton/styles/hover = SubResource("StyleBoxTexture_gctpk")
+SwordButton/styles/normal = SubResource("StyleBoxTexture_l4dda")
+SwordButton/styles/pressed = SubResource("StyleBoxTexture_xkdme")
+VariantFontLabel1/base_type = &"Label"
+VariantFontLabel1/fonts/font = ExtResource("8_qwcgo")
+VariantFontLabel2/base_type = &"Label"
+VariantFontLabel2/colors/font_color = Color(0.65098, 0.109804, 0.109804, 1)
+VariantFontLabel2/fonts/font = ExtResource("8_qwcgo")

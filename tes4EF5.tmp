@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://byrkw0k57x4aq"]
+
+[ext_resource type="Script" path="res://test_array_compare.gd" id="1_q7isn"]
+
+[node name="Node" type="Node"]
+script = ExtResource("1_q7isn")
+attack_dice_array = Array[int]([3, 2, 6, 1, 3])
+defender_dice_array = Array[int]([1, 2, 3, 5])

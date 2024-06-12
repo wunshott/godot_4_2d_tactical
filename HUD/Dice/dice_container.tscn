@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://hmesfapk1dl6"]
+
+[ext_resource type="Theme" uid="uid://dy51vb6uy42fp" path="res://Themes/HUD_THEME_1.tres" id="1_66pjr"]
+[ext_resource type="Script" path="res://HUD/Dice/dice_container.gd" id="1_ykik8"]
+[ext_resource type="Texture2D" uid="uid://delu5px446vbf" path="res://HUD/Dice/dice_faces/die_3.tres" id="2_k1tf2"]
+[ext_resource type="Texture2D" uid="uid://c33l7w8ot6nf7" path="res://assets/test_dice/dicce.png" id="3_gb1uw"]
+
+[node name="DiceContainer" type="PanelContainer"]
+custom_minimum_size = Vector2(16, 16)
+offset_right = 20.0
+offset_bottom = 20.0
+theme = ExtResource("1_66pjr")
+theme_type_variation = &"ParchmentPanelContainer"
+script = ExtResource("1_ykik8")
+Die = 1
+
+[node name="TextureRect" type="TextureRect" parent="."]
+visible = false
+layout_mode = 2
+texture = ExtResource("2_k1tf2")
+stretch_mode = 5
+
+[node name="Dice" type="Sprite2D" parent="."]
+position = Vector2(10, 11)
+texture = ExtResource("3_gb1uw")
+hframes = 6

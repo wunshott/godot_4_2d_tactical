@@ -1,0 +1,25 @@
+[gd_scene load_steps=6 format=3 uid="uid://44aa63om2mfv"]
+
+[ext_resource type="Script" path="res://top_down/player_x.gd" id="1_w2l5h"]
+[ext_resource type="Texture2D" uid="uid://cjg2mhnm8dv8q" path="res://assets/customs/colored-transparent_packed.png" id="2_ohi74"]
+[ext_resource type="PackedScene" uid="uid://dluyq3akqpowy" path="res://top_down/Stats/stats.tscn" id="3_ajkls"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_24jg1"]
+atlas = ExtResource("2_ohi74")
+region = Rect2(432, 0, 16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_idck0"]
+size = Vector2(16, 16)
+
+[node name="Player_X" type="Node2D"]
+script = ExtResource("1_w2l5h")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_24jg1")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_idck0")
+
+[node name="Stats" parent="." instance=ExtResource("3_ajkls")]

@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Injury" load_steps=2 format=3 uid="uid://uy6nyaytdijv"]
+
+[ext_resource type="Script" path="res://top_down/Injuries/InjuryResources/injury.gd" id="1_7fodv"]
+
+[resource]
+script = ExtResource("1_7fodv")
+InjuryCategory = "Armor"
+InjuryCategoryNumber = 0
+Limb = "Arm"
+LimbNumber = 0
+InjuryDescription = "Reduced chance to hit for your next attack "
+InjuryType = "Next Turn"
+NextTurnOnly = true
+ChanceModifider = 15.0
+PercentChance = 0.0
+NumberofTruns = 1

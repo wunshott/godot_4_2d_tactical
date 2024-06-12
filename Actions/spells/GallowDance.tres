@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="Spell" load_steps=2 format=3 uid="uid://b77s0ik1iwlen"]
+
+[ext_resource type="Script" path="res://Actions/spells/spell_template.gd" id="1_41b5w"]
+
+[resource]
+script = ExtResource("1_41b5w")
+attack_name = "Gallow Dance"
+damage_type = ""
+damage_armor = false
+damage_stamina = 0
+cost_stamina = false
+min_stamina_dice_cost = 0
+elemental_damage = false
+additional_effect = []
+aoe_shape = ""
+aoe_range = 0
+adjacent_targets_only = false
+tile_range = 0
+diagonal_attack = false
+ammo_consumed = 0
+damage_description = "If you see it, your DT increases by 1 eCg turn. You can choose to close your eyes, but you get a penalty in combat. Imagine a bard/mage casting it behind his front line guys"
+injury_modifiers = Array[String]([])
+placeholder_bonus_variable = []
+can_hit_all_limbs = false
+limbs_can_hit = Array[String]([])

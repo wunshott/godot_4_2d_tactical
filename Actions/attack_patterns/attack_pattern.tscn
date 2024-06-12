@@ -1,0 +1,87 @@
+[gd_scene load_steps=6 format=3 uid="uid://bgermilahkoxh"]
+
+[ext_resource type="Script" path="res://Actions/attack_patterns/attack_pattern.gd" id="1_fi5nv"]
+[ext_resource type="Texture2D" uid="uid://cjg2mhnm8dv8q" path="res://assets/customs/colored-transparent_packed.png" id="2_7bxhr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3uh3m"]
+size = Vector2(14, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tqa33"]
+atlas = ExtResource("2_7bxhr")
+region = Rect2(496, 224, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2hrw6"]
+atlas = ExtResource("2_7bxhr")
+region = Rect2(496, 16, 16, 16)
+
+[node name="AttackPattern" type="Node2D"]
+visible = false
+script = ExtResource("1_fi5nv")
+
+[node name="AreaUp" type="Area2D" parent="."]
+position = Vector2(-8, -8)
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="AreaUp"]
+visible = false
+position = Vector2(0, -24)
+polygon = PackedVector2Array(-8, 16, -8, 0, -24, 0, -24, -81, 24, -81, 24, 0, 8, 0, 8, 16)
+
+[node name="AreaRight" type="Area2D" parent="."]
+position = Vector2(-8, -8)
+rotation = 1.5708
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="AreaRight"]
+visible = false
+position = Vector2(0, -24)
+polygon = PackedVector2Array(-8, 16, -8, 0, -24, 0, -24.0004, -79.9999, 23.9996, -80.0001, 24, 0, 8, 0, 8, 16)
+
+[node name="AreaDown" type="Area2D" parent="."]
+position = Vector2(-8, -8)
+rotation = 3.14159
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="AreaDown"]
+visible = false
+position = Vector2(0, -24)
+polygon = PackedVector2Array(-8, 16, -8, 0, -24, 0, -23.9997, -81.0001, 24.0003, -80.9999, 24, 0, 8, 0, 8, 16)
+
+[node name="AreaLeft" type="Area2D" parent="."]
+position = Vector2(-8, -8)
+rotation = 4.71239
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="AreaLeft"]
+visible = false
+position = Vector2(0, -24)
+polygon = PackedVector2Array(-8, 16, -8, 0, -24, 0, -24.0001, -80, 23.9999, -80, 24, 0, 8, 0, 8, 16)
+
+[node name="AttackArea" type="Area2D" parent="."]
+position = Vector2(-8, -8)
+rotation = 6.28319
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionPolygon2D" type="CollisionShape2D" parent="AttackArea"]
+position = Vector2(16, 0)
+shape = SubResource("RectangleShape2D_3uh3m")
+
+[node name="AttackReticle" type="Sprite2D" parent="AttackArea"]
+modulate = Color(0.839216, 0.160784, 0.160784, 1)
+position = Vector2(16, 0)
+texture = SubResource("AtlasTexture_tqa33")
+
+[node name="AttackerPosition" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-8, -8)
+texture = SubResource("AtlasTexture_2hrw6")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+visible = false
+enabled = false
+
+[connection signal="mouse_entered" from="AreaUp" to="." method="_on_area_up_mouse_entered"]
+[connection signal="mouse_entered" from="AreaRight" to="." method="_on_area_right_mouse_entered"]
+[connection signal="mouse_entered" from="AreaDown" to="." method="_on_area_down_mouse_entered"]
+[connection signal="mouse_entered" from="AreaLeft" to="." method="_on_area_left_mouse_entered"]

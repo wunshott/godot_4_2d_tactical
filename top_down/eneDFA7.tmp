@@ -1,0 +1,30 @@
+[gd_scene load_steps=7 format=3 uid="uid://b12s52c4gkkag"]
+
+[ext_resource type="Script" path="res://top_down/enemy.gd" id="1_uq6wn"]
+[ext_resource type="Resource" uid="uid://deegwujv8pani" path="res://CharacterSheets/dummy.tres" id="2_0mdpq"]
+[ext_resource type="Texture2D" uid="uid://cjg2mhnm8dv8q" path="res://assets/customs/colored-transparent_packed.png" id="2_n1btt"]
+[ext_resource type="Script" path="res://top_down/Stats.gd" id="4_mbg3s"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ddq5f"]
+atlas = ExtResource("2_n1btt")
+region = Rect2(464, 32, 16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jdo5f"]
+size = Vector2(16, 16)
+
+[node name="Enemy" type="Node2D"]
+script = ExtResource("1_uq6wn")
+CharacterSheetData = ExtResource("2_0mdpq")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_ddq5f")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_jdo5f")
+
+[node name="Stats" type="Node" parent="."]
+script = ExtResource("4_mbg3s")
+
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]

@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://2a1heqb5geg1"]
+
+[ext_resource type="Script" path="res://HUD/inventory_panel.gd" id="1_6pimd"]
+[ext_resource type="Theme" uid="uid://dy51vb6uy42fp" path="res://Themes/HUD_THEME_1.tres" id="1_mqx56"]
+[ext_resource type="Texture2D" uid="uid://ccdckroquoopq" path="res://assets/UI Borders/kenney_ui-pack-rpg-expansion/PNG/panel_blue.png" id="3_fanj3"]
+[ext_resource type="PackedScene" uid="uid://bbyl3tyggfoa2" path="res://HUD/itemgui.tscn" id="4_137mg"]
+
+[node name="InventoryPanel" type="Button"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(16, 16)
+offset_right = 16.0
+offset_bottom = 16.0
+size_flags_horizontal = 6
+theme = ExtResource("1_mqx56")
+theme_type_variation = &"BlankButton"
+script = ExtResource("1_6pimd")
+
+[node name="Background" type="Sprite2D" parent="."]
+scale = Vector2(0.16, 0.16)
+texture = ExtResource("3_fanj3")
+centered = false
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 0
+offset_right = 16.0
+offset_bottom = 16.0
+
+[node name="Panel" parent="CenterContainer" instance=ExtResource("4_137mg")]
+layout_mode = 2

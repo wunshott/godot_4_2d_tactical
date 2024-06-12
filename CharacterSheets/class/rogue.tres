@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="Class" load_steps=2 format=3 uid="uid://bigp0rsmwiix5"]
+
+[ext_resource type="Script" path="res://CharacterSheets/class/class_template.gd" id="1_j8d3y"]
+
+[resource]
+script = ExtResource("1_j8d3y")
+class_title = "rogue"
+right_arm_dice = Array[int]([3, 3, 2])
+right_weapon = Array[int]([3, 3])
+equipped_right_arm_armor_dice = Array[int]([2, 2])
+left_arm_dice = Array[int]([3, 3, 2])
+left_weapon = Array[int]([3, 3])
+equipped_left_arm_armor_dice = Array[int]([2, 2])
+right_leg_dice = Array[int]([3, 4, 5])
+right_leg_armor_dice = Array[int]([2, 2])
+left_leg_dice = Array[int]([3, 4, 5])
+left_leg_armor_dice = Array[int]([2, 2])
+torso_dice = Array[int]([3, 3, 3, 3, 3])
+equipped_torso_armor_dice = Array[int]([0, 0, 0, 0])
+head_dice = Array[int]([3, 3, 4])
+equipped_helmet_dice = Array[int]([])

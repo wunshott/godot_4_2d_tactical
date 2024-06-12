@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Armor" load_steps=2 format=3 uid="uid://berx3gtyf4lft"]
+
+[ext_resource type="Script" path="res://top_down/Items/Armor/armor_template.gd" id="1_blghh"]
+
+[resource]
+script = ExtResource("1_blghh")
+armor_type = "Bare"
+armor_hp = 0

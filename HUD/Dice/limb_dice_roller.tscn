@@ -1,0 +1,167 @@
+[gd_scene load_steps=9 format=3 uid="uid://bw0moawstyhcf"]
+
+[ext_resource type="Theme" uid="uid://dy51vb6uy42fp" path="res://Themes/HUD_THEME_1.tres" id="1_5mfw6"]
+[ext_resource type="Script" path="res://HUD/Dice/limb_dice_roller.gd" id="1_jy3dh"]
+[ext_resource type="Texture2D" uid="uid://cjg2mhnm8dv8q" path="res://assets/customs/colored-transparent_packed.png" id="3_j3or6"]
+[ext_resource type="Script" path="res://HUD/Dice/AttackDice.gd" id="3_ndoc4"]
+[ext_resource type="PackedScene" uid="uid://hmesfapk1dl6" path="res://HUD/Dice/dice_container.tscn" id="4_myk8x"]
+[ext_resource type="Script" path="res://HUD/Dice/ArmDice.gd" id="6_km6df"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fjwku"]
+atlas = ExtResource("3_j3or6")
+region = Rect2(672, 240, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vk6m8"]
+atlas = ExtResource("3_j3or6")
+region = Rect2(720, 240, 16, 16)
+
+[node name="LimbDiceRoller" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_5mfw6")
+script = ExtResource("1_jy3dh")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+alignment = 1
+
+[node name="AttackDice" type="PanelContainer" parent="HBoxContainer"]
+layout_mode = 2
+script = ExtResource("3_ndoc4")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer/AttackDice"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer/AttackDice/VBoxContainer2"]
+layout_mode = 2
+text = "A"
+horizontal_alignment = 1
+
+[node name="DiceContainer" parent="HBoxContainer/AttackDice/VBoxContainer2" instance=ExtResource("4_myk8x")]
+layout_mode = 2
+Die = 3
+
+[node name="DiceContainer2" parent="HBoxContainer/AttackDice/VBoxContainer2" instance=ExtResource("4_myk8x")]
+layout_mode = 2
+Die = 0
+
+[node name="DiceContainer3" parent="HBoxContainer/AttackDice/VBoxContainer2" instance=ExtResource("4_myk8x")]
+layout_mode = 2
+Die = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="RollDice" type="Button" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Roll Dice"
+
+[node name="Label2" type="Label" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Arm Dice"
+horizontal_alignment = 1
+
+[node name="ArmDice" type="PanelContainer" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+script = ExtResource("6_km6df")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/VBoxContainer/ArmDice"]
+layout_mode = 2
+alignment = 1
+
+[node name="DiceContainer4" parent="HBoxContainer/VBoxContainer/ArmDice/HBoxContainer" instance=ExtResource("4_myk8x")]
+layout_mode = 2
+Die = 0
+
+[node name="DiceContainer5" parent="HBoxContainer/VBoxContainer/ArmDice/HBoxContainer" instance=ExtResource("4_myk8x")]
+layout_mode = 2
+Die = 0
+
+[node name="DiceContainer6" parent="HBoxContainer/VBoxContainer/ArmDice/HBoxContainer" instance=ExtResource("4_myk8x")]
+layout_mode = 2
+Die = 0
+
+[node name="DiceContainer7" parent="HBoxContainer/VBoxContainer/ArmDice/HBoxContainer" instance=ExtResource("4_myk8x")]
+layout_mode = 2
+Die = 0
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Stamina Dice"
+horizontal_alignment = 1
+
+[node name="StaminaDice" type="PanelContainer" parent="HBoxContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/VBoxContainer/StaminaDice"]
+layout_mode = 2
+alignment = 1
+
+[node name="PanelContainer3" type="PanelContainer" parent="HBoxContainer/VBoxContainer/StaminaDice/HBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"ParchmentPanelContainer"
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/VBoxContainer/StaminaDice/HBoxContainer/PanelContainer3"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_fjwku")
+
+[node name="PanelContainer4" type="PanelContainer" parent="HBoxContainer/VBoxContainer/StaminaDice/HBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"ParchmentPanelContainer"
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/VBoxContainer/StaminaDice/HBoxContainer/PanelContainer4"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_fjwku")
+
+[node name="PanelContainer5" type="PanelContainer" parent="HBoxContainer/VBoxContainer/StaminaDice/HBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"ParchmentPanelContainer"
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/VBoxContainer/StaminaDice/HBoxContainer/PanelContainer5"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_fjwku")
+
+[node name="PanelContainer6" type="PanelContainer" parent="HBoxContainer/VBoxContainer/StaminaDice/HBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"ParchmentPanelContainer"
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/VBoxContainer/StaminaDice/HBoxContainer/PanelContainer6"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_fjwku")
+
+[node name="DefenseDice" type="PanelContainer" parent="HBoxContainer"]
+visible = false
+layout_mode = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer/DefenseDice"]
+layout_mode = 2
+
+[node name="Label3" type="Label" parent="HBoxContainer/DefenseDice/VBoxContainer2"]
+layout_mode = 2
+text = "D"
+horizontal_alignment = 1
+
+[node name="PanelContainer3" type="PanelContainer" parent="HBoxContainer/DefenseDice/VBoxContainer2"]
+layout_mode = 2
+theme_type_variation = &"ParchmentPanelContainer"
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/DefenseDice/VBoxContainer2/PanelContainer3"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_vk6m8")
+stretch_mode = 5
+
+[node name="PanelContainer4" type="PanelContainer" parent="HBoxContainer/DefenseDice/VBoxContainer2"]
+layout_mode = 2
+theme_type_variation = &"ParchmentPanelContainer"
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/DefenseDice/VBoxContainer2/PanelContainer4"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_vk6m8")
+stretch_mode = 5

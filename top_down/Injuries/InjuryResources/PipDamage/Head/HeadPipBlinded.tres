@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Injury" load_steps=2 format=3 uid="uid://cfffm8fqkqc12"]
+
+[ext_resource type="Script" path="res://top_down/Injuries/InjuryResources/injury.gd" id="1_sfi4x"]
+
+[resource]
+script = ExtResource("1_sfi4x")
+InjuryCategory = "Pip"
+InjuryCategoryNumber = 0
+Limb = "Head"
+LimbNumber = 0
+InjuryDescription = "Sight removed"
+InjuryType = ""
+NextTurnOnly = false
+ChanceModifider = 0.0
+PercentChance = 0.0
+NumberofTruns = 0
+DismembermentOptions = []

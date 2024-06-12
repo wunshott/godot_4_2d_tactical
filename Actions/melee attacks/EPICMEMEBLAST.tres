@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="Action" load_steps=2 format=3 uid="uid://dje6jno5tmw2f"]
+
+[ext_resource type="Script" path="res://Actions/action_template.gd" id="1_ileop"]
+
+[resource]
+script = ExtResource("1_ileop")
+attack_name = "EPIC MEME BLAST"
+damage_type = "PURE"
+damage_armor = 99999
+damage_stamina = 999999
+stamina_cost = 0
+elemental_damage = true
+additional_effect = []
+aoe_shape = "Entire Screen"
+aoe_range = 99999
+adjacent_targets_only = false
+tile_range = 99999
+diagonal_attack = true
+ammo_consumed = 0
+damage_description = "Kills everything on screen but the player."
+injury_modifiers = Array[String]([])
+attack_hit_chance = 0
+placeholder_bonus_variable = []
+stealth_attack = false
+can_hit_all_limbs = true
+limbs_can_hit = Array[String]([])

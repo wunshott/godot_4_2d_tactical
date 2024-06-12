@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://cvj060h7yy2aq"]
+
+[ext_resource type="Texture2D" uid="uid://cjg2mhnm8dv8q" path="res://assets/customs/colored-transparent_packed.png" id="1_gd6xs"]
+[ext_resource type="Script" path="res://top_down/Items/item_template.gd" id="2_esjqy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2goev"]
+atlas = ExtResource("1_gd6xs")
+region = Rect2(736, 96, 16, 16)
+
+[resource]
+script = ExtResource("2_esjqy")
+ItemName = "Ring of Power"
+ItemWeight = 0.1
+ItemSprite = SubResource("AtlasTexture_2goev")
+Limb = Array[String](["Nothing"])

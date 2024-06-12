@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://dev3j4dlaux6o"]
+
+[ext_resource type="PackedScene" uid="uid://d01is2s65njqg" path="res://HUD/Inventory/inventory_drag_and_drop.tscn" id="1_u04hk"]
+[ext_resource type="Script" path="res://HUD/Inventory/equipment_panel_drag_and_Drop.gd" id="2_0hspf"]
+[ext_resource type="Texture2D" uid="uid://d0d8e2favp32" path="res://assets/kenney_fantasy-ui-borders/PNG/Double/Transparent center/panel-transparent-center-029.png" id="3_d8ahf"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_a8vx5"]
+texture = ExtResource("3_d8ahf")
+modulate_color = Color(0.780392, 0.639216, 0.356863, 1)
+
+[node name="EquipmentPanel" instance=ExtResource("1_u04hk")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("2_0hspf")
+limb_slot = ""
+
+[node name="PanelContainer" parent="." index="0"]
+theme_override_styles/panel = SubResource("StyleBoxTexture_a8vx5")

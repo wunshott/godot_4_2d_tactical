@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://ct3ldkov33gsa"]
+
+[ext_resource type="Texture2D" uid="uid://d38narvkjflq7" path="res://assets/UX_UI_Assets_Pack/Edits/Segmented_2_back.png" id="1_7ihbl"]
+[ext_resource type="Texture2D" uid="uid://oukx2uub8ft1" path="res://assets/UX_UI_Assets_Pack/Edits/Segmented_2_progress.png" id="2_ak00q"]
+[ext_resource type="Script" path="res://HUD/Meters/armor_hp_bar.gd" id="3_uhu5l"]
+
+[node name="ArmorHpBar" type="TextureProgressBar"]
+custom_minimum_size = Vector2(15, 0)
+max_value = 12.0
+value = 5.0
+stretch_margin_top = 5
+stretch_margin_bottom = 5
+texture_under = ExtResource("1_7ihbl")
+texture_progress = ExtResource("2_ak00q")
+script = ExtResource("3_uhu5l")

@@ -1,0 +1,24 @@
+[gd_scene load_steps=6 format=3 uid="uid://daupiatx27twp"]
+
+[ext_resource type="Texture2D" uid="uid://cobbti3bas30s" path="res://assets/kenney_1-bit-pack/Tilesheet/colored_packed.png" id="1_b65nb"]
+[ext_resource type="Script" path="res://top_down/player.gd" id="1_bqpha"]
+[ext_resource type="Resource" uid="uid://cjpg77aspl6rb" path="res://CharacterSheets/Farquad.tres" id="2_71cn8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_87ycp"]
+atlas = ExtResource("1_b65nb")
+region = Rect2(432, 0, 16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0ccn3"]
+size = Vector2(16, 16)
+
+[node name="Player" type="Node2D"]
+script = ExtResource("1_bqpha")
+CharacterSheetData = ExtResource("2_71cn8")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_87ycp")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_0ccn3")

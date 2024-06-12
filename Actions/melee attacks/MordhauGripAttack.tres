@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="Action" load_steps=2 format=3 uid="uid://chn0c3ce36dmf"]
+
+[ext_resource type="Script" path="res://Actions/action_template.gd" id="1_uqkr1"]
+
+[resource]
+script = ExtResource("1_uqkr1")
+attack_name = "Mordhau Grip Attack"
+damage_type = "bludgeoning?"
+damage_armor = 6
+damage_stamina = 2
+stamina_cost = 2
+elemental_damage = false
+additional_effect = []
+aoe_shape = ""
+aoe_range = 0
+adjacent_targets_only = true
+tile_range = 0
+diagonal_attack = true
+ammo_consumed = 0
+damage_description = "Half-sword attack to hammer your opponnet's armor"
+injury_modifiers = Array[String]([])
+attack_hit_chance = -3
+placeholder_bonus_variable = []
+stealth_attack = false
+can_hit_all_limbs = true
+limbs_can_hit = Array[String]([])

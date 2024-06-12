@@ -1,0 +1,25 @@
+[gd_scene load_steps=17 format=3 uid="uid://hr0wsnxov8nd"]
+
+[ext_resource type="Script" path="res://top_down/DiceRolling/DiceRoller.gd" id="1_jcovn"]
+[ext_resource type="PackedScene" uid="uid://ruktb6f7gn5u" path="res://top_down/Injuries/injury_table.tscn" id="2_su70f"]
+[ext_resource type="Resource" uid="uid://c0xade00j0bdl" path="res://top_down/Injuries/InjuryResources/ArmorDamage/Head/ArmorHeadBleedMinor.tres" id="3_g6eea"]
+[ext_resource type="Resource" uid="uid://cfsogaw0whgk3" path="res://top_down/Injuries/InjuryResources/ArmorDamage/Head/ArmorHeadTHCMinor.tres" id="4_72j2t"]
+[ext_resource type="Resource" uid="uid://dwrf22gy2mw8f" path="res://top_down/Injuries/InjuryResources/ArmorDamage/Head/HeadRinging.tres" id="5_cs8x3"]
+[ext_resource type="Resource" uid="uid://bbttpl65wr4h2" path="res://top_down/Injuries/InjuryResources/ArmorDamage/Head/StaminaHit.tres" id="6_uag4i"]
+[ext_resource type="Resource" uid="uid://dc7fl4b5evgnq" path="res://top_down/Injuries/InjuryResources/StaminaDamage/Head/HeadStaminaBleed.tres" id="7_snkyv"]
+[ext_resource type="Resource" uid="uid://bo7ymplyr3w5t" path="res://top_down/Injuries/InjuryResources/StaminaDamage/Head/HeadStaminaDismemberMinor.tres" id="8_41fbh"]
+[ext_resource type="Resource" uid="uid://bgsmq4vv6g82a" path="res://top_down/Injuries/InjuryResources/StaminaDamage/Head/HeadStaminaGlancingBlow.tres" id="9_pebue"]
+[ext_resource type="Resource" uid="uid://rpoplj8obnqb" path="res://top_down/Injuries/InjuryResources/StaminaDamage/Head/HeadStaminaPerceptionTemp.tres" id="10_28jrj"]
+[ext_resource type="Resource" uid="uid://br00tw11v8k2t" path="res://top_down/Injuries/InjuryResources/StaminaDamage/Head/HeadStaminaRXNTime.tres" id="11_y6q1m"]
+[ext_resource type="Resource" uid="uid://cg6rvfb7jsjpn" path="res://top_down/Injuries/InjuryResources/PipDamage/Head/HeadPipBleedMajor.tres" id="12_w1h0y"]
+[ext_resource type="Resource" uid="uid://cfffm8fqkqc12" path="res://top_down/Injuries/InjuryResources/PipDamage/Head/HeadPipBlinded.tres" id="13_jfp4q"]
+[ext_resource type="Resource" uid="uid://ywdh5a4h2dls" path="res://top_down/Injuries/InjuryResources/PipDamage/Head/HeadPipBrainDamage.tres" id="14_1ry12"]
+[ext_resource type="Resource" uid="uid://bj6jm7fxbgvpm" path="res://top_down/Injuries/InjuryResources/PipDamage/Head/HeadPipMuted.tres" id="15_2sb36"]
+[ext_resource type="Resource" uid="uid://dutmtaod7oo5c" path="res://top_down/Injuries/InjuryResources/PipDamage/Head/HeadPipDeafened.tres" id="16_y35l5"]
+
+[node name="DiceRoller" type="Node"]
+script = ExtResource("1_jcovn")
+d20_dice_size = 20
+
+[node name="InjuryTable" parent="." instance=ExtResource("2_su70f")]
+MasterInjuryArray = Array[Resource("res://top_down/Injuries/InjuryResources/injury.gd")]([ExtResource("3_g6eea"), ExtResource("4_72j2t"), ExtResource("5_cs8x3"), ExtResource("6_uag4i"), ExtResource("7_snkyv"), ExtResource("8_41fbh"), ExtResource("9_pebue"), ExtResource("10_28jrj"), ExtResource("11_y6q1m"), ExtResource("12_w1h0y"), ExtResource("13_jfp4q"), ExtResource("14_1ry12"), ExtResource("15_2sb36"), ExtResource("16_y35l5")])

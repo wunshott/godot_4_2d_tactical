@@ -1,0 +1,149 @@
+[gd_scene load_steps=3 format=3 uid="uid://0yigqau5nyi"]
+
+[ext_resource type="Theme" uid="uid://dy51vb6uy42fp" path="res://Themes/HUD_THEME_1.tres" id="1_hurk7"]
+[ext_resource type="Script" path="res://HUD/ActionMenus/attack_menu_item.gd" id="2_5ryhw"]
+
+[node name="AttackMenuItem" type="HBoxContainer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -44.0
+offset_top = -12.0
+offset_right = 44.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_hurk7")
+script = ExtResource("2_5ryhw")
+
+[node name="AttackButton" type="TextureButton" parent="."]
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"SwordButton"
+
+[node name="AttackName" type="Label" parent="."]
+layout_mode = 2
+mouse_filter = 1
+text = "Attack 1"
+
+[node name="HitChance" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HitChance"]
+layout_mode = 2
+
+[node name="HitChanceLabel2" type="Label" parent="HitChance/HBoxContainer"]
+layout_mode = 2
+tooltip_text = "Add  a real tooltip here?"
+mouse_filter = 1
+theme_type_variation = &"VariantFontLabel1"
+text = "Hit Chance:"
+
+[node name="HitChanceLabel" type="Label" parent="HitChance/HBoxContainer"]
+layout_mode = 2
+tooltip_text = "Add  a real tooltip here?"
+mouse_filter = 1
+theme_type_variation = &"VariantFontLabel1"
+text = "X%"
+
+[node name="DamageType" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+
+[node name="HBoxContainer" type="HBoxContainer" parent="DamageType"]
+layout_mode = 2
+
+[node name="DamageTypeLabel2" type="Label" parent="DamageType/HBoxContainer"]
+layout_mode = 2
+tooltip_text = "Add  a real tooltip here?"
+mouse_filter = 1
+theme_type_variation = &"VariantFontLabel1"
+text = "Damage Type:"
+
+[node name="DamageTypeLabel" type="Label" parent="DamageType/HBoxContainer"]
+layout_mode = 2
+tooltip_text = "Add  a real tooltip here?"
+mouse_filter = 1
+theme_type_variation = &"VariantFontLabel1"
+text = "Slashing"
+
+[node name="ArmorDamage" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ArmorDamage"]
+layout_mode = 2
+
+[node name="ArmorDamageLabel2" type="Label" parent="ArmorDamage/HBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"VariantFontLabel1"
+text = "Armor Damage:"
+
+[node name="ArmorDamageLabel" type="Label" parent="ArmorDamage/HBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"VariantFontLabel1"
+text = "Armor Damage: 5"
+
+[node name="StaminaDamage" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+
+[node name="HBoxContainer" type="HBoxContainer" parent="StaminaDamage"]
+layout_mode = 2
+
+[node name="StaminaDamageLabel2" type="Label" parent="StaminaDamage/HBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"VariantFontLabel1"
+text = "Stamina Damage:"
+
+[node name="StaminaDamageLabel" type="Label" parent="StaminaDamage/HBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"VariantFontLabel1"
+text = "2"
+
+[node name="StaminaCost" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+
+[node name="HBoxContainer" type="HBoxContainer" parent="StaminaCost"]
+layout_mode = 2
+
+[node name="StaminaCostLabel2" type="Label" parent="StaminaCost/HBoxContainer"]
+layout_mode = 2
+tooltip_text = "Add  a real tooltip here?"
+mouse_filter = 1
+theme_type_variation = &"VariantFontLabel1"
+text = "Stamina Cost:"
+
+[node name="StaminaCostLabel" type="Label" parent="StaminaCost/HBoxContainer"]
+layout_mode = 2
+tooltip_text = "Add  a real tooltip here?"
+mouse_filter = 1
+theme_type_variation = &"VariantFontLabel1"
+text = "5"
+
+[node name="Range" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Range"]
+layout_mode = 2
+
+[node name="RangeLabel2" type="Label" parent="Range/HBoxContainer"]
+layout_mode = 2
+tooltip_text = "Add  a real tooltip here?"
+mouse_filter = 1
+theme_type_variation = &"VariantFontLabel1"
+text = "Range:"
+
+[node name="RangeLabel" type="Label" parent="Range/HBoxContainer"]
+layout_mode = 2
+tooltip_text = "Add  a real tooltip here?"
+mouse_filter = 1
+theme_type_variation = &"VariantFontLabel1"
+text = "Adjacent Tiles"
+
+[connection signal="pressed" from="AttackButton" to="." method="_on_attack_button_pressed"]

@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://byrkw0k57x4aq"]
+
+[ext_resource type="Script" path="res://test_array_compare.gd" id="1_q7isn"]
+[ext_resource type="Script" path="res://sims_test.gd" id="2_ao1cg"]
+
+[node name="Node" type="Node"]
+script = ExtResource("1_q7isn")
+
+[node name="Node" type="Node" parent="."]
+script = ExtResource("2_ao1cg")

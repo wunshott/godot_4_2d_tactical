@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Injury" load_steps=2 format=3 uid="uid://ce8x86c8o731m"]
+
+[ext_resource type="Script" path="res://top_down/Injuries/InjuryResources/injury.gd" id="1_anyd3"]
+
+[resource]
+script = ExtResource("1_anyd3")
+InjuryCategory = "Armor"
+InjuryCategoryNumber = 0
+Limb = "Arm"
+LimbNumber = 0
+InjuryDescription = "Armor is glanced and nothing happens"
+InjuryType = ""
+NextTurnOnly = false
+ChanceModifider = 0.0
+PercentChance = 0.0
+NumberofTruns = 0
+DismembermentOptions = []

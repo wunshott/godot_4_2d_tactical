@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://cn7dfd8etrak6"]
+
+[ext_resource type="Script" path="res://top_down/Items/item_template.gd" id="1_ec5at"]
+[ext_resource type="Texture2D" uid="uid://cjg2mhnm8dv8q" path="res://assets/customs/colored-transparent_packed.png" id="1_um1m1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ham8d"]
+atlas = ExtResource("1_um1m1")
+region = Rect2(720, 48, 16, 16)
+
+[resource]
+script = ExtResource("1_ec5at")
+ItemName = "Velvet Belly"
+ItemWeight = 0.5
+ItemSprite = SubResource("AtlasTexture_ham8d")
+Equip_Slot = ""

@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=3 uid="uid://4hlv03aaaker"]
+
+[ext_resource type="Texture2D" uid="uid://h1k72gvxipdj" path="res://assets/Pixel Bodies/pixel_Body_Head.png" id="1_j1lgu"]
+[ext_resource type="PackedScene" uid="uid://ct3ldkov33gsa" path="res://HUD/Meters/armor_hp_bar.tscn" id="2_okkxe"]
+[ext_resource type="PackedScene" uid="uid://dev3j4dlaux6o" path="res://HUD/Inventory/equipment_panel_drag_and_Drop.tscn" id="3_q8pko"]
+
+[node name="Head" type="TextureRect"]
+size_flags_horizontal = 3
+size_flags_vertical = 3
+tooltip_text = "Head Health = X/Y"
+texture = ExtResource("1_j1lgu")
+expand_mode = 5
+stretch_mode = 5
+
+[node name="HeadArmorHP" parent="." instance=ExtResource("2_okkxe")]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -24.0
+offset_right = 24.0
+offset_bottom = 10.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+stretch_margin_bottom = 0
+
+[node name="EquipmentPanel" parent="." instance=ExtResource("3_q8pko")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2

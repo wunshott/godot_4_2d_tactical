@@ -1,0 +1,204 @@
+[gd_scene load_steps=18 format=3 uid="uid://d18t164j5nc5g"]
+
+[ext_resource type="Theme" uid="uid://dy51vb6uy42fp" path="res://Themes/HUD_THEME_1.tres" id="1_3qa0a"]
+[ext_resource type="Script" path="res://HUD/Vats/VatsMenu.gd" id="2_i03tk"]
+[ext_resource type="PackedScene" uid="uid://1vpb1blidek1" path="res://HUD/Meters/test_hp_dt_bar.tscn" id="3_41bkl"]
+[ext_resource type="Texture2D" uid="uid://cxek6448wnv6b" path="res://assets/UIpackSheet_transparent.png" id="3_f8bnl"]
+[ext_resource type="Texture2D" uid="uid://vo6br6remg4e" path="res://assets/UI Borders/kenney_ui-pack-rpg-expansion/PNG/iconCross_brown.png" id="4_k0umo"]
+[ext_resource type="Texture2D" uid="uid://b8xlcc4proib7" path="res://assets/UI Borders/customs/Stamina_Bar.png" id="4_kojkb"]
+[ext_resource type="Texture2D" uid="uid://bm752cwqmpx77" path="res://assets/UI Borders/customs/Stamina_Bar_Filled.png" id="5_b75bo"]
+[ext_resource type="Texture2D" uid="uid://cjg2mhnm8dv8q" path="res://assets/customs/colored-transparent_packed.png" id="6_ie68j"]
+[ext_resource type="Script" path="res://HUD/Vats/Head.gd" id="7_843ns"]
+[ext_resource type="Texture2D" uid="uid://h1k72gvxipdj" path="res://assets/Pixel Bodies/pixel_Body_Head.png" id="7_fryvr"]
+[ext_resource type="Script" path="res://HUD/Vats/Torso.gd" id="8_gnya6"]
+[ext_resource type="Texture2D" uid="uid://dlmy4kj6caua8" path="res://assets/Pixel Bodies/pixel_Body_Arm.png" id="10_xjqqg"]
+[ext_resource type="Texture2D" uid="uid://b0m2ep8i222g6" path="res://assets/Pixel Bodies/pixel_Body_Torso.png" id="11_qy4kp"]
+[ext_resource type="Texture2D" uid="uid://bc8vxjivtoblu" path="res://assets/Pixel Bodies/pixel_Body_Groin.png" id="13_hmobf"]
+[ext_resource type="Texture2D" uid="uid://gdnsq0dtatdn" path="res://assets/Pixel Bodies/pixel_Body_Leg.png" id="14_rvg00"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3amii"]
+atlas = ExtResource("6_ie68j")
+region = Rect2(688, 192, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1142y"]
+atlas = ExtResource("3_f8bnl")
+region = Rect2(108, 414, 16, 16)
+
+[node name="VatsMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_3qa0a")
+script = ExtResource("2_i03tk")
+
+[node name="Panel" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_right = 237.0
+offset_bottom = 167.0
+theme_type_variation = &"PanelContainer2"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 2
+
+[node name="HPDTSTAMINA" type="VBoxContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/VBoxContainer/HPDTSTAMINA"]
+layout_mode = 2
+
+[node name="HPLabel" type="Label" parent="Panel/VBoxContainer/HPDTSTAMINA/HBoxContainer"]
+layout_mode = 2
+text = "HP:"
+
+[node name="test_hp_dt_bar" parent="Panel/VBoxContainer/HPDTSTAMINA/HBoxContainer" instance=ExtResource("3_41bkl")]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Stamina" type="HBoxContainer" parent="Panel/VBoxContainer/HPDTSTAMINA"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer/HPDTSTAMINA/Stamina"]
+layout_mode = 2
+theme_type_variation = &"VariantFontLabel1"
+text = "Stamina:
+"
+
+[node name="StaminaBar" type="TextureProgressBar" parent="Panel/VBoxContainer/HPDTSTAMINA/Stamina"]
+layout_mode = 2
+size_flags_horizontal = 3
+value = 80.0
+nine_patch_stretch = true
+stretch_margin_left = 5
+stretch_margin_right = 5
+texture_under = ExtResource("4_kojkb")
+texture_progress = ExtResource("5_b75bo")
+
+[node name="StaminaBarLabel" type="Label" parent="Panel/VBoxContainer/HPDTSTAMINA/Stamina/StaminaBar"]
+layout_mode = 2
+offset_right = 75.0
+offset_bottom = 12.0
+theme_override_font_sizes/font_size = 8
+text = "x/x"
+
+[node name="GridContainer" type="GridContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+columns = 5
+
+[node name="ReferenceRect13" type="ReferenceRect" parent="Panel/VBoxContainer/GridContainer"]
+layout_mode = 2
+
+[node name="ReferenceRect17" type="ReferenceRect" parent="Panel/VBoxContainer/GridContainer"]
+layout_mode = 2
+
+[node name="ReferenceRect14" type="Label" parent="Panel/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+horizontal_alignment = 3
+
+[node name="ReferenceRect15" type="ReferenceRect" parent="Panel/VBoxContainer/GridContainer"]
+layout_mode = 2
+
+[node name="ReferenceRect16" type="ReferenceRect" parent="Panel/VBoxContainer/GridContainer"]
+layout_mode = 2
+
+[node name="ReferenceRect12" type="ReferenceRect" parent="Panel/VBoxContainer/GridContainer"]
+layout_mode = 2
+
+[node name="Head" type="TextureButton" parent="Panel/VBoxContainer/GridContainer"]
+layout_mode = 2
+texture_normal = ExtResource("7_fryvr")
+texture_pressed = SubResource("AtlasTexture_3amii")
+stretch_mode = 3
+script = ExtResource("7_843ns")
+
+[node name="ReferenceRect2" type="Label" parent="Panel/VBoxContainer/GridContainer"]
+layout_mode = 2
+
+[node name="ReferenceRect3" type="ReferenceRect" parent="Panel/VBoxContainer/GridContainer"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="Panel/VBoxContainer/GridContainer"]
+layout_mode = 2
+
+[node name="RightArm" type="TextureButton" parent="Panel/VBoxContainer/GridContainer"]
+layout_mode = 2
+texture_normal = ExtResource("10_xjqqg")
+stretch_mode = 5
+
+[node name="Torso" type="TextureButton" parent="Panel/VBoxContainer/GridContainer"]
+layout_mode = 2
+texture_normal = ExtResource("11_qy4kp")
+ignore_texture_size = true
+stretch_mode = 3
+script = ExtResource("8_gnya6")
+
+[node name="LeftArm" type="TextureButton" parent="Panel/VBoxContainer/GridContainer"]
+layout_mode = 2
+texture_normal = ExtResource("10_xjqqg")
+stretch_mode = 5
+flip_h = true
+
+[node name="Label3" type="Label" parent="Panel/VBoxContainer/GridContainer"]
+layout_mode = 2
+
+[node name="ReferenceRect4" type="ReferenceRect" parent="Panel/VBoxContainer/GridContainer"]
+layout_mode = 2
+
+[node name="ReferenceRect5" type="Label" parent="Panel/VBoxContainer/GridContainer"]
+layout_mode = 2
+
+[node name="Groin" type="TextureButton" parent="Panel/VBoxContainer/GridContainer"]
+layout_mode = 2
+texture_normal = ExtResource("13_hmobf")
+stretch_mode = 3
+
+[node name="ReferenceRect6" type="ReferenceRect" parent="Panel/VBoxContainer/GridContainer"]
+layout_mode = 2
+
+[node name="ReferenceRect7" type="ReferenceRect" parent="Panel/VBoxContainer/GridContainer"]
+layout_mode = 2
+
+[node name="ReferenceRect8" type="Label" parent="Panel/VBoxContainer/GridContainer"]
+layout_mode = 2
+
+[node name="ReferenceRect9" type="ReferenceRect" parent="Panel/VBoxContainer/GridContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/VBoxContainer/GridContainer"]
+layout_mode = 2
+
+[node name="RightLeg" type="TextureButton" parent="Panel/VBoxContainer/GridContainer/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("14_rvg00")
+stretch_mode = 5
+
+[node name="LeftLeg" type="TextureButton" parent="Panel/VBoxContainer/GridContainer/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("14_rvg00")
+stretch_mode = 5
+flip_h = true
+
+[node name="ReferenceRect10" type="Label" parent="Panel/VBoxContainer/GridContainer"]
+layout_mode = 2
+
+[node name="ReferenceRect11" type="ReferenceRect" parent="Panel/VBoxContainer/GridContainer"]
+layout_mode = 2
+
+[node name="CancelButton" type="TextureButton" parent="."]
+layout_mode = 2
+offset_left = 179.0
+offset_top = 16.0
+offset_right = 195.0
+offset_bottom = 32.0
+texture_normal = SubResource("AtlasTexture_1142y")
+texture_pressed = ExtResource("4_k0umo")
+
+[connection signal="mouse_entered" from="Panel" to="." method="_on_panel_mouse_entered"]
+[connection signal="mouse_exited" from="Panel" to="." method="_on_panel_mouse_exited"]
+[connection signal="pressed" from="Panel/VBoxContainer/GridContainer/Head" to="." method="_on_head_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/GridContainer/Torso" to="." method="_on_torso_pressed"]
+[connection signal="pressed" from="CancelButton" to="." method="_on_cancel_button_pressed"]

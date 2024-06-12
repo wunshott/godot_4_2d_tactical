@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://bqtkfapc4msc5"]
+
+[ext_resource type="PackedScene" uid="uid://dev3j4dlaux6o" path="res://HUD/Inventory/equipment_panel_drag_and_Drop.tscn" id="1_oy3no"]
+[ext_resource type="Script" path="res://HUD/Inventory/weapon_panel_drag_and_Drop.gd" id="2_wmj6x"]
+
+[node name="WeaponEquipmentPanel" instance=ExtResource("1_oy3no")]
+script = ExtResource("2_wmj6x")
+
+[node name="PanelContainer" parent="." index="0"]
+modulate = Color(1, 0.2, 1, 1)

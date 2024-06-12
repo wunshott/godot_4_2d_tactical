@@ -1,0 +1,809 @@
+[gd_scene load_steps=26 format=3 uid="uid://banrocdxes2kl"]
+
+[ext_resource type="Script" path="res://HUD/character_sheet.gd" id="1_gwa8g"]
+[ext_resource type="Theme" uid="uid://dy51vb6uy42fp" path="res://Themes/HUD_THEME_1.tres" id="1_ln5dm"]
+[ext_resource type="Resource" uid="uid://cjpg77aspl6rb" path="res://CharacterSheets/Farquad.tres" id="2_ti03k"]
+[ext_resource type="Texture2D" uid="uid://dvckrkp7pytci" path="res://assets/kenney_1-bit-pack/Tilesheet/colored-transparent_packed.png" id="4_2inp2"]
+[ext_resource type="Texture2D" uid="uid://b8xlcc4proib7" path="res://assets/UI Borders/customs/Stamina_Bar.png" id="5_kciiw"]
+[ext_resource type="PackedScene" uid="uid://1vpb1blidek1" path="res://HUD/Meters/test_hp_dt_bar.tscn" id="5_qok55"]
+[ext_resource type="Texture2D" uid="uid://bm752cwqmpx77" path="res://assets/UI Borders/customs/Stamina_Bar_Filled.png" id="6_8cg4y"]
+[ext_resource type="PackedScene" uid="uid://dorxqcjuxk1oe" path="res://HUD/character_body.tscn" id="8_a6i8b"]
+[ext_resource type="PackedScene" uid="uid://butfrx2xg7e7n" path="res://HUD/character_body_test.tscn" id="8_epkk7"]
+[ext_resource type="Texture2D" uid="uid://djxf1jpnf1iw" path="res://assets/customs/Inventory.png" id="9_3hp3v"]
+[ext_resource type="PackedScene" uid="uid://debxmr1y8tltr" path="res://HUD/Inventory/inventory_ui.tscn" id="15_dxhcx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wpcgl"]
+atlas = ExtResource("4_2inp2")
+region = Rect2(576, 320, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l7uyw"]
+atlas = ExtResource("4_2inp2")
+region = Rect2(592, 272, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e54o4"]
+atlas = ExtResource("4_2inp2")
+region = Rect2(576, 272, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4pt3y"]
+atlas = ExtResource("4_2inp2")
+region = Rect2(592, 320, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rey47"]
+atlas = ExtResource("4_2inp2")
+region = Rect2(592, 272, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u3kgu"]
+atlas = ExtResource("4_2inp2")
+region = Rect2(560, 272, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4aqvg"]
+atlas = ExtResource("4_2inp2")
+region = Rect2(592, 272, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_42t1t"]
+atlas = ExtResource("4_2inp2")
+region = Rect2(624, 272, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lxgnq"]
+atlas = ExtResource("4_2inp2")
+region = Rect2(480, 128, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xr6bm"]
+atlas = ExtResource("4_2inp2")
+region = Rect2(416, 80, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f8lcp"]
+atlas = ExtResource("4_2inp2")
+region = Rect2(704, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2iycq"]
+atlas = ExtResource("4_2inp2")
+region = Rect2(624, 160, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2n7o7"]
+atlas = ExtResource("4_2inp2")
+region = Rect2(384, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5beyw"]
+atlas = ExtResource("4_2inp2")
+region = Rect2(384, 112, 16, 16)
+
+[node name="CharacterSheet" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+theme = ExtResource("1_ln5dm")
+script = ExtResource("1_gwa8g")
+CharacterSheetData = ExtResource("2_ti03k")
+
+[node name="TabBar" type="TabBar" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TabContainer" type="TabContainer" parent="TabBar"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Stats" type="PanelContainer" parent="TabBar/TabContainer"]
+layout_mode = 2
+theme_type_variation = &"ParchmentPanelContainer"
+
+[node name="MarginContainer" type="MarginContainer" parent="TabBar/TabContainer/Stats"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabBar/TabContainer/Stats/MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TabBar/TabContainer/Stats/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabBar/TabContainer/Stats/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="TopRow" type="HBoxContainer" parent="TabBar/TabContainer/Stats/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Vitality" type="VBoxContainer" parent="TabBar/TabContainer/Stats/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/TopRow"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="TabBar/TabContainer/Stats/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/TopRow/Vitality"]
+layout_mode = 2
+text = "V"
+horizontal_alignment = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="TabBar/TabContainer/Stats/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/TopRow/Vitality"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="TabBar/TabContainer/Stats/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/TopRow/Vitality/PanelContainer"]
+layout_mode = 2
+text = "7"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TabBar/TabContainer/Stats/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/TopRow/Vitality"]
+layout_mode = 2
+
+[node name="PanelContainer2" type="TextureRect" parent="TabBar/TabContainer/Stats/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/TopRow/Vitality/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_wpcgl")
+
+[node name="TextureRect" type="TextureRect" parent="TabBar/TabContainer/Stats/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/TopRow/Vitality/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_l7uyw")
+
+[node name="Coordination" type="VBoxContainer" parent="TabBar/TabContainer/Stats/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/TopRow"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="TabBar/TabContainer/Stats/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/TopRow/Coordination"]
+layout_mode = 2
+text = "C"
+horizontal_alignment = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="TabBar/TabContainer/Stats/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/TopRow/Coordination"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="TabBar/TabContainer/Stats/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/TopRow/Coordination/PanelContainer"]
+layout_mode = 2
+text = "6"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TabBar/TabContainer/Stats/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/TopRow/Coordination"]
+layout_mode = 2
+
+[node name="PanelContainer2" type="TextureRect" parent="TabBar/TabContainer/Stats/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/TopRow/Coordination/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_wpcgl")
+
+[node name="TextureRect" type="TextureRect" parent="TabBar/TabContainer/Stats/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/TopRow/Coordination/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_e54o4")
+
+[node name="Eloquence" type="VBoxContainer" parent="TabBar/TabContainer/Stats/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/TopRow"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="TabBar/TabContainer/Stats/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/TopRow/Eloquence"]
+layout_mode = 2
+text = "E"
+horizontal_alignment = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="TabBar/TabContainer/Stats/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/TopRow/Eloquence"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="TabBar/TabContainer/Stats/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/TopRow/Eloquence/PanelContainer"]
+layout_mode = 2
+text = "3"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TabBar/TabContainer/Stats/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/TopRow/Eloquence"]
+layout_mode = 2
+
+[node name="PanelContainer2" type="TextureRect" parent="TabBar/TabContainer/Stats/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/TopRow/Eloquence/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_4pt3y")
+
+[node name="TextureRect" type="TextureRect" parent="TabBar/TabContainer/Stats/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/TopRow/Eloquence/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_rey47")
+
+[node name="E" type="VBoxContainer" parent="TabBar/TabContainer/Stats/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/TopRow"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="TabBar/TabContainer/Stats/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/TopRow/E"]
+layout_mode = 2
+text = "E"
+horizontal_alignment = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="TabBar/TabContainer/Stats/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/TopRow/E"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="TabBar/TabContainer/Stats/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/TopRow/E/PanelContainer"]
+layout_mode = 2
+text = "5"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TabBar/TabContainer/Stats/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/TopRow/E"]
+layout_mode = 2
+
+[node name="PanelContainer2" type="TextureRect" parent="TabBar/TabContainer/Stats/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/TopRow/E/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_wpcgl")
+
+[node name="TextureRect" type="TextureRect" parent="TabBar/TabContainer/Stats/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/TopRow/E/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_u3kgu")
+
+[node name="Brilliance" type="VBoxContainer" parent="TabBar/TabContainer/Stats/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/TopRow"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="TabBar/TabContainer/Stats/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/TopRow/Brilliance"]
+layout_mode = 2
+text = "B"
+horizontal_alignment = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="TabBar/TabContainer/Stats/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/TopRow/Brilliance"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="TabBar/TabContainer/Stats/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/TopRow/Brilliance/PanelContainer"]
+layout_mode = 2
+text = "7"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TabBar/TabContainer/Stats/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/TopRow/Brilliance"]
+layout_mode = 2
+
+[node name="PanelContainer2" type="TextureRect" parent="TabBar/TabContainer/Stats/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/TopRow/Brilliance/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_wpcgl")
+
+[node name="TextureRect" type="TextureRect" parent="TabBar/TabContainer/Stats/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/TopRow/Brilliance/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_4aqvg")
+
+[node name="I" type="VBoxContainer" parent="TabBar/TabContainer/Stats/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/TopRow"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="TabBar/TabContainer/Stats/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/TopRow/I"]
+layout_mode = 2
+text = "I"
+horizontal_alignment = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="TabBar/TabContainer/Stats/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/TopRow/I"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="TabBar/TabContainer/Stats/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/TopRow/I/PanelContainer"]
+layout_mode = 2
+text = "9"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TabBar/TabContainer/Stats/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/TopRow/I"]
+layout_mode = 2
+
+[node name="PanelContainer2" type="TextureRect" parent="TabBar/TabContainer/Stats/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/TopRow/I/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_wpcgl")
+
+[node name="TextureRect" type="TextureRect" parent="TabBar/TabContainer/Stats/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/TopRow/I/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_42t1t")
+
+[node name="GridContainer" type="VBoxContainer" parent="TabBar/TabContainer/Stats/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TabBar/TabContainer/Stats/MarginContainer/VBoxContainer/HBoxContainer/GridContainer"]
+layout_mode = 2
+
+[node name="ClassName" type="LineEdit" parent="TabBar/TabContainer/Stats/MarginContainer/VBoxContainer/HBoxContainer/GridContainer/HBoxContainer"]
+layout_mode = 2
+placeholder_text = "Class"
+
+[node name="Race" type="LineEdit" parent="TabBar/TabContainer/Stats/MarginContainer/VBoxContainer/HBoxContainer/GridContainer/HBoxContainer"]
+layout_mode = 2
+placeholder_text = "Race"
+
+[node name="CharacterName" type="LineEdit" parent="TabBar/TabContainer/Stats/MarginContainer/VBoxContainer/HBoxContainer/GridContainer/HBoxContainer"]
+layout_mode = 2
+placeholder_text = "Character Name"
+expand_to_text_length = true
+
+[node name="PanelContainer" type="PanelContainer" parent="TabBar/TabContainer/Stats/MarginContainer/VBoxContainer/HBoxContainer/GridContainer"]
+layout_mode = 2
+
+[node name="HPArmor" type="VBoxContainer" parent="TabBar/TabContainer/Stats/MarginContainer/VBoxContainer/HBoxContainer/GridContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="HPandDT" type="HBoxContainer" parent="TabBar/TabContainer/Stats/MarginContainer/VBoxContainer/HBoxContainer/GridContainer/PanelContainer/HPArmor"]
+layout_mode = 2
+
+[node name="HP" type="Label" parent="TabBar/TabContainer/Stats/MarginContainer/VBoxContainer/HBoxContainer/GridContainer/PanelContainer/HPArmor/HPandDT"]
+layout_mode = 2
+theme_type_variation = &"VariantFontLabel1"
+text = "HP:"
+
+[node name="test_hp_dt_bar" parent="TabBar/TabContainer/Stats/MarginContainer/VBoxContainer/HBoxContainer/GridContainer/PanelContainer/HPArmor/HPandDT" instance=ExtResource("5_qok55")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Stamina" type="HBoxContainer" parent="TabBar/TabContainer/Stats/MarginContainer/VBoxContainer/HBoxContainer/GridContainer/PanelContainer/HPArmor"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="TabBar/TabContainer/Stats/MarginContainer/VBoxContainer/HBoxContainer/GridContainer/PanelContainer/HPArmor/Stamina"]
+layout_mode = 2
+theme_type_variation = &"VariantFontLabel1"
+text = "Stamina:
+"
+
+[node name="StaminaBar" type="TextureProgressBar" parent="TabBar/TabContainer/Stats/MarginContainer/VBoxContainer/HBoxContainer/GridContainer/PanelContainer/HPArmor/Stamina"]
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 25.0
+value = 15.0
+nine_patch_stretch = true
+stretch_margin_left = 5
+stretch_margin_right = 5
+texture_under = ExtResource("5_kciiw")
+texture_progress = ExtResource("6_8cg4y")
+
+[node name="StaminaBarLabel" type="Label" parent="TabBar/TabContainer/Stats/MarginContainer/VBoxContainer/HBoxContainer/GridContainer/PanelContainer/HPArmor/Stamina/StaminaBar"]
+layout_mode = 2
+offset_left = 6.0
+offset_right = 81.0
+offset_bottom = 12.0
+theme_override_font_sizes/font_size = 8
+text = "X/"
+
+[node name="StaminaBarLabel_MAX" type="Label" parent="TabBar/TabContainer/Stats/MarginContainer/VBoxContainer/HBoxContainer/GridContainer/PanelContainer/HPArmor/Stamina/StaminaBar"]
+layout_mode = 2
+offset_left = 87.0
+offset_right = 103.0
+offset_bottom = 12.0
+theme_override_font_sizes/font_size = 8
+text = "T"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="TabBar/TabContainer/Stats/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="CharacterBody2" parent="TabBar/TabContainer/Stats/MarginContainer/VBoxContainer/HBoxContainer2" instance=ExtResource("8_epkk7")]
+layout_mode = 2
+
+[node name="CharacterBody" parent="TabBar/TabContainer/Stats/MarginContainer/VBoxContainer/HBoxContainer2" instance=ExtResource("8_a6i8b")]
+visible = false
+layout_mode = 2
+
+[node name="VboxContainer" type="VBoxContainer" parent="TabBar/TabContainer/Stats/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="TabBar/TabContainer/Stats/MarginContainer/VBoxContainer/HBoxContainer2/VboxContainer"]
+layout_mode = 2
+
+[node name="Inventory" type="TextureButton" parent="TabBar/TabContainer/Stats/MarginContainer/VBoxContainer/HBoxContainer2/VboxContainer/CenterContainer"]
+layout_mode = 2
+texture_normal = ExtResource("9_3hp3v")
+
+[node name="InventoryUI" parent="TabBar/TabContainer/Stats/MarginContainer/VBoxContainer/HBoxContainer2/VboxContainer" instance=ExtResource("15_dxhcx")]
+layout_mode = 2
+
+[node name="Skills" type="PanelContainer" parent="TabBar/TabContainer"]
+visible = false
+custom_minimum_size = Vector2(500, 500)
+layout_mode = 2
+
+[node name="SkillNames" type="VBoxContainer" parent="TabBar/TabContainer/Skills"]
+layout_mode = 2
+
+[node name="VitalitySkills" type="ScrollContainer" parent="TabBar/TabContainer/Skills/SkillNames"]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabBar/TabContainer/Skills/SkillNames/VitalitySkills"]
+layout_mode = 2
+
+[node name="VitalityPerks" type="Label" parent="TabBar/TabContainer/Skills/SkillNames/VitalitySkills/VBoxContainer"]
+layout_mode = 2
+text = "Vitality"
+
+[node name="Moving_Wrestling" type="HBoxContainer" parent="TabBar/TabContainer/Skills/SkillNames/VitalitySkills/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="TabBar/TabContainer/Skills/SkillNames/VitalitySkills/VBoxContainer/Moving_Wrestling"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_lxgnq")
+
+[node name="Moving_Wrestling3" type="Label" parent="TabBar/TabContainer/Skills/SkillNames/VitalitySkills/VBoxContainer/Moving_Wrestling"]
+layout_mode = 2
+theme_type_variation = &"VariantFontLabel1"
+text = "Value: 0"
+
+[node name="Moving_Wrestling" type="Label" parent="TabBar/TabContainer/Skills/SkillNames/VitalitySkills/VBoxContainer/Moving_Wrestling"]
+layout_mode = 2
+theme_type_variation = &"VariantFontLabel1"
+text = "Moving/Wrestling:"
+
+[node name="Moving_Wrestling2" type="Label" parent="TabBar/TabContainer/Skills/SkillNames/VitalitySkills/VBoxContainer/Moving_Wrestling"]
+layout_mode = 2
+theme_type_variation = &"VariantFontLabel1"
+text = "Ability to move/resist movement in combat"
+
+[node name="Poison_Disease Resist" type="HBoxContainer" parent="TabBar/TabContainer/Skills/SkillNames/VitalitySkills/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="TabBar/TabContainer/Skills/SkillNames/VitalitySkills/VBoxContainer/Poison_Disease Resist"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_lxgnq")
+
+[node name="Moving_Wrestling3" type="Label" parent="TabBar/TabContainer/Skills/SkillNames/VitalitySkills/VBoxContainer/Poison_Disease Resist"]
+layout_mode = 2
+theme_type_variation = &"VariantFontLabel1"
+text = "Value: 0"
+
+[node name="Moving_Wrestling" type="Label" parent="TabBar/TabContainer/Skills/SkillNames/VitalitySkills/VBoxContainer/Poison_Disease Resist"]
+layout_mode = 2
+theme_type_variation = &"VariantFontLabel1"
+text = "Poison_Disease Resist:"
+
+[node name="Moving_Wrestling2" type="Label" parent="TabBar/TabContainer/Skills/SkillNames/VitalitySkills/VBoxContainer/Poison_Disease Resist"]
+layout_mode = 2
+theme_type_variation = &"VariantFontLabel1"
+text = "Description"
+
+[node name="Lifting" type="HBoxContainer" parent="TabBar/TabContainer/Skills/SkillNames/VitalitySkills/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect3" type="TextureRect" parent="TabBar/TabContainer/Skills/SkillNames/VitalitySkills/VBoxContainer/Lifting"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_lxgnq")
+
+[node name="Label" type="Label" parent="TabBar/TabContainer/Skills/SkillNames/VitalitySkills/VBoxContainer/Lifting"]
+layout_mode = 2
+theme_type_variation = &"VariantFontLabel1"
+text = "Value: 0"
+
+[node name="Label1" type="Label" parent="TabBar/TabContainer/Skills/SkillNames/VitalitySkills/VBoxContainer/Lifting"]
+layout_mode = 2
+theme_type_variation = &"VariantFontLabel1"
+text = "Lifting
+"
+
+[node name="Label2" type="Label" parent="TabBar/TabContainer/Skills/SkillNames/VitalitySkills/VBoxContainer/Lifting"]
+layout_mode = 2
+theme_type_variation = &"VariantFontLabel1"
+text = "Description"
+
+[node name="Nutrition" type="HBoxContainer" parent="TabBar/TabContainer/Skills/SkillNames/VitalitySkills/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect3" type="TextureRect" parent="TabBar/TabContainer/Skills/SkillNames/VitalitySkills/VBoxContainer/Nutrition"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_lxgnq")
+
+[node name="Label" type="Label" parent="TabBar/TabContainer/Skills/SkillNames/VitalitySkills/VBoxContainer/Nutrition"]
+layout_mode = 2
+theme_type_variation = &"VariantFontLabel1"
+text = "Value: 0"
+
+[node name="Label1" type="Label" parent="TabBar/TabContainer/Skills/SkillNames/VitalitySkills/VBoxContainer/Nutrition"]
+layout_mode = 2
+theme_type_variation = &"VariantFontLabel1"
+text = "Nutrition"
+
+[node name="Label2" type="Label" parent="TabBar/TabContainer/Skills/SkillNames/VitalitySkills/VBoxContainer/Nutrition"]
+layout_mode = 2
+theme_type_variation = &"VariantFontLabel1"
+text = "Description"
+
+[node name="EnvironmentalResist" type="HBoxContainer" parent="TabBar/TabContainer/Skills/SkillNames/VitalitySkills/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect3" type="TextureRect" parent="TabBar/TabContainer/Skills/SkillNames/VitalitySkills/VBoxContainer/EnvironmentalResist"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_lxgnq")
+
+[node name="Label" type="Label" parent="TabBar/TabContainer/Skills/SkillNames/VitalitySkills/VBoxContainer/EnvironmentalResist"]
+layout_mode = 2
+theme_type_variation = &"VariantFontLabel1"
+text = "Value: 0"
+
+[node name="Label1" type="Label" parent="TabBar/TabContainer/Skills/SkillNames/VitalitySkills/VBoxContainer/EnvironmentalResist"]
+layout_mode = 2
+theme_type_variation = &"VariantFontLabel1"
+text = "EnvironmentalResist"
+
+[node name="Label2" type="Label" parent="TabBar/TabContainer/Skills/SkillNames/VitalitySkills/VBoxContainer/EnvironmentalResist"]
+layout_mode = 2
+theme_type_variation = &"VariantFontLabel1"
+text = "Description"
+
+[node name="Endurance" type="HBoxContainer" parent="TabBar/TabContainer/Skills/SkillNames/VitalitySkills/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect3" type="TextureRect" parent="TabBar/TabContainer/Skills/SkillNames/VitalitySkills/VBoxContainer/Endurance"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_lxgnq")
+
+[node name="Label" type="Label" parent="TabBar/TabContainer/Skills/SkillNames/VitalitySkills/VBoxContainer/Endurance"]
+layout_mode = 2
+theme_type_variation = &"VariantFontLabel1"
+text = "Value: 0"
+
+[node name="Label1" type="Label" parent="TabBar/TabContainer/Skills/SkillNames/VitalitySkills/VBoxContainer/Endurance"]
+layout_mode = 2
+theme_type_variation = &"VariantFontLabel1"
+text = "Endurance"
+
+[node name="Label2" type="Label" parent="TabBar/TabContainer/Skills/SkillNames/VitalitySkills/VBoxContainer/Endurance"]
+layout_mode = 2
+theme_type_variation = &"VariantFontLabel1"
+text = "Description"
+
+[node name="Beer Appraisal" type="HBoxContainer" parent="TabBar/TabContainer/Skills/SkillNames/VitalitySkills/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect3" type="TextureRect" parent="TabBar/TabContainer/Skills/SkillNames/VitalitySkills/VBoxContainer/Beer Appraisal"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_lxgnq")
+
+[node name="Label" type="Label" parent="TabBar/TabContainer/Skills/SkillNames/VitalitySkills/VBoxContainer/Beer Appraisal"]
+layout_mode = 2
+theme_type_variation = &"VariantFontLabel1"
+text = "Value: 0"
+
+[node name="Label1" type="Label" parent="TabBar/TabContainer/Skills/SkillNames/VitalitySkills/VBoxContainer/Beer Appraisal"]
+layout_mode = 2
+theme_type_variation = &"VariantFontLabel1"
+text = "Beer Appraisal"
+
+[node name="Label2" type="Label" parent="TabBar/TabContainer/Skills/SkillNames/VitalitySkills/VBoxContainer/Beer Appraisal"]
+layout_mode = 2
+theme_type_variation = &"VariantFontLabel1"
+text = "Description"
+
+[node name="HSeparator" type="HSeparator" parent="TabBar/TabContainer/Skills/SkillNames"]
+layout_mode = 2
+
+[node name="CoordinationSkills" type="ScrollContainer" parent="TabBar/TabContainer/Skills/SkillNames"]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabBar/TabContainer/Skills/SkillNames/CoordinationSkills"]
+layout_mode = 2
+
+[node name="CoordinationPerks" type="Label" parent="TabBar/TabContainer/Skills/SkillNames/CoordinationSkills/VBoxContainer"]
+layout_mode = 2
+text = "Coordination"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TabBar/TabContainer/Skills/SkillNames/CoordinationSkills/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect3" type="TextureRect" parent="TabBar/TabContainer/Skills/SkillNames/CoordinationSkills/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_xr6bm")
+
+[node name="TestPerk" type="Label" parent="TabBar/TabContainer/Skills/SkillNames/CoordinationSkills/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Initiative"
+
+[node name="Label" type="Label" parent="TabBar/TabContainer/Skills/SkillNames/CoordinationSkills/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Turn Order"
+
+[node name="Stealth" type="HBoxContainer" parent="TabBar/TabContainer/Skills/SkillNames/CoordinationSkills/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="TabBar/TabContainer/Skills/SkillNames/CoordinationSkills/VBoxContainer/Stealth"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_xr6bm")
+
+[node name="TestPerk" type="Label" parent="TabBar/TabContainer/Skills/SkillNames/CoordinationSkills/VBoxContainer/Stealth"]
+layout_mode = 2
+text = "Stealth"
+
+[node name="Label" type="Label" parent="TabBar/TabContainer/Skills/SkillNames/CoordinationSkills/VBoxContainer/Stealth"]
+layout_mode = 2
+text = "expand on this skill?"
+
+[node name="Fine Hand Manipulation" type="HBoxContainer" parent="TabBar/TabContainer/Skills/SkillNames/CoordinationSkills/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="TabBar/TabContainer/Skills/SkillNames/CoordinationSkills/VBoxContainer/Fine Hand Manipulation"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_xr6bm")
+
+[node name="TestPerk" type="Label" parent="TabBar/TabContainer/Skills/SkillNames/CoordinationSkills/VBoxContainer/Fine Hand Manipulation"]
+layout_mode = 2
+text = "Fine Hand Manipulation"
+
+[node name="Label" type="Label" parent="TabBar/TabContainer/Skills/SkillNames/CoordinationSkills/VBoxContainer/Fine Hand Manipulation"]
+layout_mode = 2
+text = "expand on this skill?"
+
+[node name="Acrobatics" type="HBoxContainer" parent="TabBar/TabContainer/Skills/SkillNames/CoordinationSkills/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="TabBar/TabContainer/Skills/SkillNames/CoordinationSkills/VBoxContainer/Acrobatics"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_xr6bm")
+
+[node name="TestPerk" type="Label" parent="TabBar/TabContainer/Skills/SkillNames/CoordinationSkills/VBoxContainer/Acrobatics"]
+layout_mode = 2
+text = "Acrobatics"
+
+[node name="Label" type="Label" parent="TabBar/TabContainer/Skills/SkillNames/CoordinationSkills/VBoxContainer/Acrobatics"]
+layout_mode = 2
+text = "expand on this skill?"
+
+[node name="Sleight of Hand" type="HBoxContainer" parent="TabBar/TabContainer/Skills/SkillNames/CoordinationSkills/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="TabBar/TabContainer/Skills/SkillNames/CoordinationSkills/VBoxContainer/Sleight of Hand"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_xr6bm")
+
+[node name="TestPerk" type="Label" parent="TabBar/TabContainer/Skills/SkillNames/CoordinationSkills/VBoxContainer/Sleight of Hand"]
+layout_mode = 2
+text = "Sleight of Hand
+"
+
+[node name="Label" type="Label" parent="TabBar/TabContainer/Skills/SkillNames/CoordinationSkills/VBoxContainer/Sleight of Hand"]
+layout_mode = 2
+text = "expand on this skill?"
+
+[node name="Noodling_Fishing" type="HBoxContainer" parent="TabBar/TabContainer/Skills/SkillNames/CoordinationSkills/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="TabBar/TabContainer/Skills/SkillNames/CoordinationSkills/VBoxContainer/Noodling_Fishing"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_xr6bm")
+
+[node name="TestPerk" type="Label" parent="TabBar/TabContainer/Skills/SkillNames/CoordinationSkills/VBoxContainer/Noodling_Fishing"]
+layout_mode = 2
+text = "Noodling_Fishing"
+
+[node name="Label" type="Label" parent="TabBar/TabContainer/Skills/SkillNames/CoordinationSkills/VBoxContainer/Noodling_Fishing"]
+layout_mode = 2
+text = "expand on this skill?"
+
+[node name="HSeparator2" type="HSeparator" parent="TabBar/TabContainer/Skills/SkillNames"]
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="TabBar/TabContainer/Skills/SkillNames"]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 2
+
+[node name="EloquenceSkills" type="VBoxContainer" parent="TabBar/TabContainer/Skills/SkillNames/ScrollContainer"]
+layout_mode = 2
+
+[node name="CoordinationPerks" type="Label" parent="TabBar/TabContainer/Skills/SkillNames/ScrollContainer/EloquenceSkills"]
+layout_mode = 2
+text = "Eloquence"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TabBar/TabContainer/Skills/SkillNames/ScrollContainer/EloquenceSkills"]
+layout_mode = 2
+
+[node name="TextureRect3" type="TextureRect" parent="TabBar/TabContainer/Skills/SkillNames/ScrollContainer/EloquenceSkills/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_f8lcp")
+
+[node name="TestPerk" type="Label" parent="TabBar/TabContainer/Skills/SkillNames/ScrollContainer/EloquenceSkills/HBoxContainer"]
+layout_mode = 2
+text = "Moral Suasion"
+
+[node name="Label" type="Label" parent="TabBar/TabContainer/Skills/SkillNames/ScrollContainer/EloquenceSkills/HBoxContainer"]
+layout_mode = 2
+text = "Perk Description
+"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="TabBar/TabContainer/Skills/SkillNames/ScrollContainer/EloquenceSkills"]
+layout_mode = 2
+
+[node name="TextureRect3" type="TextureRect" parent="TabBar/TabContainer/Skills/SkillNames/ScrollContainer/EloquenceSkills/HBoxContainer2"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_f8lcp")
+
+[node name="TestPerk" type="Label" parent="TabBar/TabContainer/Skills/SkillNames/ScrollContainer/EloquenceSkills/HBoxContainer2"]
+layout_mode = 2
+text = "Diplomacy
+"
+
+[node name="Label" type="Label" parent="TabBar/TabContainer/Skills/SkillNames/ScrollContainer/EloquenceSkills/HBoxContainer2"]
+layout_mode = 2
+text = "Perk Description
+"
+
+[node name="HSeparator3" type="HSeparator" parent="TabBar/TabContainer/Skills/SkillNames"]
+layout_mode = 2
+
+[node name="EmpathySkills" type="ScrollContainer" parent="TabBar/TabContainer/Skills/SkillNames"]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 2
+
+[node name="EmpathySkills" type="VBoxContainer" parent="TabBar/TabContainer/Skills/SkillNames/EmpathySkills"]
+layout_mode = 2
+
+[node name="EmpathyPerks" type="Label" parent="TabBar/TabContainer/Skills/SkillNames/EmpathySkills/EmpathySkills"]
+layout_mode = 2
+text = "EMPATHY
+"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TabBar/TabContainer/Skills/SkillNames/EmpathySkills/EmpathySkills"]
+layout_mode = 2
+
+[node name="TextureRect4" type="TextureRect" parent="TabBar/TabContainer/Skills/SkillNames/EmpathySkills/EmpathySkills/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_2iycq")
+
+[node name="TestPerk" type="Label" parent="TabBar/TabContainer/Skills/SkillNames/EmpathySkills/EmpathySkills/HBoxContainer"]
+layout_mode = 2
+text = "DETECTIVE MOTIVE"
+
+[node name="Label" type="Label" parent="TabBar/TabContainer/Skills/SkillNames/EmpathySkills/EmpathySkills/HBoxContainer"]
+layout_mode = 2
+text = "Perk Description
+"
+
+[node name="HSeparator4" type="HSeparator" parent="TabBar/TabContainer/Skills/SkillNames"]
+layout_mode = 2
+
+[node name="BrillianceSkills" type="ScrollContainer" parent="TabBar/TabContainer/Skills/SkillNames"]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 2
+
+[node name="BrillianceSkills" type="VBoxContainer" parent="TabBar/TabContainer/Skills/SkillNames/BrillianceSkills"]
+layout_mode = 2
+
+[node name="BrilliancePerks" type="Label" parent="TabBar/TabContainer/Skills/SkillNames/BrillianceSkills/BrillianceSkills"]
+layout_mode = 2
+text = "BRILLIANCE"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TabBar/TabContainer/Skills/SkillNames/BrillianceSkills/BrillianceSkills"]
+layout_mode = 2
+
+[node name="TextureRect6" type="TextureRect" parent="TabBar/TabContainer/Skills/SkillNames/BrillianceSkills/BrillianceSkills/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_2n7o7")
+
+[node name="TestPerk" type="Label" parent="TabBar/TabContainer/Skills/SkillNames/BrillianceSkills/BrillianceSkills/HBoxContainer"]
+layout_mode = 2
+text = "Encyclopediac Knowledge -HUMANITIES"
+
+[node name="Label" type="Label" parent="TabBar/TabContainer/Skills/SkillNames/BrillianceSkills/BrillianceSkills/HBoxContainer"]
+layout_mode = 2
+text = "Perk Description
+"
+
+[node name="HSeparator5" type="HSeparator" parent="TabBar/TabContainer/Skills/SkillNames"]
+layout_mode = 2
+
+[node name="IntuitionSkills" type="ScrollContainer" parent="TabBar/TabContainer/Skills/SkillNames"]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 2
+
+[node name="IntuitionSkills" type="VBoxContainer" parent="TabBar/TabContainer/Skills/SkillNames/IntuitionSkills"]
+layout_mode = 2
+
+[node name="IntuitionPerks" type="Label" parent="TabBar/TabContainer/Skills/SkillNames/IntuitionSkills/IntuitionSkills"]
+layout_mode = 2
+text = "INTUITION
+"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TabBar/TabContainer/Skills/SkillNames/IntuitionSkills/IntuitionSkills"]
+layout_mode = 2
+
+[node name="TextureRect5" type="TextureRect" parent="TabBar/TabContainer/Skills/SkillNames/IntuitionSkills/IntuitionSkills/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_5beyw")
+
+[node name="TestPerk" type="Label" parent="TabBar/TabContainer/Skills/SkillNames/IntuitionSkills/IntuitionSkills/HBoxContainer"]
+layout_mode = 2
+text = "Ability to Learn
+"
+
+[node name="Label" type="Label" parent="TabBar/TabContainer/Skills/SkillNames/IntuitionSkills/IntuitionSkills/HBoxContainer"]
+layout_mode = 2
+text = "Perk Description
+"
+
+[node name="Traits & Quirks" type="PanelContainer" parent="TabBar/TabContainer"]
+visible = false
+layout_mode = 2
+
+[node name="Perks" type="PanelContainer" parent="TabBar/TabContainer"]
+visible = false
+layout_mode = 2
+
+[connection signal="pressed" from="TabBar/TabContainer/Stats/MarginContainer/VBoxContainer/HBoxContainer2/VboxContainer/CenterContainer/Inventory" to="." method="_on_inventory_pressed"]

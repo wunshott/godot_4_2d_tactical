@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://cu2ppb1h85mav"]
+
+[ext_resource type="Script" path="res://HUD/attack_pop_up_window.gd" id="1_pic3m"]
+[ext_resource type="PackedScene" uid="uid://bmrr3caxjetep" path="res://HUD/attack_menu.tscn" id="2_xg7ta"]
+
+[node name="PopUpWindow" type="Window"]
+title = "Change_text_name"
+initial_position = 1
+script = ExtResource("1_pic3m")
+
+[node name="Attack_Menu" parent="." instance=ExtResource("2_xg7ta")]
+
+[connection signal="close_requested" from="." to="." method="_on_close_requested"]

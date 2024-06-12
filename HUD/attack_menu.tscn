@@ -1,0 +1,131 @@
+[gd_scene load_steps=6 format=3 uid="uid://bmrr3caxjetep"]
+
+[ext_resource type="Theme" uid="uid://dy51vb6uy42fp" path="res://Themes/HUD_THEME_1.tres" id="1_684sw"]
+[ext_resource type="Script" path="res://HUD/attack_menu.gd" id="2_61nix"]
+[ext_resource type="Texture2D" uid="uid://cjg2mhnm8dv8q" path="res://assets/customs/colored-transparent_packed.png" id="2_o5bfg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c4c3l"]
+atlas = ExtResource("2_o5bfg")
+region = Rect2(544, 96, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qgjlj"]
+atlas = ExtResource("2_o5bfg")
+region = Rect2(608, 320, 16, 16)
+
+[node name="Attack_Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme = ExtResource("1_684sw")
+script = ExtResource("2_61nix")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -133.0
+offset_top = -32.0
+offset_right = 133.0
+offset_bottom = 34.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_type_variation = &"AttackPixelContainer"
+
+[node name="ListOfActions" type="VBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/ListOfActions"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/ListOfActions/VBoxContainer"]
+layout_mode = 2
+
+[node name="Button2" type="TextureButton" parent="PanelContainer/ListOfActions/VBoxContainer/HBoxContainer"]
+modulate = Color(0.701961, 0.360784, 1, 1)
+layout_mode = 2
+tooltip_text = "Flavortext description of the attack"
+texture_normal = SubResource("AtlasTexture_c4c3l")
+
+[node name="Label" type="Label" parent="PanelContainer/ListOfActions/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+tooltip_text = "Flavortext description of the attack"
+mouse_filter = 1
+theme_type_variation = &"VariantFontLabel1"
+text = "Slash"
+
+[node name="MarginContainer4" type="MarginContainer" parent="PanelContainer/ListOfActions/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+
+[node name="Label2" type="Label" parent="PanelContainer/ListOfActions/VBoxContainer/HBoxContainer/MarginContainer4"]
+layout_mode = 2
+theme_type_variation = &"VariantFontLabel1"
+text = "Armor Damage: 5"
+
+[node name="MarginContainer5" type="MarginContainer" parent="PanelContainer/ListOfActions/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+
+[node name="Label2" type="Label" parent="PanelContainer/ListOfActions/VBoxContainer/HBoxContainer/MarginContainer5"]
+layout_mode = 2
+theme_type_variation = &"VariantFontLabel1"
+text = "Stamina Damage: 2"
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/ListOfActions/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+
+[node name="Label2" type="Label" parent="PanelContainer/ListOfActions/VBoxContainer/HBoxContainer/MarginContainer"]
+layout_mode = 2
+tooltip_text = "Add  a real tooltip here?"
+mouse_filter = 1
+theme_type_variation = &"VariantFontLabel1"
+text = "Stamina Cost: 5"
+
+[node name="MarginContainer2" type="MarginContainer" parent="PanelContainer/ListOfActions/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+
+[node name="Label2" type="Label" parent="PanelContainer/ListOfActions/VBoxContainer/HBoxContainer/MarginContainer2"]
+layout_mode = 2
+tooltip_text = "Add  a real tooltip here?"
+mouse_filter = 1
+theme_type_variation = &"VariantFontLabel1"
+text = "Range: Adjacent Tiles"
+
+[node name="MarginContainer3" type="MarginContainer" parent="PanelContainer/ListOfActions/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+
+[node name="Label2" type="Label" parent="PanelContainer/ListOfActions/VBoxContainer/HBoxContainer/MarginContainer3"]
+layout_mode = 2
+tooltip_text = "Add  a real tooltip here?"
+mouse_filter = 1
+theme_type_variation = &"VariantFontLabel1"
+text = "Damage Type: Slashing"
+
+[node name="CancelButton" type="HBoxContainer" parent="PanelContainer/ListOfActions"]
+layout_mode = 2
+
+[node name="CloseMenuButton" type="TextureButton" parent="PanelContainer/ListOfActions/CancelButton"]
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_qgjlj")
+
+[node name="Label" type="Label" parent="PanelContainer/ListOfActions/CancelButton"]
+layout_mode = 2
+theme_type_variation = &"VariantFontLabel1"
+text = "CANCEL"
+
+[connection signal="mouse_entered" from="PanelContainer" to="." method="_on_panel_container_mouse_entered"]
+[connection signal="mouse_exited" from="PanelContainer" to="." method="_on_panel_container_mouse_exited"]
+[connection signal="pressed" from="PanelContainer/ListOfActions/CancelButton/CloseMenuButton" to="." method="_on_close_menu_button_pressed"]

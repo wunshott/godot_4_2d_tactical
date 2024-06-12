@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Armor" load_steps=4 format=3 uid="uid://b57rgbu848qwr"]
+
+[ext_resource type="Texture2D" uid="uid://cjg2mhnm8dv8q" path="res://assets/customs/colored-transparent_packed.png" id="1_dxj2s"]
+[ext_resource type="Script" path="res://top_down/Items/Armor/armor_template.gd" id="1_wsn1i"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_midcu"]
+atlas = ExtResource("1_dxj2s")
+region = Rect2(560, 16, 16, 16)
+
+[resource]
+script = ExtResource("1_wsn1i")
+armor_type = ""
+block_hit_die = 0
+ItemName = "Iron Chest Plate"
+ItemWeight = 5.0
+ItemSprite = SubResource("AtlasTexture_midcu")
+Equip_Slot = "Torso"
