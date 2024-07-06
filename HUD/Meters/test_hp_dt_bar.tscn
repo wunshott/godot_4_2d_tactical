@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://1vpb1blidek1"]
+[gd_scene load_steps=7 format=3 uid="uid://1vpb1blidek1"]
 
 [ext_resource type="Texture2D" uid="uid://dw67wwi7xf8f6" path="res://assets/UX_UI_Assets_Pack/Edits/Solid_bg.png" id="1_1qf2n"]
+[ext_resource type="Theme" uid="uid://dy51vb6uy42fp" path="res://Themes/HUD_THEME_1.tres" id="1_ex7a8"]
 [ext_resource type="Script" path="res://HUD/Meters/test_hp_dt_bar.gd" id="1_koonf"]
 [ext_resource type="Texture2D" uid="uid://dweyhnmmw6a48" path="res://assets/UX_UI_Assets_Pack/Edits/Solid_f.png" id="2_6rk6f"]
 [ext_resource type="Texture2D" uid="uid://d3i05k6rf3rmu" path="res://assets/UX_UI_Assets_Pack/Edits/Solid_inv_f.png" id="4_tdbgv"]
@@ -13,6 +14,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_ex7a8")
 script = ExtResource("1_koonf")
 
 [node name="HPBar" type="TextureProgressBar" parent="."]
@@ -34,8 +36,24 @@ texture_under = ExtResource("1_1qf2n")
 texture_progress = ExtResource("4_tdbgv")
 
 [node name="Skull" type="Sprite2D" parent="."]
-position = Vector2(16, -1)
+position = Vector2(10, -1)
 scale = Vector2(0.666667, 0.615385)
 texture = ExtResource("5_2f5d1")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = -29.0
+offset_top = -9.0
+offset_right = 11.0
+offset_bottom = 8.0
+text = "DT: "
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 55.0
+offset_top = -8.0
+offset_right = 95.0
+offset_bottom = 9.0
+text = "HP:"
 
 [connection signal="value_changed" from="DTBar" to="." method="_on_dt_bar_value_changed"]

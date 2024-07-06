@@ -1,0 +1,8 @@
+[gd_resource type="RichTextEffect" script_class="RichTextSparkle" load_steps=2 format=3 uid="uid://067x0v1h4gx0"]
+
+[ext_resource type="Script" path="res://assets/Fonts/richtextFX/RichTextSparkle.gd" id="1_tfl5m"]
+
+[resource]
+script = ExtResource("1_tfl5m")
+sparkle_color = Color(1, 1, 0.5, 1)
+sparkle_frequency = 0.1

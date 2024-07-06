@@ -46,10 +46,6 @@ func _ready():
 	pass # Replace with function body.
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
 func _populate_injury_dict(InjuryDict:Dictionary, InjuryArray:Array[Injury]):
 	for injury in InjuryArray:
 		if injury.Limb == "Head":
@@ -69,7 +65,7 @@ func _populate_injury_dict(InjuryDict:Dictionary, InjuryArray:Array[Injury]):
 	
 func _roll_arm_injury_table(limb: String, DamageType: String): 
 	#come up with a clean way to access the injury table
-	var array_to_roll: Array[Injury] 
+	var array_to_roll: Array[Injury] = []
 	array_to_roll.append_array(InjuryDict.get(limb).get(DamageType)) #rolls the injury table associated with the limb and defense type (armor, limb, pip)
 	var injury_roll_outcome = randi_range(0,array_to_roll.size()-1)
 	

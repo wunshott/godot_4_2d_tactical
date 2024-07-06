@@ -1,0 +1,6 @@
+[gd_resource type="RichTextEffect" script_class="RichTextEmber" load_steps=2 format=3 uid="uid://b8ll56h1xk5nw"]
+
+[ext_resource type="Script" path="res://assets/Fonts/richtextFX/Transitions/Embers.gd" id="1_yysl0"]
+
+[resource]
+script = ExtResource("1_yysl0")

@@ -103,8 +103,6 @@ func get_dodge_dice() -> int:
 
 
 
-
-
 ## Set/get Stat Functions
 #These functions set/get their value and emit a signal. the resource file will emit a signal so everything that holds it (hud, char) will update accordingly
 #HP

@@ -15,6 +15,7 @@ signal send_char_sheet_to_vats(TargetSheetData: CharacterSheet)
 @onready var inventory = $Inventory
 @onready var area_2d = $Area2D
 
+@export var target_sprite: Texture2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -49,6 +50,4 @@ func _on_ready(): #whent he node is loaded in
 	pass
 
 
-func _on_area_2d_input_event(viewport, event, shape_idx):
-	if event.is_action_pressed("right_click"):
-		activate_vats_menu.emit()
+

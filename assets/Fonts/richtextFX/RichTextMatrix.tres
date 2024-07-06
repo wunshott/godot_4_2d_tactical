@@ -1,0 +1,6 @@
+[gd_resource type="RichTextEffect" script_class="RichTextMatrix" load_steps=2 format=3 uid="uid://brrkjuggpyxej"]
+
+[ext_resource type="Script" path="res://assets/Fonts/richtextFX/RichTextMatrix.gd" id="1_bgdnd"]
+
+[resource]
+script = ExtResource("1_bgdnd")

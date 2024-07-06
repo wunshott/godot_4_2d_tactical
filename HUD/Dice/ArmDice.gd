@@ -1,49 +1,38 @@
 extends PanelContainer
 
-@onready var h_box_container = $HBoxContainer
+class_name ArmDiceContainer
+
+@onready var roll_dice: Button = $"../RollDice"
+
 @export var DiceArray: Array[int]
+@onready var arm_dice_pool = $ArmDicePool
 
-var dragged_node: DieContainer = null
-# Called when the node enters the scene tree for the first time.
+var dice_container: PackedScene = preload("res://HUD/Dice/dice_container.tscn")
+
+
 func create_dice_array() -> void:
-	#go through children
-	#find each dice container
-	#grab their dice number and append to this DiceArray
-	return
-func connect_gui_input_children() -> void:
-	for child in h_box_container.get_children():
-		if child is DieContainer:
-			child.connect("gui_input",Callable(self,"_on_child_gui_input"))
-
-func _on_child_gui_input(event: InputEvent, child: Node):
-	if event is InputEventMouseButton and event.is_action_pressed("left_click"):
-		#start dragging
-		dragged_node = child
-		return
+	for die in DiceArray:
+		var dice_to_add: DieContainer = dice_container.instantiate()
+		dice_to_add.dice_number = die
+		roll_dice.connect("pressed",Callable(dice_to_add,"update_dice_graphic"))
+		
+		
+		arm_dice_pool.add_child(dice_to_add)
 
 func _ready():
-	connect_gui_input_children()
-	pass # Replace with function body.
+	create_dice_array()
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
 
-func _get_drag_data(at_position: Vector2):
-	
-	return dragged_node
-
-func _can_drop_data(at_position: Vector2, data) -> bool:
+func _can_drop_data(_at_position: Vector2, data) -> bool:
 	return data is DieContainer 
 
-func _drop_data(at_position: Vector2, data): 
-	if data:
-		var dropped_node = data as DieContainer
-		if dropped_node:
-			h_box_container.add_child(dropped_node)
-		
-	return
+func _drop_data(_at_position: Vector2, data) -> void:
+	var dice_copy: DieContainer = dice_container.instantiate()
+	dice_copy.dice_number = data.dice_number
+	arm_dice_pool.add_child(dice_copy)
+	data.animation_player.play("exiting") #deletes the original node
+
 
 #func get_preview(item_dragged_texture: Texture2D):
 	#return preview

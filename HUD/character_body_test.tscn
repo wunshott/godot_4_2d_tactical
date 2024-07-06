@@ -8,8 +8,6 @@
 [node name="CharacterBody" type="Control"]
 layout_mode = 3
 anchors_preset = 0
-size_flags_horizontal = 3
-size_flags_vertical = 3
 script = ExtResource("1_2fm7i")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]

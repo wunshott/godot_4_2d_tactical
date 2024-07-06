@@ -24,7 +24,6 @@ theme = ExtResource("1_mqba0")
 script = ExtResource("1_006m4")
 
 [node name="EndTurn" type="Button" parent="."]
-visible = false
 layout_mode = 2
 offset_left = -191.0
 offset_top = 132.0
@@ -86,7 +85,6 @@ layout_mode = 2
 size_flags_vertical = 3
 
 [node name="HP_and_Stamina" type="PanelContainer" parent="."]
-visible = false
 layout_mode = 0
 offset_left = -136.0
 offset_top = 252.0
@@ -145,7 +143,6 @@ text = "X/y"
 horizontal_alignment = 1
 
 [node name="GameLogPanelContainer" type="PanelContainer" parent="."]
-visible = false
 layout_mode = 2
 offset_left = -1273.0
 offset_top = 239.0
@@ -178,7 +175,6 @@ fit_content = true
 autowrap_mode = 0
 
 [node name="Attack_Menu" parent="." instance=ExtResource("6_b7vdt")]
-visible = false
 layout_mode = 1
 offset_left = -939.0
 offset_top = 405.0
@@ -186,7 +182,6 @@ offset_right = -939.0
 offset_bottom = 405.0
 
 [node name="VatsMenu" parent="." instance=ExtResource("7_xv5i1")]
-visible = false
 layout_mode = 1
 offset_left = -1274.0
 offset_top = 469.0

@@ -6,7 +6,7 @@ extends Window
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	hide()
+	return
 
 
 
@@ -23,8 +23,10 @@ func _on_close_requested():
 
 
 
-func _input(event):
-	return
+func _input(event: InputEvent):
+	if event.is_action_pressed("Character_menu"):
+		print("test")
+		show()
 
 	
 	

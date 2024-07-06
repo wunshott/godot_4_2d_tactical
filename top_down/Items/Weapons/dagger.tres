@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="Weapon" load_steps=4 format=3 uid="uid://bchl0as1x3qnx"]
+
+[ext_resource type="Script" path="res://top_down/Items/Weapons/weapon_template.gd" id="1_amrk3"]
+[ext_resource type="Texture2D" uid="uid://cjg2mhnm8dv8q" path="res://assets/customs/colored-transparent_packed.png" id="1_ijldk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f153y"]
+atlas = ExtResource("1_ijldk")
+region = Rect2(560, 96, 16, 16)
+
+[resource]
+script = ExtResource("1_amrk3")
+WeaponTtype = ""
+Attacks = Array[Resource("res://Actions/action_template.gd")]([])
+currently_equipped_hand = ""
+weapon_hit_die_amount = 0
+weapon_hit_die = Array[int]([3, 2, 2])
+defense_only_dice = false
+weapon_graze = 0
+ItemName = ""
+ItemWeight = 0.0
+ItemSprite = SubResource("AtlasTexture_f153y")
+Equip_Slot = ""

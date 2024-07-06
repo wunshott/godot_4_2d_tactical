@@ -8,6 +8,12 @@ title = "Change_text_name"
 initial_position = 1
 script = ExtResource("1_pic3m")
 
-[node name="Attack_Menu" parent="." instance=ExtResource("2_xg7ta")]
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Attack_Menu" parent="Camera2D" instance=ExtResource("2_xg7ta")]
+offset_left = 50.0
+offset_top = 50.0
+offset_right = 50.0
+offset_bottom = 50.0
 
 [connection signal="close_requested" from="." to="." method="_on_close_requested"]

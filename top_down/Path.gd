@@ -36,6 +36,14 @@ func draw_path(start,end):
 	if astar_grid.is_in_boundsv(end) == false: #checks if the mouse is within the grid
 		return
 	self.clear_points()
+	var waypoint = find_path(start,end)
+	for tile in waypoint:
+		self.add_point(tile_map.map_to_local(tile))
+
+func draw_path_combat(start,end):
+	if astar_grid.is_in_boundsv(end) == false: #checks if the mouse is within the grid
+		return
+	self.clear_points()
 	var char_exertion_range = player_stats._get_movement_pool() + player_stats.CharacterSheetData.get_stamina()/player_stats.movement_exertion_cost
 	#allows the marker to be placed only within movementpool
 	if astar_grid.get_id_path(start,end).slice(1).size() <= player_stats._get_movement_pool() and astar_grid.get_id_path(start,end).slice(1).size() > 0:

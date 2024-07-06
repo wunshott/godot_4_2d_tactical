@@ -94,4 +94,7 @@ equipped_armor_dict = {
 inventory = Array[Resource("res://top_down/Items/item_template.gd")]([ExtResource("7_2qdlh"), ExtResource("8_i0st6"), ExtResource("9_6t3m2")])
 
 [node name="AttackPattern" parent="." instance=ExtResource("7_ef2w6")]
+visible = false
 position = Vector2(8, 8)
+
+[node name="Camera2D" type="Camera2D" parent="."]

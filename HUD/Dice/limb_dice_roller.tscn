@@ -1,167 +1,343 @@
-[gd_scene load_steps=9 format=3 uid="uid://bw0moawstyhcf"]
+[gd_scene load_steps=12 format=3 uid="uid://bw0moawstyhcf"]
 
 [ext_resource type="Theme" uid="uid://dy51vb6uy42fp" path="res://Themes/HUD_THEME_1.tres" id="1_5mfw6"]
 [ext_resource type="Script" path="res://HUD/Dice/limb_dice_roller.gd" id="1_jy3dh"]
-[ext_resource type="Texture2D" uid="uid://cjg2mhnm8dv8q" path="res://assets/customs/colored-transparent_packed.png" id="3_j3or6"]
+[ext_resource type="Resource" uid="uid://ldknhdxp6wxu" path="res://CharacterSheets/class/warrior.tres" id="3_0p1jf"]
+[ext_resource type="PackedScene" uid="uid://1vpb1blidek1" path="res://HUD/Meters/test_hp_dt_bar.tscn" id="3_6tvux"]
+[ext_resource type="Resource" uid="uid://bigp0rsmwiix5" path="res://CharacterSheets/class/rogue.tres" id="3_hg0ts"]
 [ext_resource type="Script" path="res://HUD/Dice/AttackDice.gd" id="3_ndoc4"]
-[ext_resource type="PackedScene" uid="uid://hmesfapk1dl6" path="res://HUD/Dice/dice_container.tscn" id="4_myk8x"]
+[ext_resource type="Script" path="res://HUD/Dice/Player.gd" id="4_vdghv"]
 [ext_resource type="Script" path="res://HUD/Dice/ArmDice.gd" id="6_km6df"]
+[ext_resource type="Script" path="res://HUD/Dice/DefenseDice.gd" id="6_oru2m"]
+[ext_resource type="Script" path="res://HUD/Dice/WeaponDice.gd" id="6_xvid4"]
+[ext_resource type="Script" path="res://HUD/Dice/StaminaDice.gd" id="10_gtuv8"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_fjwku"]
-atlas = ExtResource("3_j3or6")
-region = Rect2(672, 240, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_vk6m8"]
-atlas = ExtResource("3_j3or6")
-region = Rect2(720, 240, 16, 16)
-
-[node name="LimbDiceRoller" type="Control"]
+[node name="LimbDiceRoller" type="Control" node_paths=PackedStringArray("enemy", "player")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -54.0
+offset_top = -1.0
+offset_right = -54.0
+offset_bottom = 6.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_5mfw6")
 script = ExtResource("1_jy3dh")
+enemy = NodePath("Enemy")
+player = NodePath("Player")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="Player" type="HBoxContainer" parent="."]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = -18.0
+offset_top = 3.0
+offset_right = 472.0
+offset_bottom = 255.0
 alignment = 1
+script = ExtResource("4_vdghv")
+combatant_class = ExtResource("3_hg0ts")
+typed_dice_array = Array[int]([3, 4, 5, 9])
 
-[node name="AttackDice" type="PanelContainer" parent="HBoxContainer"]
+[node name="Label" type="Label" parent="Player"]
 layout_mode = 2
-script = ExtResource("3_ndoc4")
+text = "Player"
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer/AttackDice"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="HBoxContainer/AttackDice/VBoxContainer2"]
-layout_mode = 2
-text = "A"
-horizontal_alignment = 1
-
-[node name="DiceContainer" parent="HBoxContainer/AttackDice/VBoxContainer2" instance=ExtResource("4_myk8x")]
-layout_mode = 2
-Die = 3
-
-[node name="DiceContainer2" parent="HBoxContainer/AttackDice/VBoxContainer2" instance=ExtResource("4_myk8x")]
-layout_mode = 2
-Die = 0
-
-[node name="DiceContainer3" parent="HBoxContainer/AttackDice/VBoxContainer2" instance=ExtResource("4_myk8x")]
-layout_mode = 2
-Die = 0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Player"]
 layout_mode = 2
 
-[node name="RollDice" type="Button" parent="HBoxContainer/VBoxContainer"]
+[node name="RollDice" type="Button" parent="Player/VBoxContainer"]
 layout_mode = 2
 text = "Roll Dice"
 
-[node name="Label2" type="Label" parent="HBoxContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Player/VBoxContainer"]
+layout_mode = 2
+
+[node name="test_hp_dt_bar" parent="Player/VBoxContainer/HBoxContainer" instance=ExtResource("3_6tvux")]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="DTLabel" type="Label" parent="Player/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "DT: "
+
+[node name="HPLabel" type="Label" parent="Player/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "HP:"
+
+[node name="DodgeLabel" type="Label" parent="Player/VBoxContainer"]
+layout_mode = 2
+text = "Dodge:"
+
+[node name="Label2" type="Label" parent="Player/VBoxContainer"]
 layout_mode = 2
 text = "Arm Dice"
 horizontal_alignment = 1
 
-[node name="ArmDice" type="PanelContainer" parent="HBoxContainer/VBoxContainer"]
+[node name="ArmDice" type="PanelContainer" parent="Player/VBoxContainer"]
 layout_mode = 2
 script = ExtResource("6_km6df")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/VBoxContainer/ArmDice"]
+[node name="ArmDicePool" type="HBoxContainer" parent="Player/VBoxContainer/ArmDice"]
 layout_mode = 2
 alignment = 1
 
-[node name="DiceContainer4" parent="HBoxContainer/VBoxContainer/ArmDice/HBoxContainer" instance=ExtResource("4_myk8x")]
-layout_mode = 2
-Die = 0
-
-[node name="DiceContainer5" parent="HBoxContainer/VBoxContainer/ArmDice/HBoxContainer" instance=ExtResource("4_myk8x")]
-layout_mode = 2
-Die = 0
-
-[node name="DiceContainer6" parent="HBoxContainer/VBoxContainer/ArmDice/HBoxContainer" instance=ExtResource("4_myk8x")]
-layout_mode = 2
-Die = 0
-
-[node name="DiceContainer7" parent="HBoxContainer/VBoxContainer/ArmDice/HBoxContainer" instance=ExtResource("4_myk8x")]
-layout_mode = 2
-Die = 0
-
-[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="Player/VBoxContainer"]
 layout_mode = 2
 text = "Stamina Dice"
 horizontal_alignment = 1
 
-[node name="StaminaDice" type="PanelContainer" parent="HBoxContainer/VBoxContainer"]
-visible = false
+[node name="StaminaDice" type="PanelContainer" parent="Player/VBoxContainer"]
 layout_mode = 2
+script = ExtResource("10_gtuv8")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/VBoxContainer/StaminaDice"]
+[node name="StaminaDicePool" type="HBoxContainer" parent="Player/VBoxContainer/StaminaDice"]
 layout_mode = 2
 alignment = 1
 
-[node name="PanelContainer3" type="PanelContainer" parent="HBoxContainer/VBoxContainer/StaminaDice/HBoxContainer"]
-layout_mode = 2
-theme_type_variation = &"ParchmentPanelContainer"
-
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer/VBoxContainer/StaminaDice/HBoxContainer/PanelContainer3"]
-layout_mode = 2
-texture = SubResource("AtlasTexture_fjwku")
-
-[node name="PanelContainer4" type="PanelContainer" parent="HBoxContainer/VBoxContainer/StaminaDice/HBoxContainer"]
-layout_mode = 2
-theme_type_variation = &"ParchmentPanelContainer"
-
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer/VBoxContainer/StaminaDice/HBoxContainer/PanelContainer4"]
-layout_mode = 2
-texture = SubResource("AtlasTexture_fjwku")
-
-[node name="PanelContainer5" type="PanelContainer" parent="HBoxContainer/VBoxContainer/StaminaDice/HBoxContainer"]
-layout_mode = 2
-theme_type_variation = &"ParchmentPanelContainer"
-
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer/VBoxContainer/StaminaDice/HBoxContainer/PanelContainer5"]
-layout_mode = 2
-texture = SubResource("AtlasTexture_fjwku")
-
-[node name="PanelContainer6" type="PanelContainer" parent="HBoxContainer/VBoxContainer/StaminaDice/HBoxContainer"]
-layout_mode = 2
-theme_type_variation = &"ParchmentPanelContainer"
-
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer/VBoxContainer/StaminaDice/HBoxContainer/PanelContainer6"]
-layout_mode = 2
-texture = SubResource("AtlasTexture_fjwku")
-
-[node name="DefenseDice" type="PanelContainer" parent="HBoxContainer"]
-visible = false
+[node name="HBoxContainer2" type="HBoxContainer" parent="Player/VBoxContainer"]
 layout_mode = 2
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer/DefenseDice"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Player/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 
-[node name="Label3" type="Label" parent="HBoxContainer/DefenseDice/VBoxContainer2"]
+[node name="Label3" type="Label" parent="Player/VBoxContainer/HBoxContainer2/VBoxContainer"]
+layout_mode = 2
+text = "Left Wep Dice"
+horizontal_alignment = 1
+
+[node name="LeftWeaponDice" type="PanelContainer" parent="Player/VBoxContainer/HBoxContainer2/VBoxContainer"]
+layout_mode = 2
+script = ExtResource("6_xvid4")
+
+[node name="WeaponDicePool" type="HBoxContainer" parent="Player/VBoxContainer/HBoxContainer2/VBoxContainer/LeftWeaponDice"]
+layout_mode = 2
+alignment = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Player/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+
+[node name="Label3" type="Label" parent="Player/VBoxContainer/HBoxContainer2/VBoxContainer2"]
+layout_mode = 2
+text = "Right Wep Dice"
+horizontal_alignment = 1
+
+[node name="RightWeaponDice" type="PanelContainer" parent="Player/VBoxContainer/HBoxContainer2/VBoxContainer2"]
+layout_mode = 2
+script = ExtResource("6_xvid4")
+
+[node name="WeaponDicePool" type="HBoxContainer" parent="Player/VBoxContainer/HBoxContainer2/VBoxContainer2/RightWeaponDice"]
+layout_mode = 2
+alignment = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Player"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Player/VBoxContainer2"]
+layout_mode = 2
+text = "A"
+horizontal_alignment = 1
+
+[node name="AttackDicePool" type="PanelContainer" parent="Player/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("3_ndoc4")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Player/VBoxContainer2/AttackDicePool"]
+layout_mode = 2
+
+[node name="VSeparator" type="VSeparator" parent="Player"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="Player"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Player/VBoxContainer3"]
 layout_mode = 2
 text = "D"
 horizontal_alignment = 1
 
-[node name="PanelContainer3" type="PanelContainer" parent="HBoxContainer/DefenseDice/VBoxContainer2"]
+[node name="DefenseDice" type="PanelContainer" parent="Player/VBoxContainer3"]
 layout_mode = 2
-theme_type_variation = &"ParchmentPanelContainer"
+size_flags_vertical = 3
+script = ExtResource("6_oru2m")
 
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer/DefenseDice/VBoxContainer2/PanelContainer3"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="Player/VBoxContainer3/DefenseDice"]
 layout_mode = 2
-texture = SubResource("AtlasTexture_vk6m8")
-stretch_mode = 5
 
-[node name="PanelContainer4" type="PanelContainer" parent="HBoxContainer/DefenseDice/VBoxContainer2"]
+[node name="VSeparator2" type="VSeparator" parent="Player"]
 layout_mode = 2
-theme_type_variation = &"ParchmentPanelContainer"
+theme_override_constants/separation = 15
 
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer/DefenseDice/VBoxContainer2/PanelContainer4"]
+[node name="LimbSelector" type="OptionButton" parent="Player"]
 layout_mode = 2
-texture = SubResource("AtlasTexture_vk6m8")
-stretch_mode = 5
+size_flags_vertical = 4
+
+[node name="Enemy" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 308.0
+offset_top = 103.0
+offset_right = 792.0
+offset_bottom = 355.0
+alignment = 1
+script = ExtResource("4_vdghv")
+combatant_class = ExtResource("3_0p1jf")
+typed_dice_array = Array[int]([12, 3, 4, 2])
+
+[node name="LimbSelector" type="OptionButton" parent="Enemy"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Enemy"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Enemy/VBoxContainer2"]
+layout_mode = 2
+text = "A"
+horizontal_alignment = 1
+
+[node name="AttackDicePool" type="PanelContainer" parent="Enemy/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("3_ndoc4")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Enemy/VBoxContainer2/AttackDicePool"]
+layout_mode = 2
+
+[node name="VSeparator4" type="VSeparator" parent="Enemy"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="Enemy"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Enemy/VBoxContainer3"]
+layout_mode = 2
+text = "D"
+horizontal_alignment = 1
+
+[node name="DefenseDice" type="PanelContainer" parent="Enemy/VBoxContainer3"]
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("6_oru2m")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Enemy/VBoxContainer3/DefenseDice"]
+layout_mode = 2
+
+[node name="VSeparator3" type="VSeparator" parent="Enemy"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Enemy"]
+layout_mode = 2
+
+[node name="RollDice" type="Button" parent="Enemy/VBoxContainer"]
+layout_mode = 2
+text = "Roll Dice"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Enemy/VBoxContainer"]
+layout_mode = 2
+
+[node name="test_hp_dt_bar" parent="Enemy/VBoxContainer/HBoxContainer" instance=ExtResource("3_6tvux")]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="DTLabel" type="Label" parent="Enemy/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "DT: "
+
+[node name="HPLabel" type="Label" parent="Enemy/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "HP:"
+
+[node name="DodgeLabel" type="Label" parent="Enemy/VBoxContainer"]
+layout_mode = 2
+text = "Dodge:"
+
+[node name="Label2" type="Label" parent="Enemy/VBoxContainer"]
+layout_mode = 2
+text = "Arm Dice"
+horizontal_alignment = 1
+
+[node name="ArmDice" type="PanelContainer" parent="Enemy/VBoxContainer"]
+layout_mode = 2
+script = ExtResource("6_km6df")
+
+[node name="ArmDicePool" type="HBoxContainer" parent="Enemy/VBoxContainer/ArmDice"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Enemy/VBoxContainer"]
+layout_mode = 2
+text = "Stamina Dice"
+horizontal_alignment = 1
+
+[node name="StaminaDice" type="PanelContainer" parent="Enemy/VBoxContainer"]
+layout_mode = 2
+script = ExtResource("10_gtuv8")
+
+[node name="StaminaDicePool" type="HBoxContainer" parent="Enemy/VBoxContainer/StaminaDice"]
+layout_mode = 2
+alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Enemy/VBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Enemy/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+
+[node name="Label3" type="Label" parent="Enemy/VBoxContainer/HBoxContainer2/VBoxContainer"]
+layout_mode = 2
+text = "Left Wep Dice"
+horizontal_alignment = 1
+
+[node name="LeftWeaponDice" type="PanelContainer" parent="Enemy/VBoxContainer/HBoxContainer2/VBoxContainer"]
+layout_mode = 2
+script = ExtResource("6_xvid4")
+
+[node name="WeaponDicePool" type="HBoxContainer" parent="Enemy/VBoxContainer/HBoxContainer2/VBoxContainer/LeftWeaponDice"]
+layout_mode = 2
+alignment = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Enemy/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+
+[node name="Label3" type="Label" parent="Enemy/VBoxContainer/HBoxContainer2/VBoxContainer2"]
+layout_mode = 2
+text = "Right Wep Dice"
+horizontal_alignment = 1
+
+[node name="RightWeaponDice" type="PanelContainer" parent="Enemy/VBoxContainer/HBoxContainer2/VBoxContainer2"]
+layout_mode = 2
+script = ExtResource("6_xvid4")
+
+[node name="WeaponDicePool" type="HBoxContainer" parent="Enemy/VBoxContainer/HBoxContainer2/VBoxContainer2/RightWeaponDice"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label3" type="Label" parent="Enemy"]
+layout_mode = 2
+text = "Enemy
+"
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 102.0
+offset_top = 251.0
+offset_right = 278.0
+offset_bottom = 291.0
+text = "Compare Dice"
+
+[node name="ResetDice" type="Button" parent="."]
+layout_mode = 0
+offset_left = 114.0
+offset_top = 310.0
+offset_right = 254.0
+offset_bottom = 350.0
+text = "Reset Dice"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="ResetDice" to="." method="_on_reset_dice_pressed"]

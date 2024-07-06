@@ -1,0 +1,138 @@
+[gd_scene load_steps=9 format=3 uid="uid://b87c3pcbhtuu2"]
+
+[ext_resource type="Script" path="res://top_down/DiceRolling/dice_tray_roller.gd" id="1_gcedt"]
+[ext_resource type="Script" path="res://top_down/DiceRolling/Attack.gd" id="1_nn4xv"]
+[ext_resource type="PackedScene" uid="uid://cc7impkvi100d" path="res://top_down/DiceRolling/2D_Dice.tscn" id="1_tvrtc"]
+[ext_resource type="Script" path="res://top_down/DiceRolling/Defense.gd" id="2_ms3nb"]
+[ext_resource type="PackedScene" uid="uid://cdtde0x4h4mxh" path="res://top_down/DiceRolling/2D_Dice_Body.tscn" id="5_wsyna"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mmk50"]
+size = Vector2(55, 251.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nbbp2"]
+size = Vector2(20, 254)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yb1by"]
+size = Vector2(415, 20)
+
+[node name="DiceTrayRoller" type="Node2D"]
+script = ExtResource("1_gcedt")
+
+[node name="Attack" type="Area2D" parent="."]
+position = Vector2(413, 168)
+collision_layer = 0
+script = ExtResource("1_nn4xv")
+
+[node name="ColorRect" type="ColorRect" parent="Attack"]
+visible = false
+custom_minimum_size = Vector2(15, 15)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -28.0
+offset_top = -126.0
+offset_right = 28.0
+offset_bottom = 126.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+color = Color(1, 0.219608, 0.231373, 0.627451)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Attack"]
+shape = SubResource("RectangleShape2D_mmk50")
+
+[node name="Defense" type="Area2D" parent="."]
+position = Vector2(283, 169)
+collision_layer = 0
+script = ExtResource("2_ms3nb")
+
+[node name="ColorRect2" type="ColorRect" parent="Defense"]
+visible = false
+custom_minimum_size = Vector2(15, 15)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -28.0
+offset_top = -125.0
+offset_right = 28.0
+offset_bottom = 125.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.219608, 0.270588, 1, 0.584314)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Defense"]
+shape = SubResource("RectangleShape2D_mmk50")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+offset_left = 82.0
+offset_top = 131.0
+offset_right = 456.0
+offset_bottom = 181.0
+mouse_filter = 2
+color = Color(0.603922, 0.45098, 0.329412, 0.533333)
+
+[node name="2D Dice" parent="." instance=ExtResource("1_tvrtc")]
+position = Vector2(350, 126)
+bump_strength = 200.0
+bump_damping = 0.9
+
+[node name="2D Dice2" parent="." instance=ExtResource("1_tvrtc")]
+position = Vector2(350, 184)
+
+[node name="2D Dice3" parent="." instance=ExtResource("1_tvrtc")]
+position = Vector2(332, 105)
+
+[node name="2D Dice4" parent="." instance=ExtResource("1_tvrtc")]
+position = Vector2(336, 144)
+
+[node name="2D Dice5" parent="." instance=ExtResource("1_tvrtc")]
+position = Vector2(360, 161)
+
+[node name="Button" type="Button" parent="."]
+offset_left = 218.0
+offset_top = 183.0
+offset_right = 322.0
+offset_bottom = 214.0
+text = "Roll Dice"
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="LeftAreaCollision" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(244, 167)
+shape = SubResource("RectangleShape2D_nbbp2")
+
+[node name="RightAreaCollision" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(450, 167)
+shape = SubResource("RectangleShape2D_nbbp2")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(269.5, 32)
+shape = SubResource("RectangleShape2D_yb1by")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(269.5, 304)
+shape = SubResource("RectangleShape2D_yb1by")
+
+[node name="2D Dice6" parent="." instance=ExtResource("5_wsyna")]
+position = Vector2(151, -62)
+
+[node name="2D Dice7" parent="." instance=ExtResource("5_wsyna")]
+position = Vector2(170, -62)
+
+[node name="2D Dice8" parent="." instance=ExtResource("5_wsyna")]
+position = Vector2(196, -62)
+
+[node name="2D Dice9" parent="." instance=ExtResource("5_wsyna")]
+position = Vector2(227, -62)
+
+[node name="2D Dice10" parent="." instance=ExtResource("5_wsyna")]
+position = Vector2(247, -62)
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="area_shape_entered" from="Area2D" to="." method="_on_area_2d_area_shape_entered"]

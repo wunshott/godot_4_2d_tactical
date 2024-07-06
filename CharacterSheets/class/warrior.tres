@@ -1,16 +1,26 @@
-[gd_resource type="Resource" script_class="Class" load_steps=2 format=3 uid="uid://ldknhdxp6wxu"]
+[gd_resource type="Resource" script_class="Class" load_steps=4 format=3 uid="uid://ldknhdxp6wxu"]
 
+[ext_resource type="Resource" uid="uid://icpovs0who0i" path="res://top_down/Items/Weapons/shield.tres" id="1_f2rww"]
 [ext_resource type="Script" path="res://CharacterSheets/class/class_template.gd" id="1_wj2vr"]
+[ext_resource type="Resource" uid="uid://danrkv4wfq7ut" path="res://top_down/Items/Weapons/wooden_sword.tres" id="2_1uaci"]
 
 [resource]
 script = ExtResource("1_wj2vr")
 class_title = "warrior"
+VITALITY = 8
+COORDINATION = 6
+ELOQUENCE = 5
+INTUITION = 6
+BRILLIANCE = 3
+EMPATHY = 5
 right_arm_dice = Array[int]([3, 6])
-right_weapon = Array[int]([8])
+right_weapon = Array[int]([])
 equipped_right_arm_armor_dice = Array[int]([5])
+equipped_right_arm_weapon = ExtResource("2_1uaci")
 left_arm_dice = Array[int]([3, 6])
 left_weapon = Array[int]([3, 3])
 equipped_left_arm_armor_dice = Array[int]([5])
+equipped_left_arm_weapon = ExtResource("1_f2rww")
 right_leg_dice = Array[int]([5, 5])
 right_leg_armor_dice = Array[int]([5])
 left_leg_dice = Array[int]([5, 5])
@@ -19,3 +29,5 @@ torso_dice = Array[int]([5, 6, 6])
 equipped_torso_armor_dice = Array[int]([4, 5, 7])
 head_dice = Array[int]([2, 3, 3])
 equipped_helmet_dice = Array[int]([4, 5, 5])
+encumbrance = 6
+name = "Warrior"

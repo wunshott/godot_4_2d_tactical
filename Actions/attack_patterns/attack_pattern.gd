@@ -2,7 +2,7 @@ extends Node2D
 
 class_name AttackPattern
 
-@onready var attack_area = $AttackArea
+@onready var attack_area = $AttackArea as Area2D
 @export var up_rotation: float = 270
 @export var right_rotation: float = 0
 @export var down_rotation: float = 90
@@ -13,6 +13,7 @@ var attack_pattern_visibility_bool: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	attack_area.monitoring = false
 	pass # Replace with function body.
 
 
@@ -29,7 +30,8 @@ func _input(event):
 func toggle_attack_area() -> void: #ensure the vats menu pops up with the attack reticle covers the target
 	attack_pattern_visibility_bool = not attack_pattern_visibility_bool
 	self.set_visible(attack_pattern_visibility_bool)
-	attack_area.set_collision_layer_value(4,attack_pattern_visibility_bool)
+	attack_area.monitoring = attack_pattern_visibility_bool
+	#attack_area.set_collision_layer_value(4,attack_pattern_visibility_bool)
 
 func _on_area_up_mouse_entered():
 	var tween = create_tween() #TODO play with animation over tweening this. # put the tweens in a sep funcction
@@ -64,4 +66,7 @@ func _on_area_left_mouse_entered():
 	var tween = create_tween() 
 	#tween.tween_property(attack_area, "rotation",left_rotation,.1)
 	tween.tween_method(attack_area.set_rotation_degrees, attack_area.get_rotation_degrees() ,left_rotation,.1)
+
+
+
 

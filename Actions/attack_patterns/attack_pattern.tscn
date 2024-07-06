@@ -15,7 +15,6 @@ atlas = ExtResource("2_7bxhr")
 region = Rect2(496, 16, 16, 16)
 
 [node name="AttackPattern" type="Node2D"]
-visible = false
 script = ExtResource("1_fi5nv")
 
 [node name="AreaUp" type="Area2D" parent="."]

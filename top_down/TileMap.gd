@@ -54,8 +54,6 @@ func generated_astar_grid() -> void: #sends the astargrid once its done
 func _init_astar(): #initializes the astar grid
 	astar_grid = AStarGrid2D.new()
 	astar_grid.region = self.get_used_rect() #gets used tiles	
-	
-	
 	astar_grid.cell_size = Vector2(16, 16)
 	astar_grid.diagonal_mode = AStarGrid2D.DIAGONAL_MODE_NEVER
 	astar_grid.update()

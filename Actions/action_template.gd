@@ -56,10 +56,8 @@ func _ready():
 	pass # Replace with function body.
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
 
-func _damage(Target: Node, damage_type: String, damage_amount: int) -> void: # TODO fix to hit limb
-	Target.take_damage(damage_type,damage_amount)
+
+func _damage(Target: Node, damage_type_input: String, damage_amount: int) -> void: # TODO fix to hit limb
+	Target.take_damage(damage_type_input,damage_amount)
 	

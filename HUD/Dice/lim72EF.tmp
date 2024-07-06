@@ -1,0 +1,343 @@
+[gd_scene load_steps=12 format=3 uid="uid://bw0moawstyhcf"]
+
+[ext_resource type="Theme" uid="uid://dy51vb6uy42fp" path="res://Themes/HUD_THEME_1.tres" id="1_5mfw6"]
+[ext_resource type="Script" path="res://HUD/Dice/limb_dice_roller.gd" id="1_jy3dh"]
+[ext_resource type="Resource" uid="uid://ldknhdxp6wxu" path="res://CharacterSheets/class/warrior.tres" id="3_0p1jf"]
+[ext_resource type="PackedScene" uid="uid://1vpb1blidek1" path="res://HUD/Meters/test_hp_dt_bar.tscn" id="3_6tvux"]
+[ext_resource type="Resource" uid="uid://bigp0rsmwiix5" path="res://CharacterSheets/class/rogue.tres" id="3_hg0ts"]
+[ext_resource type="Script" path="res://HUD/Dice/AttackDice.gd" id="3_ndoc4"]
+[ext_resource type="Script" path="res://HUD/Dice/Player.gd" id="4_vdghv"]
+[ext_resource type="Script" path="res://HUD/Dice/ArmDice.gd" id="6_km6df"]
+[ext_resource type="Script" path="res://HUD/Dice/DefenseDice.gd" id="6_oru2m"]
+[ext_resource type="Script" path="res://HUD/Dice/WeaponDice.gd" id="6_xvid4"]
+[ext_resource type="Script" path="res://HUD/Dice/StaminaDice.gd" id="10_gtuv8"]
+
+[node name="LimbDiceRoller" type="Control" node_paths=PackedStringArray("enemy", "player")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -54.0
+offset_top = -1.0
+offset_right = -54.0
+offset_bottom = 6.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_5mfw6")
+script = ExtResource("1_jy3dh")
+enemy = NodePath("Enemy")
+player = NodePath("Player")
+
+[node name="Player" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 67.0
+offset_top = 9.0
+offset_right = 483.0
+offset_bottom = 233.0
+alignment = 1
+script = ExtResource("4_vdghv")
+combatant_class = ExtResource("3_hg0ts")
+typed_dice_array = Array[int]([3, 4, 5, 9])
+
+[node name="Label" type="Label" parent="Player"]
+layout_mode = 2
+text = "Player"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Player"]
+layout_mode = 2
+
+[node name="RollDice" type="Button" parent="Player/VBoxContainer"]
+layout_mode = 2
+text = "Roll Dice"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Player/VBoxContainer"]
+layout_mode = 2
+
+[node name="test_hp_dt_bar" parent="Player/VBoxContainer/HBoxContainer" instance=ExtResource("3_6tvux")]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="DTLabel" type="Label" parent="Player/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "DT: "
+
+[node name="HPLabel" type="Label" parent="Player/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "HP:"
+
+[node name="DodgeLabel" type="Label" parent="Player/VBoxContainer"]
+layout_mode = 2
+text = "Dodge:"
+
+[node name="Label2" type="Label" parent="Player/VBoxContainer"]
+layout_mode = 2
+text = "Arm Dice"
+horizontal_alignment = 1
+
+[node name="ArmDice" type="PanelContainer" parent="Player/VBoxContainer"]
+layout_mode = 2
+script = ExtResource("6_km6df")
+
+[node name="ArmDicePool" type="HBoxContainer" parent="Player/VBoxContainer/ArmDice"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Player/VBoxContainer"]
+layout_mode = 2
+text = "Stamina Dice"
+horizontal_alignment = 1
+
+[node name="StaminaDice" type="PanelContainer" parent="Player/VBoxContainer"]
+layout_mode = 2
+script = ExtResource("10_gtuv8")
+
+[node name="StaminaDicePool" type="HBoxContainer" parent="Player/VBoxContainer/StaminaDice"]
+layout_mode = 2
+alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Player/VBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Player/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+
+[node name="Label3" type="Label" parent="Player/VBoxContainer/HBoxContainer2/VBoxContainer"]
+layout_mode = 2
+text = "Left Wep Dice"
+horizontal_alignment = 1
+
+[node name="LeftWeaponDice" type="PanelContainer" parent="Player/VBoxContainer/HBoxContainer2/VBoxContainer"]
+layout_mode = 2
+script = ExtResource("6_xvid4")
+
+[node name="WeaponDicePool" type="HBoxContainer" parent="Player/VBoxContainer/HBoxContainer2/VBoxContainer/LeftWeaponDice"]
+layout_mode = 2
+alignment = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Player/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+
+[node name="Label3" type="Label" parent="Player/VBoxContainer/HBoxContainer2/VBoxContainer2"]
+layout_mode = 2
+text = "Right Wep Dice"
+horizontal_alignment = 1
+
+[node name="RightWeaponDice" type="PanelContainer" parent="Player/VBoxContainer/HBoxContainer2/VBoxContainer2"]
+layout_mode = 2
+script = ExtResource("6_xvid4")
+
+[node name="WeaponDicePool" type="HBoxContainer" parent="Player/VBoxContainer/HBoxContainer2/VBoxContainer2/RightWeaponDice"]
+layout_mode = 2
+alignment = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Player"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Player/VBoxContainer2"]
+layout_mode = 2
+text = "A"
+horizontal_alignment = 1
+
+[node name="AttackDicePool" type="PanelContainer" parent="Player/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("3_ndoc4")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Player/VBoxContainer2/AttackDicePool"]
+layout_mode = 2
+
+[node name="VSeparator" type="VSeparator" parent="Player"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="Player"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Player/VBoxContainer3"]
+layout_mode = 2
+text = "D"
+horizontal_alignment = 1
+
+[node name="DefenseDice" type="PanelContainer" parent="Player/VBoxContainer3"]
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("6_oru2m")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Player/VBoxContainer3/DefenseDice"]
+layout_mode = 2
+
+[node name="VSeparator2" type="VSeparator" parent="Player"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="LimbSelector" type="OptionButton" parent="Player"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Enemy" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 696.0
+offset_top = 6.0
+offset_right = 1180.0
+offset_bottom = 258.0
+alignment = 1
+script = ExtResource("4_vdghv")
+combatant_class = ExtResource("3_0p1jf")
+typed_dice_array = Array[int]([12, 3, 4, 2])
+
+[node name="LimbSelector" type="OptionButton" parent="Enemy"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Enemy"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Enemy/VBoxContainer2"]
+layout_mode = 2
+text = "A"
+horizontal_alignment = 1
+
+[node name="AttackDicePool" type="PanelContainer" parent="Enemy/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("3_ndoc4")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Enemy/VBoxContainer2/AttackDicePool"]
+layout_mode = 2
+
+[node name="VSeparator4" type="VSeparator" parent="Enemy"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="Enemy"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Enemy/VBoxContainer3"]
+layout_mode = 2
+text = "D"
+horizontal_alignment = 1
+
+[node name="DefenseDice" type="PanelContainer" parent="Enemy/VBoxContainer3"]
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("6_oru2m")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Enemy/VBoxContainer3/DefenseDice"]
+layout_mode = 2
+
+[node name="VSeparator3" type="VSeparator" parent="Enemy"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Enemy"]
+layout_mode = 2
+
+[node name="RollDice" type="Button" parent="Enemy/VBoxContainer"]
+layout_mode = 2
+text = "Roll Dice"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Enemy/VBoxContainer"]
+layout_mode = 2
+
+[node name="test_hp_dt_bar" parent="Enemy/VBoxContainer/HBoxContainer" instance=ExtResource("3_6tvux")]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="DTLabel" type="Label" parent="Enemy/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "DT: "
+
+[node name="HPLabel" type="Label" parent="Enemy/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "HP:"
+
+[node name="DodgeLabel" type="Label" parent="Enemy/VBoxContainer"]
+layout_mode = 2
+text = "Dodge:"
+
+[node name="Label2" type="Label" parent="Enemy/VBoxContainer"]
+layout_mode = 2
+text = "Arm Dice"
+horizontal_alignment = 1
+
+[node name="ArmDice" type="PanelContainer" parent="Enemy/VBoxContainer"]
+layout_mode = 2
+script = ExtResource("6_km6df")
+
+[node name="ArmDicePool" type="HBoxContainer" parent="Enemy/VBoxContainer/ArmDice"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Enemy/VBoxContainer"]
+layout_mode = 2
+text = "Stamina Dice"
+horizontal_alignment = 1
+
+[node name="StaminaDice" type="PanelContainer" parent="Enemy/VBoxContainer"]
+layout_mode = 2
+script = ExtResource("10_gtuv8")
+
+[node name="StaminaDicePool" type="HBoxContainer" parent="Enemy/VBoxContainer/StaminaDice"]
+layout_mode = 2
+alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Enemy/VBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Enemy/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+
+[node name="Label3" type="Label" parent="Enemy/VBoxContainer/HBoxContainer2/VBoxContainer"]
+layout_mode = 2
+text = "Left Wep Dice"
+horizontal_alignment = 1
+
+[node name="LeftWeaponDice" type="PanelContainer" parent="Enemy/VBoxContainer/HBoxContainer2/VBoxContainer"]
+layout_mode = 2
+script = ExtResource("6_xvid4")
+
+[node name="WeaponDicePool" type="HBoxContainer" parent="Enemy/VBoxContainer/HBoxContainer2/VBoxContainer/LeftWeaponDice"]
+layout_mode = 2
+alignment = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Enemy/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+
+[node name="Label3" type="Label" parent="Enemy/VBoxContainer/HBoxContainer2/VBoxContainer2"]
+layout_mode = 2
+text = "Right Wep Dice"
+horizontal_alignment = 1
+
+[node name="RightWeaponDice" type="PanelContainer" parent="Enemy/VBoxContainer/HBoxContainer2/VBoxContainer2"]
+layout_mode = 2
+script = ExtResource("6_xvid4")
+
+[node name="WeaponDicePool" type="HBoxContainer" parent="Enemy/VBoxContainer/HBoxContainer2/VBoxContainer2/RightWeaponDice"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label3" type="Label" parent="Enemy"]
+layout_mode = 2
+text = "Enemy
+"
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 540.0
+offset_top = 302.0
+offset_right = 716.0
+offset_bottom = 342.0
+text = "Compare Dice"
+
+[node name="ResetDice" type="Button" parent="."]
+layout_mode = 0
+offset_left = 555.0
+offset_top = 360.0
+offset_right = 695.0
+offset_bottom = 400.0
+text = "Reset Dice"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="ResetDice" to="." method="_on_reset_dice_pressed"]

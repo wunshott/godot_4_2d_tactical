@@ -3,21 +3,53 @@ extends Resource
 class_name Class
 
 signal HP_changed
+signal DT_changed
+#signal player_died
+signal Dodge_changed
 signal limb_hp_changed
 signal limb_dead
 
 #TODO if the limb has no hp, deal double damage to top HP?
 @export var class_title: String
+## Stats
+@export var VITALITY: int #BODYBUILDER
+@export var COORDINATION: int #BALLERINA
+@export var ELOQUENCE: int  #POLITICIAN
+@export var INTUITION: int #LIBRARIAN/SAVANT
+@export var BRILLIANCE: int #SOCIOPATH
+@export var EMPATHY: int #GURU
+
+# if limb hp changes,
+# change hp
+var max_HP: int:  get = get_max_HP #, set = set_max_HP,
+var HP: int :get = get_HP #,set = set_HP #TODO remove the set/get if hp still has issues changing
+
+
+## Derived Features: Dodge,
+var dodge_dice: int: set = set_dodge_dice, get = get_dodge_dice
+var dodge: int: get = get_dodge
+
+var stamina_dice: int: set = set_stamina_dice, get = get_stamina_dice
+var stamina: int: get = get_stamina
+var DT: int:  get = get_DT#, set = set_DT,
+var hard_DT: int: set = set_hard_DT, get = get_hard_DT
+var soft_DT: int: set = set_soft_DT, get = get_soft_DT
+
+## Derived Stats/Skill
+
+
 
 ## Arms
 @export var right_arm_dice: Array[int] 
 @export var right_weapon: Array[int]
 @export var equipped_right_arm_armor_dice: Array[int] 
+@export var equipped_right_arm_weapon: Weapon
+
 
 @export var left_arm_dice: Array[int]
 @export var left_weapon: Array[int]
 @export var equipped_left_arm_armor_dice: Array[int] 
-
+@export var equipped_left_arm_weapon: Weapon
 
 ## Legs
 @export var right_leg_dice: Array[int]
@@ -37,6 +69,9 @@ signal limb_dead
 @export var equipped_helmet_dice: Array[int]
 #hitting this deals bonus HP damage?
 
+@export var encumbrance: int # TODO add encumbeance to armor
+@export var name: String
+
 var limb_dictionary: Dictionary = { #sets the current hp, changing these won't change the original values?
 	"head":head_dice,
 	"torso":torso_dice,
@@ -45,6 +80,7 @@ var limb_dictionary: Dictionary = { #sets the current hp, changing these won't c
 	"right_leg": right_leg_dice,
 	"left_leg": left_leg_dice,
 }
+
 
 var equipped_armor_dictionary: Dictionary = { #sets the current hp, changing these won't change the original values?
 	"head": equipped_helmet_dice,
@@ -55,22 +91,21 @@ var equipped_armor_dictionary: Dictionary = { #sets the current hp, changing the
 	"left_leg": left_leg_armor_dice,
 }
 
+
 #grab max hp
 # = limb hp
 
-# if limb hp changes,
-# change hp
-var max_HP: int:  get = get_max_HP #, set = set_max_HP,
-var HP: int :get = get_HP #,set = set_HP #TODO remove the set/get if hp still has issues changing
 
 func set_HP() -> void: #TODO troubleshoot by asking for an input: input_limb_dict: Dictionary
 	#print(get_HP())
+	
 	var temp_hp_count:int = 0 
 	#print(limb_dictionary)
 	for limb_name in limb_dictionary.keys(): # each limb will call this function to change the HP
 		temp_hp_count += get_limb_hp_from_dice(limb_dictionary[limb_name]) #first element is the curent hp, 2nd is the max
 	HP = clamp(temp_hp_count,0,999)
 	HP_changed.emit(HP)
+
 	#print(get_HP())
 	#print("stop")
 	
@@ -101,13 +136,15 @@ func get_limb_hp_from_dice(limb_array: Array) -> int:
 		hp_from_limb += dice
 	return hp_from_limb
 
+
+
 func set_max_HP() -> void:
 	#var placeholder_max_HP: int = VITALITY*3
 	
-	var temp_max_HP_count: int
+	var temp_max_HP_count: int = 0
 	for limb_name in limb_dictionary.keys(): # each limb will call this function to change the HP
 		temp_max_HP_count += get_limb_hp_from_dice(limb_dictionary[limb_name])
-	max_HP = clamp(temp_max_HP_count,0,temp_max_HP_count) #TODO should this be a function of limb max hp?
+	max_HP = clamp(temp_max_HP_count,0,temp_max_HP_count) 
 	#max_HP_changed.emit(max_HP)
 
 func get_max_HP() -> int:
@@ -119,6 +156,78 @@ func get_limb_hp(limb: String) -> Variant:
 	else:
 		print("limb/key not found in dictionary: ", limb)
 		return null
+
+func set_dodge_dice(value: int) -> void:
+	dodge_dice = clampi((value - encumbrance)*2,0,9999) #cap ddoge?
+
+func get_dodge_dice() -> int:
+	return dodge_dice
+
+
+func set_dodge() -> void: #	set_dodge() #TODO need to update limb derived values from taking damage
+	#dicecurrent_leg_hp/max_leg_hp #get_limb_hp("left_leg") + get_limb_hp("right_leg") )
+	
+	var test2 = get_limb_hp_from_dice(limb_dictionary["left_leg"]) 
+	var test3 = get_limb_hp_from_dice(limb_dictionary["right_leg"])
+	var test4 = get_limb_hp_from_dice(right_leg_dice)
+	var test5 = get_limb_hp_from_dice(left_leg_dice)
+	var test : float = (float(test2 + test3)/float(test4 + test5))
+	dodge = floori(test*get_dodge_dice())
+	#print(test2)
+	#print(test)
+	Dodge_changed.emit()
+
+func get_dodge() -> int:
+	return dodge
+#split into hard and soft DT
+#DT = hard DT + soft DT
+#hard DT = running value of DT increases applied to you
+#soft DT = how stamina affects DT
+#set_DT() runs after either of the above are updated
+
+
+func set_DT():
+	DT = clamp((get_hard_DT() + get_soft_DT()),0,get_max_HP())  #+ 40% of max stamina #MAX DT should be equal to max HP
+	DT_changed.emit(DT)
+	#if DT >= get_HP():
+		#player_died.emit()
+
+func get_DT() -> int:
+	return DT
+
+func set_hard_DT(value: int) -> void:
+	hard_DT += value # increase hardDT
+
+func get_hard_DT() -> int:
+	return hard_DT
+	
+func set_soft_DT(value: int) -> void:
+	soft_DT = value
+
+func get_soft_DT() -> int:
+	return soft_DT
+
+
+func set_stamina_dice(value: int) -> void:
+	stamina_dice = clampi(value,0,9999)
+
+func get_stamina_dice() -> int:
+	return stamina_dice
+
+func set_stamina() -> void:
+	var test = get_limb_hp_from_dice(limb_dictionary["torso"])
+	var test2 = get_limb_hp_from_dice(torso_dice)
+	var test3: float = ( float(test)/float(test2))
+	stamina = floori(test3 * get_stamina_dice())
+	var soft_DT_input:int  = get_max_HP() * .4 - get_stamina()
+	set_soft_DT(soft_DT_input)
+	set_DT()
+
+	
+func get_stamina() -> int:
+	return stamina
+#var stamina_dice: int = set set_stamina_dice, get = get_stamina_dice
+#var stamina: int: get = get_stamina
 
 func swap_elements_in_array(array: Array) -> void:
 	for element in array:
@@ -208,7 +317,7 @@ func take_damage_type_1(limb_dice_array: Array, damage: int) -> void:
 		
 	#elif limb_dice_array[0] == 0: #remove the first element
 		#limb_dice_array.pop_front()
-	var limb_dice_array_copy: Array
+	var limb_dice_array_copy: Array = []
 	var temp_damage_counter: int = 0
 	limb_dice_array_copy.append_array(limb_dice_array)
 	

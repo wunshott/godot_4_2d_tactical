@@ -22,11 +22,12 @@ const EXERTION_ALLOWED_PATH_TILE = preload("res://top_down/exertion_allowed_path
 
 @onready var map = $"../TileMap" # get this information from a signal. once the sprite spawns in.
 @onready var stats: Stats = $Stats
-@onready var attack_pattern = $AttackPattern
+@onready var attack_pattern = $AttackPattern as AttackPattern
 @onready var inventory = $Inventory
 @onready var character_body_2 = $"../CanvasLayer/CharacterSheet/TabBar/TabContainer/Stats/MarginContainer/VBoxContainer/HBoxContainer2/CharacterBody2"
-@onready var inventory_ui = $"../CanvasLayer/CharacterSheet/TabBar/TabContainer/Stats/MarginContainer/VBoxContainer/HBoxContainer2/VboxContainer/InventoryUI"
+@onready var test_battle = $".."
 
+@onready var camera_2d = $Camera2D
 
 
 #TODO separate AC and dodge
@@ -61,9 +62,12 @@ func _process(delta):
 
 
 
-func _input(event):
+func _unhandled_input(event):
 	
 	if event.is_action_pressed("left_click") == false:
+		return
+	
+	if test_battle.is_dice_menu_open:
 		return
 
 	var id_path
@@ -73,13 +77,13 @@ func _input(event):
 		
 		id_path = astar_grid.get_id_path(# makes path from curent spot to clicked spot
 			map.local_to_map(target_position), # gets the player's location
-			map.local_to_map(event.position)).slice(1) #ignores the first element
+			map.local_to_map(get_global_mouse_position())).slice(1) #ignores the first element
 		
 	else:# if not moving, current position is starting position
 		
 		id_path = astar_grid.get_id_path(# makes path from curent spot to clicked spot
 			map.local_to_map(global_position), # gets the player's location
-			map.local_to_map(event.position)).slice(1) #ignores the first element
+			map.local_to_map(get_global_mouse_position())).slice(1) #ignores the first element
 
 	if id_path.is_empty() == false: #if the path is not empty, set the current path to the id path
 		
@@ -88,22 +92,41 @@ func _input(event):
 		current_id_path = id_path
 		current_point_path = astar_grid.get_point_path(
 			map.local_to_map(target_position),
-			map.local_to_map(event.position)
+			map.local_to_map(get_global_mouse_position())
 		)
+		
 		for i in current_point_path.size():
 			current_point_path[i] = current_point_path[i] + Vector2(8,8) #offsets the line drawn to be centered on the grid
 		
 		send_path.emit(current_point_path)
 	#add WASD movement
 	# add ray for collision
-	# add mouse effects when hovering tiles/clicking
 	# add ui
-	# add resoruce file for character
-		
+
 func _physics_process(delta):
-	_move_token(delta)
+	_move_token_no_combat(delta)
 	
 	
+
+func _move_token_no_combat(delta) -> void:
+	if current_id_path.is_empty(): # if there is target position, stop moving
+		return
+	
+	if is_moving == false:
+		target_position = map.map_to_local(current_id_path.front()) #sets the destination = first element in thearray
+		is_moving = true # set moving to be true
+	
+	global_position = global_position.move_toward(target_position,pixels_per_frame) #moves token to the target
+	
+	if global_position == target_position: #if you've arrived at the target location
+		current_id_path.pop_front() # removes the first item of the array
+		
+		if current_id_path.is_empty() == false: #if you still have movement, allow more movement
+			target_position = map.map_to_local(current_id_path.front())
+		else:
+			is_moving = false
+			player_position.emit(global_position)
+			#print("your current coordinate is ", map.local_to_map(self.position))
 
 func _move_token(delta):
 	if current_id_path.is_empty(): # if there is target position, stop moving
@@ -124,7 +147,7 @@ func _move_token(delta):
 		target_position = map.map_to_local(current_id_path.front()) # gets the first element in the array
 		is_moving = true # set moving to be true
 	
-	#if you want to move and have no stamina CHANGE
+	#if you want to move and have no stamina
 	elif  is_moving == false and stats._get_movement_pool() < current_id_path.size():
 		print("you can't move anymore this turn, add a tween to the sprite for feedback")
 		current_id_path.clear()

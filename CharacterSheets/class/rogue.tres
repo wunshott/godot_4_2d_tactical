@@ -1,21 +1,32 @@
-[gd_resource type="Resource" script_class="Class" load_steps=2 format=3 uid="uid://bigp0rsmwiix5"]
+[gd_resource type="Resource" script_class="Class" load_steps=3 format=3 uid="uid://bigp0rsmwiix5"]
 
+[ext_resource type="Resource" uid="uid://bchl0as1x3qnx" path="res://top_down/Items/Weapons/dagger.tres" id="1_hqhx7"]
 [ext_resource type="Script" path="res://CharacterSheets/class/class_template.gd" id="1_j8d3y"]
 
 [resource]
 script = ExtResource("1_j8d3y")
 class_title = "rogue"
+VITALITY = 4
+COORDINATION = 9
+ELOQUENCE = 4
+INTUITION = 7
+BRILLIANCE = 4
+EMPATHY = 3
 right_arm_dice = Array[int]([3, 3, 2])
 right_weapon = Array[int]([3, 3])
 equipped_right_arm_armor_dice = Array[int]([2, 2])
+equipped_right_arm_weapon = ExtResource("1_hqhx7")
 left_arm_dice = Array[int]([3, 3, 2])
 left_weapon = Array[int]([3, 3])
 equipped_left_arm_armor_dice = Array[int]([2, 2])
+equipped_left_arm_weapon = ExtResource("1_hqhx7")
 right_leg_dice = Array[int]([3, 4, 5])
 right_leg_armor_dice = Array[int]([2, 2])
 left_leg_dice = Array[int]([3, 4, 5])
 left_leg_armor_dice = Array[int]([2, 2])
-torso_dice = Array[int]([3, 3, 3, 3, 3])
-equipped_torso_armor_dice = Array[int]([0, 0, 0, 0])
+torso_dice = Array[int]([3, 3, 3])
+equipped_torso_armor_dice = Array[int]([4])
 head_dice = Array[int]([3, 3, 4])
 equipped_helmet_dice = Array[int]([])
+encumbrance = 3
+name = "Rogue"

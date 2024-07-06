@@ -1,0 +1,2794 @@
+[gd_scene load_steps=110 format=3 uid="uid://501orb1o44qx"]
+
+[ext_resource type="Script" path="res://top_down/test_battle.gd" id="1_fuk3s"]
+[ext_resource type="PackedScene" uid="uid://tmbmwi8jtwcf" path="res://top_down/Maps/tile_map.tscn" id="1_gwexx"]
+[ext_resource type="PackedScene" uid="uid://daupiatx27twp" path="res://top_down/player.tscn" id="2_qjml6"]
+[ext_resource type="Theme" uid="uid://dy51vb6uy42fp" path="res://Themes/HUD_THEME_1.tres" id="2_vh6aj"]
+[ext_resource type="Script" path="res://top_down/Control.gd" id="3_tv6x8"]
+[ext_resource type="Texture2D" uid="uid://dcdiqlu5lrjp8" path="res://assets/kenney_fantasy-ui-borders/PNG/Default/Border/panel-border-031.png" id="4_atrer"]
+[ext_resource type="Texture2D" uid="uid://8tnsqjckw48l" path="res://assets/UI Borders/kenney_ui-pack-rpg-expansion/PNG/panel_brown.png" id="4_iey3q"]
+[ext_resource type="Script" path="res://top_down/Path.gd" id="4_lw8f8"]
+[ext_resource type="Texture2D" uid="uid://dvckrkp7pytci" path="res://assets/kenney_1-bit-pack/Tilesheet/colored-transparent_packed.png" id="5_34yq2"]
+[ext_resource type="Texture2D" uid="uid://trqahhg1f8pm" path="res://assets/Pixel Bodies/skull.png" id="6_fptun"]
+[ext_resource type="Script" path="res://top_down/Movement_Reticle.gd" id="6_x88yu"]
+[ext_resource type="Texture2D" uid="uid://rf2g2lfjfjq2" path="res://assets/UI Borders/kenney_ui-pack-rpg-expansion/PNG/buttonRound_grey.png" id="7_8ys1v"]
+[ext_resource type="Texture2D" uid="uid://c4cmrn4cvj751" path="res://assets/UX_UI_Assets_Pack/Edits/Pellets_4_full.png" id="7_q65sq"]
+[ext_resource type="Texture2D" uid="uid://cjg2mhnm8dv8q" path="res://assets/customs/colored-transparent_packed.png" id="7_uf8sx"]
+[ext_resource type="Texture2D" uid="uid://br6hy3nj3mh03" path="res://assets/UX_UI_Assets_Pack/Edits/Pellets_3_full.png" id="8_2c0o7"]
+[ext_resource type="Texture2D" uid="uid://cx825a38ng63u" path="res://assets/Pixel Bodies/Pixel_Full_Body.png" id="8_mblte"]
+[ext_resource type="Texture2D" uid="uid://dw67wwi7xf8f6" path="res://assets/UX_UI_Assets_Pack/Edits/Solid_bg.png" id="8_trp8h"]
+[ext_resource type="Texture2D" uid="uid://dweyhnmmw6a48" path="res://assets/UX_UI_Assets_Pack/Edits/Solid_f.png" id="9_3wkoq"]
+[ext_resource type="Texture2D" uid="uid://bh43m587wbcyk" path="res://assets/kenney_pixel-ui-pack/9-Slice/Ancient/tan.png" id="9_hd4sn"]
+[ext_resource type="PackedScene" uid="uid://b12s52c4gkkag" path="res://top_down/Enemy/enemy.tscn" id="9_peilq"]
+[ext_resource type="Texture2D" uid="uid://d3i05k6rf3rmu" path="res://assets/UX_UI_Assets_Pack/Edits/Solid_inv_f.png" id="10_0rind"]
+[ext_resource type="Texture2D" uid="uid://1edp0glbux5u" path="res://assets/customs/tile_map_singles/book.tres" id="10_bawbn"]
+[ext_resource type="Texture2D" uid="uid://hv3e1knwkgnf" path="res://assets/numbers/numbers.png" id="11_ajdbd"]
+[ext_resource type="Texture2D" uid="uid://c33l7w8ot6nf7" path="res://assets/test_dice/dicce.png" id="11_gu4bm"]
+[ext_resource type="Texture2D" uid="uid://b4evcq4ddkegl" path="res://assets/kenney_pixel-ui-pack/9-Slice/Ancient/tan_pressed.png" id="11_i3omy"]
+[ext_resource type="Texture2D" uid="uid://d3dctx1ndvrpc" path="res://assets/kenney_pixel-ui-pack/9-Slice/Ancient/tan_inlay.png" id="12_k723t"]
+[ext_resource type="Texture2D" uid="uid://i83lydytlnrv" path="res://assets/Pixel Bodies/Man_Front_Base.png" id="12_rmud3"]
+[ext_resource type="Texture2D" uid="uid://b24hkpmj1lenp" path="res://assets/Medieval_Fantasy_Assets_Pack/Dagger.png" id="13_23huo"]
+[ext_resource type="Texture2D" uid="uid://78uktlyfgp5a" path="res://assets/UI Borders/kenney_ui-pack-rpg-expansion/PNG/iconCircle_brown.png" id="13_lyckt"]
+[ext_resource type="Texture2D" uid="uid://dqgxvyhiytyms" path="res://assets/UI Borders/kenney_ui-pack-rpg-expansion/PNG/buttonRound_grey_half1.png" id="13_v1qy2"]
+[ext_resource type="Texture2D" uid="uid://mrtjc4j5m4lx" path="res://assets/UI Borders/kenney_ui-pack-rpg-expansion/PNG/buttonRound_grey_half.png" id="14_mu2vb"]
+[ext_resource type="Script" path="res://top_down/stat_button.gd" id="15_tpdys"]
+[ext_resource type="PackedScene" uid="uid://1vpb1blidek1" path="res://HUD/Meters/test_hp_dt_bar.tscn" id="16_7ahrn"]
+[ext_resource type="Texture2D" uid="uid://i3q7bp80vtht" path="res://assets/kenney_pixel-ui-pack/9-Slice/Ancient/brown_pressed.png" id="16_64ukr"]
+[ext_resource type="Texture2D" uid="uid://djiwuji4l4u6a" path="res://assets/customs/tile_map_singles/GoldNecklace.tres" id="17_l1nqr"]
+[ext_resource type="Texture2D" uid="uid://cxhukshhb7kp8" path="res://assets/customs/tile_map_singles/IronBoots.tres" id="17_vdpfc"]
+[ext_resource type="Texture2D" uid="uid://db0fc4d2duu6p" path="res://assets/customs/tile_map_singles/belt.tres" id="18_cnhw7"]
+[ext_resource type="Texture2D" uid="uid://b8xlcc4proib7" path="res://assets/UI Borders/customs/Stamina_Bar.png" id="18_n5pwq"]
+[ext_resource type="Texture2D" uid="uid://bm752cwqmpx77" path="res://assets/UI Borders/customs/Stamina_Bar_Filled.png" id="19_p85i7"]
+[ext_resource type="PackedScene" uid="uid://butfrx2xg7e7n" path="res://HUD/character_body_test.tscn" id="20_fpkj1"]
+[ext_resource type="PackedScene" uid="uid://dorxqcjuxk1oe" path="res://HUD/character_body.tscn" id="21_1ai6x"]
+[ext_resource type="Texture2D" uid="uid://djxf1jpnf1iw" path="res://assets/customs/Inventory.png" id="22_4frl6"]
+[ext_resource type="PackedScene" uid="uid://debxmr1y8tltr" path="res://HUD/Inventory/inventory_ui.tscn" id="23_ppqip"]
+[ext_resource type="PackedScene" uid="uid://b87c3pcbhtuu2" path="res://top_down/DiceRolling/dice_tray_roller.tscn" id="43_7keyu"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2w1m5"]
+texture = ExtResource("4_iey3q")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4o2v6"]
+atlas = ExtResource("7_uf8sx")
+region = Rect2(768, 272, 16, 16)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hgjef"]
+texture = SubResource("AtlasTexture_4o2v6")
+texture_margin_left = 6.0
+texture_margin_top = 6.0
+texture_margin_right = 6.0
+texture_margin_bottom = 6.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_05j37"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_37ol4"]
+atlas = ExtResource("7_uf8sx")
+region = Rect2(640, 208, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eecgd"]
+atlas = ExtResource("7_uf8sx")
+region = Rect2(768, 224, 16, 16)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1i3wr"]
+texture = SubResource("AtlasTexture_eecgd")
+texture_margin_left = 6.0
+texture_margin_top = 6.0
+texture_margin_right = 6.0
+texture_margin_bottom = 6.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lmrbw"]
+atlas = ExtResource("7_uf8sx")
+region = Rect2(768, 224, 16, 16)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qthcf"]
+texture = SubResource("AtlasTexture_lmrbw")
+texture_margin_left = 6.0
+texture_margin_top = 6.0
+texture_margin_right = 6.0
+texture_margin_bottom = 6.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4wyo3"]
+atlas = ExtResource("7_uf8sx")
+region = Rect2(768, 320, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oy2ae"]
+atlas = ExtResource("7_uf8sx")
+region = Rect2(784, 64, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k36jt"]
+atlas = ExtResource("7_uf8sx")
+region = Rect2(512, 208, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lhwal"]
+atlas = ExtResource("7_uf8sx")
+region = Rect2(720, 112, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uf0th"]
+atlas = ExtResource("7_uf8sx")
+region = Rect2(512, 256, 16, 16)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_eksba"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3u2i2"]
+texture = ExtResource("9_hd4sn")
+texture_margin_left = 2.0
+texture_margin_top = 3.0
+texture_margin_right = 2.0
+texture_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_503fc"]
+texture = ExtResource("11_i3omy")
+texture_margin_left = 2.0
+texture_margin_top = 3.0
+texture_margin_right = 2.0
+texture_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ebncv"]
+texture = ExtResource("12_k723t")
+texture_margin_left = 2.0
+texture_margin_top = 3.0
+texture_margin_right = 2.0
+texture_margin_bottom = 4.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v1s4w"]
+atlas = ExtResource("7_uf8sx")
+region = Rect2(512, 240, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rmek6"]
+atlas = ExtResource("7_uf8sx")
+region = Rect2(400, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p03q7"]
+atlas = ExtResource("7_uf8sx")
+region = Rect2(624, 336, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wixlo"]
+atlas = ExtResource("7_uf8sx")
+region = Rect2(768, 192, 16, 16)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dl7wx"]
+texture = SubResource("AtlasTexture_wixlo")
+texture_margin_left = 6.0
+texture_margin_top = 6.0
+texture_margin_right = 6.0
+texture_margin_bottom = 6.0
+modulate_color = Color(0.439216, 0.160784, 0.121569, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_15coh"]
+atlas = ExtResource("11_gu4bm")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s4on5"]
+atlas = ExtResource("11_gu4bm")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jui47"]
+atlas = ExtResource("7_uf8sx")
+region = Rect2(544, 288, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_30ryc"]
+atlas = ExtResource("11_ajdbd")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_whndq"]
+atlas = ExtResource("7_uf8sx")
+region = Rect2(448, 320, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ocwl3"]
+atlas = ExtResource("11_ajdbd")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_85822"]
+atlas = ExtResource("7_uf8sx")
+region = Rect2(768, 128, 16, 16)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vkr65"]
+texture = SubResource("AtlasTexture_85822")
+texture_margin_left = 6.0
+texture_margin_top = 6.0
+texture_margin_right = 6.0
+texture_margin_bottom = 6.0
+modulate_color = Color(0.709804, 0.266667, 0.176471, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jgrr7"]
+atlas = ExtResource("5_34yq2")
+region = Rect2(480, 128, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uhuv4"]
+atlas = ExtResource("7_uf8sx")
+region = Rect2(528, 288, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s1gat"]
+atlas = ExtResource("7_uf8sx")
+region = Rect2(16, 240, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_772k0"]
+atlas = ExtResource("7_uf8sx")
+region = Rect2(512, 160, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aixp1"]
+atlas = ExtResource("7_uf8sx")
+region = Rect2(544, 208, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ukls"]
+atlas = ExtResource("7_uf8sx")
+region = Rect2(768, 144, 16, 16)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7kddg"]
+texture = SubResource("AtlasTexture_1ukls")
+texture_margin_left = 6.0
+texture_margin_top = 6.0
+texture_margin_right = 6.0
+texture_margin_bottom = 6.0
+modulate_color = Color(0.321569, 0.760784, 1, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yyhq0"]
+atlas = ExtResource("7_uf8sx")
+region = Rect2(640, 272, 16, 16)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sk57o"]
+texture = ExtResource("16_64ukr")
+texture_margin_left = 6.0
+texture_margin_top = 6.0
+texture_margin_right = 6.0
+texture_margin_bottom = 6.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ryope"]
+atlas = ExtResource("7_uf8sx")
+region = Rect2(768, 192, 16, 16)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ifms1"]
+texture = SubResource("AtlasTexture_ryope")
+texture_margin_left = 6.0
+texture_margin_top = 6.0
+texture_margin_right = 6.0
+texture_margin_bottom = 6.0
+modulate_color = Color(0.419608, 0.47451, 0.588235, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sc4a4"]
+bg_color = Color(0.32549, 0.321569, 0.321569, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vpyqx"]
+atlas = ExtResource("7_uf8sx")
+region = Rect2(512, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4n61s"]
+atlas = ExtResource("11_gu4bm")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nxu75"]
+atlas = ExtResource("11_gu4bm")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ebsgt"]
+atlas = ExtResource("11_gu4bm")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pj0fj"]
+atlas = ExtResource("7_uf8sx")
+region = Rect2(544, 16, 16, 16)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g5hpk"]
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4m8mn"]
+atlas = ExtResource("7_uf8sx")
+region = Rect2(736, 96, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bn7le"]
+atlas = ExtResource("7_uf8sx")
+region = Rect2(672, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2vbfg"]
+atlas = ExtResource("7_uf8sx")
+region = Rect2(576, 112, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jcfqp"]
+atlas = ExtResource("7_uf8sx")
+region = Rect2(640, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_snmwq"]
+atlas = ExtResource("5_34yq2")
+region = Rect2(576, 320, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cq8p0"]
+atlas = ExtResource("5_34yq2")
+region = Rect2(592, 272, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1t00l"]
+atlas = ExtResource("5_34yq2")
+region = Rect2(576, 272, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u1ba7"]
+atlas = ExtResource("5_34yq2")
+region = Rect2(592, 320, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5sles"]
+atlas = ExtResource("5_34yq2")
+region = Rect2(592, 272, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p3trt"]
+atlas = ExtResource("5_34yq2")
+region = Rect2(560, 272, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5inps"]
+atlas = ExtResource("5_34yq2")
+region = Rect2(592, 272, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4nt6p"]
+atlas = ExtResource("5_34yq2")
+region = Rect2(624, 272, 16, 16)
+
+[sub_resource type="Curve" id="Curve_mbqqx"]
+min_value = 0.25
+max_value = 0.5
+_data = [Vector2(0.0360825, 1.49451), 0.0, 0.0, 0, 0]
+point_count = 1
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l3kqa"]
+atlas = ExtResource("5_34yq2")
+region = Rect2(576, 192, 16, 16)
+
+[sub_resource type="Animation" id="Animation_waker"]
+resource_name = "modulate_transparency"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.301961)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kf2gf"]
+_data = {
+"modulate_transparency": SubResource("Animation_waker")
+}
+
+[node name="Test_Battle" type="Node2D" node_paths=PackedStringArray("grid_coords_label", "pixel_coords_label")]
+script = ExtResource("1_fuk3s")
+grid_coords_label = NodePath("CanvasLayer/Control/HBoxContainer/VBoxContainer3/HBoxContainer/GridCoord/VBoxContainer/HBoxContainer/GridCoordsLabel")
+pixel_coords_label = NodePath("CanvasLayer/Control/HBoxContainer/VBoxContainer3/HBoxContainer/GridCoord/VBoxContainer/HBoxContainer2/PixelCoordsLabel")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer" node_paths=PackedStringArray("character_menu_button", "character_menu")]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 641.0
+offset_bottom = 359.0
+mouse_filter = 1
+theme = ExtResource("2_vh6aj")
+script = ExtResource("3_tv6x8")
+character_menu_button = NodePath("HBoxContainer/VBoxContainer/HBoxContainer2/PanelContainer/MarginContainer/VBoxContainer/Button3")
+character_menu = NodePath("HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 360.0
+texture = ExtResource("4_atrer")
+region_rect = Rect2(0, 0, 48, 48)
+patch_margin_left = 20
+patch_margin_top = 24
+patch_margin_right = 20
+patch_margin_bottom = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 3.0
+offset_right = 637.0
+offset_bottom = 357.0
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer/Control/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.25
+
+[node name="PanelContainer3" type="PanelContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxTexture_2w1m5")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer2/PanelContainer3"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer2/PanelContainer3/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer2/PanelContainer3/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "Text Log:"
+
+[node name="HSeparator" type="HSeparator" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer2/PanelContainer3/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer2/PanelContainer3/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxTexture_hgjef")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer2/PanelContainer3/VBoxContainer/VBoxContainer/PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer2/PanelContainer3/VBoxContainer/VBoxContainer/PanelContainer/MarginContainer"]
+custom_minimum_size = Vector2(0, 125)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_05j37")
+horizontal_scroll_mode = 0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer2/PanelContainer3/VBoxContainer/VBoxContainer/PanelContainer/MarginContainer/ScrollContainer"]
+clip_contents = false
+custom_minimum_size = Vector2(45, 30)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+focus_mode = 2
+theme_override_font_sizes/normal_font_size = 8
+theme_override_font_sizes/bold_font_size = 8
+theme_override_font_sizes/italics_font_size = 8
+theme_override_font_sizes/bold_italics_font_size = 8
+theme_override_font_sizes/mono_font_size = 8
+bbcode_enabled = true
+text = "Lorem ipsum dolor sit amet
+"
+fit_content = true
+scroll_active = false
+autowrap_mode = 2
+selection_enabled = true
+
+[node name="Label2" type="Label" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer2/PanelContainer3/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 8
+text = "Dice Roll
+Results"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="PanelContainer4" type="PanelContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxTexture_2w1m5")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer2/VBoxContainer/PanelContainer4"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer2/VBoxContainer/PanelContainer4/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer2/VBoxContainer/PanelContainer4/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Target"
+
+[node name="ReferenceRect" type="ReferenceRect" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer2/VBoxContainer/PanelContainer4/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Button" type="Button" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer2/VBoxContainer/PanelContainer4/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+icon = SubResource("AtlasTexture_37ol4")
+
+[node name="HSeparator" type="HSeparator" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer2/VBoxContainer/PanelContainer4/VBoxContainer"]
+layout_mode = 2
+
+[node name="TargetTexture" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer2/VBoxContainer/PanelContainer4/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+stretch_mode = 5
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="CanvasLayer/Control/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
+theme_override_constants/separation = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer3"]
+layout_mode = 2
+
+[node name="ExpandText" type="Button" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer3/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = ">"
+
+[node name="MinimizeText" type="Button" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer3/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "<"
+
+[node name="GridCoord" type="PanelContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer3/HBoxContainer"]
+self_modulate = Color(0.678431, 1, 0.776471, 1)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxTexture_1i3wr")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer3/HBoxContainer/GridCoord"]
+layout_mode = 2
+size_flags_horizontal = 0
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer3/HBoxContainer/GridCoord/VBoxContainer"]
+layout_mode = 2
+
+[node name="GridLabel2" type="Label" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer3/HBoxContainer/GridCoord/VBoxContainer/HBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+text = "Grid"
+horizontal_alignment = 1
+
+[node name="GridCoordsLabel" type="Label" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer3/HBoxContainer/GridCoord/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+text = "x: , y:"
+horizontal_alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer3/HBoxContainer/GridCoord/VBoxContainer"]
+layout_mode = 2
+
+[node name="PixelLabel3" type="Label" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer3/HBoxContainer/GridCoord/VBoxContainer/HBoxContainer2"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+text = "PIXEL"
+horizontal_alignment = 1
+
+[node name="PixelCoordsLabel" type="Label" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer3/HBoxContainer/GridCoord/VBoxContainer/HBoxContainer2"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+text = "x: , y:"
+horizontal_alignment = 1
+
+[node name="PanelContainer12" type="PanelContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer3/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxTexture_qthcf")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer3/HBoxContainer/PanelContainer12"]
+custom_minimum_size = Vector2(100, 20)
+layout_mode = 2
+value = 100.0
+nine_patch_stretch = true
+texture_under = ExtResource("8_trp8h")
+texture_progress = ExtResource("9_3wkoq")
+
+[node name="TextureProgressBar2" type="TextureProgressBar" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer3/HBoxContainer/PanelContainer12"]
+custom_minimum_size = Vector2(100, 20)
+layout_mode = 2
+max_value = 10.0
+value = 4.0
+nine_patch_stretch = true
+texture_under = ExtResource("8_trp8h")
+texture_progress = ExtResource("10_0rind")
+
+[node name="GameBorder" type="NinePatchRect" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer3"]
+layout_mode = 2
+size_flags_vertical = 3
+texture = SubResource("AtlasTexture_4wyo3")
+region_rect = Rect2(0, 0, 16, 16)
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="PanelContainer2" type="PanelContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer3"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxTexture_2w1m5")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer3/PanelContainer2"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer3/PanelContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+texture = ExtResource("6_fptun")
+expand_mode = 5
+stretch_mode = 5
+
+[node name="Label2" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer3/PanelContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+texture = SubResource("AtlasTexture_oy2ae")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Label3" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer3/PanelContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+texture = ExtResource("13_23huo")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer3/PanelContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+texture = SubResource("AtlasTexture_k36jt")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer3/PanelContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+texture = SubResource("AtlasTexture_lhwal")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="TextureRect3" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer3/PanelContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+texture = SubResource("AtlasTexture_uf0th")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 3
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_eksba")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 18
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_styles/normal = SubResource("StyleBoxTexture_3u2i2")
+icon = ExtResource("10_bawbn")
+
+[node name="Button2" type="Button" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_styles/normal = SubResource("StyleBoxTexture_3u2i2")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_503fc")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_ebncv")
+icon = SubResource("AtlasTexture_v1s4w")
+
+[node name="Button3" type="Button" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_styles/normal = SubResource("StyleBoxTexture_3u2i2")
+icon = SubResource("AtlasTexture_rmek6")
+
+[node name="ShowDiceButton" type="Button" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_styles/normal = SubResource("StyleBoxTexture_3u2i2")
+icon = SubResource("AtlasTexture_p03q7")
+
+[node name="TabContainer" type="TabContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 3
+drag_to_rearrange_enabled = true
+
+[node name="Limbs" type="ScrollContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer"]
+layout_mode = 2
+horizontal_scroll_mode = 3
+vertical_scroll_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Limbs"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxTexture_2w1m5")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Limbs/PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Limbs/PanelContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Head" type="VBoxContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Limbs/PanelContainer/VBoxContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Limbs/PanelContainer/VBoxContainer2/VBoxContainer/Head"]
+layout_mode = 2
+size_flags_horizontal = 4
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Limbs/PanelContainer/VBoxContainer2/VBoxContainer/Head/HBoxContainer2"]
+clip_children = 2
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("7_8ys1v")
+stretch_mode = 5
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Limbs/PanelContainer/VBoxContainer2/VBoxContainer/Head/HBoxContainer2/TextureRect"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 11.0
+offset_right = 33.0
+offset_bottom = 89.0
+texture = ExtResource("8_mblte")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Limbs/PanelContainer/VBoxContainer2/VBoxContainer/Head/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxTexture_dl7wx")
+
+[node name="FlowContainer" type="HFlowContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Limbs/PanelContainer/VBoxContainer2/VBoxContainer/Head/HBoxContainer2/PanelContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Limbs/PanelContainer/VBoxContainer2/VBoxContainer/Head/HBoxContainer2/PanelContainer/FlowContainer"]
+layout_mode = 2
+theme_type_variation = &"HBoxContainerTight"
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Limbs/PanelContainer/VBoxContainer2/VBoxContainer/Head/HBoxContainer2/PanelContainer/FlowContainer/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_15coh")
+stretch_mode = 5
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Limbs/PanelContainer/VBoxContainer2/VBoxContainer/Head/HBoxContainer2/PanelContainer/FlowContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("7_q65sq")
+stretch_mode = 3
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Limbs/PanelContainer/VBoxContainer2/VBoxContainer/Head/HBoxContainer2/PanelContainer/FlowContainer"]
+layout_mode = 2
+theme_type_variation = &"HBoxContainerTight"
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Limbs/PanelContainer/VBoxContainer2/VBoxContainer/Head/HBoxContainer2/PanelContainer/FlowContainer/HBoxContainer2"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_s4on5")
+stretch_mode = 5
+
+[node name="TextureRect3" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Limbs/PanelContainer/VBoxContainer2/VBoxContainer/Head/HBoxContainer2/PanelContainer/FlowContainer/HBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("8_2c0o7")
+stretch_mode = 3
+
+[node name="HSeparator" type="HSeparator" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Limbs/PanelContainer/VBoxContainer2/VBoxContainer"]
+layout_mode = 2
+
+[node name="Torso" type="VBoxContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Limbs/PanelContainer/VBoxContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Limbs/PanelContainer/VBoxContainer2/VBoxContainer/Torso"]
+layout_mode = 2
+theme_override_constants/separation = 1
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Limbs/PanelContainer/VBoxContainer2/VBoxContainer/Torso/HBoxContainer2"]
+clip_children = 2
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("7_8ys1v")
+stretch_mode = 5
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Limbs/PanelContainer/VBoxContainer2/VBoxContainer/Torso/HBoxContainer2/TextureRect"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = -11.0
+offset_right = 33.0
+offset_bottom = 67.0
+texture = ExtResource("8_mblte")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Limbs/PanelContainer/VBoxContainer2/VBoxContainer/Torso/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxTexture_dl7wx")
+
+[node name="FlowContainer" type="HFlowContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Limbs/PanelContainer/VBoxContainer2/VBoxContainer/Torso/HBoxContainer2/PanelContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Limbs/PanelContainer/VBoxContainer2/VBoxContainer/Torso/HBoxContainer2/PanelContainer/FlowContainer"]
+layout_mode = 2
+theme_type_variation = &"HBoxContainerTight"
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Limbs/PanelContainer/VBoxContainer2/VBoxContainer/Torso/HBoxContainer2/PanelContainer/FlowContainer/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_15coh")
+stretch_mode = 5
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Limbs/PanelContainer/VBoxContainer2/VBoxContainer/Torso/HBoxContainer2/PanelContainer/FlowContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("7_q65sq")
+stretch_mode = 3
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Limbs/PanelContainer/VBoxContainer2/VBoxContainer/Torso/HBoxContainer2/PanelContainer/FlowContainer"]
+layout_mode = 2
+theme_type_variation = &"HBoxContainerTight"
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Limbs/PanelContainer/VBoxContainer2/VBoxContainer/Torso/HBoxContainer2/PanelContainer/FlowContainer/HBoxContainer2"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_s4on5")
+stretch_mode = 5
+
+[node name="TextureRect3" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Limbs/PanelContainer/VBoxContainer2/VBoxContainer/Torso/HBoxContainer2/PanelContainer/FlowContainer/HBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("8_2c0o7")
+stretch_mode = 3
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Limbs/PanelContainer/VBoxContainer2/VBoxContainer/Torso/HBoxContainer2/PanelContainer/FlowContainer"]
+layout_mode = 2
+theme_type_variation = &"HBoxContainerTight"
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Limbs/PanelContainer/VBoxContainer2/VBoxContainer/Torso/HBoxContainer2/PanelContainer/FlowContainer/HBoxContainer3"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_s4on5")
+stretch_mode = 5
+
+[node name="TextureRect3" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Limbs/PanelContainer/VBoxContainer2/VBoxContainer/Torso/HBoxContainer2/PanelContainer/FlowContainer/HBoxContainer3"]
+layout_mode = 2
+texture = ExtResource("8_2c0o7")
+stretch_mode = 3
+
+[node name="PanelContainer2" type="PanelContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Limbs/PanelContainer/VBoxContainer2/VBoxContainer/Torso/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxTexture_dl7wx")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Limbs/PanelContainer/VBoxContainer2/VBoxContainer/Torso/HBoxContainer2/PanelContainer2"]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Limbs/PanelContainer/VBoxContainer2/VBoxContainer/Torso/HBoxContainer2/PanelContainer2/VBoxContainer"]
+clip_children = 2
+layout_mode = 2
+texture = SubResource("AtlasTexture_jui47")
+stretch_mode = 5
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Limbs/PanelContainer/VBoxContainer2/VBoxContainer/Torso/HBoxContainer2/PanelContainer2/VBoxContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_30ryc")
+
+[node name="HSeparator2" type="HSeparator" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Limbs/PanelContainer/VBoxContainer2/VBoxContainer"]
+layout_mode = 2
+
+[node name="RightArm" type="VBoxContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Limbs/PanelContainer/VBoxContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Limbs/PanelContainer/VBoxContainer2/VBoxContainer/RightArm"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Limbs/PanelContainer/VBoxContainer2/VBoxContainer/RightArm/HBoxContainer2"]
+clip_children = 2
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("13_v1qy2")
+stretch_mode = 5
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Limbs/PanelContainer/VBoxContainer2/VBoxContainer/RightArm/HBoxContainer2/TextureRect"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = -18.0
+offset_right = 32.0
+offset_bottom = 60.0
+texture = ExtResource("8_mblte")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Limbs/PanelContainer/VBoxContainer2/VBoxContainer/RightArm/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxTexture_dl7wx")
+
+[node name="FlowContainer" type="HFlowContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Limbs/PanelContainer/VBoxContainer2/VBoxContainer/RightArm/HBoxContainer2/PanelContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Limbs/PanelContainer/VBoxContainer2/VBoxContainer/RightArm/HBoxContainer2/PanelContainer/FlowContainer"]
+layout_mode = 2
+theme_type_variation = &"HBoxContainerTight"
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Limbs/PanelContainer/VBoxContainer2/VBoxContainer/RightArm/HBoxContainer2/PanelContainer/FlowContainer/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_15coh")
+stretch_mode = 5
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Limbs/PanelContainer/VBoxContainer2/VBoxContainer/RightArm/HBoxContainer2/PanelContainer/FlowContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("7_q65sq")
+stretch_mode = 3
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Limbs/PanelContainer/VBoxContainer2/VBoxContainer/RightArm/HBoxContainer2/PanelContainer/FlowContainer"]
+layout_mode = 2
+theme_type_variation = &"HBoxContainerTight"
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Limbs/PanelContainer/VBoxContainer2/VBoxContainer/RightArm/HBoxContainer2/PanelContainer/FlowContainer/HBoxContainer4"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_s4on5")
+stretch_mode = 5
+
+[node name="TextureRect3" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Limbs/PanelContainer/VBoxContainer2/VBoxContainer/RightArm/HBoxContainer2/PanelContainer/FlowContainer/HBoxContainer4"]
+layout_mode = 2
+texture = ExtResource("8_2c0o7")
+stretch_mode = 3
+
+[node name="HSeparator3" type="HSeparator" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Limbs/PanelContainer/VBoxContainer2/VBoxContainer"]
+layout_mode = 2
+
+[node name="LeftArm" type="VBoxContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Limbs/PanelContainer/VBoxContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Limbs/PanelContainer/VBoxContainer2/VBoxContainer/LeftArm"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Limbs/PanelContainer/VBoxContainer2/VBoxContainer/LeftArm/HBoxContainer2"]
+clip_children = 2
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("14_mu2vb")
+stretch_mode = 5
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Limbs/PanelContainer/VBoxContainer2/VBoxContainer/LeftArm/HBoxContainer2/TextureRect"]
+layout_mode = 0
+offset_left = -14.0
+offset_top = -20.0
+offset_right = 17.0
+offset_bottom = 58.0
+texture = ExtResource("8_mblte")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Limbs/PanelContainer/VBoxContainer2/VBoxContainer/LeftArm/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxTexture_dl7wx")
+
+[node name="FlowContainer" type="HFlowContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Limbs/PanelContainer/VBoxContainer2/VBoxContainer/LeftArm/HBoxContainer2/PanelContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Limbs/PanelContainer/VBoxContainer2/VBoxContainer/LeftArm/HBoxContainer2/PanelContainer/FlowContainer"]
+layout_mode = 2
+theme_type_variation = &"HBoxContainerTight"
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Limbs/PanelContainer/VBoxContainer2/VBoxContainer/LeftArm/HBoxContainer2/PanelContainer/FlowContainer/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_15coh")
+stretch_mode = 5
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Limbs/PanelContainer/VBoxContainer2/VBoxContainer/LeftArm/HBoxContainer2/PanelContainer/FlowContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("7_q65sq")
+stretch_mode = 3
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Limbs/PanelContainer/VBoxContainer2/VBoxContainer/LeftArm/HBoxContainer2/PanelContainer/FlowContainer"]
+layout_mode = 2
+theme_type_variation = &"HBoxContainerTight"
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Limbs/PanelContainer/VBoxContainer2/VBoxContainer/LeftArm/HBoxContainer2/PanelContainer/FlowContainer/HBoxContainer2"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_s4on5")
+stretch_mode = 5
+
+[node name="TextureRect3" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Limbs/PanelContainer/VBoxContainer2/VBoxContainer/LeftArm/HBoxContainer2/PanelContainer/FlowContainer/HBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("8_2c0o7")
+stretch_mode = 3
+
+[node name="HSeparator4" type="HSeparator" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Limbs/PanelContainer/VBoxContainer2/VBoxContainer"]
+layout_mode = 2
+
+[node name="RightLeg" type="VBoxContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Limbs/PanelContainer/VBoxContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Limbs/PanelContainer/VBoxContainer2/VBoxContainer/RightLeg"]
+layout_mode = 2
+theme_override_constants/separation = 1
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Limbs/PanelContainer/VBoxContainer2/VBoxContainer/RightLeg/HBoxContainer2"]
+clip_children = 2
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("7_8ys1v")
+stretch_mode = 5
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Limbs/PanelContainer/VBoxContainer2/VBoxContainer/RightLeg/HBoxContainer2/TextureRect"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = -48.0
+offset_right = 47.0
+offset_bottom = 30.0
+texture = ExtResource("8_mblte")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Limbs/PanelContainer/VBoxContainer2/VBoxContainer/RightLeg/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxTexture_dl7wx")
+
+[node name="FlowContainer" type="HFlowContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Limbs/PanelContainer/VBoxContainer2/VBoxContainer/RightLeg/HBoxContainer2/PanelContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Limbs/PanelContainer/VBoxContainer2/VBoxContainer/RightLeg/HBoxContainer2/PanelContainer/FlowContainer"]
+layout_mode = 2
+theme_type_variation = &"HBoxContainerTight"
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Limbs/PanelContainer/VBoxContainer2/VBoxContainer/RightLeg/HBoxContainer2/PanelContainer/FlowContainer/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_15coh")
+stretch_mode = 5
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Limbs/PanelContainer/VBoxContainer2/VBoxContainer/RightLeg/HBoxContainer2/PanelContainer/FlowContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("7_q65sq")
+stretch_mode = 3
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Limbs/PanelContainer/VBoxContainer2/VBoxContainer/RightLeg/HBoxContainer2/PanelContainer/FlowContainer"]
+layout_mode = 2
+theme_type_variation = &"HBoxContainerTight"
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Limbs/PanelContainer/VBoxContainer2/VBoxContainer/RightLeg/HBoxContainer2/PanelContainer/FlowContainer/HBoxContainer2"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_s4on5")
+stretch_mode = 5
+
+[node name="TextureRect3" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Limbs/PanelContainer/VBoxContainer2/VBoxContainer/RightLeg/HBoxContainer2/PanelContainer/FlowContainer/HBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("8_2c0o7")
+stretch_mode = 3
+
+[node name="PanelContainer2" type="PanelContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Limbs/PanelContainer/VBoxContainer2/VBoxContainer/RightLeg/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxTexture_dl7wx")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Limbs/PanelContainer/VBoxContainer2/VBoxContainer/RightLeg/HBoxContainer2/PanelContainer2"]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Limbs/PanelContainer/VBoxContainer2/VBoxContainer/RightLeg/HBoxContainer2/PanelContainer2/VBoxContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_whndq")
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Limbs/PanelContainer/VBoxContainer2/VBoxContainer/RightLeg/HBoxContainer2/PanelContainer2/VBoxContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_ocwl3")
+
+[node name="HSeparator5" type="HSeparator" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Limbs/PanelContainer/VBoxContainer2/VBoxContainer"]
+layout_mode = 2
+
+[node name="LeftLeg" type="VBoxContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Limbs/PanelContainer/VBoxContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Limbs/PanelContainer/VBoxContainer2/VBoxContainer/LeftLeg"]
+layout_mode = 2
+theme_override_constants/separation = 1
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Limbs/PanelContainer/VBoxContainer2/VBoxContainer/LeftLeg/HBoxContainer2"]
+clip_children = 2
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("7_8ys1v")
+stretch_mode = 5
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Limbs/PanelContainer/VBoxContainer2/VBoxContainer/LeftLeg/HBoxContainer2/TextureRect"]
+layout_mode = 0
+offset_left = -11.0
+offset_top = -48.0
+offset_right = 20.0
+offset_bottom = 30.0
+texture = ExtResource("8_mblte")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Limbs/PanelContainer/VBoxContainer2/VBoxContainer/LeftLeg/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxTexture_dl7wx")
+
+[node name="FlowContainer" type="HFlowContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Limbs/PanelContainer/VBoxContainer2/VBoxContainer/LeftLeg/HBoxContainer2/PanelContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Limbs/PanelContainer/VBoxContainer2/VBoxContainer/LeftLeg/HBoxContainer2/PanelContainer/FlowContainer"]
+layout_mode = 2
+theme_type_variation = &"HBoxContainerTight"
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Limbs/PanelContainer/VBoxContainer2/VBoxContainer/LeftLeg/HBoxContainer2/PanelContainer/FlowContainer/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_15coh")
+stretch_mode = 5
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Limbs/PanelContainer/VBoxContainer2/VBoxContainer/LeftLeg/HBoxContainer2/PanelContainer/FlowContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("7_q65sq")
+stretch_mode = 3
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Limbs/PanelContainer/VBoxContainer2/VBoxContainer/LeftLeg/HBoxContainer2/PanelContainer/FlowContainer"]
+layout_mode = 2
+theme_type_variation = &"HBoxContainerTight"
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Limbs/PanelContainer/VBoxContainer2/VBoxContainer/LeftLeg/HBoxContainer2/PanelContainer/FlowContainer/HBoxContainer2"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_s4on5")
+stretch_mode = 5
+
+[node name="TextureRect3" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Limbs/PanelContainer/VBoxContainer2/VBoxContainer/LeftLeg/HBoxContainer2/PanelContainer/FlowContainer/HBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("8_2c0o7")
+stretch_mode = 3
+
+[node name="PanelContainer2" type="PanelContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Limbs/PanelContainer/VBoxContainer2/VBoxContainer/LeftLeg/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxTexture_dl7wx")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Limbs/PanelContainer/VBoxContainer2/VBoxContainer/LeftLeg/HBoxContainer2/PanelContainer2"]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Limbs/PanelContainer/VBoxContainer2/VBoxContainer/LeftLeg/HBoxContainer2/PanelContainer2/VBoxContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_whndq")
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Limbs/PanelContainer/VBoxContainer2/VBoxContainer/LeftLeg/HBoxContainer2/PanelContainer2/VBoxContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_ocwl3")
+
+[node name="Stats" type="ScrollContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer"]
+visible = false
+layout_mode = 2
+horizontal_scroll_mode = 3
+vertical_scroll_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Stats"]
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Stats/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Stats/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Stats/VBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Vitality"
+script = ExtResource("15_tpdys")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Stats/VBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("13_lyckt")
+stretch_mode = 5
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Stats/VBoxContainer/VBoxContainer/HBoxContainer/TextureRect"]
+position = Vector2(7, 14)
+scale = Vector2(2.25, 2.25)
+texture = ExtResource("11_ajdbd")
+hframes = 12
+frame = 4
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Stats/VBoxContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_vkr65")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Stats/VBoxContainer/VBoxContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Stats/VBoxContainer/VBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Stats/VBoxContainer/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_jgrr7")
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Stats/VBoxContainer/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Lifting"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Stats/VBoxContainer/VBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Stats/VBoxContainer/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_uhuv4")
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Stats/VBoxContainer/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "Nutrition"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Stats/VBoxContainer/VBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Stats/VBoxContainer/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_s1gat")
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Stats/VBoxContainer/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+text = "Survival"
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Stats/VBoxContainer/VBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Stats/VBoxContainer/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_772k0")
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Stats/VBoxContainer/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+text = "Endurance"
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Stats/VBoxContainer/VBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Stats/VBoxContainer/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_aixp1")
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Stats/VBoxContainer/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+text = "Cicerone"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Stats/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+alignment = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Stats/VBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Stats/VBoxContainer/VBoxContainer2/HBoxContainer"]
+layout_mode = 2
+text = "Coord"
+script = ExtResource("15_tpdys")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Stats/VBoxContainer/VBoxContainer2/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("13_lyckt")
+stretch_mode = 5
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Stats/VBoxContainer/VBoxContainer2/HBoxContainer/TextureRect"]
+position = Vector2(13, 15)
+scale = Vector2(2.25, 2.25)
+texture = ExtResource("11_ajdbd")
+hframes = 12
+frame = 4
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Stats/VBoxContainer/VBoxContainer2"]
+visible = false
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_7kddg")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Stats/VBoxContainer/VBoxContainer2/PanelContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Stats/VBoxContainer/VBoxContainer2/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Stats/VBoxContainer/VBoxContainer2/PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_jgrr7")
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Stats/VBoxContainer/VBoxContainer2/PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Finger Dex"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Stats/VBoxContainer/VBoxContainer2/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Stats/VBoxContainer/VBoxContainer2/PanelContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_uhuv4")
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Stats/VBoxContainer/VBoxContainer2/PanelContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "Operate Mach"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Stats/VBoxContainer/VBoxContainer2/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Stats/VBoxContainer/VBoxContainer2/PanelContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_s1gat")
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Stats/VBoxContainer/VBoxContainer2/PanelContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+text = "Lock Picking"
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Stats/VBoxContainer/VBoxContainer2/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Stats/VBoxContainer/VBoxContainer2/PanelContainer/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_772k0")
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Stats/VBoxContainer/VBoxContainer2/PanelContainer/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+text = "Acrobatics"
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Stats/VBoxContainer/VBoxContainer2/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Stats/VBoxContainer/VBoxContainer2/PanelContainer/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_aixp1")
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Stats/VBoxContainer/VBoxContainer2/PanelContainer/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+text = "Slight of Hand"
+
+[node name="HBoxContainer6" type="HBoxContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Stats/VBoxContainer/VBoxContainer2/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Stats/VBoxContainer/VBoxContainer2/PanelContainer/VBoxContainer/HBoxContainer6"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_aixp1")
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Stats/VBoxContainer/VBoxContainer2/PanelContainer/VBoxContainer/HBoxContainer6"]
+layout_mode = 2
+text = "Noodling"
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Stats/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+alignment = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Stats/VBoxContainer/VBoxContainer3"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Stats/VBoxContainer/VBoxContainer3/HBoxContainer"]
+layout_mode = 2
+text = "ELOQ"
+script = ExtResource("15_tpdys")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Stats/VBoxContainer/VBoxContainer3/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("13_lyckt")
+stretch_mode = 5
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Stats/VBoxContainer/VBoxContainer3/HBoxContainer/TextureRect"]
+position = Vector2(19, 15)
+scale = Vector2(2.25, 2.25)
+texture = ExtResource("11_ajdbd")
+hframes = 12
+frame = 4
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Stats/VBoxContainer/VBoxContainer3"]
+visible = false
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_7kddg")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Stats/VBoxContainer/VBoxContainer3/PanelContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Stats/VBoxContainer/VBoxContainer3/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Stats/VBoxContainer/VBoxContainer3/PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_jgrr7")
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Stats/VBoxContainer/VBoxContainer3/PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Moral Suasion"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Stats/VBoxContainer/VBoxContainer3/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Stats/VBoxContainer/VBoxContainer3/PanelContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_uhuv4")
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Stats/VBoxContainer/VBoxContainer3/PanelContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "Diplomacy"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Stats/VBoxContainer/VBoxContainer3/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Stats/VBoxContainer/VBoxContainer3/PanelContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_s1gat")
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Stats/VBoxContainer/VBoxContainer3/PanelContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+text = "Platitudes"
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Stats/VBoxContainer/VBoxContainer3/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Stats/VBoxContainer/VBoxContainer3/PanelContainer/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_772k0")
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Stats/VBoxContainer/VBoxContainer3/PanelContainer/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+text = "Barter"
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Stats/VBoxContainer/VBoxContainer3/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Stats/VBoxContainer/VBoxContainer3/PanelContainer/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_aixp1")
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Stats/VBoxContainer/VBoxContainer3/PanelContainer/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+text = "Beguiling
+"
+
+[node name="HBoxContainer6" type="HBoxContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Stats/VBoxContainer/VBoxContainer3/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Stats/VBoxContainer/VBoxContainer3/PanelContainer/VBoxContainer/HBoxContainer6"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_aixp1")
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Stats/VBoxContainer/VBoxContainer3/PanelContainer/VBoxContainer/HBoxContainer6"]
+layout_mode = 2
+text = "Deception"
+
+[node name="HBoxContainer7" type="HBoxContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Stats/VBoxContainer/VBoxContainer3/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Stats/VBoxContainer/VBoxContainer3/PanelContainer/VBoxContainer/HBoxContainer7"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_aixp1")
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Stats/VBoxContainer/VBoxContainer3/PanelContainer/VBoxContainer/HBoxContainer7"]
+layout_mode = 2
+text = "Manipulation"
+
+[node name="VBoxContainer4" type="VBoxContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Stats/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+alignment = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Stats/VBoxContainer/VBoxContainer4"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Stats/VBoxContainer/VBoxContainer4/HBoxContainer"]
+layout_mode = 2
+text = "Empath"
+script = ExtResource("15_tpdys")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Stats/VBoxContainer/VBoxContainer4/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("13_lyckt")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Stats/VBoxContainer/VBoxContainer4/HBoxContainer/TextureRect"]
+position = Vector2(8, 14)
+scale = Vector2(2.25, 2.25)
+texture = ExtResource("11_ajdbd")
+hframes = 12
+frame = 4
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Stats/VBoxContainer/VBoxContainer4"]
+visible = false
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_7kddg")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Stats/VBoxContainer/VBoxContainer4/PanelContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Stats/VBoxContainer/VBoxContainer4/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Stats/VBoxContainer/VBoxContainer4/PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_jgrr7")
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Stats/VBoxContainer/VBoxContainer4/PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Detect Motive"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Stats/VBoxContainer/VBoxContainer4/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Stats/VBoxContainer/VBoxContainer4/PanelContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_uhuv4")
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Stats/VBoxContainer/VBoxContainer4/PanelContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "Animal Handle"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Stats/VBoxContainer/VBoxContainer4/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Stats/VBoxContainer/VBoxContainer4/PanelContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_s1gat")
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Stats/VBoxContainer/VBoxContainer4/PanelContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+text = "Teaching"
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Stats/VBoxContainer/VBoxContainer4/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Stats/VBoxContainer/VBoxContainer4/PanelContainer/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_772k0")
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Stats/VBoxContainer/VBoxContainer4/PanelContainer/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+text = "Interrogation"
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Stats/VBoxContainer/VBoxContainer4/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Stats/VBoxContainer/VBoxContainer4/PanelContainer/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_aixp1")
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Stats/VBoxContainer/VBoxContainer4/PanelContainer/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+text = "Armchair Psy"
+
+[node name="VBoxContainer5" type="VBoxContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Stats/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+alignment = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Stats/VBoxContainer/VBoxContainer5"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Stats/VBoxContainer/VBoxContainer5/HBoxContainer"]
+layout_mode = 2
+text = "Brill"
+script = ExtResource("15_tpdys")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Stats/VBoxContainer/VBoxContainer5/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("13_lyckt")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Sprite2D" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Stats/VBoxContainer/VBoxContainer5/HBoxContainer/TextureRect"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = -4.0
+offset_right = 17.0
+offset_bottom = 12.0
+scale = Vector2(2.25, 2.25)
+texture = SubResource("AtlasTexture_yyhq0")
+stretch_mode = 5
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Stats/VBoxContainer/VBoxContainer5"]
+visible = false
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_7kddg")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Stats/VBoxContainer/VBoxContainer5/PanelContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Stats/VBoxContainer/VBoxContainer5/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Stats/VBoxContainer/VBoxContainer5/PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_jgrr7")
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Stats/VBoxContainer/VBoxContainer5/PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Humanities"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Stats/VBoxContainer/VBoxContainer5/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Stats/VBoxContainer/VBoxContainer5/PanelContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_uhuv4")
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Stats/VBoxContainer/VBoxContainer5/PanelContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "Language"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Stats/VBoxContainer/VBoxContainer5/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Stats/VBoxContainer/VBoxContainer5/PanelContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_s1gat")
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Stats/VBoxContainer/VBoxContainer5/PanelContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+text = "Sciences"
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Stats/VBoxContainer/VBoxContainer5/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Stats/VBoxContainer/VBoxContainer5/PanelContainer/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_772k0")
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Stats/VBoxContainer/VBoxContainer5/PanelContainer/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+text = "Conspiracies"
+
+[node name="VBoxContainer6" type="VBoxContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Stats/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+alignment = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Stats/VBoxContainer/VBoxContainer6"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Stats/VBoxContainer/VBoxContainer6/HBoxContainer"]
+layout_mode = 2
+text = "Intuition"
+script = ExtResource("15_tpdys")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Stats/VBoxContainer/VBoxContainer6/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("13_lyckt")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Sprite2D" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Stats/VBoxContainer/VBoxContainer6/HBoxContainer/TextureRect"]
+layout_mode = 0
+offset_left = -13.0
+offset_top = -3.0
+offset_right = 3.0
+offset_bottom = 13.0
+scale = Vector2(2.25, 2.25)
+texture = SubResource("AtlasTexture_yyhq0")
+stretch_mode = 5
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Stats/VBoxContainer/VBoxContainer6"]
+visible = false
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_7kddg")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Stats/VBoxContainer/VBoxContainer6/PanelContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Stats/VBoxContainer/VBoxContainer6/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Stats/VBoxContainer/VBoxContainer6/PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_jgrr7")
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Stats/VBoxContainer/VBoxContainer6/PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Learning"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Stats/VBoxContainer/VBoxContainer6/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Stats/VBoxContainer/VBoxContainer6/PanelContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_uhuv4")
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Stats/VBoxContainer/VBoxContainer6/PanelContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "Perception"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Stats/VBoxContainer/VBoxContainer6/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Stats/VBoxContainer/VBoxContainer6/PanelContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_s1gat")
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Stats/VBoxContainer/VBoxContainer6/PanelContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+text = "Investigation"
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Stats/VBoxContainer/VBoxContainer6/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Stats/VBoxContainer/VBoxContainer6/PanelContainer/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_772k0")
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Stats/VBoxContainer/VBoxContainer6/PanelContainer/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+text = "6th Sense"
+
+[node name="Gear" type="ScrollContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer"]
+visible = false
+layout_mode = 2
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Gear"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Head" type="PanelContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Gear/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_sk57o")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Gear/VBoxContainer/Head"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Gear/VBoxContainer/Head/HBoxContainer2"]
+clip_children = 2
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("7_8ys1v")
+stretch_mode = 5
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Gear/VBoxContainer/Head/HBoxContainer2/TextureRect"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 11.0
+offset_right = 33.0
+offset_bottom = 89.0
+texture = ExtResource("8_mblte")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="PanelContainer4" type="PanelContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Gear/VBoxContainer/Head/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxTexture_ifms1")
+
+[node name="HBoxContainer" type="HFlowContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Gear/VBoxContainer/Head/HBoxContainer2/PanelContainer4"]
+layout_mode = 2
+
+[node name="PanelContainer3" type="PanelContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Gear/VBoxContainer/Head/HBoxContainer2/PanelContainer4/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_sc4a4")
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Gear/VBoxContainer/Head/HBoxContainer2/PanelContainer4/HBoxContainer/PanelContainer3"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_vpyqx")
+stretch_mode = 5
+
+[node name="PanelContainer5" type="PanelContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Gear/VBoxContainer/Head/HBoxContainer2/PanelContainer4/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_sc4a4")
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Gear/VBoxContainer/Head/HBoxContainer2/PanelContainer4/HBoxContainer/PanelContainer5"]
+layout_mode = 2
+texture = ExtResource("17_l1nqr")
+stretch_mode = 5
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Gear/VBoxContainer/Head/HBoxContainer2/PanelContainer4/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_sc4a4")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Gear/VBoxContainer/Head/HBoxContainer2/PanelContainer4/HBoxContainer/PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Gear/VBoxContainer/Head/HBoxContainer2/PanelContainer4/HBoxContainer/PanelContainer/HBoxContainer"]
+self_modulate = Color(0.101961, 0.231373, 0.160784, 1)
+layout_mode = 2
+texture = SubResource("AtlasTexture_4n61s")
+stretch_mode = 5
+
+[node name="TextureRect3" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Gear/VBoxContainer/Head/HBoxContainer2/PanelContainer4/HBoxContainer/PanelContainer/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_nxu75")
+stretch_mode = 5
+
+[node name="TextureRect4" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Gear/VBoxContainer/Head/HBoxContainer2/PanelContainer4/HBoxContainer/PanelContainer/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_ebsgt")
+stretch_mode = 5
+
+[node name="Torso" type="PanelContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Gear/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_sk57o")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Gear/VBoxContainer/Torso"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Gear/VBoxContainer/Torso/HBoxContainer2"]
+clip_children = 2
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("7_8ys1v")
+stretch_mode = 5
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Gear/VBoxContainer/Torso/HBoxContainer2/TextureRect"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = -11.0
+offset_right = 33.0
+offset_bottom = 67.0
+texture = ExtResource("8_mblte")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="PanelContainer4" type="PanelContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Gear/VBoxContainer/Torso/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxTexture_ifms1")
+
+[node name="HBoxContainer" type="HFlowContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Gear/VBoxContainer/Torso/HBoxContainer2/PanelContainer4"]
+layout_mode = 2
+
+[node name="PanelContainer3" type="PanelContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Gear/VBoxContainer/Torso/HBoxContainer2/PanelContainer4/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_sc4a4")
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Gear/VBoxContainer/Torso/HBoxContainer2/PanelContainer4/HBoxContainer/PanelContainer3"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_pj0fj")
+stretch_mode = 5
+
+[node name="PanelContainer4" type="PanelContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Gear/VBoxContainer/Torso/HBoxContainer2/PanelContainer4/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_sc4a4")
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Gear/VBoxContainer/Torso/HBoxContainer2/PanelContainer4/HBoxContainer/PanelContainer4"]
+layout_mode = 2
+texture = ExtResource("18_cnhw7")
+stretch_mode = 5
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Gear/VBoxContainer/Torso/HBoxContainer2/PanelContainer4/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_sc4a4")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Gear/VBoxContainer/Torso/HBoxContainer2/PanelContainer4/HBoxContainer/PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Gear/VBoxContainer/Torso/HBoxContainer2/PanelContainer4/HBoxContainer/PanelContainer/HBoxContainer"]
+self_modulate = Color(0.101961, 0.231373, 0.160784, 1)
+layout_mode = 2
+texture = SubResource("AtlasTexture_4n61s")
+stretch_mode = 5
+
+[node name="TextureRect3" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Gear/VBoxContainer/Torso/HBoxContainer2/PanelContainer4/HBoxContainer/PanelContainer/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_nxu75")
+stretch_mode = 5
+
+[node name="TextureRect4" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Gear/VBoxContainer/Torso/HBoxContainer2/PanelContainer4/HBoxContainer/PanelContainer/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_ebsgt")
+stretch_mode = 5
+
+[node name="PanelContainer2" type="PanelContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Gear/VBoxContainer/Torso/HBoxContainer2/PanelContainer4/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_sc4a4")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Gear/VBoxContainer/Torso/HBoxContainer2/PanelContainer4/HBoxContainer/PanelContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Gear/VBoxContainer/Torso/HBoxContainer2/PanelContainer4/HBoxContainer/PanelContainer2/HBoxContainer"]
+self_modulate = Color(0.101961, 0.231373, 0.160784, 1)
+layout_mode = 2
+texture = SubResource("AtlasTexture_4n61s")
+stretch_mode = 5
+
+[node name="TextureRect3" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Gear/VBoxContainer/Torso/HBoxContainer2/PanelContainer4/HBoxContainer/PanelContainer2/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_nxu75")
+stretch_mode = 5
+
+[node name="Right Arm" type="PanelContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Gear/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_sk57o")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Gear/VBoxContainer/Right Arm"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Gear/VBoxContainer/Right Arm/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Gear/VBoxContainer/Right Arm/HBoxContainer2/VBoxContainer"]
+clip_children = 2
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("7_8ys1v")
+stretch_mode = 5
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Gear/VBoxContainer/Right Arm/HBoxContainer2/VBoxContainer/TextureRect"]
+layout_mode = 0
+offset_left = 22.0
+offset_top = -19.0
+offset_right = 53.0
+offset_bottom = 59.0
+texture = ExtResource("8_mblte")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="HFlowContainer" type="HFlowContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Gear/VBoxContainer/Right Arm/HBoxContainer2/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Gear/VBoxContainer/Right Arm/HBoxContainer2/VBoxContainer/HFlowContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_styles/panel = SubResource("StyleBoxFlat_g5hpk")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Gear/VBoxContainer/Right Arm/HBoxContainer2/VBoxContainer/HFlowContainer/PanelContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_4m8mn")
+
+[node name="PanelContainer2" type="PanelContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Gear/VBoxContainer/Right Arm/HBoxContainer2/VBoxContainer/HFlowContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_styles/panel = SubResource("StyleBoxFlat_g5hpk")
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Gear/VBoxContainer/Right Arm/HBoxContainer2/VBoxContainer/HFlowContainer/PanelContainer2"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_4m8mn")
+
+[node name="PanelContainer3" type="PanelContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Gear/VBoxContainer/Right Arm/HBoxContainer2/VBoxContainer/HFlowContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_styles/panel = SubResource("StyleBoxFlat_g5hpk")
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Gear/VBoxContainer/Right Arm/HBoxContainer2/VBoxContainer/HFlowContainer/PanelContainer3"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_4m8mn")
+
+[node name="PanelContainer4" type="PanelContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Gear/VBoxContainer/Right Arm/HBoxContainer2/VBoxContainer/HFlowContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_styles/panel = SubResource("StyleBoxFlat_g5hpk")
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Gear/VBoxContainer/Right Arm/HBoxContainer2/VBoxContainer/HFlowContainer/PanelContainer4"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_4m8mn")
+
+[node name="PanelContainer4" type="PanelContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Gear/VBoxContainer/Right Arm/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxTexture_ifms1")
+
+[node name="HBoxContainer" type="HFlowContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Gear/VBoxContainer/Right Arm/HBoxContainer2/PanelContainer4"]
+layout_mode = 2
+
+[node name="PanelContainer3" type="PanelContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Gear/VBoxContainer/Right Arm/HBoxContainer2/PanelContainer4/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_sc4a4")
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Gear/VBoxContainer/Right Arm/HBoxContainer2/PanelContainer4/HBoxContainer/PanelContainer3"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_bn7le")
+stretch_mode = 5
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Gear/VBoxContainer/Right Arm/HBoxContainer2/PanelContainer4/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_sc4a4")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Gear/VBoxContainer/Right Arm/HBoxContainer2/PanelContainer4/HBoxContainer/PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="TextureRect3" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Gear/VBoxContainer/Right Arm/HBoxContainer2/PanelContainer4/HBoxContainer/PanelContainer/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_nxu75")
+stretch_mode = 5
+
+[node name="TextureRect4" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Gear/VBoxContainer/Right Arm/HBoxContainer2/PanelContainer4/HBoxContainer/PanelContainer/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_ebsgt")
+stretch_mode = 5
+
+[node name="PanelContainer4" type="PanelContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Gear/VBoxContainer/Right Arm/HBoxContainer2/PanelContainer4/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_sc4a4")
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Gear/VBoxContainer/Right Arm/HBoxContainer2/PanelContainer4/HBoxContainer/PanelContainer4"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_2vbfg")
+stretch_mode = 5
+
+[node name="PanelContainer2" type="PanelContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Gear/VBoxContainer/Right Arm/HBoxContainer2/PanelContainer4/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_sc4a4")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Gear/VBoxContainer/Right Arm/HBoxContainer2/PanelContainer4/HBoxContainer/PanelContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Gear/VBoxContainer/Right Arm/HBoxContainer2/PanelContainer4/HBoxContainer/PanelContainer2/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_4n61s")
+stretch_mode = 5
+
+[node name="TextureRect3" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Gear/VBoxContainer/Right Arm/HBoxContainer2/PanelContainer4/HBoxContainer/PanelContainer2/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_nxu75")
+stretch_mode = 5
+
+[node name="TextureRect4" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Gear/VBoxContainer/Right Arm/HBoxContainer2/PanelContainer4/HBoxContainer/PanelContainer2/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_ebsgt")
+stretch_mode = 5
+
+[node name="Left Arm" type="PanelContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Gear/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_sk57o")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Gear/VBoxContainer/Left Arm"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Gear/VBoxContainer/Left Arm/HBoxContainer2"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Gear/VBoxContainer/Left Arm/HBoxContainer2/VBoxContainer"]
+clip_children = 2
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("7_8ys1v")
+stretch_mode = 5
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Gear/VBoxContainer/Left Arm/HBoxContainer2/VBoxContainer/TextureRect"]
+layout_mode = 0
+offset_left = -18.0
+offset_top = -19.0
+offset_right = 13.0
+offset_bottom = 59.0
+texture = ExtResource("8_mblte")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="HFlowContainer" type="HFlowContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Gear/VBoxContainer/Left Arm/HBoxContainer2/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Gear/VBoxContainer/Left Arm/HBoxContainer2/VBoxContainer/HFlowContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_styles/panel = SubResource("StyleBoxFlat_g5hpk")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Gear/VBoxContainer/Left Arm/HBoxContainer2/VBoxContainer/HFlowContainer/PanelContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_4m8mn")
+
+[node name="PanelContainer2" type="PanelContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Gear/VBoxContainer/Left Arm/HBoxContainer2/VBoxContainer/HFlowContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_styles/panel = SubResource("StyleBoxFlat_g5hpk")
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Gear/VBoxContainer/Left Arm/HBoxContainer2/VBoxContainer/HFlowContainer/PanelContainer2"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_4m8mn")
+
+[node name="PanelContainer3" type="PanelContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Gear/VBoxContainer/Left Arm/HBoxContainer2/VBoxContainer/HFlowContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_styles/panel = SubResource("StyleBoxFlat_g5hpk")
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Gear/VBoxContainer/Left Arm/HBoxContainer2/VBoxContainer/HFlowContainer/PanelContainer3"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_4m8mn")
+
+[node name="PanelContainer4" type="PanelContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Gear/VBoxContainer/Left Arm/HBoxContainer2/VBoxContainer/HFlowContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_styles/panel = SubResource("StyleBoxFlat_g5hpk")
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Gear/VBoxContainer/Left Arm/HBoxContainer2/VBoxContainer/HFlowContainer/PanelContainer4"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_4m8mn")
+
+[node name="PanelContainer4" type="PanelContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Gear/VBoxContainer/Left Arm/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxTexture_ifms1")
+
+[node name="HBoxContainer" type="HFlowContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Gear/VBoxContainer/Left Arm/HBoxContainer2/PanelContainer4"]
+layout_mode = 2
+
+[node name="PanelContainer3" type="PanelContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Gear/VBoxContainer/Left Arm/HBoxContainer2/PanelContainer4/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_sc4a4")
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Gear/VBoxContainer/Left Arm/HBoxContainer2/PanelContainer4/HBoxContainer/PanelContainer3"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_bn7le")
+stretch_mode = 5
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Gear/VBoxContainer/Left Arm/HBoxContainer2/PanelContainer4/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_sc4a4")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Gear/VBoxContainer/Left Arm/HBoxContainer2/PanelContainer4/HBoxContainer/PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="TextureRect3" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Gear/VBoxContainer/Left Arm/HBoxContainer2/PanelContainer4/HBoxContainer/PanelContainer/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_nxu75")
+stretch_mode = 5
+
+[node name="TextureRect4" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Gear/VBoxContainer/Left Arm/HBoxContainer2/PanelContainer4/HBoxContainer/PanelContainer/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_ebsgt")
+stretch_mode = 5
+
+[node name="PanelContainer4" type="PanelContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Gear/VBoxContainer/Left Arm/HBoxContainer2/PanelContainer4/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_sc4a4")
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Gear/VBoxContainer/Left Arm/HBoxContainer2/PanelContainer4/HBoxContainer/PanelContainer4"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_jcfqp")
+stretch_mode = 5
+
+[node name="PanelContainer2" type="PanelContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Gear/VBoxContainer/Left Arm/HBoxContainer2/PanelContainer4/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_sc4a4")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Gear/VBoxContainer/Left Arm/HBoxContainer2/PanelContainer4/HBoxContainer/PanelContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="TextureRect3" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Gear/VBoxContainer/Left Arm/HBoxContainer2/PanelContainer4/HBoxContainer/PanelContainer2/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_nxu75")
+stretch_mode = 5
+
+[node name="TextureRect4" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Gear/VBoxContainer/Left Arm/HBoxContainer2/PanelContainer4/HBoxContainer/PanelContainer2/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_ebsgt")
+stretch_mode = 5
+
+[node name="Right Leg" type="PanelContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Gear/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_sk57o")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Gear/VBoxContainer/Right Leg"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Gear/VBoxContainer/Right Leg/HBoxContainer2"]
+clip_children = 2
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("7_8ys1v")
+stretch_mode = 5
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Gear/VBoxContainer/Right Leg/HBoxContainer2/TextureRect"]
+layout_mode = 0
+offset_left = 14.0
+offset_top = -45.0
+offset_right = 45.0
+offset_bottom = 33.0
+texture = ExtResource("8_mblte")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="PanelContainer4" type="PanelContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Gear/VBoxContainer/Right Leg/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxTexture_ifms1")
+
+[node name="HBoxContainer" type="HFlowContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Gear/VBoxContainer/Right Leg/HBoxContainer2/PanelContainer4"]
+layout_mode = 2
+
+[node name="PanelContainer3" type="PanelContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Gear/VBoxContainer/Right Leg/HBoxContainer2/PanelContainer4/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_sc4a4")
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Gear/VBoxContainer/Right Leg/HBoxContainer2/PanelContainer4/HBoxContainer/PanelContainer3"]
+layout_mode = 2
+texture = ExtResource("17_vdpfc")
+stretch_mode = 5
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Gear/VBoxContainer/Right Leg/HBoxContainer2/PanelContainer4/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_sc4a4")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Gear/VBoxContainer/Right Leg/HBoxContainer2/PanelContainer4/HBoxContainer/PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="TextureRect3" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Gear/VBoxContainer/Right Leg/HBoxContainer2/PanelContainer4/HBoxContainer/PanelContainer/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_nxu75")
+stretch_mode = 5
+
+[node name="TextureRect4" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Gear/VBoxContainer/Right Leg/HBoxContainer2/PanelContainer4/HBoxContainer/PanelContainer/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_ebsgt")
+stretch_mode = 5
+
+[node name="Left Leg" type="PanelContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Gear/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_sk57o")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Gear/VBoxContainer/Left Leg"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Gear/VBoxContainer/Left Leg/HBoxContainer2"]
+clip_children = 2
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("7_8ys1v")
+stretch_mode = 5
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Gear/VBoxContainer/Left Leg/HBoxContainer2/TextureRect"]
+layout_mode = 0
+offset_left = -11.0
+offset_top = -48.0
+offset_right = 20.0
+offset_bottom = 30.0
+texture = ExtResource("8_mblte")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="PanelContainer4" type="PanelContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Gear/VBoxContainer/Left Leg/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxTexture_ifms1")
+
+[node name="HBoxContainer" type="HFlowContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Gear/VBoxContainer/Left Leg/HBoxContainer2/PanelContainer4"]
+layout_mode = 2
+
+[node name="PanelContainer3" type="PanelContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Gear/VBoxContainer/Left Leg/HBoxContainer2/PanelContainer4/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_sc4a4")
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Gear/VBoxContainer/Left Leg/HBoxContainer2/PanelContainer4/HBoxContainer/PanelContainer3"]
+layout_mode = 2
+texture = ExtResource("17_vdpfc")
+stretch_mode = 5
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Gear/VBoxContainer/Left Leg/HBoxContainer2/PanelContainer4/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_sc4a4")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Gear/VBoxContainer/Left Leg/HBoxContainer2/PanelContainer4/HBoxContainer/PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="TextureRect3" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Gear/VBoxContainer/Left Leg/HBoxContainer2/PanelContainer4/HBoxContainer/PanelContainer/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_nxu75")
+stretch_mode = 5
+
+[node name="TextureRect4" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/HBoxContainer2/TabContainer/Gear/VBoxContainer/Left Leg/HBoxContainer2/PanelContainer4/HBoxContainer/PanelContainer/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_ebsgt")
+stretch_mode = 5
+
+[node name="DiceTrayRoller" parent="CanvasLayer/Control" instance=ExtResource("43_7keyu")]
+position = Vector2(0, -293)
+
+[node name="Stats" type="PanelContainer" parent="CanvasLayer"]
+offset_left = 1013.0
+offset_top = -292.0
+offset_right = 1551.0
+offset_bottom = -7.0
+theme_type_variation = &"ParchmentPanelContainer"
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Stats"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Stats/MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Stats/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Stats/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="TopRow" type="HBoxContainer" parent="CanvasLayer/Stats/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Vitality" type="VBoxContainer" parent="CanvasLayer/Stats/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/TopRow"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Stats/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/TopRow/Vitality"]
+layout_mode = 2
+text = "V"
+horizontal_alignment = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/Stats/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/TopRow/Vitality"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Stats/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/TopRow/Vitality/PanelContainer"]
+layout_mode = 2
+text = "7"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Stats/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/TopRow/Vitality"]
+layout_mode = 2
+
+[node name="PanelContainer2" type="TextureRect" parent="CanvasLayer/Stats/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/TopRow/Vitality/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_snmwq")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Stats/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/TopRow/Vitality/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_cq8p0")
+
+[node name="Coordination" type="VBoxContainer" parent="CanvasLayer/Stats/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/TopRow"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Stats/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/TopRow/Coordination"]
+layout_mode = 2
+text = "C"
+horizontal_alignment = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/Stats/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/TopRow/Coordination"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Stats/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/TopRow/Coordination/PanelContainer"]
+layout_mode = 2
+text = "6"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Stats/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/TopRow/Coordination"]
+layout_mode = 2
+
+[node name="PanelContainer2" type="TextureRect" parent="CanvasLayer/Stats/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/TopRow/Coordination/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_snmwq")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Stats/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/TopRow/Coordination/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_1t00l")
+
+[node name="Eloquence" type="VBoxContainer" parent="CanvasLayer/Stats/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/TopRow"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Stats/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/TopRow/Eloquence"]
+layout_mode = 2
+text = "E"
+horizontal_alignment = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/Stats/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/TopRow/Eloquence"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Stats/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/TopRow/Eloquence/PanelContainer"]
+layout_mode = 2
+text = "3"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Stats/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/TopRow/Eloquence"]
+layout_mode = 2
+
+[node name="PanelContainer2" type="TextureRect" parent="CanvasLayer/Stats/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/TopRow/Eloquence/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_u1ba7")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Stats/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/TopRow/Eloquence/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_5sles")
+
+[node name="E" type="VBoxContainer" parent="CanvasLayer/Stats/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/TopRow"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Stats/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/TopRow/E"]
+layout_mode = 2
+text = "E"
+horizontal_alignment = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/Stats/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/TopRow/E"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Stats/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/TopRow/E/PanelContainer"]
+layout_mode = 2
+text = "5"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Stats/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/TopRow/E"]
+layout_mode = 2
+
+[node name="PanelContainer2" type="TextureRect" parent="CanvasLayer/Stats/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/TopRow/E/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_snmwq")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Stats/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/TopRow/E/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_p3trt")
+
+[node name="Brilliance" type="VBoxContainer" parent="CanvasLayer/Stats/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/TopRow"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Stats/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/TopRow/Brilliance"]
+layout_mode = 2
+text = "B"
+horizontal_alignment = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/Stats/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/TopRow/Brilliance"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Stats/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/TopRow/Brilliance/PanelContainer"]
+layout_mode = 2
+text = "7"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Stats/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/TopRow/Brilliance"]
+layout_mode = 2
+
+[node name="PanelContainer2" type="TextureRect" parent="CanvasLayer/Stats/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/TopRow/Brilliance/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_snmwq")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Stats/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/TopRow/Brilliance/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_5inps")
+
+[node name="I" type="VBoxContainer" parent="CanvasLayer/Stats/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/TopRow"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Stats/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/TopRow/I"]
+layout_mode = 2
+text = "I"
+horizontal_alignment = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/Stats/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/TopRow/I"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Stats/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/TopRow/I/PanelContainer"]
+layout_mode = 2
+text = "9"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Stats/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/TopRow/I"]
+layout_mode = 2
+
+[node name="PanelContainer2" type="TextureRect" parent="CanvasLayer/Stats/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/TopRow/I/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_snmwq")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Stats/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/TopRow/I/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_4nt6p")
+
+[node name="GridContainer" type="VBoxContainer" parent="CanvasLayer/Stats/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Stats/MarginContainer/VBoxContainer/HBoxContainer/GridContainer"]
+layout_mode = 2
+
+[node name="ClassName" type="LineEdit" parent="CanvasLayer/Stats/MarginContainer/VBoxContainer/HBoxContainer/GridContainer/HBoxContainer"]
+layout_mode = 2
+placeholder_text = "Class"
+
+[node name="Race" type="LineEdit" parent="CanvasLayer/Stats/MarginContainer/VBoxContainer/HBoxContainer/GridContainer/HBoxContainer"]
+layout_mode = 2
+placeholder_text = "Race"
+
+[node name="CharacterName" type="LineEdit" parent="CanvasLayer/Stats/MarginContainer/VBoxContainer/HBoxContainer/GridContainer/HBoxContainer"]
+layout_mode = 2
+placeholder_text = "Character Name"
+expand_to_text_length = true
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/Stats/MarginContainer/VBoxContainer/HBoxContainer/GridContainer"]
+layout_mode = 2
+
+[node name="HPArmor" type="VBoxContainer" parent="CanvasLayer/Stats/MarginContainer/VBoxContainer/HBoxContainer/GridContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="HPandDT" type="HBoxContainer" parent="CanvasLayer/Stats/MarginContainer/VBoxContainer/HBoxContainer/GridContainer/PanelContainer/HPArmor"]
+layout_mode = 2
+
+[node name="HP" type="Label" parent="CanvasLayer/Stats/MarginContainer/VBoxContainer/HBoxContainer/GridContainer/PanelContainer/HPArmor/HPandDT"]
+layout_mode = 2
+theme_type_variation = &"VariantFontLabel1"
+text = "HP:"
+
+[node name="test_hp_dt_bar" parent="CanvasLayer/Stats/MarginContainer/VBoxContainer/HBoxContainer/GridContainer/PanelContainer/HPArmor/HPandDT" instance=ExtResource("16_7ahrn")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Stamina" type="HBoxContainer" parent="CanvasLayer/Stats/MarginContainer/VBoxContainer/HBoxContainer/GridContainer/PanelContainer/HPArmor"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Stats/MarginContainer/VBoxContainer/HBoxContainer/GridContainer/PanelContainer/HPArmor/Stamina"]
+layout_mode = 2
+theme_type_variation = &"VariantFontLabel1"
+text = "Stamina:
+"
+
+[node name="StaminaBar" type="TextureProgressBar" parent="CanvasLayer/Stats/MarginContainer/VBoxContainer/HBoxContainer/GridContainer/PanelContainer/HPArmor/Stamina"]
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 25.0
+value = 15.0
+nine_patch_stretch = true
+stretch_margin_left = 5
+stretch_margin_right = 5
+texture_under = ExtResource("18_n5pwq")
+texture_progress = ExtResource("19_p85i7")
+
+[node name="StaminaBarLabel" type="Label" parent="CanvasLayer/Stats/MarginContainer/VBoxContainer/HBoxContainer/GridContainer/PanelContainer/HPArmor/Stamina/StaminaBar"]
+layout_mode = 2
+offset_left = 6.0
+offset_right = 81.0
+offset_bottom = 12.0
+theme_override_font_sizes/font_size = 8
+text = "X/"
+
+[node name="StaminaBarLabel_MAX" type="Label" parent="CanvasLayer/Stats/MarginContainer/VBoxContainer/HBoxContainer/GridContainer/PanelContainer/HPArmor/Stamina/StaminaBar"]
+layout_mode = 2
+offset_left = 87.0
+offset_right = 103.0
+offset_bottom = 12.0
+theme_override_font_sizes/font_size = 8
+text = "T"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/Stats/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="CharacterBody2" parent="CanvasLayer/Stats/MarginContainer/VBoxContainer/HBoxContainer2" instance=ExtResource("20_fpkj1")]
+layout_mode = 2
+
+[node name="CharacterBody" parent="CanvasLayer/Stats/MarginContainer/VBoxContainer/HBoxContainer2" instance=ExtResource("21_1ai6x")]
+visible = false
+layout_mode = 2
+
+[node name="VboxContainer" type="VBoxContainer" parent="CanvasLayer/Stats/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/Stats/MarginContainer/VBoxContainer/HBoxContainer2/VboxContainer"]
+layout_mode = 2
+
+[node name="Inventory" type="TextureButton" parent="CanvasLayer/Stats/MarginContainer/VBoxContainer/HBoxContainer2/VboxContainer/CenterContainer"]
+layout_mode = 2
+texture_normal = ExtResource("22_4frl6")
+
+[node name="InventoryUI" parent="CanvasLayer/Stats/MarginContainer/VBoxContainer/HBoxContainer2/VboxContainer" instance=ExtResource("23_ppqip")]
+layout_mode = 2
+
+[node name="Sprite2D15" type="Sprite2D" parent="CanvasLayer"]
+clip_children = 2
+position = Vector2(121.5, 386)
+texture = ExtResource("7_8ys1v")
+
+[node name="PixelBodyHead" type="Sprite2D" parent="CanvasLayer/Sprite2D15"]
+position = Vector2(16, 5)
+texture = ExtResource("12_rmud3")
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Sprite2D15"]
+position = Vector2(-8, -1)
+rotation = -0.785397
+texture = ExtResource("13_23huo")
+
+[node name="Sprite2D16" type="Sprite2D" parent="CanvasLayer"]
+clip_children = 2
+position = Vector2(469, 386)
+texture = ExtResource("7_8ys1v")
+
+[node name="PixelBodyHead" type="Sprite2D" parent="CanvasLayer/Sprite2D16"]
+position = Vector2(-16, 5)
+texture = ExtResource("12_rmud3")
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Sprite2D16"]
+position = Vector2(8, 0)
+rotation = -0.785397
+texture = ExtResource("13_23huo")
+
+[node name="Label2" type="Label" parent="CanvasLayer"]
+offset_left = 196.0
+offset_top = 411.0
+offset_right = 327.0
+offset_bottom = 486.0
+text = "hp,dt,
+ dodge,
+init"
+
+[node name="PanelContainer8" type="PanelContainer" parent="CanvasLayer"]
+offset_left = 142.5
+offset_top = 372.0
+offset_right = 190.5
+offset_bottom = 400.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_ifms1")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/PanelContainer8"]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/PanelContainer8/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/PanelContainer8/HBoxContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/PanelContainer8/HBoxContainer/PanelContainer/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_4n61s")
+stretch_mode = 5
+
+[node name="TextureRect3" type="TextureRect" parent="CanvasLayer/PanelContainer8/HBoxContainer/PanelContainer/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_nxu75")
+stretch_mode = 5
+
+[node name="PanelContainer9" type="PanelContainer" parent="CanvasLayer"]
+offset_left = 402.5
+offset_top = 372.0
+offset_right = 450.5
+offset_bottom = 400.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_ifms1")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/PanelContainer9"]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/PanelContainer9/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/PanelContainer9/HBoxContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/PanelContainer9/HBoxContainer/PanelContainer/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_4n61s")
+stretch_mode = 5
+
+[node name="TextureRect3" type="TextureRect" parent="CanvasLayer/PanelContainer9/HBoxContainer/PanelContainer/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_nxu75")
+stretch_mode = 5
+
+[node name="TileMap" parent="." instance=ExtResource("1_gwexx")]
+layer_0/tile_data = PackedInt32Array(65554, 1310723, 0, 131090, 1310723, 1, 196626, 1310723, 1, 262162, 1310723, 1, 327698, 1310723, 1, 393234, 1310723, 1, 458770, 1310723, 1, 524306, 1310723, 1, 589842, 1310723, 1, 655378, 1310723, 2, 655361, 1179651, 2, 655362, 1245187, 2, 655363, 1245187, 2, 655364, 1245187, 2, 655365, 1245187, 2, 655366, 1245187, 2, 655367, 1245187, 2, 655368, 1245187, 2, 655369, 3, 0, 655370, 1245187, 2, 655371, 1245187, 2, 655372, 1245187, 2, 655373, 1245187, 2, 655374, 1245187, 2, 655375, 1245187, 2, 655376, 1245187, 2, 655377, 1245187, 2, 524292, 262147, 0, 393222, 262147, 0, 196622, 3, 0, 196624, 3, 0, 524305, 262147, 0, 589825, 1179651, 1, 524289, 1179651, 1, 458753, 1179651, 1, 393217, 1179651, 1, 327681, 1179651, 1, 262145, 1179651, 1, 196609, 1179651, 1, 131073, 1179651, 1, 65537, 1179651, 0, 131074, 131075, 0, 131075, 327683, 2, 196612, 131075, 0, 327687, 262147, 0, 65538, 1245187, 0, 196610, 131075, 0, 262146, 131075, 0, 327682, 131075, 0, 393218, 131075, 0, 458754, 1114115, 20, 524290, 3, 0, 524291, 3, 0, 589827, 3, 0, 589826, 3, 0, 458756, 262147, 0, 393221, 262147, 0, 327686, 262147, 0, 196614, 131075, 0, 524295, 131075, 0, 327688, 3, 0, 458760, 131075, 0, 327689, 262147, 0, 393225, 3, 0, 458761, 3, 0, 393226, 262147, 0, 589832, 1114115, 20, 524297, 131075, 0, 458762, 262147, 0, 524298, 3, 0, 458763, 262147, 0, 327683, 131075, 0, 393220, 3, 0, 458757, 262147, 0, 524293, 3, 0, 458758, 3, 0, 65553, 1245187, 0, 65552, 1245187, 0, 65551, 1245187, 0, 65550, 1245187, 0, 131086, 131075, 0, 131085, 131075, 0, 131084, 131075, 0, 131083, 131075, 0, 131082, 131075, 0, 131081, 3, 0, 65545, 1245187, 0, 65544, 1245187, 0, 65543, 1245187, 0, 65542, 1245187, 0, 65541, 1245187, 0, 65540, 1245187, 0, 65539, 1245187, 0, 131076, 131075, 0, 131077, 131075, 0, 196613, 1114115, 20, 262149, 131075, 0, 262148, 131075, 0, 262147, 131075, 0, 196611, 131075, 0, 327684, 131075, 0, 327685, 3, 0, 262150, 3, 0, 131078, 131075, 0, 131079, 3, 0, 196615, 131075, 0, 196616, 262147, 0, 131080, 262147, 0, 262152, 262147, 0, 262153, 131075, 0, 196617, 3, 0, 196618, 327683, 2, 262154, 131075, 0, 327690, 131075, 0, 327691, 131075, 0, 262155, 131075, 0, 196619, 327683, 2, 196620, 131075, 0, 262156, 131075, 0, 327692, 131075, 0, 393228, 1114115, 20, 393227, 131075, 0, 458764, 262147, 0, 524300, 262147, 0, 524299, 3, 0, 589835, 131075, 0, 589834, 131075, 0, 589833, 131075, 0, 589836, 131075, 0, 589837, 131075, 0, 524301, 262147, 0, 458765, 131075, 0, 393229, 131075, 0, 327693, 131075, 0, 262157, 131075, 0, 196621, 131075, 0, 262158, 131075, 0, 327694, 131075, 0, 393230, 131075, 0, 458766, 131075, 0, 524302, 262147, 0, 589838, 131075, 0, 589839, 131075, 0, 524303, 262147, 0, 458767, 131075, 0, 393231, 131075, 0, 327695, 131075, 0, 262159, 131075, 0, 196623, 3, 0, 131087, 131075, 0, 131088, 131075, 0, 131089, 131075, 0, 196625, 131075, 0, 262161, 3, 0, 262160, 3, 0, 327696, 131075, 0, 393232, 131075, 0, 458768, 131075, 0, 524304, 262147, 0, 589840, 131075, 0, 589841, 131075, 0, 458769, 3, 0, 393233, 131075, 0, 327697, 131075, 0, 65546, 1245187, 0, 65547, 1245187, 0, 65548, 1245187, 0, 65549, 1245187, 0, 458755, 3, 0, 393219, 3, 0, 589829, 131075, 0, 589828, 3, 0, 589830, 131075, 0, 524294, 131075, 0, 589831, 131075, 0, 393223, 3, 0, 458759, 131075, 0, 393224, 131075, 0, 524296, 131075, 0, 262151, 262147, 0, 720905, 65539, 0, 786441, 65539, 0, 720906, 851971, 6, 786440, 851971, 6, 851977, 262147, 0, 983049, 262147, 0, 1048586, 262147, 0, 1048589, 262147, 0, 983055, 262147, 0, 983057, 262147, 0, 1048591, 131075, 0, 1048588, 131075, 0, 983051, 131075, 0, 786442, 3, 0, 786443, 3, 0, 851980, 3, 0, 851981, 3, 0, 851982, 3, 0, 851983, 3, 0, 917520, 3, 0, 917521, 3, 0, 851978, 3, 0, 851979, 3, 0, 917518, 3, 0, 917519, 3, 0, 917514, 3, 0, 917517, 3, 0, 917516, 3, 0, 917515, 3, 0, 720904, 3, 0, 917512, 3, 0, 851976, 3, 0, 983050, 3, 0, 917513, 3, 0, 983053, 3, 0, 983052, 3, 0, 983054, 3, 0, 1048590, 3, 0, 1048587, 3, 0, 720908, 3, 0, 720907, 3, 0, 786444, 3, 0, 786445, 3, 0, 720909, 3, 0, 720910, 3, 0, 786446, 3, 0, 786447, 3, 0, 720911, 3, 0, 720912, 3, 0, 786448, 3, 0, 851984, 3, 0, 851985, 3, 0, 786449, 3, 0, 720913, 3, 0, 720914, 3, 0, 786450, 3, 0, 851986, 3, 0, 917522, 3, 0, 983058, 3, 0, 1048594, 3, 0, 1048593, 3, 0, 1048592, 3, 0, 983056, 3, 0, 983048, 3, 0, 983047, 3, 0, 917511, 3, 0, 851975, 3, 0, 786439, 3, 0, 720903, 3, 0, 720902, 3, 0, 720901, 3, 0, 720900, 3, 0, 720899, 3, 0, 720898, 3, 0, 720897, 3, 0, 786433, 3, 0, 851969, 3, 0, 917505, 3, 0, 983041, 3, 0, 1048577, 3, 0, 1048578, 3, 0, 983042, 3, 0, 917506, 3, 0, 851970, 3, 0, 786434, 3, 0, 786435, 3, 0, 851971, 3, 0, 917507, 3, 0, 983043, 3, 0, 1048579, 3, 0, 1048580, 3, 0, 983044, 3, 0, 917508, 3, 0, 851972, 3, 0, 786436, 3, 0, 786437, 3, 0, 851973, 3, 0, 917509, 3, 0, 983045, 3, 0, 1048581, 3, 0, 1048582, 3, 0, 983046, 3, 0, 917510, 3, 0, 851974, 3, 0, 786438, 3, 0, 1048583, 3, 0, 1048584, 3, 0, 1048585, 3, 0, 1114120, 3, 0, 1114121, 3, 0, 1114122, 3, 0, 1114123, 3, 0, 1114124, 3, 0, 1114125, 3, 0, 1114126, 3, 0, 1114127, 3, 0, 1114128, 3, 0, 1114129, 3, 0, 1114130, 3, 0, 1179666, 3, 0, 1179665, 3, 0, 1179664, 3, 0, 1179663, 3, 0, 1179662, 3, 0, 1179656, 3, 0, 1179657, 3, 0, 1179658, 3, 0, 1179659, 3, 0, 1179660, 3, 0, 1179661, 3, 0, 1245194, 3, 0, 1245195, 3, 0, 1245196, 3, 0, 1245197, 3, 0, 1245198, 3, 0, 1245203, 3, 0, 1245199, 3, 0, 1245200, 3, 0, 1245201, 3, 0, 1245202, 3, 0, 1245204, 3, 0, 1245205, 3, 0)
+
+[node name="Path" type="Line2D" parent="."]
+width = 2.0
+width_curve = SubResource("Curve_mbqqx")
+texture_mode = 1
+script = ExtResource("4_lw8f8")
+
+[node name="Movement_Reticle" type="Sprite2D" parent="Path"]
+self_modulate = Color(1, 1, 1, 0.301961)
+texture = SubResource("AtlasTexture_l3kqa")
+script = ExtResource("6_x88yu")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Path/Movement_Reticle"]
+libraries = {
+"": SubResource("AnimationLibrary_kf2gf")
+}
+autoplay = "modulate_transparency"
+
+[node name="Player" parent="." instance=ExtResource("2_qjml6")]
+position = Vector2(168, 88)
+
+[node name="Camera2D" parent="Player" index="6"]
+position_smoothing_enabled = true
+
+[node name="Enemy" parent="." instance=ExtResource("9_peilq")]
+position = Vector2(249, 88)
+target_sprite = ExtResource("12_rmud3")
+
+[node name="Enemy2" parent="." instance=ExtResource("9_peilq")]
+position = Vector2(249, 72)
+target_sprite = ExtResource("8_mblte")
+
+[connection signal="pressed" from="CanvasLayer/Control/HBoxContainer/VBoxContainer2/VBoxContainer/PanelContainer4/VBoxContainer/HBoxContainer/Button" to="CanvasLayer/Control" method="_on_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/HBoxContainer/VBoxContainer3/HBoxContainer/ExpandText" to="CanvasLayer/Control" method="_on_expand_text_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/HBoxContainer/VBoxContainer3/HBoxContainer/MinimizeText" to="CanvasLayer/Control" method="_on_minimize_text_pressed"]
+[connection signal="astar_grid_generated" from="TileMap" to="Path" method="_on_tile_map_astar_grid_generated"]
+[connection signal="astar_grid_generated" from="TileMap" to="Player" method="_on_tile_map_astar_grid_generated"]
+
+[editable path="Player"]
+[editable path="Enemy"]
+[editable path="Enemy2"]

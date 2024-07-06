@@ -26,9 +26,6 @@ func _ready():
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-	
 
 func roll_skill_check():
 	#TODO fill with rolls for skill checks
@@ -45,7 +42,7 @@ func load_in_attack(all_attacker_dice: int) -> void:
 
 func roll_attack() -> void:
 	if is_attack_loaded == true:
-		var dice_outcome: Array
+		var dice_outcome: Array = []
 		for dice in loaded_attack_die:
 			dice_outcome.append(randi_range(1,d6_dice_size))
 		print("attaker dice = " + str(dice_outcome))
@@ -62,7 +59,7 @@ func roll_defend(defender_dodge_dice: int, defender_block_dice: int) -> void:
 		print("select an attack")
 		return
 	else:
-		var dice_outcome: Array
+		var dice_outcome: Array = []
 		for dice in total_defender_dice:
 			dice_outcome.append(randi_range(1,d6_dice_size))
 		roll_attack()
