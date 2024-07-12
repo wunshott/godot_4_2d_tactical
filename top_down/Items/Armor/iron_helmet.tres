@@ -10,8 +10,11 @@ region = Rect2(512, 0, 16, 16)
 [resource]
 script = ExtResource("1_ub57i")
 armor_type = "placeholder"
-block_hit_die = 2
+block_hit_die = Array[int]([])
 ItemName = "Iron Helmet"
-ItemWeight = 0.0
+ItemSize = ""
 ItemSprite = SubResource("AtlasTexture_j6xgt")
 Equip_Slot = "Head"
+ItemDescription = ""
+ItemLore = ""
+HiddenItemLore = ""

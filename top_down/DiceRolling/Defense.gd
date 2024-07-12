@@ -3,9 +3,9 @@ extends Area2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	self.connect("area_entered",Callable(self,"_on_area_entered"))
-	self.connect("area_exited",Callable(self,"_on_area_exited"))
-	pass # Replace with function body.
+	self.connect("body_entered",Callable(self,"_on_body_entered"))
+	self.connect("body_exited",Callable(self,"_on_body_exited"))
+
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -13,10 +13,11 @@ func _process(delta):
 	pass
 
 
-func _on_area_entered(area: Area2D):
-	area.add_to_group("Defense")
+func _on_body_entered(body: Node2D):
+	print_debug("test")
+	body.add_to_group("Defense")
 
 
 
-func _on_area_exited(area: Area2D):
-	area.remove_from_group("Defense")
+func _on_body_exited(body: Node2D):
+	body.remove_from_group("Defense")

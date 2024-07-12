@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://cc7impkvi100d"]
+[gd_scene load_steps=25 format=3 uid="uid://cc7impkvi100d"]
 
 [ext_resource type="Script" path="res://top_down/DiceRolling/2D_Dice.gd" id="1_orjm0"]
 [ext_resource type="Texture2D" uid="uid://c33l7w8ot6nf7" path="res://assets/test_dice/dicce.png" id="2_7xi0h"]
@@ -100,6 +100,16 @@ animations = [{
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n7mnm"]
 size = Vector2(14, 14)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_mdhat"]
+lifetime_randomness = 0.27
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(5, 5, 1)
+gravity = Vector3(0, -98, 0)
+damping_max = 1.0
+scale_max = 2.0
+turbulence_enabled = true
 
 [sub_resource type="Animation" id="Animation_v2fix"]
 length = 0.001
@@ -248,6 +258,11 @@ hframes = 12
 shape = SubResource("RectangleShape2D_n7mnm")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+self_modulate = Color(1, 0.968627, 0.360784, 1)
+emitting = false
+amount = 5
+process_material = SubResource("ParticleProcessMaterial_mdhat")
+lifetime = 0.5
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -263,4 +278,6 @@ texture = SubResource("AtlasTexture_jifw4")
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="area_exited" from="." to="." method="_on_area_exited"]
 [connection signal="input_event" from="." to="." method="_on_dice_input_event"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

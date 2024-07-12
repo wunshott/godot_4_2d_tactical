@@ -10,8 +10,11 @@ region = Rect2(560, 16, 16, 16)
 [resource]
 script = ExtResource("1_wsn1i")
 armor_type = ""
-block_hit_die = 0
+block_hit_die = Array[int]([5, 5, 3])
 ItemName = "Iron Chest Plate"
-ItemWeight = 5.0
+ItemSize = "Large"
 ItemSprite = SubResource("AtlasTexture_midcu")
 Equip_Slot = "Torso"
+ItemDescription = "description of plate armor"
+ItemLore = "lore of this plate"
+HiddenItemLore = ""

@@ -11,17 +11,36 @@ class_name DiceTray
 @onready var left_area_collision = $Area2D/LeftAreaCollision as CollisionShape2D
 @onready var defense = $Defense as Area2D #TODO rename as left arm dice?
 
+@onready var selection_box = $SelectionBox as Area2D
+@onready var selection_box_shape = $SelectionBox/SelectionBoxShape as CollisionShape2D
+
+@onready var label = $Label
+@onready var reset_dice_button = $ResetDiceButton as Button
+
+
+
+
 var is_mouse_dragging: bool = false #tracks if the mouse if dragging
 var selected_dice: Array = [] # holds the array of selected units
-var drag_start: Vector2 = Vector2.ZERO # tracks the lcoation of where the select rectnagel starts
+var drag_start: Vector2 # tracks the lcoation of where the select rectnagel starts
 var select_rect: RectangleShape2D = RectangleShape2D.new() # collision shape for drag box
+var mouse_offset: Vector2
+var dragging_dice: bool = false
 
 var is_visible: bool = false
 
+var starting_dice_positions: Array[Vector2]
 
 
 @export var dice_roller_tray_left: left_area: set = set_dice_roller_tray_left
 @export var dice_roller_tray_right: right_area:set = set_dice_roller_tray_right
+
+#TODO need to tie a signal to window dice changing for the dice and area movement OR have a set size when dice are rolled
+#TODO have the dice sparkle when highlighted with square
+#TODO exclude things that aren't dice from being selected by box
+#TODO update dice to have sprite and roll abilities of previous dice
+#TODO add the reset button to move all dice backt to their o riginal position
+#TODO make a set window for dice roll (witcher roll box)
 
 enum left_area {
 	LARGE, # dialogue closed
@@ -35,15 +54,46 @@ enum right_area {
 }
 
 func _ready():
-	pass # Replace with function body.
+	selection_box_shape.shape.size = Vector2.ZERO
+	selection_box.monitoring = false
+	for idx: RigidDice in get_tree().get_nodes_in_group("dice"):
+		reset_dice_button.connect("pressed",Callable(idx,"reset_starting_dice_position"))
 
 
+func get_starting_dice_position():
+	get_tree().call_group("dice", "save_position")
+	#TODO update to put dice in the *real* position
+
+
+
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	if is_mouse_dragging:
+		queue_redraw()
+	label.set_text(str(get_global_mouse_position()))
+	if dragging_dice:
+		queue_redraw()
+	
+	
+	
+func _physics_process(delta):
+	if dragging_dice:
+		check_boundaries()
+#func _draw() -> void:
+	#if is_mouse_dragging:
+		#draw_rect(Rect2(drag_start, get_global_mouse_position() - drag_start),
+			#Color.YELLOW, false, 2.0)
+
+func _draw() -> void:
+	if is_mouse_dragging:
+		draw_rect(Rect2(drag_start, get_global_mouse_position() - drag_start), Color(1, 1, 1, 0.3), false)
+		draw_rect(Rect2(drag_start, get_global_mouse_position() - drag_start), Color(1, 1, 1, 0.3), true)
+	
 
 
 func _on_button_pressed():
+	#rolls dice
 	get_tree().call_group("Attack","roll_die")
 	get_tree().call_group("Defense","roll_die")
 
@@ -77,71 +127,114 @@ func toggle_dice_menu() -> void:
 	
 	if is_visible:
 		set_visible(is_visible)
-		tween.tween_property(self, "position",Vector2(0,0),1)
+		tween.tween_property(self, "position",Vector2(0,0),.1).set_ease(Tween.EASE_IN_OUT)
 		test_battle.is_dice_menu_open = true
 	else:
 		test_battle.is_dice_menu_open = false
-		tween.tween_property(self, "position",Vector2(0,-293),1)
+		tween.tween_property(self, "position",Vector2(0,-293),.1).set_ease(Tween.EASE_IN_OUT)
 	return
-
-func _unhandled_input(event: InputEvent) -> void:
+	
+func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.is_action("left_click"):
 		if event.pressed:
-			# if the mouse was clicked and nothing is selected, start dragging
-			if selected_dice.size() == 0:
-				is_mouse_dragging = true
-				drag_start = event.position
-				
-			#if mouse is clicked and there is selected dice, allow the dice to be moved.
-			#clicking on dice should allow the user to move the dice
-			#clicking on background unselects the dice
-			else:
-				for item in selected_dice:
-					if item.collider is dice:
-						item.collider.selected = false
-				selected_dice = []
+			is_mouse_dragging = true
+			drag_start = event.position
+			#print_debug(drag_start)
+			selection_box.global_position = drag_start
+			#selection_box_shape.global_position = drag_start
+			selection_box_shape.shape.extents = Vector2.ZERO
+			selection_box.monitoring = true
 		
-		
-		#if mouse is dragging, allow user to highlight dice
-		elif is_mouse_dragging:
+		else:
 			is_mouse_dragging = false
-			queue_redraw()
-			var drag_end: Vector2 = event.position
-			select_rect.extents = abs(drag_end - drag_start) / 2 #extends of a shape are measured from the center
+			selected_dice = selection_box.get_overlapping_bodies()
+			if selected_dice.size() > 1: #TODO breaks when you allow selecting 1 with the box
+				for idx: RigidDice in selected_dice:  #turn on the selector box
+					idx.set_selected(true)
+				dragging_dice = true
+				mouse_offset = get_global_mouse_position() - selection_box.global_position
 			
-			var space = get_world_2d().direct_space_state
-			var query: PhysicsShapeQueryParameters2D = PhysicsShapeQueryParameters2D.new()
-			query.collide_with_areas = true
-			query.shape = select_rect
-			query.transform = Transform2D(0,(drag_end + drag_start) / 2)
-			selected_dice = space.intersect_shape(query)
-			#get a reference to the physics shape
-			#set up a shape the size of the selected window. center of the dragged area is the origin
-			#equery the shape physics
-			# selected_dice pritns out an array of dicts
-			#each dit has a reference to the selected dice. set each of these to selected
-			for item in selected_dice:
-				if item.collider is dice:
-					item.collider.selected = true
-					item.collider_group_dragging = true
-					item.collider.offset_position_dice = item.collider.position - get_global_mouse_position()
+			else:
+				dragging_dice = false
+				for idx:RigidDice in get_tree().get_nodes_in_group("dice"):
+					idx.set_selected(false)
 
 			
+			selection_box.monitoring = false
+	
+	if event is InputEventMouseMotion:
+		if is_mouse_dragging:
+			update_selection_box(event.position)
+		elif dragging_dice:
+			move_selected_dice(event)
+
+
+func update_selection_box(current_position: Vector2) -> void:
+
+	var size = current_position - drag_start
+	selection_box_shape.shape.extents = Vector2(abs(size.x),abs(size.y)) /2.0
+	var box_position = drag_start + size /2.0
+	selection_box.global_position = box_position
+	
+	
+	
+func move_selected_dice(event: InputEvent) -> void:
+	var target_pos = get_global_mouse_position() - mouse_offset
+	var displacement = target_pos - selection_box.global_position
+
+
+		
+	for idx in selected_dice:
+		if idx is RigidBody2D:
+			#var new_pos = idx.global_position + displacement
 			
+			#var clamped_displacement = new_pos - idx.global_position
+			idx.apply_central_impulse(displacement * idx.mass * 5)
 			
-	if event is InputEventMouseMotion and is_mouse_dragging:
-		queue_redraw()
+	selection_box.global_position += displacement
+	mouse_offset = get_global_mouse_position() - selection_box.global_position
 
-#when button is released, query the physics and find units inside the box
+func check_boundaries():
+	var min_x = 16
+	var min_y = 16
+	var max_x = 500
+	var max_y = 349
+	
+	for idx in selected_dice:
+		if idx is RigidBody2D:
+			var pos = idx.global_position
+			var stopped = false
+		# Check left boundary
+			if pos.x < min_x:
+				pos.x = min_x
+				stopped = true
 
-func _draw() -> void:
-	if is_mouse_dragging:
-		draw_rect(Rect2(drag_start, get_global_mouse_position() - drag_start),
-			Color.YELLOW, false, 2.0)
+			# Check right boundary
+			if pos.x > max_x:
+				pos.x = max_x
+				stopped = true
 
+			# Check top boundary
+			if pos.y <min_y:
+				pos.y = min_y
+				stopped = true
 
+			# Check bottom boundary
+			if pos.y > max_y:
+				pos.y = max_y
+				stopped = true
+
+			# If the dice hit a boundary, stop it
+			if stopped:
+				idx.linear_velocity = Vector2.ZERO
+				idx.angular_velocity = 0
+				idx.global_position = pos
 
 func _on_area_2d_area_shape_entered(area_rid, area, area_shape_index, local_shape_index):
 	if area is dice:
 		area.selected = false
 		area._dragging = false
+
+
+
+

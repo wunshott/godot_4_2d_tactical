@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://iju1fshk6v0s"]
+
+[ext_resource type="Script" path="res://HUD/limbUI/dice_pips_ui.gd" id="1_0jbls"]
+[ext_resource type="Texture2D" uid="uid://c33l7w8ot6nf7" path="res://assets/test_dice/dicce.png" id="1_8c1m7"]
+[ext_resource type="PackedScene" uid="uid://utbwlitimdwa" path="res://HUD/limbUI/dice_pip_ui_container.tscn" id="2_6ggtl"]
+[ext_resource type="Texture2D" uid="uid://br6hy3nj3mh03" path="res://assets/UX_UI_Assets_Pack/Edits/Pellets_3_full.png" id="3_aiw7k"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s4on5"]
+atlas = ExtResource("1_8c1m7")
+region = Rect2(32, 0, 16, 16)
+
+[node name="DicePipsUi" type="HBoxContainer"]
+size_flags_vertical = 0
+script = ExtResource("1_0jbls")
+
+[node name="HBoxContainer" parent="." instance=ExtResource("2_6ggtl")]
+layout_mode = 2
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_type_variation = &"HBoxContainerTight"
+
+[node name="TextureRect2" type="TextureRect" parent="HBoxContainer4"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_s4on5")
+stretch_mode = 5
+
+[node name="TextureRect3" type="TextureRect" parent="HBoxContainer4"]
+layout_mode = 2
+texture = ExtResource("3_aiw7k")
+stretch_mode = 3

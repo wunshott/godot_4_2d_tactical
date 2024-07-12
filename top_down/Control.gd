@@ -33,7 +33,7 @@ func _ready():
 	detailed_character_menu_button.connect("pressed",Callable(self,"close_detailed_character_menu"))
 	#TODO make 1 toggle menu function that closes/opens the node 
 	limb_menu_button.connect("pressed",Callable(self,"toggle_limb_menu"))
-	inventory_menu_button.connect("pressed",Callable(self,"toggle_inventory_menu"))
+	inventory_menu_button.connect("pressed",Callable(self,"toggle_inventory_menu")) #TODO move these down in the node chain. its up too high
 	
 	detailed_character_menu.set_visible(is_char_menu_visible)
 	detailed_character_menu.hide()

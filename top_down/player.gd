@@ -24,7 +24,6 @@ const EXERTION_ALLOWED_PATH_TILE = preload("res://top_down/exertion_allowed_path
 @onready var stats: Stats = $Stats
 @onready var attack_pattern = $AttackPattern as AttackPattern
 @onready var inventory = $Inventory
-@onready var character_body_2 = $"../CanvasLayer/CharacterSheet/TabBar/TabContainer/Stats/MarginContainer/VBoxContainer/HBoxContainer2/CharacterBody2"
 @onready var test_battle = $".."
 
 @onready var camera_2d = $Camera2D

@@ -5,7 +5,7 @@ class_name Armor
 signal my_signal
 
 @export var armor_type: String
-@export var block_hit_die: int
+@export var block_hit_die: Array[int]
 
 
 func trigger_signal():

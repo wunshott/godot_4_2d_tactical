@@ -5,18 +5,20 @@ class_name dice
 @export var die_graphic: AnimatedSprite2D
 @export var die_number: Sprite2D
 @export var dice_roll_animation: AnimationPlayer
+@export var bump_strength: float #get based on mouse motion?
+@export var bump_damping: float
 
 @onready var selected_die_gfx = $SelectedDieGfx as Sprite2D
+@onready var gpu_particles_2d = $GPUParticles2D as GPUParticles2D
 
 
 var _dragging: bool = false
 var push_force: Vector2 = Vector2.ZERO
-@export var bump_strength: float #get based on mouse motion?
-@export var bump_damping: float
 var dice_value: int = 12
 var dice_outcome: int = randi_range(1,dice_value)
 var offset_position_dice: Vector2 
 var vector: Vector2 = Vector2.ZERO
+
 var selected = false:
 	set = set_selected
 
@@ -65,17 +67,18 @@ func _input(event) -> void:
 	if event is InputEventMouseButton and event.is_action_released("left_click"): #reads all inputs
 		_dragging = false
 
-#TODO prevent dice from overlapping by pushing them away from each other
+
 #TODO once dice enters A/D area, modulate it red and set its internal setting to A/D
-#TODO show particle FX once the dice rolls
+
 
 func print_my_groups() -> void:
 	print(get_groups())
-	
+
+
 
 func roll_die() -> void:
 	dice_roll_animation.play("roll")
-	return
+
 
 func set_die_gfx() -> int:
 	dice_outcome = randi_range(1,dice_value)
@@ -111,3 +114,14 @@ func _on_area_exited(area):
 	#if area is dice:
 		#area.push_force = Vector2.ZERO
 	return
+
+
+func _on_mouse_entered():
+	gpu_particles_2d.set_emitting(true)
+
+
+
+
+
+func _on_mouse_exited():
+	gpu_particles_2d.set_emitting(false)

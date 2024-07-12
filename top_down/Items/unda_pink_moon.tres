@@ -1,9 +1,18 @@
-[gd_resource type="Resource" script_class="Item" load_steps=2 format=3 uid="uid://bv0hr4lbcmc7d"]
+[gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://bv0hr4lbcmc7d"]
 
 [ext_resource type="Script" path="res://top_down/Items/item_template.gd" id="1_ol5ea"]
+[ext_resource type="Texture2D" uid="uid://cjg2mhnm8dv8q" path="res://assets/customs/colored-transparent_packed.png" id="1_r6655"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bdkoe"]
+atlas = ExtResource("1_r6655")
+region = Rect2(704, 32, 16, 16)
 
 [resource]
 script = ExtResource("1_ol5ea")
-ItemName = ""
-ItemWeight = 0.0
-Equip_Slot = Array[String]([])
+ItemName = "Unda Pink Moon"
+ItemSize = "Small"
+ItemSprite = SubResource("AtlasTexture_bdkoe")
+Equip_Slot = "Head"
+ItemDescription = "A pinkish golden crown. Engraved on the side is \"let me go\""
+ItemLore = ""
+HiddenItemLore = ""

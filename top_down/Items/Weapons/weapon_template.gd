@@ -12,3 +12,4 @@ class_name Weapon
 @export var weapon_hit_die: Array[int]#
 @export var defense_only_dice: bool
 @export var weapon_graze: int
+

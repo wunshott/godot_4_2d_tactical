@@ -10,6 +10,9 @@ region = Rect2(736, 96, 16, 16)
 [resource]
 script = ExtResource("2_esjqy")
 ItemName = "Ring of Power"
-ItemWeight = 0.1
+ItemSize = ""
 ItemSprite = SubResource("AtlasTexture_2goev")
-Limb = Array[String](["Nothing"])
+Equip_Slot = ""
+ItemDescription = ""
+ItemLore = ""
+HiddenItemLore = ""
