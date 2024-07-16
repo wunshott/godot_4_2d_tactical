@@ -46,14 +46,15 @@ const EXERTION_ALLOWED_PATH_TILE = preload("res://top_down/exertion_allowed_path
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	#connect signals
-	send_char_sheet_to_hud.emit(stats.CharacterSheetData)
+	
+	
 	stats.populate_character() # must be called here, calling it in the script causes an error. the variable doesn't load in
 	if !map:
 		return
 	#get_reachable_tiles(map.local_to_map(self.position), stats._get_movement_pool())
 	#_highlight_moveable_tiles()
-	print("Farquad's speed is " + str(stats.speed) + " tiles")
-	print("Farquad's movement exertion rate is " + str(stats.movement_exertion_cost))
+	#print("Farquad's speed is " + str(stats.speed) + " tiles")
+	#print("Farquad's movement exertion rate is " + str(stats.movement_exertion_cost))
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

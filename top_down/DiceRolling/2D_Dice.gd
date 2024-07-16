@@ -68,7 +68,7 @@ func _input(event) -> void:
 		_dragging = false
 
 
-#TODO once dice enters A/D area, modulate it red and set its internal setting to A/D
+
 
 
 func print_my_groups() -> void:

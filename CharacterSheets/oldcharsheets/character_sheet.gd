@@ -1,6 +1,6 @@
 extends Resource
 
-class_name CharacterSheet
+class_name CharacterSheetOld
 
 signal HP_changed
 signal DT_changed

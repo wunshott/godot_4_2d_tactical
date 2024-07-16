@@ -9,8 +9,8 @@ extends VBoxContainer
 @export var description_panel_item_size: Label
 @export var description_panel_dice: dice_armor_pip_ui
 
-#@export var inventory_panel: ItemSlot #TODO have these connect to the panel container when the item slot spawns in.
-#TODO probably have a limited quantity of each type spawn in. color code basd on size. all connect when spawning in
+#@export var inventory_panel: ItemSlot # have these connect to the panel container when the item slot spawns in.
+#probably have a limited quantity of each type spawn in. color code basd on size. all connect when spawning in
 @export var item_description_panel: PanelContainer
 
 # Called when the node enters the scene tree for the first time.
@@ -48,7 +48,7 @@ func _update_item_description_panel(item_slot: ItemSlot) -> void:
 	description_panel_item_size.set_text(item_slot.item_in_slot_resource.ItemSize) #convey item size through a different means?
 	
 	if item_slot.item_in_slot_resource is Weapon:
-		#TODO add a sword icon?
+		#add a sword icon?
 		#print_debug("item is a weapon")
 		#print_debug(inventory_panel.item_in_slot_resource.weapon_hit_die)
 		description_panel_dice.CurrentDiceType = description_panel_dice.DiceType.ATTACK 

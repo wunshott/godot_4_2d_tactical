@@ -1,0 +1,42 @@
+[gd_resource type="Resource" script_class="CharacterSheet" load_steps=4 format=3 uid="uid://ctbuenk8lqbkj"]
+
+[ext_resource type="Script" path="res://CharacterSheets/class/CharacterSheet.gd" id="1_67otu"]
+[ext_resource type="Resource" uid="uid://c8jw3k12xqfnr" path="res://top_down/Items/Armor/iron_helmet.tres" id="1_rhvgo"]
+[ext_resource type="Resource" uid="uid://bchl0as1x3qnx" path="res://top_down/Items/Weapons/dagger.tres" id="2_y8wrn"]
+
+[resource]
+script = ExtResource("1_67otu")
+class_title = ""
+VITALITY = 0
+COORDINATION = 0
+ELOQUENCE = 0
+INTUITION = 0
+BRILLIANCE = 0
+EMPATHY = 0
+right_arm_dice = Array[int]([])
+equipped_right_arm_armor_dice = Array[int]([])
+equipped_right_arm_weapon = ExtResource("2_y8wrn")
+left_arm_dice = Array[int]([])
+equipped_left_arm_armor_dice = Array[int]([])
+right_leg_dice = Array[int]([])
+right_leg_armor_dice = Array[int]([])
+left_leg_dice = Array[int]([])
+left_leg_armor_dice = Array[int]([])
+torso_dice = Array[int]([])
+equipped_torso_armor_dice = Array[int]([])
+head_dice = Array[int]([3, 3, 2])
+equipped_helmet_dice = Array[int]([])
+encumbrance = 0
+name = ""
+equipped_armor_dictionary = {
+"head": ExtResource("1_rhvgo"),
+"left_arm": null,
+"left_leg": null,
+"right_arm": null,
+"right_leg": null,
+"torso": null
+}
+equipped_weapon_dictionary = {
+"left_arm": null,
+"right_arm": null
+}

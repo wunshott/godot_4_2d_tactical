@@ -1,6 +1,6 @@
 extends Resource
 
-class_name Class #TODO change to character sheet?
+class_name CharacterSheet 
 
 signal HP_changed
 signal DT_changed
@@ -8,6 +8,7 @@ signal DT_changed
 signal Dodge_changed
 signal limb_hp_changed
 signal limb_dead
+signal armor_equipped #TODO add this 
 
 #TODO if the limb has no hp, deal double damage to top HP?
 @export var class_title: String
@@ -43,13 +44,11 @@ var soft_DT: int: set = set_soft_DT, get = get_soft_DT
 
 ## Arms
 @export var right_arm_dice: Array[int] 
-@export var right_weapon: Array[int]
-@export var equipped_right_arm_armor_dice: Array[int]
+@export var equipped_right_arm_armor_dice: Array[int] #TODO replace with the armor resource file
 @export var equipped_right_arm_weapon: Weapon
 
 
 @export var left_arm_dice: Array[int]
-@export var left_weapon: Array[int]
 @export var equipped_left_arm_armor_dice: Array[int]
 @export var equipped_left_arm_weapon: Weapon
 
@@ -84,13 +83,13 @@ var limb_dictionary: Dictionary = { #sets the current hp, changing these won't c
 }
 
 
-var equipped_armor_dictionary: Dictionary = { #sets the current hp, changing these won't change the original values?
-	"head": equipped_helmet_dice,
-	"torso":equipped_torso_armor_dice,
-	"right_arm": equipped_right_arm_armor_dice,
-	"left_arm": equipped_left_arm_armor_dice,
-	"right_leg": right_leg_armor_dice,
-	"left_leg": left_leg_armor_dice,
+@export var equipped_armor_dictionary: Dictionary = { #sets the current hp, changing these won't change the original values?
+	"head": null,
+	"torso":null,
+	"right_arm": null,
+	"left_arm": null,
+	"right_leg": null,
+	"left_leg": null,
 }
 
 @export var equipped_weapon_dictionary: Dictionary = {
@@ -122,6 +121,39 @@ func get_HP() -> int:
 	return HP
 
 func initialize_limb_hp() -> void:
+	#limb_dictionary["head"] = head_dice.duplicate(true)
+	#limb_dictionary["torso"] = torso_dice.duplicate(true)
+	#limb_dictionary["right_arm"] = right_arm_dice.duplicate(true)
+	#limb_dictionary["left_arm"] = left_arm_dice.duplicate(true)
+	#limb_dictionary["right_leg"] = right_leg_dice.duplicate(true)
+	#limb_dictionary["left_leg"] = left_leg_dice.duplicate(true)
+	
+	var max_head_hp: int = BRILLIANCE/2 + EMPATHY/2 + INTUITION/2 + .5*VITALITY
+	var head_hp: int #= clampi(0,0,max_head_hp) not clamping these values so they can increase based on bonuses
+
+	var max_torso_hp: int = VITALITY
+	var torso_hp: int #= clampi(0,0,max_torso_hp)
+
+	var max_right_arm_hp: int = VITALITY/2 + COORDINATION/2
+	var right_arm_hp:int# = clampi(0,0,max_right_arm_hp)
+
+	var max_left_arm_hp: int = VITALITY/2  + COORDINATION/2
+	var left_arm_hp: int #= clampi(0,0,max_left_arm_hp)
+
+	var max_right_leg_hp: int = VITALITY/2 + COORDINATION/2
+	var right_leg_hp: int #= clampi(0,0,max_right_leg_hp)
+
+	var max_left_leg_hp: int = VITALITY/2  + COORDINATION/2
+	var left_leg_hp: int #= clampi(0,0,max_left_leg_hp)
+	#TODO how is the dice split
+	#should a combo of vit/class determine the max dice?
+	# warrior, 6 vit limbs may have a max dice of d6? 
+	# vit determines the largest dice size OR the number of dice in each limb? (or vit bonus adds to each dice limb?)
+	# class determines what? should influence the growth of dice, maybe the base
+	# secondary stats determine what for their respective limbs?
+	
+
+	
 	limb_dictionary["head"] = head_dice.duplicate(true)
 	limb_dictionary["torso"] = torso_dice.duplicate(true)
 	limb_dictionary["right_arm"] = right_arm_dice.duplicate(true)
@@ -129,12 +161,14 @@ func initialize_limb_hp() -> void:
 	limb_dictionary["right_leg"] = right_leg_dice.duplicate(true)
 	limb_dictionary["left_leg"] = left_leg_dice.duplicate(true)
 	
-	equipped_armor_dictionary["head"] = equipped_helmet_dice.duplicate(true)
-	equipped_armor_dictionary["torso"] = equipped_torso_armor_dice.duplicate(true)
-	equipped_armor_dictionary["right_arm"] = equipped_right_arm_armor_dice.duplicate(true)
-	equipped_armor_dictionary["left_arm"] = equipped_left_arm_armor_dice.duplicate(true)
-	equipped_armor_dictionary["right_leg"] = right_leg_armor_dice.duplicate(true)
-	equipped_armor_dictionary["left_leg"] = left_leg_armor_dice.duplicate(true)
+	equipped_weapon_dictionary["right_arm"] = equipped_right_arm_weapon
+	equipped_weapon_dictionary["leftt_arm"] = equipped_left_arm_weapon
+	#equipped_armor_dictionary["head"] = equipped_helmet_dice.duplicate(true)
+	#equipped_armor_dictionary["torso"] = equipped_torso_armor_dice.duplicate(true)
+	#equipped_armor_dictionary["right_arm"] = equipped_right_arm_armor_dice.duplicate(true)
+	#equipped_armor_dictionary["left_arm"] = equipped_left_arm_armor_dice.duplicate(true)
+	#equipped_armor_dictionary["right_leg"] = right_leg_armor_dice.duplicate(true)
+	#equipped_armor_dictionary["left_leg"] = left_leg_armor_dice.duplicate(true)
 
 func get_limb_hp_from_dice(limb_array: Array) -> int:
 	var hp_from_limb: int = 0

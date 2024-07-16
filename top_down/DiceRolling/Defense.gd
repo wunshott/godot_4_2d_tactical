@@ -14,10 +14,10 @@ func _process(delta):
 
 
 func _on_body_entered(body: Node2D):
-	print_debug("test")
 	body.add_to_group("Defense")
-
+	body.die_graphic.set_self_modulate(Color.BLUE)
 
 
 func _on_body_exited(body: Node2D):
 	body.remove_from_group("Defense")
+	body.die_graphic.reset_modulation()

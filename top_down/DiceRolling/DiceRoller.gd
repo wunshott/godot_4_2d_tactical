@@ -18,7 +18,7 @@ var loaded_attack_die: int
 #click rightclick or click enemy to pull up vats
 #click the limb
 #grab enemy AC, defense dice
-#TODO roll the dice
+#roll the dice
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -28,11 +28,11 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 
 func roll_skill_check():
-	#TODO fill with rolls for skill checks
+	#fill with rolls for skill checks
 	return
 
 func load_in_attack(all_attacker_dice: int) -> void:
-	is_attack_loaded = true #TODO add a way to cancel the attack (Hitting escape, swapping the weapon, right click)
+	is_attack_loaded = true # add a way to cancel the attack (Hitting escape, swapping the weapon, right click)
 	# when the attack button is pushed
 	# this function preps the current action
 	# once the limb is clicked, attack and defend die are rolled

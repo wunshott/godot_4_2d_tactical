@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://HUD/character_sheet.gd" id="1_gwa8g"]
 [ext_resource type="Theme" uid="uid://dy51vb6uy42fp" path="res://Themes/HUD_THEME_1.tres" id="1_ln5dm"]
-[ext_resource type="Resource" uid="uid://cjpg77aspl6rb" path="res://CharacterSheets/Farquad.tres" id="2_ti03k"]
+[ext_resource type="Resource" uid="uid://cjpg77aspl6rb" path="res://CharacterSheets/oldcharsheets/FarquadOld.tres" id="2_ti03k"]
 [ext_resource type="Texture2D" uid="uid://dvckrkp7pytci" path="res://assets/kenney_1-bit-pack/Tilesheet/colored-transparent_packed.png" id="4_2inp2"]
 [ext_resource type="Texture2D" uid="uid://b8xlcc4proib7" path="res://assets/UI Borders/customs/Stamina_Bar.png" id="5_kciiw"]
 [ext_resource type="PackedScene" uid="uid://1vpb1blidek1" path="res://HUD/Meters/test_hp_dt_bar.tscn" id="5_qok55"]

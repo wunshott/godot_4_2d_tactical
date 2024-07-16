@@ -24,10 +24,10 @@ var current_player_stamina: int
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	self.connect("attack_button_pressed",Callable(Dice_Roller,"_on_get_player_action"))
-	#attack_button.set_texture()# TODO update the button texture with the weapon, even later update each action to have a sprite
+	#attack_button.set_texture()# update the button texture with the weapon, even later update each action to have a sprite
 	pass # Replace with function body.
 
-#TODO ensure the attack cost is properly translated to the attack menu
+# ensure the attack cost is properly translated to the attack menu
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

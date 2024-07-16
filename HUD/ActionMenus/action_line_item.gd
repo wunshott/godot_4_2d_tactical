@@ -26,6 +26,6 @@ func _on_button_pressed():
 	roll_to_attack()
 
 func roll_to_attack() -> void:
-	var limb_hit_die: int = CharacterSheetData.get_limb_hp("right_arm") #TODO change to pull from the limb holding the weapon
+	var limb_hit_die: int = CharacterSheetData.get_limb_hp("right_arm")
 	var total_die_to_send: int = weapon_bonus_hit_dice + limb_hit_die
 	placeholder_attack.emit(total_die_to_send)

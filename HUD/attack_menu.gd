@@ -40,7 +40,7 @@ func _input(event):
 func _refresh_attacks_weapon_swap():
 	return
 func _update_hit_chance_for_attacks(current_hit_chance: int):
-	return #TODO THC needs to update with player stat changes and weapon swap. should not stack with pushing A
+	return # THC needs to update with player stat changes and weapon swap. should not stack with pushing A
 	for child in list_of_actions:
 		child.hit_chance_label.set_text(str(background_total_hit_chance + current_hit_chance))
 
@@ -74,8 +74,8 @@ func add_attack_actions_to_hud(ArrayofActions: Array, weapon_hit_bonus:int, weap
 
 func map_modifiers_to_attack():
 	return
-	#TODO ensure the modifiers are attached to the attack, but sent separately when the dice_roller recieves it
-	#TODO what happens if the hit chance changes?
+	#ensure the modifiers are attached to the attack, but sent separately when the dice_roller recieves it
+	# what happens if the hit chance changes?
 
 func _on_close_menu_button_pressed(): #close the menu out
 	Dice_Roller.attack_lock = false #cancels the attack lock when the menu is closed
@@ -106,7 +106,7 @@ func _on_panel_container_mouse_exited():
 
 
 func _on_enemy_activate_attack_menu():
-	request_player_attack_actions.emit() #FIXME remove this once the attack action range menu is fixed, same for vats menu
+	request_player_attack_actions.emit() # remove this once the attack action range menu is fixed, same for vats menu
 
 #send_attack_hud_actions(attack_action_array:Array[Action], weapon_hit_bonus:int, attacker_base_hit_bonus:int)
 func _on_inventory_send_attack_hud_actions(ArrayofActions: Array, weapon_hit_bonus:int,weapon_icon:Texture2D, attacker_base_hit_bonus:int):

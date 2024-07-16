@@ -15,9 +15,10 @@ func _process(delta):
 
 func _on_body_entered(body: Node2D):
 	body.add_to_group("Attack")
-
+	body.die_graphic.set_self_modulate(Color.RED)
 
 
 
 func _on_body_exited(body: Node2D):
 	body.remove_from_group("Attack")
+	body.die_graphic.reset_modulation()

@@ -49,7 +49,7 @@ class_name Action
 @export var can_hit_all_limbs: bool
 @export var limbs_can_hit: Array[String]
 
-#TODO figure out a way to have attacks reference an attack pattern
+# figure out a way to have attacks reference an attack pattern
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -58,6 +58,6 @@ func _ready():
 
 
 
-func _damage(Target: Node, damage_type_input: String, damage_amount: int) -> void: # TODO fix to hit limb
+func _damage(Target: Node, damage_type_input: String, damage_amount: int) -> void: # fix to hit limb
 	Target.take_damage(damage_type_input,damage_amount)
 	

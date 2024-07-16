@@ -1,7 +1,7 @@
 [gd_scene load_steps=15 format=3 uid="uid://b12s52c4gkkag"]
 
 [ext_resource type="Script" path="res://top_down/Enemy/enemy.gd" id="1_uq6wn"]
-[ext_resource type="Resource" uid="uid://deegwujv8pani" path="res://CharacterSheets/dummy.tres" id="2_0mdpq"]
+[ext_resource type="Resource" uid="uid://deegwujv8pani" path="res://CharacterSheets/oldcharsheets/dummy.tres" id="2_0mdpq"]
 [ext_resource type="Texture2D" uid="uid://cjg2mhnm8dv8q" path="res://assets/customs/colored-transparent_packed.png" id="2_n1btt"]
 [ext_resource type="Script" path="res://top_down/Stats.gd" id="4_mbg3s"]
 [ext_resource type="PackedScene" uid="uid://bfteryvy3beu4" path="res://top_down/Inventory/inventory.tscn" id="5_wg1vd"]

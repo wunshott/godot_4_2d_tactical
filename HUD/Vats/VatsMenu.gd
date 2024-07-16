@@ -45,7 +45,7 @@ var dodge_AC: int
 func _ready():
 	self.set_visible(false)
 	self.connect("placeholder_defend",Callable(Dice_Roller,"roll_defend"))
-	#TODO setup the signals from the resource file to update the HUD
+	# setup the signals from the resource file to update the HUD
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -109,13 +109,13 @@ func _populate_armor(ArmorDictionary: Dictionary):
 	_adjust_armor_hp_bar(head_armor_hp, head.ArmorSlot)
 	
 	torso.ArmorSlot = ArmorDictionary.get("Torso")
-	#right_arm.ArmorSlot = ArmorDictionary.get("RightArm") TODO unsupress these and copy the same texture button node
+	#right_arm.ArmorSlot = ArmorDictionary.get("RightArm")  unsupress these and copy the same texture button node
 	#left_arm.ArmorSlot = ArmorDictionary.get("LefttArm")
 	#groin.ArmorSlot = ArmorDictionary.get("Groin")
 	#right_leg.ArmorSlot = ArmorDictionary.get("RightLeg")
 	#left_leg.ArmorSlot = ArmorDictionary.get("LeftLeg")
 
-func _adjust_armor_hp_bar(Armorbar: TextureProgressBar, ArmorPiece: Armor): #TODO figure out a way to set the max hp when the bar is initilaized
+func _adjust_armor_hp_bar(Armorbar: TextureProgressBar, ArmorPiece: Armor): #figure out a way to set the max hp when the bar is initilaized
 	Armorbar.set_value(ArmorPiece.armor_hp)
 	
 

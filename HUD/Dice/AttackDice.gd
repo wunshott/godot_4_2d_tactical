@@ -11,7 +11,6 @@ var dice_container: PackedScene = preload("res://HUD/Dice/dice_container.tscn")
 @onready var v_box_container_2 = $VBoxContainer2
 @export var DiceArray: Array[int]
 
-#TODO pool dice results together and compare to a defender
 
 func _can_drop_data(_at_position: Vector2, data) -> bool:
 	return data is DieContainer 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://daupiatx27twp"]
+[gd_scene load_steps=21 format=3 uid="uid://daupiatx27twp"]
 
 [ext_resource type="Script" path="res://top_down/player.gd" id="1_bqpha"]
 [ext_resource type="PackedScene" uid="uid://dluyq3akqpowy" path="res://top_down/Stats/stats.tscn" id="3_1f5km"]
@@ -11,6 +11,7 @@
 [ext_resource type="Resource" uid="uid://c8jw3k12xqfnr" path="res://top_down/Items/Armor/iron_helmet.tres" id="7_2qdlh"]
 [ext_resource type="PackedScene" uid="uid://bgermilahkoxh" path="res://Actions/attack_patterns/attack_pattern.tscn" id="7_ef2w6"]
 [ext_resource type="Resource" uid="uid://berx3gtyf4lft" path="res://top_down/Items/Armor/no_armor.tres" id="7_fypcp"]
+[ext_resource type="Resource" uid="uid://ctbuenk8lqbkj" path="res://CharacterSheets/class/Farquad.tres" id="7_pxfbn"]
 [ext_resource type="Resource" uid="uid://b57rgbu848qwr" path="res://top_down/Items/Armor/iron_Chest_plate.tres" id="8_i0st6"]
 [ext_resource type="Resource" uid="uid://danrkv4wfq7ut" path="res://top_down/Items/Weapons/wooden_sword.tres" id="9_6t3m2"]
 
@@ -65,7 +66,6 @@ texture_mode = 1
 script = ExtResource("4_x5rhd")
 
 [node name="Movement_Reticle" type="Sprite2D" parent="Path"]
-self_modulate = Color(1, 1, 1, 0.301961)
 texture = SubResource("AtlasTexture_gjrf6")
 script = ExtResource("6_tjg1w")
 
@@ -81,6 +81,7 @@ autoplay = "modulate_transparency"
 shape = SubResource("RectangleShape2D_0ccn3")
 
 [node name="Stats" parent="." instance=ExtResource("3_1f5km")]
+CharacterSheetData = ExtResource("7_pxfbn")
 
 [node name="Inventory" parent="." instance=ExtResource("5_315wl")]
 equipped_weapon_dict = {

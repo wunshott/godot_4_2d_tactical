@@ -42,7 +42,7 @@ func _on_hud_2_recieved_char_sheet_from_player():
 	populate_actions_from_player()
 
 func fill_out_action_label(input_label: Label, action_name: String) -> void:
-	input_label.set_text(action_name) #TODO create short hadn vairables for the weapons and attacks ocne the weapon is equipped
+	input_label.set_text(action_name) # create short hadn vairables for the weapons and attacks ocne the weapon is equipped
 	
 
 
