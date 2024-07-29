@@ -526,7 +526,7 @@ func combat_dice_trade_hp_pool_with_classes() -> void:
 	#print("the target's weapon's graze modifier is = " + str(target_weapon_graze_threshold) )
 	#print("player dodge threshold is = " + str(player_dodge_threshold))
 	
-	if target_attack_sum < player_dodge_threshold: #TODO make <=? turn into a function
+	if target_attack_sum < player_dodge_threshold: # make <=? turn into a function
 		var player_adjusted_dodge_threshold:int = player_dodge_threshold - target_weapon_graze_threshold
 		var target_damage_dealt: int = target_attack_sum - (player_adjusted_dodge_threshold)
 		#print("player's modified dodge threshold is = " + str(player_adjusted_dodge_threshold) )

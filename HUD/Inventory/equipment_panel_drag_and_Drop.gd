@@ -2,8 +2,10 @@ extends ItemSlot
 
 class_name EquipSlot #For Armor Only
 
-signal equip_item_to_player(limb:String, ItemToEquip: Item)
+signal item_equipped_by_player(limb: String, item: Item)
+signal item_unequipped_by_player(limb: String)
 signal send_armor_hp_to_HUD(limb:String, EquippedArmor: Armor)
+
 
 @export var limb_slot: String
 
@@ -24,6 +26,19 @@ func _process(delta):
 #maybe hovering the mouse over an item will open the inventory screen
 #hovering the limb shoudl highlight, but clicking on the limb will show the limb screen
 
+func add_item_to_slot(input_item: Item) -> void:
+	item_in_slot_resource =  input_item
+	item_sprite.set_texture(item_in_slot_resource.ItemSprite)
+
+
+func _drop_data(at_position: Vector2, data): # assign variable name to data. resource file item
+	var temp = item_in_slot_resource
+	
+	self.item_in_slot_resource = data.item_in_slot_resource
+	data.item_in_slot_resource = temp #swaps the files around. the dragged goes to destination and destination goes to dragged. 
+	
+	data._refresh_slot() #resets both slots so the sprites update with the resource
+	self._refresh_slot()
 
 func _can_drop_data(at_position: Vector2, data) -> bool: # overwrite function to add features
 	var can_drop_bool: bool = false
@@ -34,13 +49,17 @@ func _can_drop_data(at_position: Vector2, data) -> bool: # overwrite function to
 	
 func _refresh_slot():  # overwrite function to add features
 	if !item_in_slot_resource: #refreshes item slot
-		item_sprite.set_texture(null) 
+		#item was unequipped
+		item_unequipped_by_player.emit(limb_slot)
+		if item_sprite:
+			item_sprite.set_texture(null) 
 		return
-	item_sprite.set_texture(item_in_slot_resource.ItemSprite)
-	#equip_item_to_player.emit(limb_slot,item_in_slot_resource) #TODO update these signals to talk to player resource
-	#send_armor_hp_to_HUD.emit(limb_slot, item_in_slot_resource)
+		
+	#item was equipped
 	
+	item_sprite.set_texture(item_in_slot_resource.ItemSprite)
+	item_equipped_by_player.emit(limb_slot, item_in_slot_resource)
+	
+	#print_debug(limb_slot) #TODO why?
 
-func get_allowed_limb_slot() -> void:
-	limb_slot = get_parent().get_parent().get_parent().get_name() #grab from a variable in the node instead of node name
-	#TODO make a cleaner way to grab the limb name
+

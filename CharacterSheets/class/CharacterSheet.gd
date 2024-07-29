@@ -8,24 +8,44 @@ signal DT_changed
 signal Dodge_changed
 signal limb_hp_changed
 signal limb_dead
-signal armor_equipped #TODO add this 
+signal armor_equipped(currently_equipped_slot: String, item_to_equip: Item)
+signal weapon_equipped(currently_equipped_slot: String, item_to_equip: Item)
+signal stat_changed(current_stat_value: int)
+signal encumbrance_changed(current_encumbrance: int)
 
-#TODO if the limb has no hp, deal double damage to top HP?
 @export var class_title: String
 ## Stats
-@export var VITALITY: int #BODYBUILDER
+
+var stat_dictionary: Dictionary ={
+	"Vitality": 0,
+	"Coordination": 0,
+	"Eloquence": 0,
+	"Intuition": 0,
+	"Brilliance": 0,
+	"Empathy": 0
+	
+}
+
+func _change_stat(input_name: String, input_value: int) -> void:
+	stat_dictionary[input_name] += input_value
+	stat_changed.emit(stat_dictionary[input_name]) #TODO connect this to the ui
+	
+func _get_stat(input_name: String) -> int:
+	return stat_dictionary[input_name]
+
+@export var stat_spread: Array[int]
+@export var VITALITY: int #BODYBUILDER 
 @export var COORDINATION: int #BALLERINA
 @export var ELOQUENCE: int  #POLITICIAN
 @export var INTUITION: int #LIBRARIAN/SAVANT
 @export var BRILLIANCE: int #SOCIOPATH
 @export var EMPATHY: int #GURU
 
-#TODO have the character sheet update the entire user interface
 
 # if limb hp changes,
 # change hp
 var max_HP: int:  get = get_max_HP #, set = set_max_HP,
-var HP: int :get = get_HP #,set = set_HP #TODO remove the set/get if hp still has issues changing
+var HP: int :get = get_HP #,set = set_HP 
 
 
 ## Derived Features: Dodge,
@@ -44,33 +64,31 @@ var soft_DT: int: set = set_soft_DT, get = get_soft_DT
 
 ## Arms
 @export var right_arm_dice: Array[int] 
-@export var equipped_right_arm_armor_dice: Array[int] #TODO replace with the armor resource file
 @export var equipped_right_arm_weapon: Weapon
-
+@export var equipped_right_arm_armor: Armor
 
 @export var left_arm_dice: Array[int]
-@export var equipped_left_arm_armor_dice: Array[int]
 @export var equipped_left_arm_weapon: Weapon
-
+@export var equipped_left_arm_armor: Armor
 ## Legs
 @export var right_leg_dice: Array[int]
-@export var right_leg_armor_dice: Array[int]
+@export var equipped_right_leg_armor: Armor
 
 @export var left_leg_dice: Array[int]
-@export var left_leg_armor_dice: Array[int]
+@export var equipped_left_leg_armor: Armor
 #affects dodge
 
 ## Torso
 @export var torso_dice: Array[int]
-@export var equipped_torso_armor_dice: Array[int]
+@export var equipped_torso_armor: Armor
 
 
 ## Head
 @export var head_dice: Array[int]
-@export var equipped_helmet_dice: Array[int]
+@export var equipped_helmet: Armor
 #hitting this deals bonus HP damage?
 
-@export var encumbrance: int # TODO add encumbeance to armor
+var encumbrance: int
 @export var name: String
 
 var limb_dictionary: Dictionary = { #sets the current hp, changing these won't change the original values?
@@ -101,7 +119,7 @@ var limb_dictionary: Dictionary = { #sets the current hp, changing these won't c
 # = limb hp
 
 
-func set_HP() -> void: #TODO troubleshoot by asking for an input: input_limb_dict: Dictionary
+func set_HP() -> void: 
 	#print(get_HP())
 	
 	var temp_hp_count:int = 0 
@@ -120,13 +138,22 @@ func set_HP() -> void: #TODO troubleshoot by asking for an input: input_limb_dic
 func get_HP() -> int:
 	return HP
 
-func initialize_limb_hp() -> void:
+
+func initiate_char() -> void:
 	#limb_dictionary["head"] = head_dice.duplicate(true)
 	#limb_dictionary["torso"] = torso_dice.duplicate(true)
 	#limb_dictionary["right_arm"] = right_arm_dice.duplicate(true)
 	#limb_dictionary["left_arm"] = left_arm_dice.duplicate(true)
 	#limb_dictionary["right_leg"] = right_leg_dice.duplicate(true)
 	#limb_dictionary["left_leg"] = left_leg_dice.duplicate(true)
+	
+	
+	
+	var stat_idx: int = 0
+	for stat_value: String in stat_dictionary.keys():
+		
+		stat_dictionary[stat_value] = stat_spread[stat_idx]
+		stat_idx += 1
 	
 	var max_head_hp: int = BRILLIANCE/2 + EMPATHY/2 + INTUITION/2 + .5*VITALITY
 	var head_hp: int #= clampi(0,0,max_head_hp) not clamping these values so they can increase based on bonuses
@@ -145,7 +172,9 @@ func initialize_limb_hp() -> void:
 
 	var max_left_leg_hp: int = VITALITY/2  + COORDINATION/2
 	var left_leg_hp: int #= clampi(0,0,max_left_leg_hp)
+	
 	#TODO how is the dice split
+	#TODO Character Creation Screen
 	#should a combo of vit/class determine the max dice?
 	# warrior, 6 vit limbs may have a max dice of d6? 
 	# vit determines the largest dice size OR the number of dice in each limb? (or vit bonus adds to each dice limb?)
@@ -161,8 +190,17 @@ func initialize_limb_hp() -> void:
 	limb_dictionary["right_leg"] = right_leg_dice.duplicate(true)
 	limb_dictionary["left_leg"] = left_leg_dice.duplicate(true)
 	
-	equipped_weapon_dictionary["right_arm"] = equipped_right_arm_weapon
-	equipped_weapon_dictionary["leftt_arm"] = equipped_left_arm_weapon
+	
+	
+	equip_item("right_hand",equipped_right_arm_weapon.duplicate(true))
+	#equip_item("left_hand",equipped_left_arm_weapon.duplicate(true))
+	equip_item("head",equipped_helmet.duplicate(true))
+	equip_item("right_arm",equipped_right_arm_armor.duplicate(true))
+	equip_item("left_arm",equipped_left_arm_armor.duplicate(true))
+	
+
+	#equipped_weapon_dictionary["right_arm"] = equipped_right_arm_weapon
+	#equipped_weapon_dictionary["left_arm"] = equipped_left_arm_weapon
 	#equipped_armor_dictionary["head"] = equipped_helmet_dice.duplicate(true)
 	#equipped_armor_dictionary["torso"] = equipped_torso_armor_dice.duplicate(true)
 	#equipped_armor_dictionary["right_arm"] = equipped_right_arm_armor_dice.duplicate(true)
@@ -170,13 +208,44 @@ func initialize_limb_hp() -> void:
 	#equipped_armor_dictionary["right_leg"] = right_leg_armor_dice.duplicate(true)
 	#equipped_armor_dictionary["left_leg"] = left_leg_armor_dice.duplicate(true)
 
+func calc_encumbrance() -> void:
+	encumbrance = 0
+	for armor: Armor in equipped_armor_dictionary.values():
+		encumbrance += armor.encumbrance
+	encumbrance_changed.emit(encumbrance)
+
 func get_limb_hp_from_dice(limb_array: Array) -> int:
 	var hp_from_limb: int = 0
 	for dice in limb_array:
 		hp_from_limb += dice
 	return hp_from_limb
 
+func equip_item(limb: String, item_to_equip: Item) -> void:
+	
+	if item_to_equip is Armor:
+		equipped_armor_dictionary[limb] = item_to_equip
+		item_to_equip.currently_equipped_slot = limb
+		calc_encumbrance()
+		#print_debug(limb)
+		#armor_equipped.emit(limb, item_to_equip)
+		
+	elif item_to_equip is Weapon:
+		equipped_weapon_dictionary[limb] = item_to_equip
+		item_to_equip.currently_equipped_slot = limb
+		
+		#weapon_equipped.emit(limb, item_to_equip)
 
+func unequip_item(limb: String) -> void:
+	if limb == "left_arm" or limb == "right_arm":
+		equipped_weapon_dictionary[limb] = null
+	else:
+		equipped_armor_dictionary[limb] = null
+		calc_encumbrance()
+	
+
+
+		
+	
 
 func set_max_HP() -> void:
 	#var placeholder_max_HP: int = VITALITY*3
@@ -204,9 +273,7 @@ func get_dodge_dice() -> int:
 	return dodge_dice
 
 
-func set_dodge() -> void: #	set_dodge() #TODO need to update limb derived values from taking damage
-	#dicecurrent_leg_hp/max_leg_hp #get_limb_hp("left_leg") + get_limb_hp("right_leg") )
-	
+func set_dodge() -> void: 
 	var test2 = get_limb_hp_from_dice(limb_dictionary["left_leg"]) 
 	var test3 = get_limb_hp_from_dice(limb_dictionary["right_leg"])
 	var test4 = get_limb_hp_from_dice(right_leg_dice)
@@ -216,7 +283,7 @@ func set_dodge() -> void: #	set_dodge() #TODO need to update limb derived values
 	#print(test2)
 	#print(test)
 	Dodge_changed.emit()
-
+	#TODO lose AC bonus from coordination if you have no weapon
 func get_dodge() -> int:
 	return dodge
 #split into hard and soft DT
@@ -334,7 +401,6 @@ func focus_max_element(limb_dice_array: Array, damage: int) -> void:
 		#print(limb_dice_array)
 		#print(damage)
 		limb_dice_array[max_index] -= amount_to_subtract
-		#set_HP() #TODO HP BAR NOT UPDATING PROPERLY. YOU CAN'T CALL IT INSIDE THIS SCRIPT. NEEDS TO BE REFERENCED OUTSIDE?
 		#print(get_HP())
 		#print(limb_dice_array)
 		#limb_hp_changed.emit(value) #dice pool changes with hp

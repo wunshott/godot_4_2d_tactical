@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://dh5lfqcy5rpdo"]
+
+[ext_resource type="Script" path="res://new_combat.gd" id="1_qg8xt"]
+[ext_resource type="Resource" uid="uid://x7u4so7ewmhq" path="res://Actions/melee actions/defends/bulwark.tres" id="3_s7qvr"]
+[ext_resource type="Resource" uid="uid://dna7fn8dogfkx" path="res://Actions/melee actions/attacks/slash.tres" id="4_50tsn"]
+[ext_resource type="Resource" uid="uid://bcfphixn8axe1" path="res://Actions/melee actions/fakeouts/FeintSlash.tres" id="4_fdnci"]
+[ext_resource type="Resource" uid="uid://bagufl8ywwn8k" path="res://Actions/melee actions/grapples/kick.tres" id="5_3llwk"]
+
+[node name="NewCombat" type="Node"]
+script = ExtResource("1_qg8xt")
+PlayerActions = Array[Resource("res://Actions/action_template.gd")]([ExtResource("4_50tsn"), ExtResource("3_s7qvr"), ExtResource("4_fdnci"), ExtResource("5_3llwk")])
+PlayerArmor = Array[int]([3, 4])
+MobActions = Array[Resource("res://Actions/action_template.gd")]([ExtResource("4_50tsn")])
+MobArmor = Array[int]([2])
+
+[node name="OptionButton" type="OptionButton" parent="."]
+offset_left = 32.0
+offset_top = 71.0
+offset_right = 77.0
+offset_bottom = 91.0
+fit_to_longest_item = false
+
+[node name="Button" type="Button" parent="."]
+offset_left = 157.0
+offset_top = 64.0
+offset_right = 254.0
+offset_bottom = 95.0
+text = "Start Melee"
+
+[node name="Label" type="Label" parent="."]
+offset_left = 311.0
+offset_top = 60.0
+offset_right = 484.0
+offset_bottom = 83.0
+text = "enemy selected action"
+
+[connection signal="item_selected" from="OptionButton" to="." method="_on_option_button_item_selected"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

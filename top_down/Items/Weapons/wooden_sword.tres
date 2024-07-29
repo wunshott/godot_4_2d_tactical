@@ -1,10 +1,10 @@
 [gd_resource type="Resource" script_class="Weapon" load_steps=6 format=3 uid="uid://danrkv4wfq7ut"]
 
 [ext_resource type="Script" path="res://top_down/Items/Weapons/weapon_template.gd" id="1_m1g1k"]
-[ext_resource type="Resource" uid="uid://dna7fn8dogfkx" path="res://Actions/melee attacks/slash.tres" id="1_rcc30"]
+[ext_resource type="Resource" uid="uid://dna7fn8dogfkx" path="res://Actions/melee actions/attacks/slash.tres" id="1_rcc30"]
 [ext_resource type="Texture2D" uid="uid://bdsc26n4rpbrw" path="res://assets/made_in_godot/wooden_sword_texture.tres" id="2_g1bn8"]
-[ext_resource type="Resource" uid="uid://dje6jno5tmw2f" path="res://Actions/melee attacks/EPICMEMEBLAST.tres" id="3_g34er"]
-[ext_resource type="Resource" uid="uid://chn0c3ce36dmf" path="res://Actions/melee attacks/MordhauGripAttack.tres" id="4_6criv"]
+[ext_resource type="Resource" uid="uid://dje6jno5tmw2f" path="res://Actions/melee actions/attacks/EPICMEMEBLAST.tres" id="3_g34er"]
+[ext_resource type="Resource" uid="uid://chn0c3ce36dmf" path="res://Actions/melee actions/attacks/MordhauGripAttack.tres" id="4_6criv"]
 
 [resource]
 script = ExtResource("1_m1g1k")
@@ -18,7 +18,9 @@ weapon_graze = 3
 ItemName = "Wooden Sword"
 ItemSize = "Medium"
 ItemSprite = ExtResource("2_g1bn8")
-Equip_Slot = "Hand"
+Equip_Slot = "hand"
+currently_equipped_slot = ""
+allowed_equip_slots = Array[String]([])
 ItemDescription = ""
 ItemLore = ""
 HiddenItemLore = ""

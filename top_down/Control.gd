@@ -2,6 +2,8 @@ extends Control
 
 class_name UI
 
+
+
 @export var character_menu_button: Button
 @export var detailed_character_menu: Control
 @export var detailed_character_menu_close_button: TextureButton
@@ -38,19 +40,29 @@ func update_grid_coords(mouse_pos: Vector2, end_pos: Vector2) -> void:
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	#self.connect("pressed",Callable(self,"toggle_skill_visibility"))
+	player_character_data.initiate_char()
+
+	init_player_gear()
+	
+	
 	character_menu_button.connect("pressed",Callable(self,"toggle_character_visibility"))
 	show_dice_button.connect("pressed",Callable(dice_tray_roller,"toggle_dice_menu"))
 	detailed_character_menu_close_button.connect("pressed",Callable(self,"close_detailed_character_menu"))
+	
+	dice_tray_roller.connect("all_dice_rolled",Callable(self,"print_dice_rolls"))
 
 
-	detailed_character_menu.set_visible(is_char_menu_visible)
-	detailed_character_menu.hide()
 
 func recieved_char_sheet(recieved_player_character_sheet: CharacterSheet) -> void:
 	detailed_character_limb_menu.limb_description.player_data = recieved_player_character_sheet
 	
-
+func init_player_gear() -> void:
+	for armor: Armor in player_character_data.equipped_armor_dictionary.values():
+		detailed_character_limb_menu.update_limb_slot_from_player(armor)
+		
+	
+	for weapon: Weapon in player_character_data.equipped_weapon_dictionary.values(): 
+		detailed_character_limb_menu.update_limb_slot_from_player(weapon)
 
 func close_detailed_character_menu() -> void:
 	detailed_character_menu.hide()
@@ -86,6 +98,12 @@ func print_player_position(current_position: Vector2) -> void:
 	rich_text_label.append_text(" I moved to " + str(current_position) )
 	rich_text_label.newline()
 
+func print_dice_rolls(player_attack_dice_array: Array, player_defense_dice_array: Array) -> void:
+	rich_text_label.append_text(" Player rolled " + str(player_attack_dice_array) + " for attack")
+	rich_text_label.newline()
+	rich_text_label.append_text(" Player rolled " + str(player_defense_dice_array) + " for defense")
+	rich_text_label.newline()
+	
 
 func _on_expand_text_pressed():
 	if text_window_size == 0:

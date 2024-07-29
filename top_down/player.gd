@@ -29,14 +29,9 @@ const EXERTION_ALLOWED_PATH_TILE = preload("res://top_down/exertion_allowed_path
 @onready var camera_2d = $Camera2D
 
 
-#TODO separate AC and dodge
-#based on perks and stats.
-#roll to hit AC goes first.
-#if the AC hits, dodge chance is rolled.
-#if dodge is successful, hit misses
-#if the dodge fails, the hit misses
 
-#TODO lose AC bonus from coordination if you have no weapon
+
+
 
 @export var pixels_per_frame: float = 1 #
 ##@export var text_max_movement: int = 100

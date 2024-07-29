@@ -1,0 +1,709 @@
+[gd_scene load_steps=7 format=3 uid="uid://2clvckgo4twg"]
+
+[ext_resource type="Script" path="res://HUD/Skills.gd" id="1_3xl8a"]
+[ext_resource type="Texture2D" uid="uid://cjg2mhnm8dv8q" path="res://assets/customs/colored-transparent_packed.png" id="2_do2ne"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dg1hl"]
+atlas = ExtResource("2_do2ne")
+region = Rect2(768, 176, 16, 16)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tf1rj"]
+texture = SubResource("AtlasTexture_dg1hl")
+texture_margin_left = 6.0
+texture_margin_top = 6.0
+texture_margin_right = 6.0
+texture_margin_bottom = 6.0
+region_rect = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ctdj"]
+atlas = ExtResource("2_do2ne")
+region = Rect2(768, 176, 16, 16)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_24b8q"]
+texture = SubResource("AtlasTexture_0ctdj")
+texture_margin_left = 6.0
+texture_margin_top = 6.0
+texture_margin_right = 6.0
+texture_margin_bottom = 6.0
+
+[node name="Skills" type="HBoxContainer"]
+size_flags_horizontal = 2
+size_flags_vertical = 3
+script = ExtResource("1_3xl8a")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="VitalitySkills" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 4
+
+[node name="PanelContainer2" type="PanelContainer" parent="VBoxContainer/VitalitySkills"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_tf1rj")
+
+[node name="VitalitySkills" type="VBoxContainer" parent="VBoxContainer/VitalitySkills/PanelContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/VitalitySkills/PanelContainer2/VitalitySkills"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Vitality Skills"
+horizontal_alignment = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/VitalitySkills/PanelContainer2/VitalitySkills"]
+self_modulate = Color(0.77, 0.71225, 0.4235, 1)
+layout_mode = 2
+size_flags_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_24b8q")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/VitalitySkills/PanelContainer2/VitalitySkills/PanelContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/VitalitySkills/PanelContainer2/VitalitySkills/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Nutrition" type="Label" parent="VBoxContainer/VitalitySkills/PanelContainer2/VitalitySkills/PanelContainer/VBoxContainer/HBoxContainer2" groups=["skill_name"]]
+layout_mode = 2
+mouse_filter = 0
+text = "Nutrition"
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/VitalitySkills/PanelContainer2/VitalitySkills/PanelContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_right = 5
+
+[node name="Label2" type="Label" parent="VBoxContainer/VitalitySkills/PanelContainer2/VitalitySkills/PanelContainer/VBoxContainer/HBoxContainer2/MarginContainer"]
+layout_mode = 2
+text = "1"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer/VitalitySkills/PanelContainer2/VitalitySkills/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Survival" type="Label" parent="VBoxContainer/VitalitySkills/PanelContainer2/VitalitySkills/PanelContainer/VBoxContainer/HBoxContainer3" groups=["skill_name"]]
+layout_mode = 2
+mouse_filter = 0
+text = "Olympian"
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/VitalitySkills/PanelContainer2/VitalitySkills/PanelContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_right = 5
+
+[node name="Label2" type="Label" parent="VBoxContainer/VitalitySkills/PanelContainer2/VitalitySkills/PanelContainer/VBoxContainer/HBoxContainer3/MarginContainer"]
+layout_mode = 2
+text = "1"
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="VBoxContainer/VitalitySkills/PanelContainer2/VitalitySkills/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Endurance" type="Label" parent="VBoxContainer/VitalitySkills/PanelContainer2/VitalitySkills/PanelContainer/VBoxContainer/HBoxContainer4" groups=["skill_name"]]
+layout_mode = 2
+mouse_filter = 0
+text = "Virility/Fertility"
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/VitalitySkills/PanelContainer2/VitalitySkills/PanelContainer/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_right = 5
+
+[node name="Label2" type="Label" parent="VBoxContainer/VitalitySkills/PanelContainer2/VitalitySkills/PanelContainer/VBoxContainer/HBoxContainer4/MarginContainer"]
+layout_mode = 2
+text = "1"
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="VBoxContainer/VitalitySkills/PanelContainer2/VitalitySkills/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Cicerone" type="Label" parent="VBoxContainer/VitalitySkills/PanelContainer2/VitalitySkills/PanelContainer/VBoxContainer/HBoxContainer5" groups=["skill_name"]]
+layout_mode = 2
+mouse_filter = 0
+text = "Cicerone"
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/VitalitySkills/PanelContainer2/VitalitySkills/PanelContainer/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_right = 5
+
+[node name="Label2" type="Label" parent="VBoxContainer/VitalitySkills/PanelContainer2/VitalitySkills/PanelContainer/VBoxContainer/HBoxContainer5/MarginContainer"]
+layout_mode = 2
+text = "1"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/VitalitySkills/PanelContainer2/VitalitySkills/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Forcery" type="Label" parent="VBoxContainer/VitalitySkills/PanelContainer2/VitalitySkills/PanelContainer/VBoxContainer/HBoxContainer" groups=["skill_name"]]
+layout_mode = 2
+mouse_filter = 0
+text = "FORCERY"
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/VitalitySkills/PanelContainer2/VitalitySkills/PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_right = 5
+
+[node name="Label2" type="Label" parent="VBoxContainer/VitalitySkills/PanelContainer2/VitalitySkills/PanelContainer/VBoxContainer/HBoxContainer/MarginContainer"]
+layout_mode = 2
+text = "1"
+
+[node name="Eloquence Skills" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 4
+
+[node name="PanelContainer2" type="PanelContainer" parent="VBoxContainer/Eloquence Skills"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_tf1rj")
+
+[node name="EloquenceSkills" type="VBoxContainer" parent="VBoxContainer/Eloquence Skills/PanelContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/Eloquence Skills/PanelContainer2/EloquenceSkills"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Eloquence Skills"
+horizontal_alignment = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/Eloquence Skills/PanelContainer2/EloquenceSkills"]
+self_modulate = Color(0.77, 0.71225, 0.4235, 1)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_24b8q")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Eloquence Skills/PanelContainer2/EloquenceSkills/PanelContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Eloquence Skills/PanelContainer2/EloquenceSkills/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="MoralSuasion" type="Label" parent="VBoxContainer/Eloquence Skills/PanelContainer2/EloquenceSkills/PanelContainer/VBoxContainer/HBoxContainer" groups=["skill_name"]]
+layout_mode = 2
+text = "Moral Suasion"
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/Eloquence Skills/PanelContainer2/EloquenceSkills/PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_right = 5
+
+[node name="Label2" type="Label" parent="VBoxContainer/Eloquence Skills/PanelContainer2/EloquenceSkills/PanelContainer/VBoxContainer/HBoxContainer/MarginContainer"]
+layout_mode = 2
+text = "1"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/Eloquence Skills/PanelContainer2/EloquenceSkills/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Debate" type="Label" parent="VBoxContainer/Eloquence Skills/PanelContainer2/EloquenceSkills/PanelContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "Debate"
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/Eloquence Skills/PanelContainer2/EloquenceSkills/PanelContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_right = 5
+
+[node name="Label2" type="Label" parent="VBoxContainer/Eloquence Skills/PanelContainer2/EloquenceSkills/PanelContainer/VBoxContainer/HBoxContainer2/MarginContainer"]
+layout_mode = 2
+text = "1"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer/Eloquence Skills/PanelContainer2/EloquenceSkills/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Haggling" type="Label" parent="VBoxContainer/Eloquence Skills/PanelContainer2/EloquenceSkills/PanelContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+text = "Haggling"
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/Eloquence Skills/PanelContainer2/EloquenceSkills/PanelContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_right = 5
+
+[node name="Label2" type="Label" parent="VBoxContainer/Eloquence Skills/PanelContainer2/EloquenceSkills/PanelContainer/VBoxContainer/HBoxContainer3/MarginContainer"]
+layout_mode = 2
+text = "1"
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="VBoxContainer/Eloquence Skills/PanelContainer2/EloquenceSkills/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/Eloquence Skills/PanelContainer2/EloquenceSkills/PanelContainer/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+text = "Beguiling"
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/Eloquence Skills/PanelContainer2/EloquenceSkills/PanelContainer/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_right = 5
+
+[node name="Label2" type="Label" parent="VBoxContainer/Eloquence Skills/PanelContainer2/EloquenceSkills/PanelContainer/VBoxContainer/HBoxContainer4/MarginContainer"]
+layout_mode = 2
+text = "1"
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="VBoxContainer/Eloquence Skills/PanelContainer2/EloquenceSkills/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/Eloquence Skills/PanelContainer2/EloquenceSkills/PanelContainer/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+text = "Likeability"
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/Eloquence Skills/PanelContainer2/EloquenceSkills/PanelContainer/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_right = 5
+
+[node name="Label2" type="Label" parent="VBoxContainer/Eloquence Skills/PanelContainer2/EloquenceSkills/PanelContainer/VBoxContainer/HBoxContainer5/MarginContainer"]
+layout_mode = 2
+text = "1"
+
+[node name="HBoxContainer6" type="HBoxContainer" parent="VBoxContainer/Eloquence Skills/PanelContainer2/EloquenceSkills/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/Eloquence Skills/PanelContainer2/EloquenceSkills/PanelContainer/VBoxContainer/HBoxContainer6"]
+layout_mode = 2
+text = "Platitudes"
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/Eloquence Skills/PanelContainer2/EloquenceSkills/PanelContainer/VBoxContainer/HBoxContainer6"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_right = 5
+
+[node name="Label2" type="Label" parent="VBoxContainer/Eloquence Skills/PanelContainer2/EloquenceSkills/PanelContainer/VBoxContainer/HBoxContainer6/MarginContainer"]
+layout_mode = 2
+text = "1"
+
+[node name="HBoxContainer7" type="HBoxContainer" parent="VBoxContainer/Eloquence Skills/PanelContainer2/EloquenceSkills/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/Eloquence Skills/PanelContainer2/EloquenceSkills/PanelContainer/VBoxContainer/HBoxContainer7"]
+layout_mode = 2
+mouse_filter = 1
+text = "SOCIOMANCY"
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/Eloquence Skills/PanelContainer2/EloquenceSkills/PanelContainer/VBoxContainer/HBoxContainer7"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_right = 5
+
+[node name="Label2" type="Label" parent="VBoxContainer/Eloquence Skills/PanelContainer2/EloquenceSkills/PanelContainer/VBoxContainer/HBoxContainer7/MarginContainer"]
+layout_mode = 2
+text = "1"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="BrillianceSkills" type="MarginContainer" parent="VBoxContainer2"]
+layout_mode = 2
+theme_override_constants/margin_top = 4
+
+[node name="PanelContainer2" type="PanelContainer" parent="VBoxContainer2/BrillianceSkills"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_tf1rj")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer2/BrillianceSkills/PanelContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer2/BrillianceSkills/PanelContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = " Brilliance Skills"
+horizontal_alignment = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer2/BrillianceSkills/PanelContainer2/VBoxContainer"]
+self_modulate = Color(0.77, 0.71225, 0.4235, 1)
+layout_mode = 2
+size_flags_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_24b8q")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer2/BrillianceSkills/PanelContainer2/VBoxContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer2/BrillianceSkills/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer2/BrillianceSkills/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Humanities"
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer2/BrillianceSkills/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_right = 5
+
+[node name="Label2" type="Label" parent="VBoxContainer2/BrillianceSkills/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/MarginContainer"]
+layout_mode = 2
+text = "1"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer2/BrillianceSkills/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer2/BrillianceSkills/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+text = "Sciences"
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer2/BrillianceSkills/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_right = 5
+
+[node name="Label2" type="Label" parent="VBoxContainer2/BrillianceSkills/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer3/MarginContainer"]
+layout_mode = 2
+text = "1"
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="VBoxContainer2/BrillianceSkills/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer2/BrillianceSkills/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+text = "Conspiracy Theories"
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer2/BrillianceSkills/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_right = 5
+
+[node name="Label2" type="Label" parent="VBoxContainer2/BrillianceSkills/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer4/MarginContainer"]
+layout_mode = 2
+text = "1"
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="VBoxContainer2/BrillianceSkills/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer2/BrillianceSkills/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+text = "ALCHEMY"
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer2/BrillianceSkills/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_right = 5
+
+[node name="Label2" type="Label" parent="VBoxContainer2/BrillianceSkills/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer5/MarginContainer"]
+layout_mode = 2
+text = "1"
+
+[node name="EmpathySkills" type="MarginContainer" parent="VBoxContainer2"]
+layout_mode = 2
+theme_override_constants/margin_top = 4
+
+[node name="PanelContainer2" type="PanelContainer" parent="VBoxContainer2/EmpathySkills"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_tf1rj")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer2/EmpathySkills/PanelContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer2/EmpathySkills/PanelContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Empathy Skills"
+horizontal_alignment = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer2/EmpathySkills/PanelContainer2/VBoxContainer"]
+self_modulate = Color(0.77, 0.71225, 0.4235, 1)
+layout_mode = 2
+size_flags_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_24b8q")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer2/EmpathySkills/PanelContainer2/VBoxContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer2/EmpathySkills/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer2/EmpathySkills/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Detect Motive"
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer2/EmpathySkills/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_right = 5
+
+[node name="Label2" type="Label" parent="VBoxContainer2/EmpathySkills/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/MarginContainer"]
+layout_mode = 2
+text = "1"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer2/EmpathySkills/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer2/EmpathySkills/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "Animal Handling"
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer2/EmpathySkills/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_right = 5
+
+[node name="Label2" type="Label" parent="VBoxContainer2/EmpathySkills/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer2/MarginContainer"]
+layout_mode = 2
+text = "1"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer2/EmpathySkills/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer2/EmpathySkills/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+text = "Leadership"
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer2/EmpathySkills/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_right = 5
+
+[node name="Label2" type="Label" parent="VBoxContainer2/EmpathySkills/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer3/MarginContainer"]
+layout_mode = 2
+text = "1"
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="VBoxContainer2/EmpathySkills/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer2/EmpathySkills/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+text = "Armchair Psychologist"
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer2/EmpathySkills/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_right = 5
+
+[node name="Label2" type="Label" parent="VBoxContainer2/EmpathySkills/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer5/MarginContainer"]
+layout_mode = 2
+text = "1"
+
+[node name="HBoxContainer6" type="HBoxContainer" parent="VBoxContainer2/EmpathySkills/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer2/EmpathySkills/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer6"]
+layout_mode = 2
+text = "AESTHETURGY"
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer2/EmpathySkills/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer6"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_right = 5
+
+[node name="Label2" type="Label" parent="VBoxContainer2/EmpathySkills/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer6/MarginContainer"]
+layout_mode = 2
+text = "1"
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="CoordinationSkills" type="MarginContainer" parent="VBoxContainer3"]
+layout_mode = 2
+theme_override_constants/margin_top = 4
+
+[node name="PanelContainer2" type="PanelContainer" parent="VBoxContainer3/CoordinationSkills"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_tf1rj")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer3/CoordinationSkills/PanelContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer3/CoordinationSkills/PanelContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Coordination Skills"
+horizontal_alignment = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer3/CoordinationSkills/PanelContainer2/VBoxContainer"]
+self_modulate = Color(0.77, 0.71225, 0.4235, 1)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_24b8q")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer3/CoordinationSkills/PanelContainer2/VBoxContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer3/CoordinationSkills/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer3/CoordinationSkills/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Fine Hand Manipulation"
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer3/CoordinationSkills/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_right = 5
+
+[node name="Label2" type="Label" parent="VBoxContainer3/CoordinationSkills/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/MarginContainer"]
+layout_mode = 2
+text = "1"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer3/CoordinationSkills/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer3/CoordinationSkills/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "Operate Machine"
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer3/CoordinationSkills/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_right = 5
+
+[node name="Label2" type="Label" parent="VBoxContainer3/CoordinationSkills/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer2/MarginContainer"]
+layout_mode = 2
+text = "1"
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="VBoxContainer3/CoordinationSkills/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer3/CoordinationSkills/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+text = "Sneak/Acrobatics"
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer3/CoordinationSkills/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_right = 5
+
+[node name="Label2" type="Label" parent="VBoxContainer3/CoordinationSkills/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer4/MarginContainer"]
+layout_mode = 2
+text = "1"
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="VBoxContainer3/CoordinationSkills/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer3/CoordinationSkills/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+text = "Sleight of Hand"
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer3/CoordinationSkills/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_right = 5
+
+[node name="Label2" type="Label" parent="VBoxContainer3/CoordinationSkills/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer5/MarginContainer"]
+layout_mode = 2
+text = "1"
+
+[node name="HBoxContainer6" type="HBoxContainer" parent="VBoxContainer3/CoordinationSkills/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer3/CoordinationSkills/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer6"]
+layout_mode = 2
+text = "Noodlng"
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer3/CoordinationSkills/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer6"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_right = 5
+
+[node name="Label2" type="Label" parent="VBoxContainer3/CoordinationSkills/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer6/MarginContainer"]
+layout_mode = 2
+text = "1"
+
+[node name="InuitionSkills" type="MarginContainer" parent="VBoxContainer3"]
+layout_mode = 2
+theme_override_constants/margin_top = 4
+
+[node name="PanelContainer2" type="PanelContainer" parent="VBoxContainer3/InuitionSkills"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_tf1rj")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer3/InuitionSkills/PanelContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer3/InuitionSkills/PanelContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Intuition Skills"
+horizontal_alignment = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer3/InuitionSkills/PanelContainer2/VBoxContainer"]
+self_modulate = Color(0.77, 0.71225, 0.4235, 1)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_24b8q")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer3/InuitionSkills/PanelContainer2/VBoxContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer3/InuitionSkills/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer3/InuitionSkills/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Learning"
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer3/InuitionSkills/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_right = 5
+
+[node name="Label2" type="Label" parent="VBoxContainer3/InuitionSkills/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/MarginContainer"]
+layout_mode = 2
+text = "1"
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="VBoxContainer3/InuitionSkills/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer3/InuitionSkills/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+text = "PERCEPTION/6TH SENSE"
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer3/InuitionSkills/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_right = 5
+
+[node name="Label2" type="Label" parent="VBoxContainer3/InuitionSkills/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer4/MarginContainer"]
+layout_mode = 2
+text = "1"
+
+[node name="MarginContainer9" type="MarginContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_top = 4
+
+[node name="PanelContainer2" type="PanelContainer" parent="MarginContainer9"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_tf1rj")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer9/PanelContainer2"]
+layout_mode = 2
+
+[node name="SelectedSkillLabel" type="Label" parent="MarginContainer9/PanelContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+text = "Currently Selected Skill"
+horizontal_alignment = 1
+
+[node name="SelectedSkillRichTextLabel" type="RichTextLabel" parent="MarginContainer9/PanelContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/normal_font_size = 8
+bbcode_enabled = true
+text = "Description of skill
+Equation determining
+the skill and test test test test
+
+Total value bold"
+fit_content = true
+scroll_active = false
+autowrap_mode = 2

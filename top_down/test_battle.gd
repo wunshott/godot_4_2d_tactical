@@ -16,20 +16,21 @@ var is_dice_menu_open: bool = false
 
 
 
-
-#TODO the last target you clicked on is the enemy you will attack with the button? tweak for vats
+#TODO character creation
+#TODO death call system and menu
+#TODO estate planning menu
+#TODO Bottom Action bar menu
+#TODO dice roller speaking to dialogue menu
+#TODO combat scene (have the ability to place allies around), turn based combat
 
 
 func _ready():
 	player.connect("player_position",Callable(ui,"print_player_position")) # connects player movement to dialogue window
 	player.attack_pattern.attack_area.connect("area_entered",Callable(ui,"update_target_texture"))
-	
 	player.connect("send_char_sheet_to_hud",Callable(ui,"recieved_char_sheet"))
 	player.emit_signal("send_char_sheet_to_hud",player.stats.CharacterSheetData)
 	
 	
-	
-	return
 
 
 

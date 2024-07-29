@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://dh5lfqcy5rpdo"]
+
+[ext_resource type="Script" path="res://new_combat.gd" id="1_qg8xt"]
+[ext_resource type="Resource" uid="uid://drems7xwdwo2u" path="res://Actions/melee attacks/choke.tres" id="2_ua13w"]
+[ext_resource type="Resource" uid="uid://cw8k2ufa8dt6o" path="res://Actions/melee attacks/Jab.tres" id="3_hnxyo"]
+[ext_resource type="Resource" uid="uid://dna7fn8dogfkx" path="res://Actions/melee attacks/slash.tres" id="4_50tsn"]
+
+[node name="NewCombat" type="Node"]
+script = ExtResource("1_qg8xt")
+PlayerActions = Array[Resource("res://Actions/action_template.gd")]([ExtResource("2_ua13w"), ExtResource("3_hnxyo"), ExtResource("4_50tsn")])
+
+[node name="OptionButton" type="OptionButton" parent="."]
+offset_left = 32.0
+offset_top = 71.0
+offset_right = 77.0
+offset_bottom = 91.0
+
+[node name="Button" type="Button" parent="."]
+offset_left = 111.0
+offset_top = 64.0
+offset_right = 119.0
+offset_bottom = 72.0
+text = "Start Melee"
+
+[node name="Label" type="Label" parent="."]
+offset_left = 311.0
+offset_top = 60.0
+offset_right = 484.0
+offset_bottom = 83.0
+text = "enemy selected action"

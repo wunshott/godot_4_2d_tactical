@@ -92,7 +92,7 @@ equipped_weapon_dict = {
 equipped_armor_dict = {
 "Head": ExtResource("7_fypcp")
 }
-inventory = Array[Resource("res://top_down/Items/item_template.gd")]([ExtResource("7_2qdlh"), ExtResource("8_i0st6"), ExtResource("9_6t3m2")])
+inventory = Array[null]([ExtResource("7_2qdlh"), ExtResource("8_i0st6"), ExtResource("9_6t3m2")])
 
 [node name="AttackPattern" parent="." instance=ExtResource("7_ef2w6")]
 visible = false

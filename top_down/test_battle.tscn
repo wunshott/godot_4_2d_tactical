@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://501orb1o44qx"]
+[gd_scene load_steps=24 format=3 uid="uid://501orb1o44qx"]
 
 [ext_resource type="Script" path="res://top_down/test_battle.gd" id="1_fuk3s"]
 [ext_resource type="PackedScene" uid="uid://tmbmwi8jtwcf" path="res://top_down/Maps/tile_map.tscn" id="1_gwexx"]
@@ -14,8 +14,6 @@
 [ext_resource type="Texture2D" uid="uid://c33l7w8ot6nf7" path="res://assets/test_dice/dicce.png" id="11_gu4bm"]
 [ext_resource type="Texture2D" uid="uid://i83lydytlnrv" path="res://assets/Pixel Bodies/Man_Front_Base.png" id="12_rmud3"]
 [ext_resource type="Texture2D" uid="uid://b24hkpmj1lenp" path="res://assets/Medieval_Fantasy_Assets_Pack/Dagger.png" id="13_23huo"]
-[ext_resource type="Texture2D" uid="uid://djxf1jpnf1iw" path="res://assets/customs/Inventory.png" id="22_4frl6"]
-[ext_resource type="PackedScene" uid="uid://debxmr1y8tltr" path="res://HUD/Inventory/inventory_ui.tscn" id="23_ppqip"]
 [ext_resource type="Texture2D" uid="uid://2uhjrrrv4521" path="res://assets/Pixel Bodies/exodia_layout.png" id="32_kj2ca"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ryope"]
@@ -104,15 +102,6 @@ position = Vector2(8, 0)
 rotation = -0.785397
 texture = ExtResource("13_23huo")
 
-[node name="Label2" type="Label" parent="CanvasLayer"]
-offset_left = 196.0
-offset_top = 411.0
-offset_right = 327.0
-offset_bottom = 486.0
-text = "hp,dt,
- dodge,
-init"
-
 [node name="PanelContainer8" type="PanelContainer" parent="CanvasLayer"]
 offset_left = 142.5
 offset_top = 372.0
@@ -197,26 +186,6 @@ target_sprite = ExtResource("12_rmud3")
 [node name="Enemy2" parent="." instance=ExtResource("9_peilq")]
 position = Vector2(249, 72)
 target_sprite = ExtResource("8_mblte")
-
-[node name="HBoxContainer2" type="HBoxContainer" parent="."]
-offset_left = -457.0
-offset_top = -115.0
-offset_right = -232.0
-offset_bottom = -19.0
-size_flags_horizontal = 0
-
-[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer2"]
-layout_mode = 2
-
-[node name="CenterContainer" type="CenterContainer" parent="HBoxContainer2/HBoxContainer"]
-layout_mode = 2
-
-[node name="Inventory" type="TextureButton" parent="HBoxContainer2/HBoxContainer/CenterContainer"]
-layout_mode = 2
-texture_normal = ExtResource("22_4frl6")
-
-[node name="InventoryUI" parent="HBoxContainer2/HBoxContainer" instance=ExtResource("23_ppqip")]
-layout_mode = 2
 
 [node name="ExodiaLayout" type="Sprite2D" parent="."]
 position = Vector2(124, -156)

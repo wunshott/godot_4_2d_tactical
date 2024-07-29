@@ -2,6 +2,7 @@ extends Node2D
 
 class_name DiceTray
 
+signal all_dice_rolled(player_attack_dice:Array[int], player_defense_dice:Array[int])
 
 @onready var test_battle = $"../../.." as Node2D
 
@@ -31,6 +32,8 @@ var is_visible: bool = false
 
 var starting_dice_positions: Array[Vector2]
 
+var current_attack_dice_array: Array[int]
+var current_defense_dice_array: Array[int]
 
 @export var dice_roller_tray_left: left_area: set = set_dice_roller_tray_left
 @export var dice_roller_tray_right: right_area:set = set_dice_roller_tray_right
@@ -65,6 +68,14 @@ func get_starting_dice_position():
 	#TODO update to put dice in the *real* position
 
 
+func append_attack_dice_array(dice_outcome: int) -> void:
+	#print_debug(dice_outcome)
+	current_attack_dice_array.append(dice_outcome)
+
+func append_defense_dice_array(dice_outcome: int) -> void:
+	#print_debug(dice_outcome)
+	current_defense_dice_array.append(dice_outcome)
+	
 
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -96,6 +107,8 @@ func _on_button_pressed():
 	#rolls dice
 	get_tree().call_group("Attack","roll_die")
 	get_tree().call_group("Defense","roll_die")
+	
+	
 
 #TODO assign the areas to groups and have the groups move in sync?
 #TODO is there a cleaner solution to position the UI besides more states? change the ratio?
@@ -195,10 +208,10 @@ func move_selected_dice(event: InputEvent) -> void:
 	mouse_offset = get_global_mouse_position() - selection_box.global_position
 
 func check_boundaries():
-	var min_x = 16
-	var min_y = 16
-	var max_x = 500
-	var max_y = 349
+	var min_x = 230
+	var min_y = 45
+	var max_x = 550
+	var max_y = 280
 	
 	for idx in selected_dice:
 		if idx is RigidBody2D:
@@ -237,4 +250,8 @@ func _on_area_2d_area_shape_entered(area_rid, area, area_shape_index, local_shap
 
 
 
-
+func _on_confirm_dice_rolls_button_pressed():
+	all_dice_rolled.emit(current_attack_dice_array,current_defense_dice_array)
+	#print_debug(current_attack_dice_array)
+	#print_debug(current_defense_dice_array)
+	

@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="Action" load_steps=2 format=3 uid="uid://drems7xwdwo2u"]
+
+[ext_resource type="Script" path="res://Actions/action_template.gd" id="1_wpxow"]
+
+[resource]
+script = ExtResource("1_wpxow")
+action_name = "Choke"
+damage_type = "????"
+attack_type = 0
+cost_stamina = true
+min_stamina_dice_cost = 1
+elemental_damage = false
+additional_effect = []
+aoe_shape = ""
+aoe_range = 0
+adjacent_targets_only = true
+tile_range = 1
+diagonal_attack = false
+ammo_consumed = 0
+damage_description = "Wrap your hands around the enemy's throat and attempt to suffocate them to death. "
+mechanical_description = ""
+injury_modifiers = Array[String]([])
+placeholder_bonus_variable = []
+can_hit_all_limbs = false
+limbs_can_hit = Array[String](["Head"])

@@ -1,16 +1,100 @@
-[gd_scene load_steps=9 format=3 uid="uid://b5ckuji1mxc4q"]
+[gd_scene load_steps=3 format=3 uid="uid://shyop1j7tgnd"]
 
-[ext_resource type="Script" path="res://HUD/hud.gd" id="1_006m4"]
 [ext_resource type="Theme" uid="uid://dy51vb6uy42fp" path="res://Themes/HUD_THEME_1.tres" id="1_mqba0"]
-[ext_resource type="Texture2D" uid="uid://dvckrkp7pytci" path="res://assets/kenney_1-bit-pack/Tilesheet/colored-transparent_packed.png" id="3_5sp7k"]
-[ext_resource type="Texture2D" uid="uid://b8xlcc4proib7" path="res://assets/UI Borders/customs/Stamina_Bar.png" id="4_767hp"]
-[ext_resource type="Texture2D" uid="uid://bm752cwqmpx77" path="res://assets/UI Borders/customs/Stamina_Bar_Filled.png" id="5_njohq"]
-[ext_resource type="PackedScene" uid="uid://bmrr3caxjetep" path="res://HUD/attack_menu.tscn" id="6_b7vdt"]
-[ext_resource type="PackedScene" uid="uid://d18t164j5nc5g" path="res://HUD/Vats/vats_menu.tscn" id="7_xv5i1"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_qeehp"]
-atlas = ExtResource("3_5sp7k")
-region = Rect2(672, 160, 16, 16)
+[sub_resource type="GDScript" id="GDScript_d75rx"]
+script/source = "extends Control
+
+signal End_Turn_Button_Pressed
+
+# Called when the node enters the scene tree for the first time.
+@onready var grid_coords_label = $PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/GridCoordsLabel
+@onready var pixel_coords_label = $PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2/PixelCoordsLabel
+@onready var stamina_label = $HP_and_Stamina/VBoxContainer/HBoxContainer2/StaminaLabel
+@onready var texture_progress_bar = $HP_and_Stamina/VBoxContainer/HBoxContainer2/TextureProgressBar
+@onready var stamina_label_text = $HP_and_Stamina/VBoxContainer/HBoxContainer2/TextureProgressBar/StaminaLabel
+
+@onready var vats_menu = $VatsMenu
+@onready var attack_menu = $Attack_Menu
+
+
+@onready var description = $GameLogPanelContainer/VBoxContainer/ScrollContainer/Description
+
+#const ATTACK_MENU = preload(\"res://HUD/attack_menu.tscn\")
+const ATTACK_MENU = preload(\"res://HUD/attack_menu.tscn\")
+const VATS_MENU = preload(\"res://HUD/Vats/vats_menu.tscn\")
+
+
+var grid_cords: Vector2
+var pixel_cords: Vector2
+
+
+
+func _ready():
+	description.text = \"Game events go here:\\n\"
+	Dice_Roller.injury_table.connect(\"_injury_for_combat_dialogue_box\",Callable(self,\"_on_injury_for_combat_box\"))
+	Dice_Roller.connect(\"outcome_of_roll_combat_box\", Callable(self,\"_on_DiceRoller_string_for_combat_box\"))
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	_show_cords_on_screen(delta,grid_cords,pixel_cords)
+
+
+func _show_cords_on_screen(delta, grid_cords: Vector2, pixel_cords: Vector2):# this function shows the current grid and pixel cooridnate of the mouse
+	grid_coords_label.text = \"x: \" + str(grid_cords.x) + \",\" + \"y: \" + str(grid_cords.y)
+	pixel_coords_label.text = \"x: \" + str(pixel_cords.x) + \",\" + \"y: \" + str(pixel_cords.y)
+
+
+	
+
+
+func _on_end_turn_pressed():
+	End_Turn_Button_Pressed.emit()
+
+
+func _on_player_fill_hud(stamina):
+	stamina_label.text = \"Stamina\"
+	texture_progress_bar.value = stamina
+	texture_progress_bar.max_value = stamina
+	stamina_label_text.text = str(stamina) + \"/\" + str(texture_progress_bar.max_value)
+	
+
+	
+	#add a function to update the stamina as it changes
+
+
+func _on_texture_progress_bar_value_changed(value):
+	stamina_label_text.text = str(value) + \"/\" + str(texture_progress_bar.max_value)
+
+
+func _on_player_stamina_used_for_moevement(stamina_changed):
+	texture_progress_bar.value -= stamina_changed
+
+
+func _add_text_to_dialogue(input_string: String, type = null,  placeholder = null) -> void: ##TODO update to sort the text into categories, fix placeholders
+	description.add_text(str(input_string) + \"\\n\") 
+
+func _on_player_string_for_combat_box(input_string, type): #TODO change function name
+	_add_text_to_dialogue(str(input_string) + \"\\n\") 
+
+
+func _on_stats_string_for_combat_box(input_string, type): #TODO change function name
+	_add_text_to_dialogue(str(input_string) + \"\\n\") 
+
+func _on_injury_for_combat_box(input_string, type):
+	_add_text_to_dialogue(str(input_string) + \"\\n\") 
+
+func _on_inventory_send_armor_damage_to_hud(ArmorDamage: int, ArmorName: String, ArmorBroken: bool):
+	if ArmorBroken == false: 
+		_add_text_to_dialogue(\"Target's \" + str(ArmorName) + \" armor took \" + str(ArmorDamage) + \" damage.\" + \"\\n\") 
+	else: # armor is broken
+		_add_text_to_dialogue(\"Target's \" + str(ArmorName) + \" armor took \" + str(ArmorDamage) + \" damage.\" + \" IT'S BROKEN!!\" + \"\\n\") 
+	#TODO replace target with node name
+
+func _on_DiceRoller_string_for_combat_box(input_string:String, type): #TODO change function name
+	_add_text_to_dialogue(str(input_string) + \"\\n\") 
+"
 
 [node name="HUD" type="Control"]
 layout_mode = 3
@@ -21,172 +105,4 @@ grow_horizontal = 0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme = ExtResource("1_mqba0")
-script = ExtResource("1_006m4")
-
-[node name="EndTurn" type="Button" parent="."]
-layout_mode = 2
-offset_left = -191.0
-offset_top = 132.0
-offset_right = -75.0
-offset_bottom = 184.0
-text = "End Turn"
-
-[node name="PanelContainer" type="PanelContainer" parent="."]
-layout_mode = 0
-offset_left = -192.0
-offset_top = 24.0
-offset_right = -84.0
-offset_bottom = 96.0
-
-[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
-layout_mode = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
-layout_mode = 2
-
-[node name="Control" type="Control" parent="PanelContainer/MarginContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="GridLabel2" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 3
-text = "Grid"
-horizontal_alignment = 1
-
-[node name="GridCoordsLabel" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 3
-text = "x: , y:"
-horizontal_alignment = 1
-
-[node name="HBoxContainer2" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="PixelLabel3" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
-layout_mode = 2
-size_flags_vertical = 3
-text = "PIXEL"
-horizontal_alignment = 1
-
-[node name="PixelCoordsLabel" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
-layout_mode = 2
-size_flags_vertical = 3
-text = "x: , y:"
-horizontal_alignment = 1
-
-[node name="Control2" type="Control" parent="PanelContainer/MarginContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="HP_and_Stamina" type="PanelContainer" parent="."]
-layout_mode = 0
-offset_left = -136.0
-offset_top = 252.0
-offset_right = -2.0
-offset_bottom = 316.0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="HP_and_Stamina"]
-layout_mode = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="HP_and_Stamina/VBoxContainer"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="HP_and_Stamina/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-text = "PIPS"
-
-[node name="TextureRect" type="TextureRect" parent="HP_and_Stamina/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-texture = SubResource("AtlasTexture_qeehp")
-
-[node name="TextureRect2" type="TextureRect" parent="HP_and_Stamina/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-texture = SubResource("AtlasTexture_qeehp")
-
-[node name="TextureRect3" type="TextureRect" parent="HP_and_Stamina/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-texture = SubResource("AtlasTexture_qeehp")
-
-[node name="TextureRect4" type="TextureRect" parent="HP_and_Stamina/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-texture = SubResource("AtlasTexture_qeehp")
-
-[node name="HBoxContainer2" type="HBoxContainer" parent="HP_and_Stamina/VBoxContainer"]
-layout_mode = 2
-
-[node name="StaminaLabel" type="Label" parent="HP_and_Stamina/VBoxContainer/HBoxContainer2"]
-layout_mode = 2
-text = "Stamina
-"
-
-[node name="TextureProgressBar" type="TextureProgressBar" parent="HP_and_Stamina/VBoxContainer/HBoxContainer2"]
-layout_mode = 2
-size_flags_horizontal = 3
-value = 80.0
-nine_patch_stretch = true
-stretch_margin_left = 5
-stretch_margin_right = 5
-texture_under = ExtResource("4_767hp")
-texture_progress = ExtResource("5_njohq")
-
-[node name="StaminaLabel" type="Label" parent="HP_and_Stamina/VBoxContainer/HBoxContainer2/TextureProgressBar"]
-layout_mode = 0
-offset_right = 36.0
-offset_bottom = 20.0
-text = "X/y"
-horizontal_alignment = 1
-
-[node name="GameLogPanelContainer" type="PanelContainer" parent="."]
-layout_mode = 2
-offset_left = -1273.0
-offset_top = 239.0
-offset_right = -1060.0
-offset_bottom = 358.0
-theme_type_variation = &"ParchmentPanelContainer"
-
-[node name="VBoxContainer" type="VBoxContainer" parent="GameLogPanelContainer"]
-layout_mode = 2
-
-[node name="Title" type="Label" parent="GameLogPanelContainer/VBoxContainer"]
-layout_mode = 2
-theme_type_variation = &"VariantFontLabel1"
-text = "Text Log:"
-
-[node name="ScrollContainer" type="ScrollContainer" parent="GameLogPanelContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-horizontal_scroll_mode = 0
-vertical_scroll_mode = 2
-
-[node name="Description" type="RichTextLabel" parent="GameLogPanelContainer/VBoxContainer/ScrollContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme_type_variation = &"VariantFontLabel1"
-bbcode_enabled = true
-text = "John Rolls 5 to Hit"
-fit_content = true
-autowrap_mode = 0
-
-[node name="Attack_Menu" parent="." instance=ExtResource("6_b7vdt")]
-layout_mode = 1
-offset_left = -939.0
-offset_top = 405.0
-offset_right = -939.0
-offset_bottom = 405.0
-
-[node name="VatsMenu" parent="." instance=ExtResource("7_xv5i1")]
-layout_mode = 1
-offset_left = -1274.0
-offset_top = 469.0
-offset_right = -1274.0
-offset_bottom = 469.0
-
-[connection signal="pressed" from="EndTurn" to="." method="_on_end_turn_pressed"]
-[connection signal="value_changed" from="HP_and_Stamina/VBoxContainer/HBoxContainer2/TextureProgressBar" to="." method="_on_texture_progress_bar_value_changed"]
+script = SubResource("GDScript_d75rx")

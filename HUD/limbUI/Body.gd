@@ -1,7 +1,9 @@
 extends Control
 
-signal limb_hovered(limb_name: String)
+signal limb_selected(limb_name: String)
 
+
+# Called when the node enters the scene tree for the first time.
 
 @export var head: Control
 @export var HeadButton: TextureButton
@@ -18,11 +20,26 @@ signal limb_hovered(limb_name: String)
 
 var current_pressed_button: TextureButton
 
-# Called when the node enters the scene tree for the first time.
+## item equip slots
+@onready var helmet = $head/Helmet as EquipSlot
+@onready var dice_armor_ui = $"../../LimbDescription/LimbExplanation/VBoxContainer/ArmorDiceVBoxContainer/HBoxContainer2/PanelContainer4/DiceArmorPipsUi" as dice_armor_pip_ui
+
+
 func _ready():
 	#head.connect("mouse_entered",Callable(self,"_on_limb_mouse_entered").bind(head))
 	#head.connect("mouse_exited",Callable(self,"_on_limb_mouse_exited").bind(head))
+	
+	#helmet.connect("item_equipped_by_player",Callable(player_data,"equip_item"))
+	#helmet.connect("item_equipped_by_player",Callable(dice_armor_ui,"spawn_dice_from_equipped"))
+	#
+	#
+	#helmet.connect("item_unequipped_by_player",Callable(player_data,"unequip_item"))
+	#helmet.connect("item_unequipped_by_player",Callable(dice_armor_ui,"spawn_dice_from_equipped"))
+	#
+	
 	HeadButton.connect("toggled",Callable(self,"_on_limb_button_pushed").bind(head,HeadButton))
+	
+	
 	
 	
 	#torso.connect("mouse_entered",Callable(self,"_on_limb_mouse_entered").bind(torso))
@@ -49,6 +66,11 @@ func _ready():
 	#self.connect("area_entered",Callable(self,"_on_area_entered"))
 	pass # Replace with function body.
 
+
+
+#func swap_item()
+	#return item
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
@@ -76,7 +98,7 @@ func _on_limb_button_pushed(toggled_bool: bool, input_limb: Control, pushed_butt
 		for child in input_limb.get_children():
 			if child is PanelContainer:
 				child.show()
-		limb_hovered.emit(input_limb.get_name()) 
+		limb_selected.emit(input_limb.get_name()) 
 		untoggle_button(pushed_button)
 	else:
 		for child in input_limb.get_children():
@@ -89,7 +111,7 @@ func _on_limb_mouse_entered(input_limb) -> void:
 	for child in input_limb.get_children():
 		if child is PanelContainer:
 			child.show()
-	limb_hovered.emit(input_limb.get_name()) 
+	limb_selected.emit(input_limb.get_name()) 
 	
 
 

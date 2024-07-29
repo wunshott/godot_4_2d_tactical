@@ -4,10 +4,11 @@
 
 [resource]
 script = ExtResource("1_41b5w")
-attack_name = "Gallow Dance"
-damage_type = ""
-damage_armor = false
-damage_stamina = 0
+action_name = ""
+damage_type = 0
+attack_type = 0
+explode_number = 0
+win_conditions = Array[int]([])
 cost_stamina = false
 min_stamina_dice_cost = 0
 elemental_damage = false
@@ -19,6 +20,7 @@ tile_range = 0
 diagonal_attack = false
 ammo_consumed = 0
 damage_description = "If you see it, your DT increases by 1 eCg turn. You can choose to close your eyes, but you get a penalty in combat. Imagine a bard/mage casting it behind his front line guys"
+mechanical_description = ""
 injury_modifiers = Array[String]([])
 placeholder_bonus_variable = []
 can_hit_all_limbs = false

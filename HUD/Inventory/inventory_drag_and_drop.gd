@@ -5,9 +5,8 @@ class_name ItemSlot
 @onready var inventory_panel = $"."
 @onready var item_sprite = $PanelContainer/item_sprite as TextureRect
 
-@export var item_in_slot_resource: Item
+@export var item_in_slot_resource: Item#: set = add_item_to_slot
 
-signal unequip_item_to_player(limb:String, ItemToEquip: Item)
 signal item_added_to_slot(item_name: String, item_size: String)
 
 # Called when the node enters the scene tee for the first time.
@@ -19,16 +18,9 @@ func _ready():
 func _process(delta):
 	pass
 
-func update(item): 
-	if item is Item:
-		item_in_slot_resource = item
-		item_sprite.texture = item_in_slot_resource.ItemSprite
-		#item_sprite.set_visible(true)
-	else:
-		item_in_slot_resource = null
-		#item_sprite.set_visible(false)
-		item_sprite.set_texture(null)
-	
+func add_item_to_slot(input_item: Item) -> void:
+	item_in_slot_resource =  input_item
+	_refresh_slot()
 
 
 
@@ -71,12 +63,5 @@ func _refresh_slot():
 		return
 	item_sprite.set_texture(item_in_slot_resource.ItemSprite)
 	
-	
-	if item_in_slot_resource is Weapon:
-		var limb_slot = item_in_slot_resource.currently_equipped_hand #allows weapon to be place in either hand
-		#unequip_item_to_player.emit(limb_slot,item_in_slot_resource) #TODO update signal to player character sheet
-	else:
-		var limb_slot = item_in_slot_resource.Equip_Slot
-		#unequip_item_to_player.emit(limb_slot,item_in_slot_resource) TODO update signal to player character sheet
-	
+
 	

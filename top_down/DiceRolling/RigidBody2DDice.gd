@@ -20,6 +20,7 @@ var dice_outcome: int = randi_range(1,dice_value)
 
 
 signal clicked
+signal dice_rolled(dice_outcome: int)
 
 
 # Called when the node enters the scene tree for the first time.
@@ -39,6 +40,7 @@ func set_die_gfx() -> int:
 	dice_outcome = randi_range(1,dice_value)
 	die_graphic.set_frame(dice_outcome-1)
 	die_number.set_frame(dice_outcome-1)
+	
 	return dice_outcome
 
 func roll_die() -> void:
@@ -65,8 +67,8 @@ func _physics_process(delta: float) -> void:
 	if _dragging:
 		var target_pos = get_global_mouse_position()
 		#clamp the target position of the dice
-		target_pos.x = clamp(target_pos.x,16,500)
-		target_pos.y = clamp(target_pos.y,16,349)
+		target_pos.x = clamp(target_pos.x,230,550)
+		target_pos.y = clamp(target_pos.y,45,280)
 		
 		var displacement = target_pos - global_position
 		var direction = displacement.normalized()
@@ -81,7 +83,6 @@ func _physics_process(delta: float) -> void:
 		var result = space_state.intersect_shape(query)
 		for collision in result:
 			var body = collision.collider
-			print(body)
 			if body is RigidBody2D:
 				
 				var body_displacement = body.global_position - global_position
@@ -106,4 +107,4 @@ func _on_mouse_exited():
 
 func _on_animation_player_animation_finished(anim_name):
 	if anim_name == "roll":
-		print(dice_outcome)
+		dice_rolled.emit(dice_outcome)

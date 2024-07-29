@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="Action" load_steps=2 format=3 uid="uid://cw8k2ufa8dt6o"]
+
+[ext_resource type="Script" path="res://Actions/action_template.gd" id="1_4uw5o"]
+
+[resource]
+script = ExtResource("1_4uw5o")
+action_name = "Jb"
+damage_type = "???"
+attack_type = 0
+cost_stamina = true
+min_stamina_dice_cost = 2
+elemental_damage = false
+additional_effect = []
+aoe_shape = ""
+aoe_range = 0
+adjacent_targets_only = true
+tile_range = 1
+diagonal_attack = true
+ammo_consumed = 0
+damage_description = ""
+mechanical_description = ""
+injury_modifiers = Array[String]([])
+placeholder_bonus_variable = []
+can_hit_all_limbs = true
+limbs_can_hit = Array[String]([])
