@@ -31,4 +31,3 @@ func _refresh_slot():  # overwrite function to add features
 
 func get_allowed_limb_slot() -> void:
 	weapon_equip_slot = self.get_name()
-	#TODO make a cleaner way to grab the limb name

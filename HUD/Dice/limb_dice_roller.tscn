@@ -30,9 +30,9 @@ player = NodePath("Player")
 
 [node name="Player" type="HBoxContainer" parent="."]
 layout_mode = 0
-offset_left = -18.0
+offset_left = 57.0
 offset_top = 3.0
-offset_right = 472.0
+offset_right = 547.0
 offset_bottom = 255.0
 alignment = 1
 script = ExtResource("4_vdghv")
@@ -177,10 +177,10 @@ size_flags_vertical = 4
 
 [node name="Enemy" type="HBoxContainer" parent="."]
 layout_mode = 0
-offset_left = 308.0
-offset_top = 103.0
-offset_right = 792.0
-offset_bottom = 355.0
+offset_left = 558.0
+offset_top = 3.0
+offset_right = 961.0
+offset_bottom = 255.0
 alignment = 1
 script = ExtResource("4_vdghv")
 combatant_class = ExtResource("3_0p1jf")
@@ -239,6 +239,7 @@ text = "Roll Dice"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Enemy/VBoxContainer"]
 layout_mode = 2
+theme_override_constants/separation = 18
 
 [node name="test_hp_dt_bar" parent="Enemy/VBoxContainer/HBoxContainer" instance=ExtResource("3_6tvux")]
 custom_minimum_size = Vector2(50, 0)

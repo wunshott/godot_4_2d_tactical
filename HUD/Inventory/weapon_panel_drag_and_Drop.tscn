@@ -1,10 +1,25 @@
-[gd_scene load_steps=3 format=3 uid="uid://bqtkfapc4msc5"]
+[gd_scene load_steps=5 format=3 uid="uid://bqtkfapc4msc5"]
 
 [ext_resource type="PackedScene" uid="uid://dev3j4dlaux6o" path="res://HUD/Inventory/equipment_panel_drag_and_Drop.tscn" id="1_oy3no"]
 [ext_resource type="Script" path="res://HUD/Inventory/weapon_panel_drag_and_Drop.gd" id="2_wmj6x"]
+[ext_resource type="Texture2D" uid="uid://cjg2mhnm8dv8q" path="res://assets/customs/colored-transparent_packed.png" id="3_63wlm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_myedt"]
+atlas = ExtResource("3_63wlm")
+region = Rect2(560, 96, 16, 16)
 
 [node name="WeaponEquipmentPanel" instance=ExtResource("1_oy3no")]
+custom_minimum_size = Vector2(16, 16)
 script = ExtResource("2_wmj6x")
 
 [node name="PanelContainer" parent="." index="0"]
 modulate = Color(1, 0.2, 1, 1)
+mouse_filter = 0
+theme_type_variation = &"PanelContainer3"
+
+[node name="item_sprite" parent="PanelContainer" index="0"]
+self_modulate = Color(1, 1, 1, 1)
+mouse_filter = 1
+texture = SubResource("AtlasTexture_myedt")
+expand_mode = 5
+stretch_mode = 5

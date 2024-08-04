@@ -3,11 +3,11 @@ extends Control
 class_name ItemSlot
 
 @onready var inventory_panel = $"."
-@onready var item_sprite = $item_sprite
-@export var item_in_slot_resource: Item
+@onready var item_sprite = $PanelContainer/item_sprite as TextureRect
 
-signal unequip_item_to_player(limb:String, ItemToEquip: Item)
+@export var item_in_slot_resource: Item#: set = add_item_to_slot
 
+signal item_added_to_slot(item_name: String, item_size: String)
 
 # Called when the node enters the scene tee for the first time.
 func _ready():
@@ -18,24 +18,18 @@ func _ready():
 func _process(delta):
 	pass
 
-func update(item): 
-	if item is Item:
-		item_in_slot_resource = item
-		item_sprite.texture = item_in_slot_resource.ItemSprite 
-		#item_sprite.set_visible(true)
-	else:
-		item_in_slot_resource = null
-		#item_sprite.set_visible(false)
-		item_sprite.set_texture(null)
-	
+func add_item_to_slot(input_item: Item) -> void:
+	item_in_slot_resource =  input_item
+	_refresh_slot()
 
 
 
 
 func _get_drag_data(at_position: Vector2): 
+	if !item_in_slot_resource:
+		return
 	set_drag_preview(get_preview(item_in_slot_resource.ItemSprite))
-
-	return inventory_panel
+	return self
 
 
 func _can_drop_data(at_position: Vector2, data) -> bool:
@@ -45,6 +39,7 @@ func _can_drop_data(at_position: Vector2, data) -> bool:
 	
 func _drop_data(at_position: Vector2, data): # assign variable name to data. resource file item
 	var temp = item_in_slot_resource
+	
 	self.item_in_slot_resource = data.item_in_slot_resource
 	data.item_in_slot_resource = temp #swaps the files around. the dragged goes to destination and destination goes to dragged. 
 	data._refresh_slot() #resets both slots so the sprites update with the resource
@@ -62,16 +57,11 @@ func get_preview(item_dragged_texture: Texture2D):
 	return preview
 	
 func _refresh_slot(): 
+	item_added_to_slot.emit()
 	if !item_in_slot_resource: #refreshes item slot
-		item_sprite.set_texture(null) 
+		item_sprite.set_texture(null)
 		return
 	item_sprite.set_texture(item_in_slot_resource.ItemSprite)
 	
-	if item_in_slot_resource is Weapon:
-		var limb_slot = item_in_slot_resource.currently_equipped_hand #allows weapon to be place in either hand
-		print(limb_slot)
-		unequip_item_to_player.emit(limb_slot,item_in_slot_resource)
-	else:
-		var limb_slot = item_in_slot_resource.Equip_Slot
-		unequip_item_to_player.emit(limb_slot,item_in_slot_resource)
 
+	

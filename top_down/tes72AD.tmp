@@ -1,0 +1,271 @@
+[gd_scene load_steps=26 format=3 uid="uid://501orb1o44qx"]
+
+[ext_resource type="Script" path="res://top_down/test_battle.gd" id="1_fuk3s"]
+[ext_resource type="PackedScene" uid="uid://tmbmwi8jtwcf" path="res://top_down/Maps/tile_map.tscn" id="1_gwexx"]
+[ext_resource type="PackedScene" uid="uid://76uyoq4rbpup" path="res://HUD/ui.tscn" id="2_3kgxv"]
+[ext_resource type="PackedScene" uid="uid://daupiatx27twp" path="res://top_down/player.tscn" id="2_qjml6"]
+[ext_resource type="Script" path="res://top_down/Path.gd" id="4_lw8f8"]
+[ext_resource type="Texture2D" uid="uid://dvckrkp7pytci" path="res://assets/kenney_1-bit-pack/Tilesheet/colored-transparent_packed.png" id="5_34yq2"]
+[ext_resource type="Script" path="res://top_down/Movement_Reticle.gd" id="6_x88yu"]
+[ext_resource type="Texture2D" uid="uid://rf2g2lfjfjq2" path="res://assets/UI Borders/kenney_ui-pack-rpg-expansion/PNG/buttonRound_grey.png" id="7_8ys1v"]
+[ext_resource type="Texture2D" uid="uid://cjg2mhnm8dv8q" path="res://assets/customs/colored-transparent_packed.png" id="7_uf8sx"]
+[ext_resource type="Texture2D" uid="uid://cx825a38ng63u" path="res://assets/Pixel Bodies/Pixel_Full_Body.png" id="8_mblte"]
+[ext_resource type="PackedScene" uid="uid://b12s52c4gkkag" path="res://top_down/Enemy/enemy.tscn" id="9_peilq"]
+[ext_resource type="Texture2D" uid="uid://c33l7w8ot6nf7" path="res://assets/test_dice/dicce.png" id="11_gu4bm"]
+[ext_resource type="Texture2D" uid="uid://i83lydytlnrv" path="res://assets/Pixel Bodies/Man_Front_Base.png" id="12_rmud3"]
+[ext_resource type="Texture2D" uid="uid://b24hkpmj1lenp" path="res://assets/Medieval_Fantasy_Assets_Pack/Dagger.png" id="13_23huo"]
+[ext_resource type="Texture2D" uid="uid://djxf1jpnf1iw" path="res://assets/customs/Inventory.png" id="22_4frl6"]
+[ext_resource type="PackedScene" uid="uid://debxmr1y8tltr" path="res://HUD/Inventory/inventory_ui.tscn" id="23_ppqip"]
+[ext_resource type="Texture2D" uid="uid://2uhjrrrv4521" path="res://assets/Pixel Bodies/exodia_layout.png" id="32_kj2ca"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ryope"]
+atlas = ExtResource("7_uf8sx")
+region = Rect2(768, 192, 16, 16)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ifms1"]
+texture = SubResource("AtlasTexture_ryope")
+texture_margin_left = 6.0
+texture_margin_top = 6.0
+texture_margin_right = 6.0
+texture_margin_bottom = 6.0
+modulate_color = Color(0.419608, 0.47451, 0.588235, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4n61s"]
+atlas = ExtResource("11_gu4bm")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nxu75"]
+atlas = ExtResource("11_gu4bm")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="Curve" id="Curve_mbqqx"]
+min_value = 0.25
+max_value = 0.5
+_data = [Vector2(0.0360825, 1.49451), 0.0, 0.0, 0, 0]
+point_count = 1
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l3kqa"]
+atlas = ExtResource("5_34yq2")
+region = Rect2(576, 192, 16, 16)
+
+[sub_resource type="Animation" id="Animation_waker"]
+resource_name = "modulate_transparency"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.301961)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kf2gf"]
+_data = {
+"modulate_transparency": SubResource("Animation_waker")
+}
+
+[node name="Test_Battle" type="Node2D"]
+script = ExtResource("1_fuk3s")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="UI" parent="CanvasLayer" instance=ExtResource("2_3kgxv")]
+
+[node name="Sprite2D15" type="Sprite2D" parent="CanvasLayer"]
+clip_children = 2
+position = Vector2(121.5, 386)
+texture = ExtResource("7_8ys1v")
+
+[node name="PixelBodyHead" type="Sprite2D" parent="CanvasLayer/Sprite2D15"]
+position = Vector2(16, 5)
+texture = ExtResource("12_rmud3")
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Sprite2D15"]
+position = Vector2(-8, -1)
+rotation = -0.785397
+texture = ExtResource("13_23huo")
+
+[node name="Sprite2D16" type="Sprite2D" parent="CanvasLayer"]
+clip_children = 2
+position = Vector2(469, 386)
+texture = ExtResource("7_8ys1v")
+
+[node name="PixelBodyHead" type="Sprite2D" parent="CanvasLayer/Sprite2D16"]
+position = Vector2(-16, 5)
+texture = ExtResource("12_rmud3")
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Sprite2D16"]
+position = Vector2(8, 0)
+rotation = -0.785397
+texture = ExtResource("13_23huo")
+
+[node name="Label2" type="Label" parent="CanvasLayer"]
+offset_left = 196.0
+offset_top = 411.0
+offset_right = 327.0
+offset_bottom = 486.0
+text = "hp,dt,
+ dodge,
+init"
+
+[node name="PanelContainer8" type="PanelContainer" parent="CanvasLayer"]
+offset_left = 142.5
+offset_top = 372.0
+offset_right = 190.5
+offset_bottom = 400.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_ifms1")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/PanelContainer8"]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/PanelContainer8/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/PanelContainer8/HBoxContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/PanelContainer8/HBoxContainer/PanelContainer/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_4n61s")
+stretch_mode = 5
+
+[node name="TextureRect3" type="TextureRect" parent="CanvasLayer/PanelContainer8/HBoxContainer/PanelContainer/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_nxu75")
+stretch_mode = 5
+
+[node name="PanelContainer9" type="PanelContainer" parent="CanvasLayer"]
+offset_left = 402.5
+offset_top = 372.0
+offset_right = 450.5
+offset_bottom = 400.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_ifms1")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/PanelContainer9"]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/PanelContainer9/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/PanelContainer9/HBoxContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/PanelContainer9/HBoxContainer/PanelContainer/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_4n61s")
+stretch_mode = 5
+
+[node name="TextureRect3" type="TextureRect" parent="CanvasLayer/PanelContainer9/HBoxContainer/PanelContainer/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_nxu75")
+stretch_mode = 5
+
+[node name="TileMap" parent="." instance=ExtResource("1_gwexx")]
+layer_0/tile_data = PackedInt32Array(65554, 1310723, 0, 131090, 1310723, 1, 196626, 1310723, 1, 262162, 1310723, 1, 327698, 1310723, 1, 393234, 1310723, 1, 458770, 1310723, 1, 524306, 1310723, 1, 589842, 1310723, 1, 655378, 1310723, 2, 655361, 1179651, 2, 655362, 1245187, 2, 655363, 1245187, 2, 655364, 1245187, 2, 655365, 1245187, 2, 655366, 1245187, 2, 655367, 1245187, 2, 655368, 1245187, 2, 655369, 3, 0, 655370, 1245187, 2, 655371, 1245187, 2, 655372, 1245187, 2, 655373, 1245187, 2, 655374, 1245187, 2, 655375, 1245187, 2, 655376, 1245187, 2, 655377, 1245187, 2, 524292, 262147, 0, 393222, 262147, 0, 196622, 3, 0, 196624, 3, 0, 524305, 262147, 0, 589825, 1179651, 1, 524289, 1179651, 1, 458753, 1179651, 1, 393217, 1179651, 1, 327681, 1179651, 1, 262145, 1179651, 1, 196609, 1179651, 1, 131073, 1179651, 1, 65537, 1179651, 0, 131074, 131075, 0, 131075, 327683, 2, 196612, 131075, 0, 327687, 262147, 0, 65538, 1245187, 0, 196610, 131075, 0, 262146, 131075, 0, 327682, 131075, 0, 393218, 131075, 0, 458754, 1114115, 20, 524290, 3, 0, 524291, 3, 0, 589827, 3, 0, 589826, 3, 0, 458756, 262147, 0, 393221, 262147, 0, 327686, 262147, 0, 196614, 131075, 0, 524295, 131075, 0, 327688, 3, 0, 458760, 131075, 0, 327689, 262147, 0, 393225, 3, 0, 458761, 3, 0, 393226, 262147, 0, 589832, 1114115, 20, 524297, 131075, 0, 458762, 262147, 0, 524298, 3, 0, 458763, 262147, 0, 327683, 131075, 0, 393220, 3, 0, 458757, 262147, 0, 524293, 3, 0, 458758, 3, 0, 65553, 1245187, 0, 65552, 1245187, 0, 65551, 1245187, 0, 65550, 1245187, 0, 131086, 131075, 0, 131085, 131075, 0, 131084, 131075, 0, 131083, 131075, 0, 131082, 131075, 0, 131081, 3, 0, 65545, 1245187, 0, 65544, 1245187, 0, 65543, 1245187, 0, 65542, 1245187, 0, 65541, 1245187, 0, 65540, 1245187, 0, 65539, 1245187, 0, 131076, 131075, 0, 131077, 131075, 0, 196613, 1114115, 20, 262149, 131075, 0, 262148, 131075, 0, 262147, 131075, 0, 196611, 131075, 0, 327684, 131075, 0, 327685, 3, 0, 262150, 3, 0, 131078, 131075, 0, 131079, 3, 0, 196615, 131075, 0, 196616, 262147, 0, 131080, 262147, 0, 262152, 262147, 0, 262153, 131075, 0, 196617, 3, 0, 196618, 327683, 2, 262154, 131075, 0, 327690, 131075, 0, 327691, 131075, 0, 262155, 131075, 0, 196619, 327683, 2, 196620, 131075, 0, 262156, 131075, 0, 327692, 131075, 0, 393228, 1114115, 20, 393227, 131075, 0, 458764, 262147, 0, 524300, 262147, 0, 524299, 3, 0, 589835, 131075, 0, 589834, 131075, 0, 589833, 131075, 0, 589836, 131075, 0, 589837, 131075, 0, 524301, 262147, 0, 458765, 131075, 0, 393229, 131075, 0, 327693, 131075, 0, 262157, 131075, 0, 196621, 131075, 0, 262158, 131075, 0, 327694, 131075, 0, 393230, 131075, 0, 458766, 131075, 0, 524302, 262147, 0, 589838, 131075, 0, 589839, 131075, 0, 524303, 262147, 0, 458767, 131075, 0, 393231, 131075, 0, 327695, 131075, 0, 262159, 131075, 0, 196623, 3, 0, 131087, 131075, 0, 131088, 131075, 0, 131089, 131075, 0, 196625, 131075, 0, 262161, 3, 0, 262160, 3, 0, 327696, 131075, 0, 393232, 131075, 0, 458768, 131075, 0, 524304, 262147, 0, 589840, 131075, 0, 589841, 131075, 0, 458769, 3, 0, 393233, 131075, 0, 327697, 131075, 0, 65546, 1245187, 0, 65547, 1245187, 0, 65548, 1245187, 0, 65549, 1245187, 0, 458755, 3, 0, 393219, 3, 0, 589829, 131075, 0, 589828, 3, 0, 589830, 131075, 0, 524294, 131075, 0, 589831, 131075, 0, 393223, 3, 0, 458759, 131075, 0, 393224, 131075, 0, 524296, 131075, 0, 262151, 262147, 0, 720905, 65539, 0, 786441, 65539, 0, 720906, 851971, 6, 786440, 851971, 6, 851977, 262147, 0, 983049, 262147, 0, 1048586, 262147, 0, 1048589, 262147, 0, 983055, 262147, 0, 983057, 262147, 0, 1048591, 131075, 0, 1048588, 131075, 0, 983051, 131075, 0, 786442, 3, 0, 786443, 3, 0, 851980, 3, 0, 851981, 3, 0, 851982, 3, 0, 851983, 3, 0, 917520, 3, 0, 917521, 3, 0, 851978, 3, 0, 851979, 3, 0, 917518, 3, 0, 917519, 3, 0, 917514, 3, 0, 917517, 3, 0, 917516, 3, 0, 917515, 3, 0, 720904, 3, 0, 917512, 3, 0, 851976, 3, 0, 983050, 3, 0, 917513, 3, 0, 983053, 3, 0, 983052, 3, 0, 983054, 3, 0, 1048590, 3, 0, 1048587, 3, 0, 720908, 3, 0, 720907, 3, 0, 786444, 3, 0, 786445, 3, 0, 720909, 3, 0, 720910, 3, 0, 786446, 3, 0, 786447, 3, 0, 720911, 3, 0, 720912, 3, 0, 786448, 3, 0, 851984, 3, 0, 851985, 3, 0, 786449, 3, 0, 720913, 3, 0, 720914, 3, 0, 786450, 3, 0, 851986, 3, 0, 917522, 3, 0, 983058, 3, 0, 1048594, 3, 0, 1048593, 3, 0, 1048592, 3, 0, 983056, 3, 0, 983048, 3, 0, 983047, 3, 0, 917511, 3, 0, 851975, 3, 0, 786439, 3, 0, 720903, 3, 0, 720902, 3, 0, 720901, 3, 0, 720900, 3, 0, 720899, 3, 0, 720898, 3, 0, 720897, 3, 0, 786433, 3, 0, 851969, 3, 0, 917505, 3, 0, 983041, 3, 0, 1048577, 3, 0, 1048578, 3, 0, 983042, 3, 0, 917506, 3, 0, 851970, 3, 0, 786434, 3, 0, 786435, 3, 0, 851971, 3, 0, 917507, 3, 0, 983043, 3, 0, 1048579, 3, 0, 1048580, 3, 0, 983044, 3, 0, 917508, 3, 0, 851972, 3, 0, 786436, 3, 0, 786437, 3, 0, 851973, 3, 0, 917509, 3, 0, 983045, 3, 0, 1048581, 3, 0, 1048582, 3, 0, 983046, 3, 0, 917510, 3, 0, 851974, 3, 0, 786438, 3, 0, 1048583, 3, 0, 1048584, 3, 0, 1048585, 3, 0, 1114120, 3, 0, 1114121, 3, 0, 1114122, 3, 0, 1114123, 3, 0, 1114124, 3, 0, 1114125, 3, 0, 1114126, 3, 0, 1114127, 3, 0, 1114128, 3, 0, 1114129, 3, 0, 1114130, 3, 0, 1179666, 3, 0, 1179665, 3, 0, 1179664, 3, 0, 1179663, 3, 0, 1179662, 3, 0, 1179656, 3, 0, 1179657, 3, 0, 1179658, 3, 0, 1179659, 3, 0, 1179660, 3, 0, 1179661, 3, 0, 1245194, 3, 0, 1245195, 3, 0, 1245196, 3, 0, 1245197, 3, 0, 1245198, 3, 0, 1245203, 3, 0, 1245199, 3, 0, 1245200, 3, 0, 1245201, 3, 0, 1245202, 3, 0, 1245204, 3, 0, 1245205, 3, 0)
+
+[node name="Path" type="Line2D" parent="."]
+width = 2.0
+width_curve = SubResource("Curve_mbqqx")
+texture_mode = 1
+script = ExtResource("4_lw8f8")
+
+[node name="Movement_Reticle" type="Sprite2D" parent="Path"]
+self_modulate = Color(1, 1, 1, 0.301961)
+texture = SubResource("AtlasTexture_l3kqa")
+script = ExtResource("6_x88yu")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Path/Movement_Reticle"]
+libraries = {
+"": SubResource("AnimationLibrary_kf2gf")
+}
+autoplay = "modulate_transparency"
+
+[node name="Player" parent="." instance=ExtResource("2_qjml6")]
+position = Vector2(168, 88)
+
+[node name="Enemy" parent="." instance=ExtResource("9_peilq")]
+position = Vector2(249, 88)
+target_sprite = ExtResource("12_rmud3")
+
+[node name="Enemy2" parent="." instance=ExtResource("9_peilq")]
+position = Vector2(249, 72)
+target_sprite = ExtResource("8_mblte")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="."]
+offset_left = -457.0
+offset_top = -115.0
+offset_right = -232.0
+offset_bottom = -19.0
+size_flags_horizontal = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer2"]
+layout_mode = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="HBoxContainer2/HBoxContainer"]
+layout_mode = 2
+
+[node name="Inventory" type="TextureButton" parent="HBoxContainer2/HBoxContainer/CenterContainer"]
+layout_mode = 2
+texture_normal = ExtResource("22_4frl6")
+
+[node name="InventoryUI" parent="HBoxContainer2/HBoxContainer" instance=ExtResource("23_ppqip")]
+layout_mode = 2
+
+[node name="ExodiaLayout" type="Sprite2D" parent="."]
+position = Vector2(124, -156)
+texture = ExtResource("32_kj2ca")
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="."]
+offset_left = 863.0
+offset_right = 902.0
+offset_bottom = 23.0
+
+[node name="GridLabel2" type="Label" parent="HBoxContainer3"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+text = "Grid"
+horizontal_alignment = 1
+
+[node name="GridCoordsLabel" type="Label" parent="HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+text = "highlight mouse over limb. highlights all equipped gear attached to it.
+"
+horizontal_alignment = 1
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="."]
+offset_left = 862.0
+offset_top = -36.0
+offset_right = 1398.0
+offset_bottom = -13.0
+
+[node name="GridLabel2" type="Label" parent="HBoxContainer4"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+text = "Grid"
+horizontal_alignment = 1
+
+[node name="GridCoordsLabel" type="Label" parent="HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+text = "show all dice on the side"
+horizontal_alignment = 1
+
+[connection signal="astar_grid_generated" from="TileMap" to="Path" method="_on_tile_map_astar_grid_generated"]
+[connection signal="astar_grid_generated" from="TileMap" to="Player" method="_on_tile_map_astar_grid_generated"]
+
+[editable path="Enemy"]
+[editable path="Enemy2"]

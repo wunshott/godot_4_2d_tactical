@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://pvdo7n3myqdc"]
+
+[ext_resource type="Script" path="res://top_down/DiceRolling/2d_dice_body_test.gd" id="1_0bwd6"]
+[ext_resource type="PackedScene" uid="uid://b177ct8eucq0r" path="res://top_down/DiceRolling/rigid_body_2d_dice.tscn" id="2_hj1h7"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_0bwd6")
+
+[node name="RigidBody2DDice" parent="." instance=ExtResource("2_hj1h7")]
+
+[node name="RigidBody2DDice2" parent="." instance=ExtResource("2_hj1h7")]
+position = Vector2(201, 127)
+
+[node name="RigidBody2DDice3" parent="." instance=ExtResource("2_hj1h7")]
+position = Vector2(159, 167)

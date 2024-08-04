@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="Action" load_steps=2 format=3 uid="uid://bcfphixn8axe1"]
+
+[ext_resource type="Script" path="res://Actions/action_template.gd" id="1_th5d4"]
+
+[resource]
+script = ExtResource("1_th5d4")
+action_name = "FeintSlash"
+damage_type = 2
+attack_type = 2
+explode_number = 0
+win_conditions = Array[int]([1])
+cost_stamina = true
+min_stamina_dice_cost = 3
+elemental_damage = false
+additional_effect = []
+aoe_shape = ""
+aoe_range = 0
+adjacent_targets_only = false
+tile_range = 0
+diagonal_attack = false
+ammo_consumed = 0
+damage_description = "Bluff an attack,Deceptive attack to misdirect your opponent's gaurd. Then attack at their weakspot"
+mechanical_description = "Roll the stamina cost as damage. These are removed by opponent attack dice, not defense dice. "
+injury_modifiers = Array[String]([])
+placeholder_bonus_variable = []
+can_hit_all_limbs = false
+limbs_can_hit = Array[String]([])

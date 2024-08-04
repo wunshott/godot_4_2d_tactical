@@ -1,6 +1,6 @@
 extends Resource
 
-class_name Class
+class_name Class #TODO change to character sheet?
 
 signal HP_changed
 signal DT_changed
@@ -18,6 +18,8 @@ signal limb_dead
 @export var INTUITION: int #LIBRARIAN/SAVANT
 @export var BRILLIANCE: int #SOCIOPATH
 @export var EMPATHY: int #GURU
+
+#TODO have the character sheet update the entire user interface
 
 # if limb hp changes,
 # change hp
@@ -42,13 +44,13 @@ var soft_DT: int: set = set_soft_DT, get = get_soft_DT
 ## Arms
 @export var right_arm_dice: Array[int] 
 @export var right_weapon: Array[int]
-@export var equipped_right_arm_armor_dice: Array[int] 
+@export var equipped_right_arm_armor_dice: Array[int]
 @export var equipped_right_arm_weapon: Weapon
 
 
 @export var left_arm_dice: Array[int]
 @export var left_weapon: Array[int]
-@export var equipped_left_arm_armor_dice: Array[int] 
+@export var equipped_left_arm_armor_dice: Array[int]
 @export var equipped_left_arm_weapon: Weapon
 
 ## Legs
@@ -91,6 +93,10 @@ var equipped_armor_dictionary: Dictionary = { #sets the current hp, changing the
 	"left_leg": left_leg_armor_dice,
 }
 
+@export var equipped_weapon_dictionary: Dictionary = {
+	"right_arm": null,
+	"left_arm": null
+}
 
 #grab max hp
 # = limb hp

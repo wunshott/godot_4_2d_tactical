@@ -24,20 +24,14 @@ const EXERTION_ALLOWED_PATH_TILE = preload("res://top_down/exertion_allowed_path
 @onready var stats: Stats = $Stats
 @onready var attack_pattern = $AttackPattern as AttackPattern
 @onready var inventory = $Inventory
-@onready var character_body_2 = $"../CanvasLayer/CharacterSheet/TabBar/TabContainer/Stats/MarginContainer/VBoxContainer/HBoxContainer2/CharacterBody2"
 @onready var test_battle = $".."
 
 @onready var camera_2d = $Camera2D
 
 
-#TODO separate AC and dodge
-#based on perks and stats.
-#roll to hit AC goes first.
-#if the AC hits, dodge chance is rolled.
-#if dodge is successful, hit misses
-#if the dodge fails, the hit misses
 
-#TODO lose AC bonus from coordination if you have no weapon
+
+
 
 @export var pixels_per_frame: float = 1 #
 ##@export var text_max_movement: int = 100
@@ -47,14 +41,15 @@ const EXERTION_ALLOWED_PATH_TILE = preload("res://top_down/exertion_allowed_path
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	#connect signals
-	send_char_sheet_to_hud.emit(stats.CharacterSheetData)
+	
+	
 	stats.populate_character() # must be called here, calling it in the script causes an error. the variable doesn't load in
 	if !map:
 		return
 	#get_reachable_tiles(map.local_to_map(self.position), stats._get_movement_pool())
 	#_highlight_moveable_tiles()
-	print("Farquad's speed is " + str(stats.speed) + " tiles")
-	print("Farquad's movement exertion rate is " + str(stats.movement_exertion_cost))
+	#print("Farquad's speed is " + str(stats.speed) + " tiles")
+	#print("Farquad's movement exertion rate is " + str(stats.movement_exertion_cost))
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

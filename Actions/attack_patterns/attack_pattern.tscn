@@ -58,7 +58,7 @@ polygon = PackedVector2Array(-8, 16, -8, 0, -24, 0, -24.0001, -80, 23.9999, -80,
 
 [node name="AttackArea" type="Area2D" parent="."]
 position = Vector2(-8, -8)
-rotation = 6.28319
+rotation = 1.5708
 collision_layer = 0
 collision_mask = 4
 
@@ -77,8 +77,6 @@ position = Vector2(-8, -8)
 texture = SubResource("AtlasTexture_2hrw6")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-visible = false
-enabled = false
 
 [connection signal="mouse_entered" from="AreaUp" to="." method="_on_area_up_mouse_entered"]
 [connection signal="mouse_entered" from="AreaRight" to="." method="_on_area_right_mouse_entered"]

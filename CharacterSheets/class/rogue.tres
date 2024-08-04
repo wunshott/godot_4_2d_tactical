@@ -6,8 +6,8 @@
 [resource]
 script = ExtResource("1_j8d3y")
 class_title = "rogue"
-VITALITY = 4
-COORDINATION = 9
+VITALITY = 5
+COORDINATION = 10
 ELOQUENCE = 4
 INTUITION = 7
 BRILLIANCE = 4
@@ -21,12 +21,16 @@ left_weapon = Array[int]([3, 3])
 equipped_left_arm_armor_dice = Array[int]([2, 2])
 equipped_left_arm_weapon = ExtResource("1_hqhx7")
 right_leg_dice = Array[int]([3, 4, 5])
-right_leg_armor_dice = Array[int]([2, 2])
+right_leg_armor_dice = Array[int]([3, 4])
 left_leg_dice = Array[int]([3, 4, 5])
-left_leg_armor_dice = Array[int]([2, 2])
+left_leg_armor_dice = Array[int]([3, 4])
 torso_dice = Array[int]([3, 3, 3])
-equipped_torso_armor_dice = Array[int]([4])
+equipped_torso_armor_dice = Array[int]([4, 4, 3])
 head_dice = Array[int]([3, 3, 4])
-equipped_helmet_dice = Array[int]([])
+equipped_helmet_dice = Array[int]([4, 3, 2])
 encumbrance = 3
 name = "Rogue"
+equipped_weapon_dictionary = {
+"left_arm": ExtResource("1_hqhx7"),
+"right_arm": ExtResource("1_hqhx7")
+}

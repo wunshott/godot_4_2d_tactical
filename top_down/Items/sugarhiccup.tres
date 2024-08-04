@@ -10,6 +10,9 @@ region = Rect2(544, 208, 16, 16)
 [resource]
 script = ExtResource("1_6tvnt")
 ItemName = "Sugar Hiccup"
-ItemWeight = 0.25
+ItemSize = ""
 ItemSprite = SubResource("AtlasTexture_bcaj6")
-Limb = Array[String]([])
+Equip_Slot = ""
+ItemDescription = ""
+ItemLore = ""
+HiddenItemLore = ""

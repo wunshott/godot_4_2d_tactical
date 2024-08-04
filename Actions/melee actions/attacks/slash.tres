@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="Action" load_steps=2 format=3 uid="uid://dna7fn8dogfkx"]
+
+[ext_resource type="Script" path="res://Actions/action_template.gd" id="1_bgs4c"]
+
+[resource]
+script = ExtResource("1_bgs4c")
+action_name = "Slash"
+damage_type = 2
+attack_type = 0
+explode_number = 0
+win_conditions = Array[int]([3, 2])
+cost_stamina = true
+min_stamina_dice_cost = 3
+elemental_damage = false
+additional_effect = []
+aoe_shape = "Cone or Half Circle"
+aoe_range = 0
+adjacent_targets_only = true
+tile_range = 0
+diagonal_attack = true
+ammo_consumed = 0
+damage_description = "A wide, sweeping strike with the blade. This attack will almost certainly hit a stationary target (or more!) but will use a lot of stamina."
+mechanical_description = "roll the stamina cost as an attack roll. add any buffs to each roll as your buffs describe"
+injury_modifiers = Array[String]([])
+placeholder_bonus_variable = []
+can_hit_all_limbs = true
+limbs_can_hit = Array[String]([])

@@ -10,8 +10,14 @@ region = Rect2(624, 16, 16, 16)
 [resource]
 script = ExtResource("1_g6twr")
 armor_type = ""
-block_hit_die = 0
+block_hit_die = Array[int]([3, 3])
+encumbrance = 1
 ItemName = "Hide Greaves"
-ItemWeight = 0.0
+ItemSize = ""
 ItemSprite = SubResource("AtlasTexture_g73wj")
 Equip_Slot = "Legs"
+currently_equipped_slot = ""
+allowed_equip_slots = Array[String]([])
+ItemDescription = ""
+ItemLore = ""
+HiddenItemLore = ""

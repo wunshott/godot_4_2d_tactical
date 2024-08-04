@@ -5,13 +5,23 @@ class_name Action
 
 #do weapons have attacks inside them?
 
-@export var attack_name: String
+@export var action_name: String
 
 #damage variables
-@export var damage_type: String #bludgeoning, piercing, slashing, etc
-@export var damage_armor: bool #how much stam damage
-@export var damage_stamina: int #how much armor damage
+@export_enum("bludgeoning","piercing","slashing","none") var damage_type: int
+#@export var damage_type: String #bludgeoning, piercing, slashing, etc
 
+@export var attack_type: ATTACK_TYPE
+enum ATTACK_TYPE {
+	Attack,
+	Defend, 
+	Fakeout,
+	etc,
+}
+
+@export var explode_number:int #TODO. add a dice explosion mechanic
+#TODO move all dice roll functions to this resource or to a singleton?
+@export var win_conditions: Array[int]
 
 #stamina cost
 @export var cost_stamina: bool #does the action require stamina
@@ -36,6 +46,7 @@ class_name Action
 
 #flavor text describing the action
 @export var damage_description: String #flavor text for the player
+@export var mechanical_description: String #explicit text that describes which dice are rolled
 
 #injury modifiers
 @export var injury_modifiers: Array[String] #which parts of the injurt table do this action modify
@@ -56,8 +67,10 @@ func _ready():
 	pass # Replace with function body.
 
 
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
 
-
-func _damage(Target: Node, damage_type_input: String, damage_amount: int) -> void: # TODO fix to hit limb
-	Target.take_damage(damage_type_input,damage_amount)
+func _damage(Target: Node, damage_type: String, damage_amount: int) -> void:
+	Target.take_damage(damage_type,damage_amount)
 	

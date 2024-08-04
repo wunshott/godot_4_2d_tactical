@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://db6rpjsuk3rva"]
+
+[ext_resource type="PackedScene" uid="uid://d01is2s65njqg" path="res://HUD/Inventory/inventory_drag_and_drop.tscn" id="1_ynf7k"]
+[ext_resource type="Script" path="res://HUD/Inventory/accessory_panel_drag_and_Drop.gd" id="2_gdgur"]
+[ext_resource type="Texture2D" uid="uid://rf2g2lfjfjq2" path="res://assets/UI Borders/kenney_ui-pack-rpg-expansion/PNG/buttonRound_grey.png" id="3_n1xe3"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_a8vx5"]
+texture = ExtResource("3_n1xe3")
+
+[node name="AccessoryPanel" instance=ExtResource("1_ynf7k")]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("2_gdgur")
+limb_slot = ""
+
+[node name="PanelContainer" parent="." index="0"]
+custom_minimum_size = Vector2(16, 17)
+offset_top = -8.5
+offset_bottom = 8.5
+theme_override_styles/panel = SubResource("StyleBoxTexture_a8vx5")

@@ -85,11 +85,11 @@ func _get_armor_(equip_slot:String) -> Armor:
 func _on_attack_menu_request_player_attack_actions() -> void:
 	var right_attack_action_array: Array[Action] = []
 	var left_attack_action_array: Array[Action] = []
-	var base_hit_chance = stats._get_hit_chance() #TODO figure out a better place to get the hit chance and send to dice roller. need to update
+	var base_hit_chance = stats._get_hit_chance() # figure out a better place to get the hit chance and send to dice roller. need to update
 	for attacks in equipped_weapon_dict["RightHand"].Attacks:
 		right_attack_action_array.append(attacks)
 	for attacks in equipped_weapon_dict["LeftHand"].Attacks:
-		left_attack_action_array.append(attacks) #TODO add a label to clarify which limb is attacking
+		left_attack_action_array.append(attacks) # add a label to clarify which limb is attacking
 	
 	#also send the player base hit chance
 	#also send the weapon's hit chance bonus
@@ -106,7 +106,7 @@ func _on_stats_armor_damaged(armor_damage: int, limb_armor: Armor):
 	var armor_broken_bool: bool = false
 	if limb_armor._get_armor_hp() > 0:
 		send_armor_damage_to_hud.emit(armor_damage, limb_armor.ItemName,armor_broken_bool)
-	else:  #TODO if armor is 0, send a special message
+	else:  #if armor is 0, send a special message
 		armor_broken_bool = true
 		send_armor_damage_to_hud.emit(armor_damage, limb_armor.ItemName, armor_broken_bool)
 	
@@ -119,6 +119,6 @@ func _on_player_stats_armor_damaged(armor_damage: int, limb_armor: Armor):
 	var armor_broken_bool: bool = false
 	if limb_armor._get_armor_hp() > 0:
 		send_armor_damage_to_hud.emit(armor_damage, limb_armor.ItemName,armor_broken_bool)
-	else:  #TODO if armor is 0, send a special message
+	else:  #if armor is 0, send a special message
 		armor_broken_bool = true
 		send_armor_damage_to_hud.emit(armor_damage, limb_armor.ItemName, armor_broken_bool)

@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://utbwlitimdwa"]
+
+[ext_resource type="Script" path="res://HUD/limbUI/dice_pip_ui_container.gd" id="1_nbwja"]
+[ext_resource type="Texture2D" uid="uid://c4cmrn4cvj751" path="res://assets/UX_UI_Assets_Pack/Edits/Pellets_4_full.png" id="2_fv2jk"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_gunwf"]
+load_path = "res://.godot/imported/dicce.png-8b9aa8d42a998a3777276bbdbb33d3fe.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_15coh"]
+atlas = SubResource("CompressedTexture2D_gunwf")
+region = Rect2(32, 0, 16, 16)
+
+[node name="dice_pip_ui_container" type="HBoxContainer" node_paths=PackedStringArray("dice_texture", "pip_texture")]
+theme_type_variation = &"HBoxContainerTight"
+script = ExtResource("1_nbwja")
+dice_texture = NodePath("DiceTexture")
+pip_texture = NodePath("PipTexture")
+metadata/_edit_horizontal_guides_ = [-91.0]
+
+[node name="DiceTexture" type="TextureRect" parent="."]
+layout_mode = 2
+texture = SubResource("AtlasTexture_15coh")
+stretch_mode = 5
+
+[node name="PipTexture" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("2_fv2jk")
+stretch_mode = 3

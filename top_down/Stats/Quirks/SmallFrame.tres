@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="StatQuirk" load_steps=2 format=3 uid="uid://datr8j6hb7do8"]
+
+[ext_resource type="Script" path="res://top_down/Stats/Quirks/StatQuirk.gd" id="1_k7ycf"]
+
+[resource]
+script = ExtResource("1_k7ycf")
+name = "Small Frame"
+stat_change_dictionary = {
+"Brilliance": 0,
+"Coordination": 1,
+"Eloquence": 0,
+"Empathy": 0,
+"Intuition": 0,
+"Vitality": -1
+}
+point_cost = 50

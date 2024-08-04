@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://cg1ckivi72xjx"]
+
+[ext_resource type="Script" path="res://HUD/limbUI/dice_armor_pips_ui.gd" id="1_mojcw"]
+[ext_resource type="PackedScene" uid="uid://gyn7g4i70ooo" path="res://HUD/limbUI/blank_panel_items.tscn" id="2_2a86h"]
+
+[node name="DiceArmorPipsUi" type="HBoxContainer" node_paths=PackedStringArray("dice_type_sprite")]
+size_flags_horizontal = 0
+script = ExtResource("1_mojcw")
+dice_type_sprite = NodePath("TextureRect")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 2
+stretch_mode = 3
+
+[node name="PanelContainer" parent="." instance=ExtResource("2_2a86h")]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer"]
+layout_mode = 2

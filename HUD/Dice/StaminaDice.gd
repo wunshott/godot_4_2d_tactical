@@ -9,7 +9,7 @@ class_name StaminaDiceContainer
 
 var dice_container: PackedScene = preload("res://HUD/Dice/dice_container.tscn")
 
-#TODO delete the dice when rolled
+# delete the dice when rolled
 
 func create_dice_array() -> void:
 	for die in DiceArray:
