@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="PerkResource" load_steps=2 format=3 uid="uid://dg1o425v0qmwq"]
+
+[ext_resource type="Script" path="res://top_down/Stats/Perks/Eating/PerkResource.gd" id="1_ltapk"]
+
+[resource]
+script = ExtResource("1_ltapk")
+perk_name = "FamilyRecipe"
+required_desires = Array[String](["Eating"])
+required_desire_levels = Array[int]([])

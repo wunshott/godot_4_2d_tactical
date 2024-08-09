@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="PerkResource" load_steps=2 format=3 uid="uid://cyisobw74tucy"]
+
+[ext_resource type="Script" path="res://top_down/Stats/Perks/Eating/PerkResource.gd" id="1_nyvl2"]
+
+[resource]
+script = ExtResource("1_nyvl2")
+perk_name = "MonsterEater"
+required_desires = Array[String]([])
+required_desire_levels = Array[int]([])

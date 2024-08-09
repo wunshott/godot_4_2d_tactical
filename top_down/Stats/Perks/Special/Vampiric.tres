@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="PerkResource" load_steps=2 format=3 uid="uid://oidu3ptlil2g"]
+
+[ext_resource type="Script" path="res://top_down/Stats/Perks/Eating/PerkResource.gd" id="1_xg61d"]
+
+[resource]
+script = ExtResource("1_xg61d")
+perk_name = "Vampiric"
+required_desires = Array[String]([])
+required_perks = Array[String]([])
+required_desire_levels = Array[int]([])

@@ -1,0 +1,167 @@
+[gd_scene load_steps=9 format=3 uid="uid://be45mp1d1qwas"]
+
+[ext_resource type="Script" path="res://HUD/Dice/ActionRollerMenu.gd" id="1_deyle"]
+[ext_resource type="Theme" uid="uid://dy51vb6uy42fp" path="res://Themes/HUD_THEME_1.tres" id="1_hqwnr"]
+[ext_resource type="Resource" uid="uid://bchl0as1x3qnx" path="res://top_down/Items/Weapons/dagger.tres" id="2_y03dj"]
+[ext_resource type="PackedScene" uid="uid://hmesfapk1dl6" path="res://HUD/Dice/dice_container.tscn" id="3_fp4k2"]
+[ext_resource type="PackedScene" uid="uid://4uo876qfre20" path="res://Actions/action_button.tscn" id="4_7rb5a"]
+[ext_resource type="Texture2D" uid="uid://cjg2mhnm8dv8q" path="res://assets/customs/colored-transparent_packed.png" id="4_hjlju"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i6uvp"]
+atlas = ExtResource("4_hjlju")
+region = Rect2(768, 160, 16, 16)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gciih"]
+texture = SubResource("AtlasTexture_i6uvp")
+texture_margin_left = 6.0
+texture_margin_top = 6.0
+texture_margin_right = 6.0
+texture_margin_bottom = 6.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+modulate_color = Color(0.419608, 0.160784, 0.0196078, 1)
+
+[node name="ActionRollerMenu" type="VBoxContainer" node_paths=PackedStringArray("action_type_label", "action_description_panel_container", "action_description", "dice_w_label", "reroll_count_label", "dice_container", "close_action_button", "roll_selected_dice_button", "stop_rolling_button")]
+offset_left = 106.0
+offset_top = 258.0
+offset_right = 573.0
+offset_bottom = 335.0
+theme = ExtResource("1_hqwnr")
+theme_override_constants/separation = 1
+alignment = 2
+script = ExtResource("1_deyle")
+action_type_label = NodePath("DiceDescriptionHBox/DiceContainer/VBoxContainer/HBoxContainer/ActionTypeLabel")
+action_description_panel_container = NodePath("DiceDescriptionHBox/ActionDescriptionPanelContainer")
+action_description = NodePath("DiceDescriptionHBox/ActionDescriptionPanelContainer/AttackDescriptionLabel")
+dice_w_label = NodePath("DiceDescriptionHBox/DiceContainer/VBoxContainer/HBoxContainer/DiceWLabel")
+reroll_count_label = NodePath("DiceDescriptionHBox/DiceContainer/VBoxContainer/HBoxContainer/RerollCountLabel")
+dice_container = NodePath("DiceDescriptionHBox/DiceContainer/VBoxContainer/DiceContainer")
+close_action_button = NodePath("PanelContainer/HBoxContainer/CloseActionButton")
+roll_selected_dice_button = NodePath("DiceDescriptionHBox/DiceContainer/VBoxContainer/HBoxContainer/RollSelectedDiceButton")
+stop_rolling_button = NodePath("DiceDescriptionHBox/DiceContainer/VBoxContainer/HBoxContainer/StayDiceButton")
+player_weapon = ExtResource("2_y03dj")
+
+[node name="DiceDescriptionHBox" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="ActionDescriptionPanelContainer" type="PanelContainer" parent="DiceDescriptionHBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxTexture_gciih")
+
+[node name="AttackDescriptionLabel" type="RichTextLabel" parent="DiceDescriptionHBox/ActionDescriptionPanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/normal_font_size = 8
+theme_override_font_sizes/bold_font_size = 8
+theme_override_font_sizes/italics_font_size = 8
+theme_override_font_sizes/bold_italics_font_size = 8
+theme_override_font_sizes/mono_font_size = 8
+bbcode_enabled = true
+text = "A wide sweeping attack. it does [wave amp=50.0 freq=5.0 connected=1]{Slash}[/wave] damage and hits more than one enemy."
+fit_content = true
+
+[node name="DiceContainer" type="PanelContainer" parent="DiceDescriptionHBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DiceDescriptionHBox/DiceContainer"]
+layout_mode = 2
+
+[node name="DiceContainer" type="GridContainer" parent="DiceDescriptionHBox/DiceContainer/VBoxContainer"]
+custom_minimum_size = Vector2(85, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 3
+columns = 9
+
+[node name="DiceContainer" parent="DiceDescriptionHBox/DiceContainer/VBoxContainer/DiceContainer" instance=ExtResource("3_fp4k2")]
+layout_mode = 2
+
+[node name="DiceContainer2" parent="DiceDescriptionHBox/DiceContainer/VBoxContainer/DiceContainer" instance=ExtResource("3_fp4k2")]
+layout_mode = 2
+
+[node name="DiceContainer3" parent="DiceDescriptionHBox/DiceContainer/VBoxContainer/DiceContainer" node_paths=PackedStringArray("die_graphic") instance=ExtResource("3_fp4k2")]
+layout_mode = 2
+die_graphic = NodePath("../DiceContainer2/Dice")
+
+[node name="DiceContainer4" parent="DiceDescriptionHBox/DiceContainer/VBoxContainer/DiceContainer" node_paths=PackedStringArray("die_graphic") instance=ExtResource("3_fp4k2")]
+layout_mode = 2
+die_graphic = NodePath("../DiceContainer2/Dice")
+
+[node name="DiceContainer5" parent="DiceDescriptionHBox/DiceContainer/VBoxContainer/DiceContainer" node_paths=PackedStringArray("die_graphic") instance=ExtResource("3_fp4k2")]
+layout_mode = 2
+die_graphic = NodePath("../DiceContainer2/Dice")
+
+[node name="DiceContainer6" parent="DiceDescriptionHBox/DiceContainer/VBoxContainer/DiceContainer" node_paths=PackedStringArray("die_graphic") instance=ExtResource("3_fp4k2")]
+layout_mode = 2
+die_graphic = NodePath("../DiceContainer2/Dice")
+
+[node name="DiceContainer7" parent="DiceDescriptionHBox/DiceContainer/VBoxContainer/DiceContainer" node_paths=PackedStringArray("die_graphic") instance=ExtResource("3_fp4k2")]
+layout_mode = 2
+die_graphic = NodePath("../DiceContainer2/Dice")
+
+[node name="DiceContainer8" parent="DiceDescriptionHBox/DiceContainer/VBoxContainer/DiceContainer" node_paths=PackedStringArray("die_graphic") instance=ExtResource("3_fp4k2")]
+layout_mode = 2
+die_graphic = NodePath("../DiceContainer2/Dice")
+
+[node name="DiceContainer9" parent="DiceDescriptionHBox/DiceContainer/VBoxContainer/DiceContainer" node_paths=PackedStringArray("die_graphic") instance=ExtResource("3_fp4k2")]
+layout_mode = 2
+die_graphic = NodePath("../DiceContainer2/Dice")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="DiceDescriptionHBox/DiceContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="ActionTypeLabel" type="RichTextLabel" parent="DiceDescriptionHBox/DiceContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_font_sizes/normal_font_size = 8
+theme_override_font_sizes/bold_font_size = 8
+theme_override_font_sizes/italics_font_size = 8
+theme_override_font_sizes/bold_italics_font_size = 8
+bbcode_enabled = true
+text = "Action Type"
+fit_content = true
+autowrap_mode = 0
+
+[node name="DiceWLabel" type="Label" parent="DiceDescriptionHBox/DiceContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "W: [3 4 5]"
+
+[node name="RerollCountLabel" type="Label" parent="DiceDescriptionHBox/DiceContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Rerolls: 5"
+
+[node name="RollSelectedDiceButton" type="Button" parent="DiceDescriptionHBox/DiceContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "Roll"
+
+[node name="StayDiceButton" type="Button" parent="DiceDescriptionHBox/DiceContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+disabled = true
+text = "Stay"
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 2
+mouse_filter = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="CloseActionButton" type="Button" parent="PanelContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "x"
+
+[node name="ActionBarHBoxContainer" type="HBoxContainer" parent="PanelContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="ActionButton" parent="PanelContainer/HBoxContainer/ActionBarHBoxContainer" instance=ExtResource("4_7rb5a")]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+
+[connection signal="pressed" from="DiceDescriptionHBox/DiceContainer/VBoxContainer/HBoxContainer/RollSelectedDiceButton" to="." method="_on_roll_selected_dice_button_pressed"]

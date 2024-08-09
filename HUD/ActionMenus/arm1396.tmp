@@ -1,0 +1,96 @@
+[gd_scene load_steps=9 format=3 uid="uid://djk7nu0i23ho8"]
+
+[ext_resource type="Theme" uid="uid://dy51vb6uy42fp" path="res://Themes/HUD_THEME_1.tres" id="1_keu0s"]
+[ext_resource type="Script" path="res://HUD/Dice/ArmorRollerMenu.gd" id="2_7vodh"]
+[ext_resource type="Resource" uid="uid://dna7fn8dogfkx" path="res://Actions/melee actions/attacks/slash.tres" id="3_kec0h"]
+[ext_resource type="Resource" uid="uid://x7u4so7ewmhq" path="res://Actions/melee actions/defends/bulwark.tres" id="4_376km"]
+[ext_resource type="Resource" uid="uid://bagufl8ywwn8k" path="res://Actions/melee actions/grapples/kick.tres" id="5_3sntx"]
+[ext_resource type="Resource" uid="uid://bcfphixn8axe1" path="res://Actions/melee actions/fakeouts/FeintSlash.tres" id="6_ubndt"]
+[ext_resource type="Resource" uid="uid://danrkv4wfq7ut" path="res://top_down/Items/Weapons/wooden_sword.tres" id="7_83fns"]
+[ext_resource type="PackedScene" uid="uid://f2hdfvoa50vx" path="res://HUD/ActionMenus/armor_dice_point_container.tscn" id="8_dxj3q"]
+
+[node name="ArmorRollerMenu" type="PanelContainer" node_paths=PackedStringArray("EnemyActionLabel", "MobDiceContainer", "MobWArrayLabel", "PlayerArmorPointsLabel", "RollMobDice")]
+offset_left = 16.0
+offset_top = 17.0
+offset_right = 148.0
+offset_bottom = 215.0
+theme = ExtResource("1_keu0s")
+script = ExtResource("2_7vodh")
+MobActions = Array[Resource("res://Actions/action_template.gd")]([ExtResource("3_kec0h"), ExtResource("4_376km"), ExtResource("5_3sntx"), ExtResource("6_ubndt")])
+MobWeapon = ExtResource("7_83fns")
+EnemyActionLabel = NodePath("VBoxContainer/PanelContainer/VBoxContainer/EnemyActionLabel")
+MobDiceContainer = NodePath("VBoxContainer/PanelContainer2/HBoxContainer/MobDiceContainer")
+MobWArrayLabel = NodePath("VBoxContainer/PanelContainer/VBoxContainer/MobWConditionLabel")
+PlayerArmorPointsLabel = NodePath("VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/YourArmorPointsValueLabel")
+ArmorPointsValue = 5
+RollMobDice = NodePath("VBoxContainer/HBoxContainer/RollMobDice")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Your limb (enemy target)"
+
+[node name="MobWConditionLabel" type="Label" parent="VBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Enemy W [3 4 5]"
+
+[node name="EnemyActionLabel" type="Label" parent="VBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Enemy Action (color coded)"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="YourAmorPointsLabel" type="Label" parent="VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Your Armor Points:"
+
+[node name="YourArmorPointsValueLabel" type="Label" parent="VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "5
+"
+
+[node name="PanelContainer2" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/PanelContainer2"]
+layout_mode = 2
+alignment = 1
+
+[node name="MobDiceContainer" type="HBoxContainer" parent="VBoxContainer/PanelContainer2/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+
+[node name="ArmorDicePointContainer" parent="VBoxContainer/PanelContainer2/HBoxContainer/MobDiceContainer" instance=ExtResource("8_dxj3q")]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Button" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Confirm"
+
+[node name="RollMobDice" type="Button" parent="VBoxContainer/HBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "roll mob dice"
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/RollMobDice" to="." method="_on_roll_mob_dice_pressed"]

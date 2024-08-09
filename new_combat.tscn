@@ -1,0 +1,56 @@
+[gd_scene load_steps=10 format=3 uid="uid://dh5lfqcy5rpdo"]
+
+[ext_resource type="Script" path="res://new_combat.gd" id="1_qg8xt"]
+[ext_resource type="Resource" uid="uid://bchl0as1x3qnx" path="res://top_down/Items/Weapons/dagger.tres" id="2_qyv2i"]
+[ext_resource type="Resource" uid="uid://danrkv4wfq7ut" path="res://top_down/Items/Weapons/wooden_sword.tres" id="3_5el3l"]
+[ext_resource type="Resource" uid="uid://x7u4so7ewmhq" path="res://Actions/melee actions/defends/bulwark.tres" id="3_s7qvr"]
+[ext_resource type="Resource" uid="uid://dna7fn8dogfkx" path="res://Actions/melee actions/attacks/slash.tres" id="4_50tsn"]
+[ext_resource type="Resource" uid="uid://bcfphixn8axe1" path="res://Actions/melee actions/fakeouts/FeintSlash.tres" id="4_fdnci"]
+[ext_resource type="Resource" uid="uid://bagufl8ywwn8k" path="res://Actions/melee actions/grapples/kick.tres" id="5_3llwk"]
+[ext_resource type="PackedScene" uid="uid://be45mp1d1qwas" path="res://HUD/ActionMenus/action_roller_menu.tscn" id="8_2a1fl"]
+[ext_resource type="PackedScene" uid="uid://djk7nu0i23ho8" path="res://HUD/ActionMenus/armor_roller_menu.tscn" id="9_pyj0b"]
+
+[node name="NewCombat" type="Node"]
+script = ExtResource("1_qg8xt")
+player_weapon = ExtResource("2_qyv2i")
+mob_weapon = ExtResource("3_5el3l")
+PlayerActions = Array[Resource("res://Actions/action_template.gd")]([ExtResource("4_50tsn"), ExtResource("3_s7qvr"), ExtResource("4_fdnci"), ExtResource("5_3llwk")])
+PlayerArmor = Array[int]([3, 4])
+MobActions = Array[Resource("res://Actions/action_template.gd")]([ExtResource("4_50tsn")])
+MobArmor = Array[int]([2])
+
+[node name="OptionButton" type="OptionButton" parent="."]
+visible = false
+offset_left = 240.0
+offset_top = 71.0
+offset_right = 285.0
+offset_bottom = 91.0
+fit_to_longest_item = false
+
+[node name="Button" type="Button" parent="."]
+visible = false
+offset_left = 309.0
+offset_top = 64.0
+offset_right = 406.0
+offset_bottom = 95.0
+text = "Start Melee"
+
+[node name="Label" type="Label" parent="."]
+visible = false
+offset_left = 463.0
+offset_top = 60.0
+offset_right = 636.0
+offset_bottom = 83.0
+text = "enemy selected action"
+
+[node name="ActionRollerMenu" parent="." instance=ExtResource("8_2a1fl")]
+offset_left = 151.0
+offset_top = 223.0
+offset_right = 510.0
+offset_bottom = 300.0
+
+[node name="ArmorRollerMenu" parent="." instance=ExtResource("9_pyj0b")]
+offset_bottom = 193.0
+
+[connection signal="item_selected" from="OptionButton" to="." method="_on_option_button_item_selected"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

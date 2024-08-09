@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://2nemvc8r7a88"]
+
+[ext_resource type="Script" path="res://HUD/archetypetree/DesireButton.gd" id="1_aopno"]
+[ext_resource type="Resource" uid="uid://dg1o425v0qmwq" path="res://top_down/Stats/Perks/Eating/FamilyRecipe.tres" id="2_2wi72"]
+
+[node name="DesireButton" type="Button"]
+theme_override_font_sizes/font_size = 8
+toggle_mode = true
+text = "Eating"
+script = ExtResource("1_aopno")
+perk_path1 = Array[Resource("res://top_down/Stats/Perks/Eating/PerkResource.gd")]([ExtResource("2_2wi72")])
+perk_path2 = Array[Resource("res://top_down/Stats/Perks/Eating/PerkResource.gd")]([null])

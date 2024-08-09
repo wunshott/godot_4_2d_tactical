@@ -1,0 +1,570 @@
+[gd_scene load_steps=4 format=3 uid="uid://blrl5ddg3bsoi"]
+
+[ext_resource type="Script" path="res://HUD/archetypetree/PerkTree.gd" id="1_1n84y"]
+[ext_resource type="Theme" uid="uid://dy51vb6uy42fp" path="res://Themes/HUD_THEME_1.tres" id="1_itt2w"]
+[ext_resource type="PackedScene" uid="uid://2nemvc8r7a88" path="res://HUD/archetypetree/desire_button.tscn" id="3_hy85d"]
+
+[node name="PerkTree" type="PanelContainer" node_paths=PackedStringArray("desire_container_1", "desire_container_2")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_itt2w")
+script = ExtResource("1_1n84y")
+desire_container_1 = NodePath("VBoxContainer/DesireMenu")
+desire_container_2 = NodePath("VBoxContainer/DesireMenu2")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="DesireMenu" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+alignment = 1
+
+[node name="Button2" type="Button" parent="VBoxContainer/DesireMenu"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+toggle_mode = true
+text = "Acceptance"
+
+[node name="Button3" type="Button" parent="VBoxContainer/DesireMenu"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+toggle_mode = true
+text = "Curiosity"
+
+[node name="DesireButton" parent="VBoxContainer/DesireMenu" instance=ExtResource("3_hy85d")]
+layout_mode = 2
+DesireName = "Eating"
+
+[node name="Button5" type="Button" parent="VBoxContainer/DesireMenu"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+toggle_mode = true
+text = "Family"
+
+[node name="Button6" type="Button" parent="VBoxContainer/DesireMenu"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+toggle_mode = true
+text = "Honor"
+
+[node name="Button7" type="Button" parent="VBoxContainer/DesireMenu"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+toggle_mode = true
+text = "Idealism"
+
+[node name="Button8" type="Button" parent="VBoxContainer/DesireMenu"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+toggle_mode = true
+text = "Independence"
+
+[node name="Button9" type="Button" parent="VBoxContainer/DesireMenu"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+toggle_mode = true
+text = "Order"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="PerkDescription" type="PanelContainer" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.35
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/PerkDescription"]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/HBoxContainer/PerkDescription/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/HBoxContainer/PerkDescription/VBoxContainer/PanelContainer"]
+layout_mode = 2
+bbcode_enabled = true
+text = "Perk Name:
+perk Description:
+Does x,y,z"
+fit_content = true
+
+[node name="PanelContainer2" type="PanelContainer" parent="VBoxContainer/HBoxContainer/PerkDescription/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/PerkDescription/VBoxContainer/PanelContainer2"]
+layout_mode = 2
+
+[node name="PerkRequirements" type="Label" parent="VBoxContainer/HBoxContainer/PerkDescription/VBoxContainer/PanelContainer2/VBoxContainer"]
+layout_mode = 2
+text = "Perks Required"
+
+[node name="DesireLevel" type="Label" parent="VBoxContainer/HBoxContainer/PerkDescription/VBoxContainer/PanelContainer2/VBoxContainer"]
+layout_mode = 2
+text = "Main Desire: Eating 4"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/PerkDescription/VBoxContainer/PanelContainer2/VBoxContainer"]
+layout_mode = 2
+
+[node name="SubDesireNameLabel" type="Label" parent="VBoxContainer/HBoxContainer/PerkDescription/VBoxContainer/PanelContainer2/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Family:"
+
+[node name="SubDesireValueLabel" type="Label" parent="VBoxContainer/HBoxContainer/PerkDescription/VBoxContainer/PanelContainer2/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "2"
+
+[node name="PerkTree" type="PanelContainer" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/PerkTree"]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/HBoxContainer/PerkTree/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/PerkTree/VBoxContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/PerkTree/VBoxContainer/PanelContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/PerkTree/VBoxContainer/PanelContainer/HBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "Selected Desire: Level ->"
+
+[node name="ProgressBar" type="ProgressBar" parent="VBoxContainer/HBoxContainer/PerkTree/VBoxContainer/PanelContainer/HBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/PerkTree/VBoxContainer/PanelContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/PerkTree/VBoxContainer/PanelContainer/HBoxContainer/HBoxContainer3"]
+layout_mode = 2
+text = "Selected Sub Desire: Level ->"
+
+[node name="ProgressBar" type="ProgressBar" parent="VBoxContainer/HBoxContainer/PerkTree/VBoxContainer/PanelContainer/HBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="EatingTreePanelContainer" type="PanelContainer" parent="VBoxContainer/HBoxContainer/PerkTree/VBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="EatingTreeHBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/PerkTree/VBoxContainer/EatingTreePanelContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="PerkPath1" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/PerkTree/VBoxContainer/EatingTreePanelContainer/EatingTreeHBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Button" type="Button" parent="VBoxContainer/HBoxContainer/PerkTree/VBoxContainer/EatingTreePanelContainer/EatingTreeHBoxContainer/PerkPath1"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "FR"
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/PerkTree/VBoxContainer/EatingTreePanelContainer/EatingTreeHBoxContainer/PerkPath1"]
+layout_mode = 2
+text = "Family"
+horizontal_alignment = 1
+
+[node name="PerkPath2" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/PerkTree/VBoxContainer/EatingTreePanelContainer/EatingTreeHBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Button2" type="Button" parent="VBoxContainer/HBoxContainer/PerkTree/VBoxContainer/EatingTreePanelContainer/EatingTreeHBoxContainer/PerkPath2"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "V"
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/PerkTree/VBoxContainer/EatingTreePanelContainer/EatingTreeHBoxContainer/PerkPath2"]
+layout_mode = 2
+text = "Power"
+
+[node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer/PerkTree/VBoxContainer/EatingTreePanelContainer/EatingTreeHBoxContainer/PerkPath2"]
+layout_mode = 2
+text = "Eating Relic"
+
+[node name="PerkPath3" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/PerkTree/VBoxContainer/EatingTreePanelContainer/EatingTreeHBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Button2" type="Button" parent="VBoxContainer/HBoxContainer/PerkTree/VBoxContainer/EatingTreePanelContainer/EatingTreeHBoxContainer/PerkPath3"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "PE"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/PerkTree/VBoxContainer/EatingTreePanelContainer/EatingTreeHBoxContainer/PerkPath3"]
+layout_mode = 2
+alignment = 1
+
+[node name="Button3" type="Button" parent="VBoxContainer/HBoxContainer/PerkTree/VBoxContainer/EatingTreePanelContainer/EatingTreeHBoxContainer/PerkPath3/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 2
+text = "HH"
+
+[node name="Button2" type="Button" parent="VBoxContainer/HBoxContainer/PerkTree/VBoxContainer/EatingTreePanelContainer/EatingTreeHBoxContainer/PerkPath3/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "FD"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/PerkTree/VBoxContainer/EatingTreePanelContainer/EatingTreeHBoxContainer/PerkPath3"]
+layout_mode = 2
+alignment = 1
+
+[node name="Button5" type="Button" parent="VBoxContainer/HBoxContainer/PerkTree/VBoxContainer/EatingTreePanelContainer/EatingTreeHBoxContainer/PerkPath3/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 2
+text = "PH"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/PerkTree/VBoxContainer/EatingTreePanelContainer/EatingTreeHBoxContainer/PerkPath3/HBoxContainer2"]
+layout_mode = 2
+alignment = 1
+
+[node name="Button3" type="Button" parent="VBoxContainer/HBoxContainer/PerkTree/VBoxContainer/EatingTreePanelContainer/EatingTreeHBoxContainer/PerkPath3/HBoxContainer2/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 2
+text = "LS"
+
+[node name="Button7" type="Button" parent="VBoxContainer/HBoxContainer/PerkTree/VBoxContainer/EatingTreePanelContainer/EatingTreeHBoxContainer/PerkPath3/HBoxContainer2/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "F"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/PerkTree/VBoxContainer/EatingTreePanelContainer/EatingTreeHBoxContainer/PerkPath3"]
+layout_mode = 2
+alignment = 2
+
+[node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer/PerkTree/VBoxContainer/EatingTreePanelContainer/EatingTreeHBoxContainer/PerkPath3/HBoxContainer3"]
+layout_mode = 2
+text = "Acceptance
+"
+
+[node name="Label3" type="Label" parent="VBoxContainer/HBoxContainer/PerkTree/VBoxContainer/EatingTreePanelContainer/EatingTreeHBoxContainer/PerkPath3/HBoxContainer3"]
+layout_mode = 2
+text = "Curiosity
+"
+
+[node name="Button6" type="Button" parent="VBoxContainer/HBoxContainer/PerkTree/VBoxContainer/EatingTreePanelContainer/EatingTreeHBoxContainer/PerkPath3"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "ME"
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/PerkTree/VBoxContainer/EatingTreePanelContainer/EatingTreeHBoxContainer/PerkPath3"]
+layout_mode = 2
+text = "Curiosity"
+
+[node name="PerkPath4" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/PerkTree/VBoxContainer/EatingTreePanelContainer/EatingTreeHBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Button2" type="Button" parent="VBoxContainer/HBoxContainer/PerkTree/VBoxContainer/EatingTreePanelContainer/EatingTreeHBoxContainer/PerkPath4"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Veg"
+
+[node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer/PerkTree/VBoxContainer/EatingTreePanelContainer/EatingTreeHBoxContainer/PerkPath4"]
+layout_mode = 2
+text = "Tranquility"
+horizontal_alignment = 1
+
+[node name="PerkPath5" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/PerkTree/VBoxContainer/EatingTreePanelContainer/EatingTreeHBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Button2" type="Button" parent="VBoxContainer/HBoxContainer/PerkTree/VBoxContainer/EatingTreePanelContainer/EatingTreeHBoxContainer/PerkPath5"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "FAST"
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/PerkTree/VBoxContainer/EatingTreePanelContainer/EatingTreeHBoxContainer/PerkPath5"]
+layout_mode = 2
+text = "Idealism"
+horizontal_alignment = 1
+
+[node name="AcceptanceTreePanelContainer" type="PanelContainer" parent="VBoxContainer/HBoxContainer/PerkTree/VBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="AcceptanceTreeHBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/PerkTree/VBoxContainer/AcceptanceTreePanelContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="PerkPath1" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/PerkTree/VBoxContainer/AcceptanceTreePanelContainer/AcceptanceTreeHBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Button" type="Button" parent="VBoxContainer/HBoxContainer/PerkTree/VBoxContainer/AcceptanceTreePanelContainer/AcceptanceTreeHBoxContainer/PerkPath1"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "IAM1"
+
+[node name="PerkPath2" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/PerkTree/VBoxContainer/AcceptanceTreePanelContainer/AcceptanceTreeHBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Button2" type="Button" parent="VBoxContainer/HBoxContainer/PerkTree/VBoxContainer/AcceptanceTreePanelContainer/AcceptanceTreeHBoxContainer/PerkPath2"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "AD"
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/PerkTree/VBoxContainer/AcceptanceTreePanelContainer/AcceptanceTreeHBoxContainer/PerkPath2"]
+layout_mode = 2
+text = "xx"
+
+[node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer/PerkTree/VBoxContainer/AcceptanceTreePanelContainer/AcceptanceTreeHBoxContainer/PerkPath2"]
+layout_mode = 2
+text = "xx"
+
+[node name="PerkPath3" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/PerkTree/VBoxContainer/AcceptanceTreePanelContainer/AcceptanceTreeHBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Button2" type="Button" parent="VBoxContainer/HBoxContainer/PerkTree/VBoxContainer/AcceptanceTreePanelContainer/AcceptanceTreeHBoxContainer/PerkPath3"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "AR"
+
+[node name="PerkPath4" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/PerkTree/VBoxContainer/AcceptanceTreePanelContainer/AcceptanceTreeHBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Button2" type="Button" parent="VBoxContainer/HBoxContainer/PerkTree/VBoxContainer/AcceptanceTreePanelContainer/AcceptanceTreeHBoxContainer/PerkPath4"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "LAC"
+
+[node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer/PerkTree/VBoxContainer/AcceptanceTreePanelContainer/AcceptanceTreeHBoxContainer/PerkPath4"]
+layout_mode = 2
+text = "Tranquility"
+horizontal_alignment = 1
+
+[node name="PerkPath5" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/PerkTree/VBoxContainer/AcceptanceTreePanelContainer/AcceptanceTreeHBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Button2" type="Button" parent="VBoxContainer/HBoxContainer/PerkTree/VBoxContainer/AcceptanceTreePanelContainer/AcceptanceTreeHBoxContainer/PerkPath5"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "ED"
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/PerkTree/VBoxContainer/AcceptanceTreePanelContainer/AcceptanceTreeHBoxContainer/PerkPath5"]
+layout_mode = 2
+text = "Idealism"
+horizontal_alignment = 1
+
+[node name="CuriosityTreePanelContainer" type="PanelContainer" parent="VBoxContainer/HBoxContainer/PerkTree/VBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="CuriosityTreeHBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/PerkTree/VBoxContainer/CuriosityTreePanelContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="PerkPath1" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/PerkTree/VBoxContainer/CuriosityTreePanelContainer/CuriosityTreeHBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Button" type="Button" parent="VBoxContainer/HBoxContainer/PerkTree/VBoxContainer/CuriosityTreePanelContainer/CuriosityTreeHBoxContainer/PerkPath1"]
+layout_mode = 2
+size_flags_horizontal = 4
+tooltip_text = "Research
+"
+text = "R"
+
+[node name="PerkPath2" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/PerkTree/VBoxContainer/CuriosityTreePanelContainer/CuriosityTreeHBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Button2" type="Button" parent="VBoxContainer/HBoxContainer/PerkTree/VBoxContainer/CuriosityTreePanelContainer/CuriosityTreeHBoxContainer/PerkPath2"]
+layout_mode = 2
+size_flags_horizontal = 4
+tooltip_text = "Estate Technology"
+text = "ET"
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/PerkTree/VBoxContainer/CuriosityTreePanelContainer/CuriosityTreeHBoxContainer/PerkPath2"]
+layout_mode = 2
+text = "xx"
+
+[node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer/PerkTree/VBoxContainer/CuriosityTreePanelContainer/CuriosityTreeHBoxContainer/PerkPath2"]
+layout_mode = 2
+text = "xx"
+
+[node name="PerkPath3" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/PerkTree/VBoxContainer/CuriosityTreePanelContainer/CuriosityTreeHBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Button2" type="Button" parent="VBoxContainer/HBoxContainer/PerkTree/VBoxContainer/CuriosityTreePanelContainer/CuriosityTreeHBoxContainer/PerkPath3"]
+layout_mode = 2
+size_flags_horizontal = 4
+tooltip_text = "Map Maker"
+text = "MM"
+
+[node name="PerkPath4" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/PerkTree/VBoxContainer/CuriosityTreePanelContainer/CuriosityTreeHBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Button2" type="Button" parent="VBoxContainer/HBoxContainer/PerkTree/VBoxContainer/CuriosityTreePanelContainer/CuriosityTreeHBoxContainer/PerkPath4"]
+layout_mode = 2
+size_flags_horizontal = 4
+tooltip_text = "Lover Boy/Lover Girl - you seek new lovers constantly. having a new lover will give buffs. sticking with 1 lover will give debuffs
+	- unlocks the ability to sleep with a ton of characters
+	- if you reproduce with multiple people, you can choose the heir "
+text = "LB/LG"
+
+[node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer/PerkTree/VBoxContainer/CuriosityTreePanelContainer/CuriosityTreeHBoxContainer/PerkPath4"]
+layout_mode = 2
+text = "Romance"
+horizontal_alignment = 1
+
+[node name="PerkPath5" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/PerkTree/VBoxContainer/CuriosityTreePanelContainer/CuriosityTreeHBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Button2" type="Button" parent="VBoxContainer/HBoxContainer/PerkTree/VBoxContainer/CuriosityTreePanelContainer/CuriosityTreeHBoxContainer/PerkPath5"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "ED"
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/PerkTree/VBoxContainer/CuriosityTreePanelContainer/CuriosityTreeHBoxContainer/PerkPath5"]
+layout_mode = 2
+text = "Idealism"
+horizontal_alignment = 1
+
+[node name="FamilyTreePanelContainer" type="PanelContainer" parent="VBoxContainer/HBoxContainer/PerkTree/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="FamilyTreeHBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/PerkTree/VBoxContainer/FamilyTreePanelContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="PerkPath1" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/PerkTree/VBoxContainer/FamilyTreePanelContainer/FamilyTreeHBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Button" type="Button" parent="VBoxContainer/HBoxContainer/PerkTree/VBoxContainer/FamilyTreePanelContainer/FamilyTreeHBoxContainer/PerkPath1"]
+layout_mode = 2
+size_flags_horizontal = 4
+tooltip_text = "Twin Pregnancy"
+text = "T"
+
+[node name="PerkPath2" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/PerkTree/VBoxContainer/FamilyTreePanelContainer/FamilyTreeHBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Button2" type="Button" parent="VBoxContainer/HBoxContainer/PerkTree/VBoxContainer/FamilyTreePanelContainer/FamilyTreeHBoxContainer/PerkPath2"]
+layout_mode = 2
+size_flags_horizontal = 4
+tooltip_text = "Like parent/like kid. you may pass extra buffs onto next of kin.
+Your child will be raised to follow your beliefs. They receive your honor/idealism perks for free and your moral suasion skill"
+text = "LP/LK"
+
+[node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer/PerkTree/VBoxContainer/FamilyTreePanelContainer/FamilyTreeHBoxContainer/PerkPath2"]
+layout_mode = 2
+text = "Honor/Idealism"
+
+[node name="Button3" type="Button" parent="VBoxContainer/HBoxContainer/PerkTree/VBoxContainer/FamilyTreePanelContainer/FamilyTreeHBoxContainer/PerkPath2"]
+layout_mode = 2
+size_flags_horizontal = 4
+tooltip_text = "Death wish - "
+text = "DW"
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/PerkTree/VBoxContainer/FamilyTreePanelContainer/FamilyTreeHBoxContainer/PerkPath2"]
+layout_mode = 2
+text = "Saving"
+
+[node name="Button4" type="Button" parent="VBoxContainer/HBoxContainer/PerkTree/VBoxContainer/FamilyTreePanelContainer/FamilyTreeHBoxContainer/PerkPath2"]
+layout_mode = 2
+size_flags_horizontal = 4
+tooltip_text = "Fruitful - each child you have gives a boost to stats/skills"
+text = "FF"
+
+[node name="PerkPath3" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/PerkTree/VBoxContainer/FamilyTreePanelContainer/FamilyTreeHBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Button2" type="Button" parent="VBoxContainer/HBoxContainer/PerkTree/VBoxContainer/FamilyTreePanelContainer/FamilyTreeHBoxContainer/PerkPath3"]
+layout_mode = 2
+size_flags_horizontal = 4
+tooltip_text = "Like parent/like kid. you may pass extra buffs onto next of kin.
+Your child will be raised to follow your beliefs. They receive your honor/idealism perks for free and your moral suasion skill"
+text = "LP/LK"
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/PerkTree/VBoxContainer/FamilyTreePanelContainer/FamilyTreeHBoxContainer/PerkPath3"]
+layout_mode = 2
+text = "Saving"
+
+[node name="PerkPath4" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/PerkTree/VBoxContainer/FamilyTreePanelContainer/FamilyTreeHBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PerkPath5" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/PerkTree/VBoxContainer/FamilyTreePanelContainer/FamilyTreeHBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="DesireMenu2" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+alignment = 1
+
+[node name="Button10" type="Button" parent="VBoxContainer/DesireMenu2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+toggle_mode = true
+text = "Physical Exercise"
+
+[node name="Button12" type="Button" parent="VBoxContainer/DesireMenu2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+toggle_mode = true
+text = "Power"
+
+[node name="Button13" type="Button" parent="VBoxContainer/DesireMenu2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+toggle_mode = true
+text = "Romance"
+
+[node name="Button14" type="Button" parent="VBoxContainer/DesireMenu2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+toggle_mode = true
+text = "Saving"
+
+[node name="Button15" type="Button" parent="VBoxContainer/DesireMenu2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+toggle_mode = true
+text = "Social Contact"
+
+[node name="Button16" type="Button" parent="VBoxContainer/DesireMenu2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+toggle_mode = true
+text = "Status"
+
+[node name="Button17" type="Button" parent="VBoxContainer/DesireMenu2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+toggle_mode = true
+text = "Tranquility"
+
+[node name="Button18" type="Button" parent="VBoxContainer/DesireMenu2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+toggle_mode = true
+text = "Vengeance"

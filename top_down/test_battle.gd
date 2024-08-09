@@ -13,6 +13,28 @@ extends Node2D
 
 
 
+<<<<<<< Updated upstream
+=======
+
+var is_dice_menu_open: bool = false
+
+
+
+#TODO character creation
+#TODO death call system and menu
+#TODO estate planning menu
+#TODO dice roller speaking to dialogue menu, it speaks techincally
+#TODO combat scene (have the ability to place allies around), turn based combat
+#1. battle splash
+#2. allow player to place party
+#3. allow player to start battle
+#4. show battle actions
+#5. introduce turn order and end turn button
+#6. on player's turn, allow them to move character and do actions (stamina cost)
+#7. allow enemies to move, attack, end turn. their attack's should prompt player for an action
+
+
+>>>>>>> Stashed changes
 func _ready():
 	pass # Replace with function body.
 

@@ -1,0 +1,2205 @@
+[gd_scene load_steps=36 format=3 uid="uid://cdfa0qsxv55jh"]
+
+[ext_resource type="Theme" uid="uid://dy51vb6uy42fp" path="res://Themes/HUD_THEME_1.tres" id="1_gijoy"]
+[ext_resource type="Script" path="res://CharacterSheets/CharacterCreator/character_creator.gd" id="1_sqg3u"]
+[ext_resource type="Texture2D" uid="uid://8tnsqjckw48l" path="res://assets/UI Borders/kenney_ui-pack-rpg-expansion/PNG/panel_brown.png" id="2_g063x"]
+[ext_resource type="Script" path="res://HUD/Stats.gd" id="3_rcpjv"]
+[ext_resource type="Texture2D" uid="uid://cjg2mhnm8dv8q" path="res://assets/customs/colored-transparent_packed.png" id="4_an06w"]
+[ext_resource type="PackedScene" uid="uid://uh5fxavadikm" path="res://HUD/point_age_tracker.tscn" id="4_vrca0"]
+[ext_resource type="Texture2D" uid="uid://da4mv0wb7feqs" path="res://assets/UI Borders/kenney_ui-pack-rpg-expansion/PNG/panelInset_beige.png" id="5_hbbvb"]
+[ext_resource type="Script" path="res://HUD/SelectedStatDetail.gd" id="5_hfcw2"]
+[ext_resource type="PackedScene" uid="uid://2clvckgo4twg" path="res://HUD/Stats/skills.tscn" id="7_v3sy1"]
+[ext_resource type="PackedScene" uid="uid://blrl5ddg3bsoi" path="res://HUD/archetypetree/perk_tree.tscn" id="9_kccg7"]
+[ext_resource type="PackedScene" uid="uid://iju1fshk6v0s" path="res://HUD/limbUI/dice_pips_ui.tscn" id="11_l60ji"]
+[ext_resource type="Texture2D" uid="uid://hv3e1knwkgnf" path="res://assets/numbers/numbers.png" id="14_ghcs0"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vcimp"]
+texture = ExtResource("2_g063x")
+texture_margin_left = 7.0
+texture_margin_top = 8.0
+texture_margin_right = 7.0
+texture_margin_bottom = 6.0
+axis_stretch_vertical = 1
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rmypf"]
+atlas = ExtResource("4_an06w")
+region = Rect2(768, 176, 16, 16)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lykow"]
+texture = SubResource("AtlasTexture_rmypf")
+texture_margin_left = 6.0
+texture_margin_top = 6.0
+texture_margin_right = 6.0
+texture_margin_bottom = 6.0
+region_rect = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dl7pe"]
+atlas = ExtResource("4_an06w")
+region = Rect2(768, 176, 16, 16)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_46bvi"]
+texture = SubResource("AtlasTexture_dl7pe")
+texture_margin_left = 6.0
+texture_margin_top = 6.0
+texture_margin_right = 6.0
+texture_margin_bottom = 6.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qfd0e"]
+atlas = ExtResource("4_an06w")
+region = Rect2(592, 320, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ymuok"]
+atlas = ExtResource("4_an06w")
+region = Rect2(576, 320, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j8yqv"]
+atlas = ExtResource("4_an06w")
+region = Rect2(768, 176, 16, 16)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_x8u55"]
+texture = SubResource("AtlasTexture_j8yqv")
+texture_margin_left = 6.0
+texture_margin_top = 6.0
+texture_margin_right = 6.0
+texture_margin_bottom = 6.0
+modulate_color = Color(0.85, 0.469483, 0.1785, 0.760784)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x8wev"]
+atlas = ExtResource("4_an06w")
+region = Rect2(384, 160, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wixlo"]
+atlas = ExtResource("4_an06w")
+region = Rect2(768, 192, 16, 16)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ico0r"]
+texture = SubResource("AtlasTexture_wixlo")
+texture_margin_left = 6.0
+texture_margin_top = 6.0
+texture_margin_right = 6.0
+texture_margin_bottom = 6.0
+modulate_color = Color(0.439216, 0.160784, 0.121569, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j2tll"]
+atlas = ExtResource("4_an06w")
+region = Rect2(448, 320, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qf6ti"]
+atlas = ExtResource("14_ghcs0")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c4x3g"]
+atlas = ExtResource("4_an06w")
+region = Rect2(768, 304, 16, 16)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2d7o6"]
+texture = SubResource("AtlasTexture_c4x3g")
+texture_margin_left = 6.0
+texture_margin_top = 6.0
+texture_margin_right = 6.0
+texture_margin_bottom = 6.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_doxu2"]
+atlas = ExtResource("4_an06w")
+region = Rect2(768, 160, 16, 16)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pjqay"]
+texture = SubResource("AtlasTexture_doxu2")
+texture_margin_left = 6.0
+texture_margin_top = 6.0
+texture_margin_right = 6.0
+texture_margin_bottom = 6.0
+axis_stretch_horizontal = 2
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dg1hl"]
+atlas = ExtResource("4_an06w")
+region = Rect2(768, 176, 16, 16)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mniyq"]
+texture = SubResource("AtlasTexture_dg1hl")
+texture_margin_left = 6.0
+texture_margin_top = 6.0
+texture_margin_right = 6.0
+texture_margin_bottom = 6.0
+region_rect = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ctdj"]
+atlas = ExtResource("4_an06w")
+region = Rect2(768, 176, 16, 16)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qaifw"]
+texture = SubResource("AtlasTexture_0ctdj")
+texture_margin_left = 6.0
+texture_margin_top = 6.0
+texture_margin_right = 6.0
+texture_margin_bottom = 6.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_i6lp5"]
+texture = ExtResource("5_hbbvb")
+texture_margin_left = 6.0
+texture_margin_top = 6.0
+texture_margin_right = 6.0
+texture_margin_bottom = 6.0
+axis_stretch_horizontal = 2
+
+[node name="CharacterCreator" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_gijoy")
+script = ExtResource("1_sqg3u")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 639.0
+offset_bottom = 358.0
+
+[node name="PointAgeTracker" parent="VBoxContainer" instance=ExtResource("4_vrca0")]
+layout_mode = 2
+
+[node name="CreationMenu" type="TabContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxTexture_vcimp")
+current_tab = 5
+
+[node name="DeathCall" type="Control" parent="VBoxContainer/CreationMenu"]
+visible = false
+layout_mode = 2
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="VBoxContainer/CreationMenu/DeathCall"]
+layout_mode = 2
+offset_top = 2.0
+offset_right = 624.0
+offset_bottom = 302.0
+bbcode_enabled = true
+text = "Death Call Calculation:
+Who killed you? [1 - stranger, 2 - general idea, 3 - specific name]
+What killed you? [1 - unknown, 2- general attack type, 3 - specific weapon name]
+When did you die? input a time and select drop down option [1 - in the future, 2 - within 5 years of date, 3 - within same year, 4 - within months, 5 - within days, 6 - specific date and time
+Where were you killed? [only have drop downs for estate, dungeon, foriegn land]
+Why did you die? [1- unknown desire, 2- 1 of 5 desires was correct, 3 - 1 of 2 desires ]
+Actual death is compared to the above conditions and the result is calcuated
+
+Total = 300 p"
+fit_content = true
+
+[node name="FamilyTree" type="Control" parent="VBoxContainer/CreationMenu"]
+visible = false
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/CreationMenu/FamilyTree"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "family tree web that you can pan through?
+click on person to see their stats.
+Allows player to select their next character
+
+"
+
+[node name="Background" type="VBoxContainer" parent="VBoxContainer/CreationMenu"]
+visible = false
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/CreationMenu/Background"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="VBoxContainer/CreationMenu/Background/HBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/CreationMenu/Background/HBoxContainer/VBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="Label" type="Label" parent="VBoxContainer/CreationMenu/Background/HBoxContainer/VBoxContainer3/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Gender"
+
+[node name="OptionButton" type="OptionButton" parent="VBoxContainer/CreationMenu/Background/HBoxContainer/VBoxContainer3/VBoxContainer"]
+layout_mode = 2
+item_count = 2
+popup/item_0/text = "Male"
+popup/item_0/id = 0
+popup/item_1/text = "Female"
+popup/item_1/id = 1
+
+[node name="VBoxContainer4" type="VBoxContainer" parent="VBoxContainer/CreationMenu/Background/HBoxContainer/VBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="Label" type="Label" parent="VBoxContainer/CreationMenu/Background/HBoxContainer/VBoxContainer3/VBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Race"
+
+[node name="OptionButton" type="OptionButton" parent="VBoxContainer/CreationMenu/Background/HBoxContainer/VBoxContainer3/VBoxContainer4"]
+layout_mode = 2
+item_count = 2
+popup/item_0/text = "Test"
+popup/item_0/id = 0
+popup/item_1/text = "Test"
+popup/item_1/id = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/CreationMenu/Background/HBoxContainer/VBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="Label" type="Label" parent="VBoxContainer/CreationMenu/Background/HBoxContainer/VBoxContainer3/VBoxContainer2"]
+layout_mode = 2
+text = "Background
+"
+
+[node name="OptionButton" type="OptionButton" parent="VBoxContainer/CreationMenu/Background/HBoxContainer/VBoxContainer3/VBoxContainer2"]
+layout_mode = 2
+item_count = 2
+popup/item_0/text = "Test: Cost"
+popup/item_0/id = 0
+popup/item_1/text = "Test2: Cost"
+popup/item_1/id = 1
+
+[node name="VBoxContainer5" type="VBoxContainer" parent="VBoxContainer/CreationMenu/Background/HBoxContainer/VBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="Label" type="Label" parent="VBoxContainer/CreationMenu/Background/HBoxContainer/VBoxContainer3/VBoxContainer5"]
+layout_mode = 2
+text = "Trait 1"
+
+[node name="OptionButton" type="OptionButton" parent="VBoxContainer/CreationMenu/Background/HBoxContainer/VBoxContainer3/VBoxContainer5"]
+layout_mode = 2
+item_count = 2
+popup/item_0/text = "Test: Cost"
+popup/item_0/id = 0
+popup/item_1/text = "Test2: Cost"
+popup/item_1/id = 1
+
+[node name="VBoxContainer6" type="VBoxContainer" parent="VBoxContainer/CreationMenu/Background/HBoxContainer/VBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="Label" type="Label" parent="VBoxContainer/CreationMenu/Background/HBoxContainer/VBoxContainer3/VBoxContainer6"]
+layout_mode = 2
+text = "Trait 2"
+
+[node name="OptionButton" type="OptionButton" parent="VBoxContainer/CreationMenu/Background/HBoxContainer/VBoxContainer3/VBoxContainer6"]
+layout_mode = 2
+item_count = 2
+popup/item_0/text = "Test: Cost"
+popup/item_0/id = 0
+popup/item_1/text = "Test2: Cost"
+popup/item_1/id = 1
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="VBoxContainer/CreationMenu/Background/HBoxContainer/VBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="Label" type="Label" parent="VBoxContainer/CreationMenu/Background/HBoxContainer/VBoxContainer3/VBoxContainer3"]
+layout_mode = 2
+text = "Nickname"
+
+[node name="NameInput" type="LineEdit" parent="VBoxContainer/CreationMenu/Background/HBoxContainer/VBoxContainer3/VBoxContainer3"]
+layout_mode = 2
+
+[node name="DescriptionBox" type="PanelContainer" parent="VBoxContainer/CreationMenu/Background/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/CreationMenu/Background/HBoxContainer/DescriptionBox"]
+layout_mode = 2
+
+[node name="TitleLabel" type="Label" parent="VBoxContainer/CreationMenu/Background/HBoxContainer/DescriptionBox/VBoxContainer"]
+layout_mode = 2
+text = "item of interest title"
+
+[node name="DescriptionLabel" type="Label" parent="VBoxContainer/CreationMenu/Background/HBoxContainer/DescriptionBox/VBoxContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+text = "Description of item. Hover mouse over item and it is here.
+"
+autowrap_mode = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/CreationMenu/Background/HBoxContainer/DescriptionBox/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/CreationMenu/Background/HBoxContainer/DescriptionBox/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Point Cost:"
+
+[node name="PointCostLabel" type="Label" parent="VBoxContainer/CreationMenu/Background/HBoxContainer/DescriptionBox/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "0"
+
+[node name="DescriptionLabel3" type="Label" parent="VBoxContainer/CreationMenu/Background/HBoxContainer/DescriptionBox/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 10
+text = "Note: Family tree decides default bg. Changing bg costs age
+Note: Players RP to their trait for bonuses. selecting 1 is recommended. 2 is difficult sicne ignoring the trait is bad"
+
+[node name="Stats" type="VBoxContainer" parent="VBoxContainer/CreationMenu"]
+visible = false
+layout_mode = 2
+alignment = 1
+script = ExtResource("3_rcpjv")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/CreationMenu/Stats"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/CreationMenu/Stats/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/CreationMenu/Stats/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 0
+
+[node name="PrimaryStatContainer" type="PanelContainer" parent="VBoxContainer/CreationMenu/Stats/HBoxContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_lykow")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/CreationMenu/Stats/HBoxContainer/VBoxContainer/MarginContainer/PrimaryStatContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/CreationMenu/Stats/HBoxContainer/VBoxContainer/MarginContainer/PrimaryStatContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/CreationMenu/Stats/HBoxContainer/VBoxContainer/MarginContainer/PrimaryStatContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Primary Stats
+"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/CreationMenu/Stats/HBoxContainer/VBoxContainer/MarginContainer/PrimaryStatContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="Label2" type="Label" parent="VBoxContainer/CreationMenu/Stats/HBoxContainer/VBoxContainer/MarginContainer/PrimaryStatContainer/VBoxContainer/HBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "Points to distribute"
+horizontal_alignment = 1
+
+[node name="PointsToDistributeLabel" type="Label" parent="VBoxContainer/CreationMenu/Stats/HBoxContainer/VBoxContainer/MarginContainer/PrimaryStatContainer/VBoxContainer/HBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "(27)"
+horizontal_alignment = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/CreationMenu/Stats/HBoxContainer/VBoxContainer/MarginContainer/PrimaryStatContainer/VBoxContainer"]
+self_modulate = Color(0.77, 0.71225, 0.4235, 1)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_46bvi")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/CreationMenu/Stats/HBoxContainer/VBoxContainer/MarginContainer/PrimaryStatContainer/VBoxContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="Vitality" type="HBoxContainer" parent="VBoxContainer/CreationMenu/Stats/HBoxContainer/VBoxContainer/MarginContainer/PrimaryStatContainer/VBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="VitalityTitle" type="Label" parent="VBoxContainer/CreationMenu/Stats/HBoxContainer/VBoxContainer/MarginContainer/PrimaryStatContainer/VBoxContainer/PanelContainer/VBoxContainer/Vitality" groups=["stat_name"]]
+layout_mode = 2
+mouse_filter = 0
+theme_override_font_sizes/font_size = 16
+text = "Vitality"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/CreationMenu/Stats/HBoxContainer/VBoxContainer/MarginContainer/PrimaryStatContainer/VBoxContainer/PanelContainer/VBoxContainer/Vitality"]
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="Button" type="Button" parent="VBoxContainer/CreationMenu/Stats/HBoxContainer/VBoxContainer/MarginContainer/PrimaryStatContainer/VBoxContainer/PanelContainer/VBoxContainer/Vitality/HBoxContainer"]
+layout_mode = 2
+disabled = true
+icon = SubResource("AtlasTexture_qfd0e")
+
+[node name="Button2" type="Button" parent="VBoxContainer/CreationMenu/Stats/HBoxContainer/VBoxContainer/MarginContainer/PrimaryStatContainer/VBoxContainer/PanelContainer/VBoxContainer/Vitality/HBoxContainer"]
+layout_mode = 2
+icon = SubResource("AtlasTexture_ymuok")
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/CreationMenu/Stats/HBoxContainer/VBoxContainer/MarginContainer/PrimaryStatContainer/VBoxContainer/PanelContainer/VBoxContainer/Vitality/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_right = 5
+
+[node name="VitalityLabel" type="Label" parent="VBoxContainer/CreationMenu/Stats/HBoxContainer/VBoxContainer/MarginContainer/PrimaryStatContainer/VBoxContainer/PanelContainer/VBoxContainer/Vitality/HBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "1"
+
+[node name="Coordination" type="HBoxContainer" parent="VBoxContainer/CreationMenu/Stats/HBoxContainer/VBoxContainer/MarginContainer/PrimaryStatContainer/VBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/CreationMenu/Stats/HBoxContainer/VBoxContainer/MarginContainer/PrimaryStatContainer/VBoxContainer/PanelContainer/VBoxContainer/Coordination" groups=["stat_name"]]
+layout_mode = 2
+mouse_filter = 0
+theme_override_font_sizes/font_size = 16
+text = "Coordination"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/CreationMenu/Stats/HBoxContainer/VBoxContainer/MarginContainer/PrimaryStatContainer/VBoxContainer/PanelContainer/VBoxContainer/Coordination"]
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="Button" type="Button" parent="VBoxContainer/CreationMenu/Stats/HBoxContainer/VBoxContainer/MarginContainer/PrimaryStatContainer/VBoxContainer/PanelContainer/VBoxContainer/Coordination/HBoxContainer"]
+layout_mode = 2
+disabled = true
+icon = SubResource("AtlasTexture_qfd0e")
+
+[node name="Button2" type="Button" parent="VBoxContainer/CreationMenu/Stats/HBoxContainer/VBoxContainer/MarginContainer/PrimaryStatContainer/VBoxContainer/PanelContainer/VBoxContainer/Coordination/HBoxContainer"]
+layout_mode = 2
+icon = SubResource("AtlasTexture_ymuok")
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/CreationMenu/Stats/HBoxContainer/VBoxContainer/MarginContainer/PrimaryStatContainer/VBoxContainer/PanelContainer/VBoxContainer/Coordination/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_right = 5
+
+[node name="CoordinationLabel" type="Label" parent="VBoxContainer/CreationMenu/Stats/HBoxContainer/VBoxContainer/MarginContainer/PrimaryStatContainer/VBoxContainer/PanelContainer/VBoxContainer/Coordination/HBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "1"
+
+[node name="Eloquence" type="HBoxContainer" parent="VBoxContainer/CreationMenu/Stats/HBoxContainer/VBoxContainer/MarginContainer/PrimaryStatContainer/VBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/CreationMenu/Stats/HBoxContainer/VBoxContainer/MarginContainer/PrimaryStatContainer/VBoxContainer/PanelContainer/VBoxContainer/Eloquence" groups=["stat_name"]]
+layout_mode = 2
+mouse_filter = 0
+theme_override_font_sizes/font_size = 16
+text = "Eloquence"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/CreationMenu/Stats/HBoxContainer/VBoxContainer/MarginContainer/PrimaryStatContainer/VBoxContainer/PanelContainer/VBoxContainer/Eloquence"]
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="Button" type="Button" parent="VBoxContainer/CreationMenu/Stats/HBoxContainer/VBoxContainer/MarginContainer/PrimaryStatContainer/VBoxContainer/PanelContainer/VBoxContainer/Eloquence/HBoxContainer"]
+layout_mode = 2
+disabled = true
+icon = SubResource("AtlasTexture_qfd0e")
+
+[node name="Button2" type="Button" parent="VBoxContainer/CreationMenu/Stats/HBoxContainer/VBoxContainer/MarginContainer/PrimaryStatContainer/VBoxContainer/PanelContainer/VBoxContainer/Eloquence/HBoxContainer"]
+layout_mode = 2
+icon = SubResource("AtlasTexture_ymuok")
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/CreationMenu/Stats/HBoxContainer/VBoxContainer/MarginContainer/PrimaryStatContainer/VBoxContainer/PanelContainer/VBoxContainer/Eloquence/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_right = 5
+
+[node name="EloquenceLabel" type="Label" parent="VBoxContainer/CreationMenu/Stats/HBoxContainer/VBoxContainer/MarginContainer/PrimaryStatContainer/VBoxContainer/PanelContainer/VBoxContainer/Eloquence/HBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "1"
+
+[node name="Brilliance" type="HBoxContainer" parent="VBoxContainer/CreationMenu/Stats/HBoxContainer/VBoxContainer/MarginContainer/PrimaryStatContainer/VBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/CreationMenu/Stats/HBoxContainer/VBoxContainer/MarginContainer/PrimaryStatContainer/VBoxContainer/PanelContainer/VBoxContainer/Brilliance" groups=["stat_name"]]
+layout_mode = 2
+mouse_filter = 0
+theme_override_font_sizes/font_size = 16
+text = "Brilliance"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/CreationMenu/Stats/HBoxContainer/VBoxContainer/MarginContainer/PrimaryStatContainer/VBoxContainer/PanelContainer/VBoxContainer/Brilliance"]
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="Button" type="Button" parent="VBoxContainer/CreationMenu/Stats/HBoxContainer/VBoxContainer/MarginContainer/PrimaryStatContainer/VBoxContainer/PanelContainer/VBoxContainer/Brilliance/HBoxContainer"]
+layout_mode = 2
+disabled = true
+icon = SubResource("AtlasTexture_qfd0e")
+
+[node name="Button2" type="Button" parent="VBoxContainer/CreationMenu/Stats/HBoxContainer/VBoxContainer/MarginContainer/PrimaryStatContainer/VBoxContainer/PanelContainer/VBoxContainer/Brilliance/HBoxContainer"]
+layout_mode = 2
+icon = SubResource("AtlasTexture_ymuok")
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/CreationMenu/Stats/HBoxContainer/VBoxContainer/MarginContainer/PrimaryStatContainer/VBoxContainer/PanelContainer/VBoxContainer/Brilliance/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_right = 5
+
+[node name="BrillianceLabel" type="Label" parent="VBoxContainer/CreationMenu/Stats/HBoxContainer/VBoxContainer/MarginContainer/PrimaryStatContainer/VBoxContainer/PanelContainer/VBoxContainer/Brilliance/HBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "1"
+
+[node name="Intuition" type="HBoxContainer" parent="VBoxContainer/CreationMenu/Stats/HBoxContainer/VBoxContainer/MarginContainer/PrimaryStatContainer/VBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/CreationMenu/Stats/HBoxContainer/VBoxContainer/MarginContainer/PrimaryStatContainer/VBoxContainer/PanelContainer/VBoxContainer/Intuition" groups=["stat_name"]]
+layout_mode = 2
+mouse_filter = 0
+theme_override_font_sizes/font_size = 16
+text = "Intuition"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/CreationMenu/Stats/HBoxContainer/VBoxContainer/MarginContainer/PrimaryStatContainer/VBoxContainer/PanelContainer/VBoxContainer/Intuition"]
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="Button3" type="Button" parent="VBoxContainer/CreationMenu/Stats/HBoxContainer/VBoxContainer/MarginContainer/PrimaryStatContainer/VBoxContainer/PanelContainer/VBoxContainer/Intuition/HBoxContainer"]
+layout_mode = 2
+disabled = true
+icon = SubResource("AtlasTexture_qfd0e")
+
+[node name="Button4" type="Button" parent="VBoxContainer/CreationMenu/Stats/HBoxContainer/VBoxContainer/MarginContainer/PrimaryStatContainer/VBoxContainer/PanelContainer/VBoxContainer/Intuition/HBoxContainer"]
+layout_mode = 2
+icon = SubResource("AtlasTexture_ymuok")
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/CreationMenu/Stats/HBoxContainer/VBoxContainer/MarginContainer/PrimaryStatContainer/VBoxContainer/PanelContainer/VBoxContainer/Intuition/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_right = 5
+
+[node name="IntuitionLabel" type="Label" parent="VBoxContainer/CreationMenu/Stats/HBoxContainer/VBoxContainer/MarginContainer/PrimaryStatContainer/VBoxContainer/PanelContainer/VBoxContainer/Intuition/HBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "1"
+
+[node name="Empathy" type="HBoxContainer" parent="VBoxContainer/CreationMenu/Stats/HBoxContainer/VBoxContainer/MarginContainer/PrimaryStatContainer/VBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/CreationMenu/Stats/HBoxContainer/VBoxContainer/MarginContainer/PrimaryStatContainer/VBoxContainer/PanelContainer/VBoxContainer/Empathy" groups=["stat_name"]]
+layout_mode = 2
+mouse_filter = 0
+theme_override_font_sizes/font_size = 16
+text = "Empathy"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/CreationMenu/Stats/HBoxContainer/VBoxContainer/MarginContainer/PrimaryStatContainer/VBoxContainer/PanelContainer/VBoxContainer/Empathy"]
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="Button" type="Button" parent="VBoxContainer/CreationMenu/Stats/HBoxContainer/VBoxContainer/MarginContainer/PrimaryStatContainer/VBoxContainer/PanelContainer/VBoxContainer/Empathy/HBoxContainer"]
+layout_mode = 2
+disabled = true
+icon = SubResource("AtlasTexture_qfd0e")
+
+[node name="Button2" type="Button" parent="VBoxContainer/CreationMenu/Stats/HBoxContainer/VBoxContainer/MarginContainer/PrimaryStatContainer/VBoxContainer/PanelContainer/VBoxContainer/Empathy/HBoxContainer"]
+layout_mode = 2
+icon = SubResource("AtlasTexture_ymuok")
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/CreationMenu/Stats/HBoxContainer/VBoxContainer/MarginContainer/PrimaryStatContainer/VBoxContainer/PanelContainer/VBoxContainer/Empathy/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_right = 5
+
+[node name="EmpathyLabel" type="Label" parent="VBoxContainer/CreationMenu/Stats/HBoxContainer/VBoxContainer/MarginContainer/PrimaryStatContainer/VBoxContainer/PanelContainer/VBoxContainer/Empathy/HBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "1"
+
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer/CreationMenu/Stats/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 0
+
+[node name="SecondaryStatContainer" type="PanelContainer" parent="VBoxContainer/CreationMenu/Stats/HBoxContainer/VBoxContainer/MarginContainer2"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_lykow")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/CreationMenu/Stats/HBoxContainer/VBoxContainer/MarginContainer2/SecondaryStatContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/CreationMenu/Stats/HBoxContainer/VBoxContainer/MarginContainer2/SecondaryStatContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Secondary Stats"
+horizontal_alignment = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/CreationMenu/Stats/HBoxContainer/VBoxContainer/MarginContainer2/SecondaryStatContainer/VBoxContainer"]
+self_modulate = Color(0.77, 0.71225, 0.4235, 1)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_46bvi")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/CreationMenu/Stats/HBoxContainer/VBoxContainer/MarginContainer2/SecondaryStatContainer/VBoxContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/CreationMenu/Stats/HBoxContainer/VBoxContainer/MarginContainer2/SecondaryStatContainer/VBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/CreationMenu/Stats/HBoxContainer/VBoxContainer/MarginContainer2/SecondaryStatContainer/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Stamina"
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/CreationMenu/Stats/HBoxContainer/VBoxContainer/MarginContainer2/SecondaryStatContainer/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_right = 5
+
+[node name="Label2" type="Label" parent="VBoxContainer/CreationMenu/Stats/HBoxContainer/VBoxContainer/MarginContainer2/SecondaryStatContainer/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/MarginContainer"]
+layout_mode = 2
+text = "1"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/CreationMenu/Stats/HBoxContainer/VBoxContainer/MarginContainer2/SecondaryStatContainer/VBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/CreationMenu/Stats/HBoxContainer/VBoxContainer/MarginContainer2/SecondaryStatContainer/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "Death Threshold"
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/CreationMenu/Stats/HBoxContainer/VBoxContainer/MarginContainer2/SecondaryStatContainer/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_right = 5
+
+[node name="Label2" type="Label" parent="VBoxContainer/CreationMenu/Stats/HBoxContainer/VBoxContainer/MarginContainer2/SecondaryStatContainer/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer2/MarginContainer"]
+layout_mode = 2
+text = "1"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer/CreationMenu/Stats/HBoxContainer/VBoxContainer/MarginContainer2/SecondaryStatContainer/VBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/CreationMenu/Stats/HBoxContainer/VBoxContainer/MarginContainer2/SecondaryStatContainer/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+text = "Dodge"
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/CreationMenu/Stats/HBoxContainer/VBoxContainer/MarginContainer2/SecondaryStatContainer/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_right = 5
+
+[node name="Label2" type="Label" parent="VBoxContainer/CreationMenu/Stats/HBoxContainer/VBoxContainer/MarginContainer2/SecondaryStatContainer/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer3/MarginContainer"]
+layout_mode = 2
+text = "1"
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="VBoxContainer/CreationMenu/Stats/HBoxContainer/VBoxContainer/MarginContainer2/SecondaryStatContainer/VBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/CreationMenu/Stats/HBoxContainer/VBoxContainer/MarginContainer2/SecondaryStatContainer/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+text = "Initiative"
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/CreationMenu/Stats/HBoxContainer/VBoxContainer/MarginContainer2/SecondaryStatContainer/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_right = 5
+
+[node name="Label2" type="Label" parent="VBoxContainer/CreationMenu/Stats/HBoxContainer/VBoxContainer/MarginContainer2/SecondaryStatContainer/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer4/MarginContainer"]
+layout_mode = 2
+text = "1"
+
+[node name="SelectedStatDetail" type="PanelContainer" parent="VBoxContainer/CreationMenu/Stats/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.85
+theme_override_styles/panel = SubResource("StyleBoxTexture_46bvi")
+script = ExtResource("5_hfcw2")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/CreationMenu/Stats/HBoxContainer/SelectedStatDetail"]
+layout_mode = 2
+
+[node name="StatTitleLabel" type="Label" parent="VBoxContainer/CreationMenu/Stats/HBoxContainer/SelectedStatDetail/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "Selected Stat"
+
+[node name="StatDescriptionRTL" type="RichTextLabel" parent="VBoxContainer/CreationMenu/Stats/HBoxContainer/SelectedStatDetail/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 8
+bbcode_enabled = true
+text = "General description of the selected stat. These values update as you hover the mouse over"
+fit_content = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/CreationMenu/Stats/HBoxContainer/SelectedStatDetail/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="EachBonusRTL" type="RichTextLabel" parent="VBoxContainer/CreationMenu/Stats/HBoxContainer/SelectedStatDetail/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 8
+bbcode_enabled = true
+text = "-list
+-each
+-bonus"
+fit_content = true
+autowrap_mode = 0
+
+[node name="EquationRTL" type="RichTextLabel" parent="VBoxContainer/CreationMenu/Stats/HBoxContainer/SelectedStatDetail/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 8
+bbcode_enabled = true
+text = "-show equation"
+fit_content = true
+autowrap_mode = 0
+
+[node name="TotalRTL" type="RichTextLabel" parent="VBoxContainer/CreationMenu/Stats/HBoxContainer/SelectedStatDetail/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 8
+bbcode_enabled = true
+text = "Total: 1"
+fit_content = true
+autowrap_mode = 0
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/CreationMenu/Stats/HBoxContainer/SelectedStatDetail/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="StatQuirkVBoxContainer" type="VBoxContainer" parent="VBoxContainer/CreationMenu/Stats/HBoxContainer/SelectedStatDetail/VBoxContainer/PanelContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/CreationMenu/Stats/HBoxContainer/SelectedStatDetail/VBoxContainer/PanelContainer/StatQuirkVBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+vertical_scroll_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/CreationMenu/Stats/HBoxContainer/SelectedStatDetail/VBoxContainer/PanelContainer/StatQuirkVBoxContainer/ScrollContainer"]
+layout_mode = 2
+
+[node name="Perk" type="Label" parent="VBoxContainer/CreationMenu/Stats/HBoxContainer/SelectedStatDetail/VBoxContainer/PanelContainer/StatQuirkVBoxContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "Small Frame | -1 Vitality + 1 Coordination | 50 p"
+
+[node name="Perk2" type="Label" parent="VBoxContainer/CreationMenu/Stats/HBoxContainer/SelectedStatDetail/VBoxContainer/PanelContainer/StatQuirkVBoxContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "Empathic: +2 Empathy -1 Vitality"
+
+[node name="Perk3" type="Label" parent="VBoxContainer/CreationMenu/Stats/HBoxContainer/SelectedStatDetail/VBoxContainer/PanelContainer/StatQuirkVBoxContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "Brutish: +2 Vitality -1 Brilliance -1 Empathy"
+
+[node name="Skills" type="VBoxContainer" parent="VBoxContainer/CreationMenu"]
+visible = false
+layout_mode = 2
+
+[node name="Skills" parent="VBoxContainer/CreationMenu/Skills" instance=ExtResource("7_v3sy1")]
+layout_mode = 2
+size_flags_horizontal = 1
+
+[node name="Archetypes" type="VBoxContainer" parent="VBoxContainer/CreationMenu"]
+layout_mode = 2
+
+[node name="PerkTree" parent="VBoxContainer/CreationMenu/Archetypes" instance=ExtResource("9_kccg7")]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Limbs" type="VBoxContainer" parent="VBoxContainer/CreationMenu"]
+visible = false
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/CreationMenu/Limbs"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="LimbExplanation" type="PanelContainer" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxTexture_x8u55")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbExplanation"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="LimbSwapButton" type="HBoxContainer" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbExplanation/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Head" type="Button" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbExplanation/VBoxContainer/LimbSwapButton"]
+layout_mode = 2
+icon = SubResource("AtlasTexture_x8wev")
+
+[node name="Torso" type="Button" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbExplanation/VBoxContainer/LimbSwapButton"]
+layout_mode = 2
+text = "Torso"
+
+[node name="Arms" type="Button" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbExplanation/VBoxContainer/LimbSwapButton"]
+layout_mode = 2
+text = "Arms"
+
+[node name="Legs" type="Button" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbExplanation/VBoxContainer/LimbSwapButton"]
+layout_mode = 2
+text = "legs"
+
+[node name="CurrentlySelectedLimbLabel" type="Label" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbExplanation/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 16
+text = "Head"
+
+[node name="LimbDiceVBoxContainer" type="VBoxContainer" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbExplanation/VBoxContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbExplanation/VBoxContainer/LimbDiceVBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_font_sizes/normal_font_size = 8
+bbcode_enabled = true
+text = "Description of the limb. things it affects, skills it rolls with"
+fit_content = true
+
+[node name="Label6" type="Label" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbExplanation/VBoxContainer/LimbDiceVBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 8
+text = "Accessory Slots: Hat, Helmet, Necklace, Earrings, Mask
+"
+
+[node name="Label7" type="Label" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbExplanation/VBoxContainer/LimbDiceVBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 8
+text = "Whenever your head takes damage, 1.5X the damage is also dealt as DT"
+
+[node name="Label2" type="Label" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbExplanation/VBoxContainer/LimbDiceVBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 8
+text = "Limb Dice"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbExplanation/VBoxContainer/LimbDiceVBoxContainer"]
+layout_mode = 2
+
+[node name="PanelContainer2" type="PanelContainer" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbExplanation/VBoxContainer/LimbDiceVBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxTexture_ico0r")
+
+[node name="DicePipsUi" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbExplanation/VBoxContainer/LimbDiceVBoxContainer/HBoxContainer/PanelContainer2" instance=ExtResource("11_l60ji")]
+layout_mode = 2
+
+[node name="Label5" type="Label" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbExplanation/VBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 8
+text = "Dodge/Accompanying Stat"
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbExplanation/VBoxContainer"]
+visible = false
+layout_mode = 2
+
+[node name="PanelContainer3" type="PanelContainer" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbExplanation/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxTexture_ico0r")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbExplanation/VBoxContainer/HBoxContainer4/PanelContainer3"]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbExplanation/VBoxContainer/HBoxContainer4/PanelContainer3/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_j2tll")
+
+[node name="TextureRect2" type="TextureRect" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbExplanation/VBoxContainer/HBoxContainer4/PanelContainer3/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_qf6ti")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbExplanation/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 11
+size_flags_vertical = 4
+theme_override_font_sizes/normal_font_size = 8
+bbcode_enabled = true
+text = "Desciption of limb dice. Sources?"
+fit_content = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbExplanation/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+alignment = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbExplanation/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbExplanation/VBoxContainer/VBoxContainer/PanelContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbExplanation/VBoxContainer/VBoxContainer/PanelContainer/HBoxContainer"]
+layout_mode = 2
+text = "Head Dice Floor = "
+
+[node name="Label2" type="Label" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbExplanation/VBoxContainer/VBoxContainer/PanelContainer/HBoxContainer"]
+layout_mode = 2
+text = "1"
+
+[node name="Button" type="Button" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbExplanation/VBoxContainer/VBoxContainer/PanelContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Button2" type="Button" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbExplanation/VBoxContainer/VBoxContainer/PanelContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="PanelContainer3" type="PanelContainer" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbExplanation/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbExplanation/VBoxContainer/VBoxContainer/PanelContainer3"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbExplanation/VBoxContainer/VBoxContainer/PanelContainer3/HBoxContainer3"]
+layout_mode = 2
+text = "Head Hp ="
+
+[node name="Label2" type="Label" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbExplanation/VBoxContainer/VBoxContainer/PanelContainer3/HBoxContainer3"]
+layout_mode = 2
+text = "7"
+
+[node name="Button" type="Button" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbExplanation/VBoxContainer/VBoxContainer/PanelContainer3/HBoxContainer3"]
+layout_mode = 2
+
+[node name="Button2" type="Button" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbExplanation/VBoxContainer/VBoxContainer/PanelContainer3/HBoxContainer3"]
+layout_mode = 2
+
+[node name="PanelContainer2" type="PanelContainer" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbExplanation/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbExplanation/VBoxContainer/VBoxContainer/PanelContainer2"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbExplanation/VBoxContainer/VBoxContainer/PanelContainer2/HBoxContainer2"]
+layout_mode = 2
+text = "Head Dice Split ="
+
+[node name="Label2" type="Label" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbExplanation/VBoxContainer/VBoxContainer/PanelContainer2/HBoxContainer2"]
+layout_mode = 2
+text = "1"
+
+[node name="Button" type="Button" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbExplanation/VBoxContainer/VBoxContainer/PanelContainer2/HBoxContainer2"]
+layout_mode = 2
+
+[node name="Button2" type="Button" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbExplanation/VBoxContainer/VBoxContainer/PanelContainer2/HBoxContainer2"]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbExplanation/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_2d7o6")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbExplanation/VBoxContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="TotalLimbDiceFloorBonusLabel" type="HBoxContainer" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbExplanation/VBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label6" type="Label" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbExplanation/VBoxContainer/PanelContainer/VBoxContainer/TotalLimbDiceFloorBonusLabel"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 8
+text = "Current Limb Dice Floor bonus points to distribute:"
+
+[node name="Label7" type="Label" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbExplanation/VBoxContainer/PanelContainer/VBoxContainer/TotalLimbDiceFloorBonusLabel"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 8
+text = "1"
+
+[node name="TotalLimbDiceSplitBonusLabel" type="HBoxContainer" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbExplanation/VBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label6" type="Label" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbExplanation/VBoxContainer/PanelContainer/VBoxContainer/TotalLimbDiceSplitBonusLabel"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 8
+text = "Current Limb Dice Split bonus points to distribute:"
+
+[node name="Label7" type="Label" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbExplanation/VBoxContainer/PanelContainer/VBoxContainer/TotalLimbDiceSplitBonusLabel"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 8
+text = "1"
+
+[node name="TotalLimbHPBonusPointsLabel" type="HBoxContainer" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbExplanation/VBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label6" type="Label" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbExplanation/VBoxContainer/PanelContainer/VBoxContainer/TotalLimbHPBonusPointsLabel"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 8
+text = "Limb HP Bonus points to distribute:"
+
+[node name="Label7" type="Label" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbExplanation/VBoxContainer/PanelContainer/VBoxContainer/TotalLimbHPBonusPointsLabel"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 8
+text = "1"
+
+[node name="LimbLevelChart" type="PanelContainer" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxTexture_2d7o6")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbLevelChart"]
+layout_mode = 2
+
+[node name="LevelUpChartHeader" type="PanelContainer" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbLevelChart/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxTexture_pjqay")
+
+[node name="LevelUpContainer" type="HBoxContainer" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbLevelChart/VBoxContainer/LevelUpChartHeader"]
+layout_mode = 2
+alignment = 1
+
+[node name="LevelNumberLabel" type="Label" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbLevelChart/VBoxContainer/LevelUpChartHeader/LevelUpContainer"]
+layout_mode = 2
+text = "Level"
+horizontal_alignment = 1
+
+[node name="VSeparator" type="VSeparator" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbLevelChart/VBoxContainer/LevelUpChartHeader/LevelUpContainer"]
+layout_mode = 2
+
+[node name="DiecFloorLabel" type="Label" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbLevelChart/VBoxContainer/LevelUpChartHeader/LevelUpContainer"]
+layout_mode = 2
+text = "Limb Dice Floor Bonus"
+horizontal_alignment = 1
+
+[node name="VSeparator2" type="VSeparator" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbLevelChart/VBoxContainer/LevelUpChartHeader/LevelUpContainer"]
+layout_mode = 2
+
+[node name="DiceSplitBonusLabel" type="Label" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbLevelChart/VBoxContainer/LevelUpChartHeader/LevelUpContainer"]
+layout_mode = 2
+text = "Limb Dice Split Bonus"
+horizontal_alignment = 1
+
+[node name="VSeparator3" type="VSeparator" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbLevelChart/VBoxContainer/LevelUpChartHeader/LevelUpContainer"]
+layout_mode = 2
+
+[node name="DiceSplitBonusLabel2" type="Label" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbLevelChart/VBoxContainer/LevelUpChartHeader/LevelUpContainer"]
+layout_mode = 2
+text = "Limb HP Bonus"
+horizontal_alignment = 1
+
+[node name="Level1" type="PanelContainer" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbLevelChart/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxTexture_pjqay")
+
+[node name="LevelUpContainer" type="HBoxContainer" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbLevelChart/VBoxContainer/Level1"]
+layout_mode = 2
+alignment = 1
+
+[node name="LevelNumberLabel" type="Label" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbLevelChart/VBoxContainer/Level1/LevelUpContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.5
+text = "1"
+horizontal_alignment = 1
+
+[node name="VSeparator" type="VSeparator" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbLevelChart/VBoxContainer/Level1/LevelUpContainer"]
+layout_mode = 2
+
+[node name="DiecFloorLabel" type="Label" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbLevelChart/VBoxContainer/Level1/LevelUpContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 5.91
+text = "0"
+horizontal_alignment = 1
+
+[node name="VSeparator2" type="VSeparator" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbLevelChart/VBoxContainer/Level1/LevelUpContainer"]
+layout_mode = 2
+
+[node name="DiecFloorLabel2" type="Label" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbLevelChart/VBoxContainer/Level1/LevelUpContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 5.6
+text = "+1"
+horizontal_alignment = 1
+
+[node name="VSeparator3" type="VSeparator" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbLevelChart/VBoxContainer/Level1/LevelUpContainer"]
+layout_mode = 2
+
+[node name="DiecFloorLabel3" type="Label" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbLevelChart/VBoxContainer/Level1/LevelUpContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.57
+text = "0"
+horizontal_alignment = 1
+
+[node name="Level2" type="PanelContainer" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbLevelChart/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxTexture_pjqay")
+
+[node name="LevelUpContainer" type="HBoxContainer" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbLevelChart/VBoxContainer/Level2"]
+layout_mode = 2
+alignment = 1
+
+[node name="LevelNumberLabel" type="Label" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbLevelChart/VBoxContainer/Level2/LevelUpContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.5
+text = "2"
+horizontal_alignment = 1
+
+[node name="VSeparator" type="VSeparator" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbLevelChart/VBoxContainer/Level2/LevelUpContainer"]
+layout_mode = 2
+
+[node name="DiecFloorLabel" type="Label" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbLevelChart/VBoxContainer/Level2/LevelUpContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 5.91
+text = "0"
+horizontal_alignment = 1
+
+[node name="VSeparator2" type="VSeparator" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbLevelChart/VBoxContainer/Level2/LevelUpContainer"]
+layout_mode = 2
+
+[node name="DiecFloorLabel2" type="Label" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbLevelChart/VBoxContainer/Level2/LevelUpContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 5.6
+text = "0"
+horizontal_alignment = 1
+
+[node name="VSeparator3" type="VSeparator" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbLevelChart/VBoxContainer/Level2/LevelUpContainer"]
+layout_mode = 2
+
+[node name="DiecFloorLabel3" type="Label" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbLevelChart/VBoxContainer/Level2/LevelUpContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.57
+text = "1d Vitality + 1"
+horizontal_alignment = 1
+
+[node name="Level3" type="PanelContainer" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbLevelChart/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxTexture_pjqay")
+
+[node name="LevelUpContainer" type="HBoxContainer" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbLevelChart/VBoxContainer/Level3"]
+layout_mode = 2
+alignment = 1
+
+[node name="LevelNumberLabel" type="Label" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbLevelChart/VBoxContainer/Level3/LevelUpContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.5
+text = "3"
+horizontal_alignment = 1
+
+[node name="VSeparator" type="VSeparator" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbLevelChart/VBoxContainer/Level3/LevelUpContainer"]
+layout_mode = 2
+
+[node name="DiecFloorLabel" type="Label" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbLevelChart/VBoxContainer/Level3/LevelUpContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 5.91
+text = "0"
+horizontal_alignment = 1
+
+[node name="VSeparator2" type="VSeparator" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbLevelChart/VBoxContainer/Level3/LevelUpContainer"]
+layout_mode = 2
+
+[node name="DiecFloorLabel2" type="Label" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbLevelChart/VBoxContainer/Level3/LevelUpContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 5.6
+text = "0"
+horizontal_alignment = 1
+
+[node name="VSeparator3" type="VSeparator" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbLevelChart/VBoxContainer/Level3/LevelUpContainer"]
+layout_mode = 2
+
+[node name="DiecFloorLabel3" type="Label" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbLevelChart/VBoxContainer/Level3/LevelUpContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.57
+text = "0"
+horizontal_alignment = 1
+
+[node name="Level4" type="PanelContainer" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbLevelChart/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxTexture_pjqay")
+
+[node name="LevelUpContainer" type="HBoxContainer" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbLevelChart/VBoxContainer/Level4"]
+layout_mode = 2
+alignment = 1
+
+[node name="LevelNumberLabel" type="Label" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbLevelChart/VBoxContainer/Level4/LevelUpContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.5
+text = "4"
+horizontal_alignment = 1
+
+[node name="VSeparator" type="VSeparator" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbLevelChart/VBoxContainer/Level4/LevelUpContainer"]
+layout_mode = 2
+
+[node name="DiecFloorLabel" type="Label" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbLevelChart/VBoxContainer/Level4/LevelUpContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 5.91
+text = "0"
+horizontal_alignment = 1
+
+[node name="VSeparator2" type="VSeparator" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbLevelChart/VBoxContainer/Level4/LevelUpContainer"]
+layout_mode = 2
+
+[node name="DiecFloorLabel2" type="Label" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbLevelChart/VBoxContainer/Level4/LevelUpContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 5.6
+text = "+1"
+horizontal_alignment = 1
+
+[node name="VSeparator3" type="VSeparator" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbLevelChart/VBoxContainer/Level4/LevelUpContainer"]
+layout_mode = 2
+
+[node name="DiecFloorLabel3" type="Label" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbLevelChart/VBoxContainer/Level4/LevelUpContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.57
+text = "1d Vitality + 1"
+horizontal_alignment = 1
+
+[node name="Level5" type="PanelContainer" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbLevelChart/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxTexture_pjqay")
+
+[node name="LevelUpContainer" type="HBoxContainer" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbLevelChart/VBoxContainer/Level5"]
+layout_mode = 2
+alignment = 1
+
+[node name="LevelNumberLabel" type="Label" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbLevelChart/VBoxContainer/Level5/LevelUpContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.5
+text = "5"
+horizontal_alignment = 1
+
+[node name="VSeparator" type="VSeparator" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbLevelChart/VBoxContainer/Level5/LevelUpContainer"]
+layout_mode = 2
+
+[node name="DiecFloorLabel" type="Label" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbLevelChart/VBoxContainer/Level5/LevelUpContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 5.91
+text = "+1"
+horizontal_alignment = 1
+
+[node name="VSeparator2" type="VSeparator" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbLevelChart/VBoxContainer/Level5/LevelUpContainer"]
+layout_mode = 2
+
+[node name="DiecFloorLabel2" type="Label" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbLevelChart/VBoxContainer/Level5/LevelUpContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 5.6
+text = "0"
+horizontal_alignment = 1
+
+[node name="VSeparator3" type="VSeparator" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbLevelChart/VBoxContainer/Level5/LevelUpContainer"]
+layout_mode = 2
+
+[node name="DiecFloorLabel3" type="Label" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbLevelChart/VBoxContainer/Level5/LevelUpContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.57
+text = "0"
+horizontal_alignment = 1
+
+[node name="Level6" type="PanelContainer" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbLevelChart/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxTexture_pjqay")
+
+[node name="LevelUpContainer" type="HBoxContainer" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbLevelChart/VBoxContainer/Level6"]
+layout_mode = 2
+alignment = 1
+
+[node name="LevelNumberLabel" type="Label" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbLevelChart/VBoxContainer/Level6/LevelUpContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.5
+text = "6"
+horizontal_alignment = 1
+
+[node name="VSeparator" type="VSeparator" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbLevelChart/VBoxContainer/Level6/LevelUpContainer"]
+layout_mode = 2
+
+[node name="DiecFloorLabel" type="Label" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbLevelChart/VBoxContainer/Level6/LevelUpContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 5.91
+text = "0"
+horizontal_alignment = 1
+
+[node name="VSeparator2" type="VSeparator" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbLevelChart/VBoxContainer/Level6/LevelUpContainer"]
+layout_mode = 2
+
+[node name="DiecFloorLabel2" type="Label" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbLevelChart/VBoxContainer/Level6/LevelUpContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 5.6
+text = "0"
+horizontal_alignment = 1
+
+[node name="VSeparator3" type="VSeparator" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbLevelChart/VBoxContainer/Level6/LevelUpContainer"]
+layout_mode = 2
+
+[node name="DiecFloorLabel3" type="Label" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbLevelChart/VBoxContainer/Level6/LevelUpContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.57
+text = "1d Vitality + 1"
+horizontal_alignment = 1
+
+[node name="Level7" type="PanelContainer" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbLevelChart/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxTexture_pjqay")
+
+[node name="LevelUpContainer" type="HBoxContainer" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbLevelChart/VBoxContainer/Level7"]
+layout_mode = 2
+alignment = 1
+
+[node name="LevelNumberLabel" type="Label" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbLevelChart/VBoxContainer/Level7/LevelUpContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.5
+text = "7"
+horizontal_alignment = 1
+
+[node name="VSeparator" type="VSeparator" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbLevelChart/VBoxContainer/Level7/LevelUpContainer"]
+layout_mode = 2
+
+[node name="DiecFloorLabel" type="Label" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbLevelChart/VBoxContainer/Level7/LevelUpContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 5.91
+text = "0"
+horizontal_alignment = 1
+
+[node name="VSeparator2" type="VSeparator" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbLevelChart/VBoxContainer/Level7/LevelUpContainer"]
+layout_mode = 2
+
+[node name="DiecFloorLabel2" type="Label" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbLevelChart/VBoxContainer/Level7/LevelUpContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 5.6
+text = "+1"
+horizontal_alignment = 1
+
+[node name="VSeparator3" type="VSeparator" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbLevelChart/VBoxContainer/Level7/LevelUpContainer"]
+layout_mode = 2
+
+[node name="DiecFloorLabel3" type="Label" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbLevelChart/VBoxContainer/Level7/LevelUpContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.57
+text = "0"
+horizontal_alignment = 1
+
+[node name="Level8" type="PanelContainer" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbLevelChart/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxTexture_pjqay")
+
+[node name="LevelUpContainer" type="HBoxContainer" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbLevelChart/VBoxContainer/Level8"]
+layout_mode = 2
+alignment = 1
+
+[node name="LevelNumberLabel" type="Label" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbLevelChart/VBoxContainer/Level8/LevelUpContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.5
+text = "8"
+horizontal_alignment = 1
+
+[node name="VSeparator" type="VSeparator" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbLevelChart/VBoxContainer/Level8/LevelUpContainer"]
+layout_mode = 2
+
+[node name="DiecFloorLabel" type="Label" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbLevelChart/VBoxContainer/Level8/LevelUpContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 5.91
+text = "0"
+horizontal_alignment = 1
+
+[node name="VSeparator2" type="VSeparator" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbLevelChart/VBoxContainer/Level8/LevelUpContainer"]
+layout_mode = 2
+
+[node name="DiecFloorLabel2" type="Label" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbLevelChart/VBoxContainer/Level8/LevelUpContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 5.6
+text = "0"
+horizontal_alignment = 1
+
+[node name="VSeparator3" type="VSeparator" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbLevelChart/VBoxContainer/Level8/LevelUpContainer"]
+layout_mode = 2
+
+[node name="DiecFloorLabel3" type="Label" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbLevelChart/VBoxContainer/Level8/LevelUpContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.57
+text = "1d Vitality + 1"
+horizontal_alignment = 1
+
+[node name="Level9" type="PanelContainer" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbLevelChart/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxTexture_pjqay")
+
+[node name="LevelUpContainer" type="HBoxContainer" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbLevelChart/VBoxContainer/Level9"]
+layout_mode = 2
+alignment = 1
+
+[node name="LevelNumberLabel" type="Label" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbLevelChart/VBoxContainer/Level9/LevelUpContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.5
+text = "9"
+horizontal_alignment = 1
+
+[node name="VSeparator" type="VSeparator" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbLevelChart/VBoxContainer/Level9/LevelUpContainer"]
+layout_mode = 2
+
+[node name="DiecFloorLabel" type="Label" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbLevelChart/VBoxContainer/Level9/LevelUpContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 5.91
+text = "0"
+horizontal_alignment = 1
+
+[node name="VSeparator2" type="VSeparator" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbLevelChart/VBoxContainer/Level9/LevelUpContainer"]
+layout_mode = 2
+
+[node name="DiecFloorLabel2" type="Label" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbLevelChart/VBoxContainer/Level9/LevelUpContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 5.6
+text = "0"
+horizontal_alignment = 1
+
+[node name="VSeparator3" type="VSeparator" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbLevelChart/VBoxContainer/Level9/LevelUpContainer"]
+layout_mode = 2
+
+[node name="DiecFloorLabel3" type="Label" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbLevelChart/VBoxContainer/Level9/LevelUpContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.57
+text = "0"
+horizontal_alignment = 1
+
+[node name="Level10" type="PanelContainer" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbLevelChart/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxTexture_pjqay")
+
+[node name="LevelUpContainer" type="HBoxContainer" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbLevelChart/VBoxContainer/Level10"]
+layout_mode = 2
+alignment = 1
+
+[node name="LevelNumberLabel" type="Label" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbLevelChart/VBoxContainer/Level10/LevelUpContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.5
+text = "10"
+horizontal_alignment = 1
+
+[node name="VSeparator" type="VSeparator" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbLevelChart/VBoxContainer/Level10/LevelUpContainer"]
+layout_mode = 2
+
+[node name="DiecFloorLabel" type="Label" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbLevelChart/VBoxContainer/Level10/LevelUpContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 5.91
+text = "+1"
+horizontal_alignment = 1
+
+[node name="VSeparator2" type="VSeparator" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbLevelChart/VBoxContainer/Level10/LevelUpContainer"]
+layout_mode = 2
+
+[node name="DiecFloorLabel2" type="Label" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbLevelChart/VBoxContainer/Level10/LevelUpContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 5.6
+text = "+1"
+horizontal_alignment = 1
+
+[node name="VSeparator3" type="VSeparator" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbLevelChart/VBoxContainer/Level10/LevelUpContainer"]
+layout_mode = 2
+
+[node name="DiecFloorLabel3" type="Label" parent="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbLevelChart/VBoxContainer/Level10/LevelUpContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.57
+text = "1d Vitality + 1"
+horizontal_alignment = 1
+
+[node name="Magic" type="VBoxContainer" parent="VBoxContainer/CreationMenu"]
+visible = false
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/CreationMenu/Magic"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/CreationMenu/Magic/HBoxContainer"]
+layout_mode = 2
+
+[node name="VitalitySkills" type="MarginContainer" parent="VBoxContainer/CreationMenu/Magic/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 4
+
+[node name="PanelContainer2" type="PanelContainer" parent="VBoxContainer/CreationMenu/Magic/HBoxContainer/VBoxContainer/VitalitySkills"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_mniyq")
+
+[node name="VitalitySkills" type="VBoxContainer" parent="VBoxContainer/CreationMenu/Magic/HBoxContainer/VBoxContainer/VitalitySkills/PanelContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/CreationMenu/Magic/HBoxContainer/VBoxContainer/VitalitySkills/PanelContainer2/VitalitySkills"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Body magic"
+horizontal_alignment = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/CreationMenu/Magic/HBoxContainer/VBoxContainer/VitalitySkills/PanelContainer2/VitalitySkills"]
+self_modulate = Color(0.77, 0.71225, 0.4235, 1)
+layout_mode = 2
+size_flags_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_qaifw")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/CreationMenu/Magic/HBoxContainer/VBoxContainer/VitalitySkills/PanelContainer2/VitalitySkills/PanelContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/CreationMenu/Magic/HBoxContainer/VBoxContainer/VitalitySkills/PanelContainer2/VitalitySkills/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Forcery" type="Label" parent="VBoxContainer/CreationMenu/Magic/HBoxContainer/VBoxContainer/VitalitySkills/PanelContainer2/VitalitySkills/PanelContainer/VBoxContainer/HBoxContainer" groups=["skill_name"]]
+layout_mode = 2
+mouse_filter = 0
+text = "FORCERY (VIT + INT)"
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/CreationMenu/Magic/HBoxContainer/VBoxContainer/VitalitySkills/PanelContainer2/VitalitySkills/PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_right = 5
+
+[node name="Label2" type="Label" parent="VBoxContainer/CreationMenu/Magic/HBoxContainer/VBoxContainer/VitalitySkills/PanelContainer2/VitalitySkills/PanelContainer/VBoxContainer/HBoxContainer/MarginContainer"]
+layout_mode = 2
+text = "1"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/CreationMenu/Magic/HBoxContainer/VBoxContainer/VitalitySkills/PanelContainer2/VitalitySkills/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Forcery" type="Label" parent="VBoxContainer/CreationMenu/Magic/HBoxContainer/VBoxContainer/VitalitySkills/PanelContainer2/VitalitySkills/PanelContainer/VBoxContainer/HBoxContainer2" groups=["skill_name"]]
+layout_mode = 2
+mouse_filter = 0
+text = "FLESHSMITHING (VIT + EMP)"
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/CreationMenu/Magic/HBoxContainer/VBoxContainer/VitalitySkills/PanelContainer2/VitalitySkills/PanelContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_right = 5
+
+[node name="Label2" type="Label" parent="VBoxContainer/CreationMenu/Magic/HBoxContainer/VBoxContainer/VitalitySkills/PanelContainer2/VitalitySkills/PanelContainer/VBoxContainer/HBoxContainer2/MarginContainer"]
+layout_mode = 2
+text = "1"
+
+[node name="BrillianceSkills" type="MarginContainer" parent="VBoxContainer/CreationMenu/Magic/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 4
+
+[node name="PanelContainer2" type="PanelContainer" parent="VBoxContainer/CreationMenu/Magic/HBoxContainer/VBoxContainer/BrillianceSkills"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_mniyq")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/CreationMenu/Magic/HBoxContainer/VBoxContainer/BrillianceSkills/PanelContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/CreationMenu/Magic/HBoxContainer/VBoxContainer/BrillianceSkills/PanelContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Alchemy"
+horizontal_alignment = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/CreationMenu/Magic/HBoxContainer/VBoxContainer/BrillianceSkills/PanelContainer2/VBoxContainer"]
+self_modulate = Color(0.77, 0.71225, 0.4235, 1)
+layout_mode = 2
+size_flags_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_qaifw")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/CreationMenu/Magic/HBoxContainer/VBoxContainer/BrillianceSkills/PanelContainer2/VBoxContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/CreationMenu/Magic/HBoxContainer/VBoxContainer/BrillianceSkills/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/CreationMenu/Magic/HBoxContainer/VBoxContainer/BrillianceSkills/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "EXPLOSIVES"
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/CreationMenu/Magic/HBoxContainer/VBoxContainer/BrillianceSkills/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_right = 5
+
+[node name="Label2" type="Label" parent="VBoxContainer/CreationMenu/Magic/HBoxContainer/VBoxContainer/BrillianceSkills/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/MarginContainer"]
+layout_mode = 2
+text = "1"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer/CreationMenu/Magic/HBoxContainer/VBoxContainer/BrillianceSkills/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/CreationMenu/Magic/HBoxContainer/VBoxContainer/BrillianceSkills/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+text = "HUMAN POISONS"
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/CreationMenu/Magic/HBoxContainer/VBoxContainer/BrillianceSkills/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_right = 5
+
+[node name="Label2" type="Label" parent="VBoxContainer/CreationMenu/Magic/HBoxContainer/VBoxContainer/BrillianceSkills/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer3/MarginContainer"]
+layout_mode = 2
+text = "1"
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="VBoxContainer/CreationMenu/Magic/HBoxContainer/VBoxContainer/BrillianceSkills/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/CreationMenu/Magic/HBoxContainer/VBoxContainer/BrillianceSkills/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+text = "CREATURE POISONS"
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/CreationMenu/Magic/HBoxContainer/VBoxContainer/BrillianceSkills/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_right = 5
+
+[node name="Label2" type="Label" parent="VBoxContainer/CreationMenu/Magic/HBoxContainer/VBoxContainer/BrillianceSkills/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer4/MarginContainer"]
+layout_mode = 2
+text = "1"
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="VBoxContainer/CreationMenu/Magic/HBoxContainer/VBoxContainer/BrillianceSkills/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/CreationMenu/Magic/HBoxContainer/VBoxContainer/BrillianceSkills/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+text = "ANABOLICS"
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/CreationMenu/Magic/HBoxContainer/VBoxContainer/BrillianceSkills/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_right = 5
+
+[node name="Label2" type="Label" parent="VBoxContainer/CreationMenu/Magic/HBoxContainer/VBoxContainer/BrillianceSkills/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer5/MarginContainer"]
+layout_mode = 2
+text = "1"
+
+[node name="HBoxContainer6" type="HBoxContainer" parent="VBoxContainer/CreationMenu/Magic/HBoxContainer/VBoxContainer/BrillianceSkills/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/CreationMenu/Magic/HBoxContainer/VBoxContainer/BrillianceSkills/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer6"]
+layout_mode = 2
+text = "TRANSMUTATION"
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/CreationMenu/Magic/HBoxContainer/VBoxContainer/BrillianceSkills/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer6"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_right = 5
+
+[node name="Label2" type="Label" parent="VBoxContainer/CreationMenu/Magic/HBoxContainer/VBoxContainer/BrillianceSkills/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer6/MarginContainer"]
+layout_mode = 2
+text = "1"
+
+[node name="HBoxContainer7" type="HBoxContainer" parent="VBoxContainer/CreationMenu/Magic/HBoxContainer/VBoxContainer/BrillianceSkills/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/CreationMenu/Magic/HBoxContainer/VBoxContainer/BrillianceSkills/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer7"]
+layout_mode = 2
+text = "HOMUNCULI"
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/CreationMenu/Magic/HBoxContainer/VBoxContainer/BrillianceSkills/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer7"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_right = 5
+
+[node name="Label2" type="Label" parent="VBoxContainer/CreationMenu/Magic/HBoxContainer/VBoxContainer/BrillianceSkills/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer7/MarginContainer"]
+layout_mode = 2
+text = "1"
+
+[node name="EmpathySkills" type="MarginContainer" parent="VBoxContainer/CreationMenu/Magic/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 4
+
+[node name="PanelContainer2" type="PanelContainer" parent="VBoxContainer/CreationMenu/Magic/HBoxContainer/VBoxContainer/EmpathySkills"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_mniyq")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/CreationMenu/Magic/HBoxContainer/VBoxContainer/EmpathySkills/PanelContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/CreationMenu/Magic/HBoxContainer/VBoxContainer/EmpathySkills/PanelContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Aestheturgy"
+horizontal_alignment = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/CreationMenu/Magic/HBoxContainer/VBoxContainer/EmpathySkills/PanelContainer2/VBoxContainer"]
+self_modulate = Color(0.77, 0.71225, 0.4235, 1)
+layout_mode = 2
+size_flags_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_qaifw")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/CreationMenu/Magic/HBoxContainer/VBoxContainer/EmpathySkills/PanelContainer2/VBoxContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer6" type="HBoxContainer" parent="VBoxContainer/CreationMenu/Magic/HBoxContainer/VBoxContainer/EmpathySkills/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/CreationMenu/Magic/HBoxContainer/VBoxContainer/EmpathySkills/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer6"]
+layout_mode = 2
+text = "DANCE (VIT + COORD + EMP)"
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/CreationMenu/Magic/HBoxContainer/VBoxContainer/EmpathySkills/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer6"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_right = 5
+
+[node name="Label2" type="Label" parent="VBoxContainer/CreationMenu/Magic/HBoxContainer/VBoxContainer/EmpathySkills/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer6/MarginContainer"]
+layout_mode = 2
+text = "1"
+
+[node name="HBoxContainer7" type="HBoxContainer" parent="VBoxContainer/CreationMenu/Magic/HBoxContainer/VBoxContainer/EmpathySkills/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/CreationMenu/Magic/HBoxContainer/VBoxContainer/EmpathySkills/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer7"]
+layout_mode = 2
+text = "GRAPHISTRY (EMP + BRILL + INTU)"
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/CreationMenu/Magic/HBoxContainer/VBoxContainer/EmpathySkills/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer7"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_right = 5
+
+[node name="Label2" type="Label" parent="VBoxContainer/CreationMenu/Magic/HBoxContainer/VBoxContainer/EmpathySkills/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer7/MarginContainer"]
+layout_mode = 2
+text = "1"
+
+[node name="HBoxContainer8" type="HBoxContainer" parent="VBoxContainer/CreationMenu/Magic/HBoxContainer/VBoxContainer/EmpathySkills/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/CreationMenu/Magic/HBoxContainer/VBoxContainer/EmpathySkills/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer8"]
+layout_mode = 2
+text = "FORMCRAFT (VIT  + EMP + INTU)"
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/CreationMenu/Magic/HBoxContainer/VBoxContainer/EmpathySkills/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer8"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_right = 5
+
+[node name="Label2" type="Label" parent="VBoxContainer/CreationMenu/Magic/HBoxContainer/VBoxContainer/EmpathySkills/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer8/MarginContainer"]
+layout_mode = 2
+text = "1"
+
+[node name="HBoxContainer9" type="HBoxContainer" parent="VBoxContainer/CreationMenu/Magic/HBoxContainer/VBoxContainer/EmpathySkills/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/CreationMenu/Magic/HBoxContainer/VBoxContainer/EmpathySkills/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer9"]
+layout_mode = 2
+text = "LITERARY  (ELOQ + EMP + BRILL)"
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/CreationMenu/Magic/HBoxContainer/VBoxContainer/EmpathySkills/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer9"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_right = 5
+
+[node name="Label2" type="Label" parent="VBoxContainer/CreationMenu/Magic/HBoxContainer/VBoxContainer/EmpathySkills/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer9/MarginContainer"]
+layout_mode = 2
+text = "1"
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="VBoxContainer/CreationMenu/Magic/HBoxContainer"]
+layout_mode = 2
+
+[node name="InuitionSkills" type="MarginContainer" parent="VBoxContainer/CreationMenu/Magic/HBoxContainer/VBoxContainer3"]
+layout_mode = 2
+theme_override_constants/margin_top = 4
+
+[node name="PanelContainer2" type="PanelContainer" parent="VBoxContainer/CreationMenu/Magic/HBoxContainer/VBoxContainer3/InuitionSkills"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_mniyq")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/CreationMenu/Magic/HBoxContainer/VBoxContainer3/InuitionSkills/PanelContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/CreationMenu/Magic/HBoxContainer/VBoxContainer3/InuitionSkills/PanelContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "6th Sense"
+horizontal_alignment = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/CreationMenu/Magic/HBoxContainer/VBoxContainer3/InuitionSkills/PanelContainer2/VBoxContainer"]
+self_modulate = Color(0.77, 0.71225, 0.4235, 1)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_qaifw")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/CreationMenu/Magic/HBoxContainer/VBoxContainer3/InuitionSkills/PanelContainer2/VBoxContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/CreationMenu/Magic/HBoxContainer/VBoxContainer3/InuitionSkills/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/CreationMenu/Magic/HBoxContainer/VBoxContainer3/InuitionSkills/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "CLAIRVOYANCE"
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/CreationMenu/Magic/HBoxContainer/VBoxContainer3/InuitionSkills/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_right = 5
+
+[node name="Label2" type="Label" parent="VBoxContainer/CreationMenu/Magic/HBoxContainer/VBoxContainer3/InuitionSkills/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/MarginContainer"]
+layout_mode = 2
+text = "1"
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="VBoxContainer/CreationMenu/Magic/HBoxContainer/VBoxContainer3/InuitionSkills/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/CreationMenu/Magic/HBoxContainer/VBoxContainer3/InuitionSkills/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+text = "CRYPTOSENSE/WITNESSING"
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/CreationMenu/Magic/HBoxContainer/VBoxContainer3/InuitionSkills/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_right = 5
+
+[node name="Label2" type="Label" parent="VBoxContainer/CreationMenu/Magic/HBoxContainer/VBoxContainer3/InuitionSkills/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer4/MarginContainer"]
+layout_mode = 2
+text = "1"
+
+[node name="HBoxContainer6" type="HBoxContainer" parent="VBoxContainer/CreationMenu/Magic/HBoxContainer/VBoxContainer3/InuitionSkills/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/CreationMenu/Magic/HBoxContainer/VBoxContainer3/InuitionSkills/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer6"]
+layout_mode = 2
+text = "PSYCHOMETRY"
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/CreationMenu/Magic/HBoxContainer/VBoxContainer3/InuitionSkills/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer6"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_right = 5
+
+[node name="Label2" type="Label" parent="VBoxContainer/CreationMenu/Magic/HBoxContainer/VBoxContainer3/InuitionSkills/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer6/MarginContainer"]
+layout_mode = 2
+text = "1"
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="VBoxContainer/CreationMenu/Magic/HBoxContainer/VBoxContainer3/InuitionSkills/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/CreationMenu/Magic/HBoxContainer/VBoxContainer3/InuitionSkills/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+text = "REMOTE VIEWING"
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/CreationMenu/Magic/HBoxContainer/VBoxContainer3/InuitionSkills/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_right = 5
+
+[node name="Label2" type="Label" parent="VBoxContainer/CreationMenu/Magic/HBoxContainer/VBoxContainer3/InuitionSkills/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer5/MarginContainer"]
+layout_mode = 2
+text = "1"
+
+[node name="Eloquence Skills" type="MarginContainer" parent="VBoxContainer/CreationMenu/Magic/HBoxContainer/VBoxContainer3"]
+layout_mode = 2
+theme_override_constants/margin_top = 4
+
+[node name="PanelContainer2" type="PanelContainer" parent="VBoxContainer/CreationMenu/Magic/HBoxContainer/VBoxContainer3/Eloquence Skills"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_mniyq")
+
+[node name="EloquenceSkills" type="VBoxContainer" parent="VBoxContainer/CreationMenu/Magic/HBoxContainer/VBoxContainer3/Eloquence Skills/PanelContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/CreationMenu/Magic/HBoxContainer/VBoxContainer3/Eloquence Skills/PanelContainer2/EloquenceSkills"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Sociomancy"
+horizontal_alignment = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/CreationMenu/Magic/HBoxContainer/VBoxContainer3/Eloquence Skills/PanelContainer2/EloquenceSkills"]
+self_modulate = Color(0.77, 0.71225, 0.4235, 1)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_qaifw")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/CreationMenu/Magic/HBoxContainer/VBoxContainer3/Eloquence Skills/PanelContainer2/EloquenceSkills/PanelContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer7" type="HBoxContainer" parent="VBoxContainer/CreationMenu/Magic/HBoxContainer/VBoxContainer3/Eloquence Skills/PanelContainer2/EloquenceSkills/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/CreationMenu/Magic/HBoxContainer/VBoxContainer3/Eloquence Skills/PanelContainer2/EloquenceSkills/PanelContainer/VBoxContainer/HBoxContainer7"]
+layout_mode = 2
+mouse_filter = 1
+text = "INFLUENCE"
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/CreationMenu/Magic/HBoxContainer/VBoxContainer3/Eloquence Skills/PanelContainer2/EloquenceSkills/PanelContainer/VBoxContainer/HBoxContainer7"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_right = 5
+
+[node name="Label2" type="Label" parent="VBoxContainer/CreationMenu/Magic/HBoxContainer/VBoxContainer3/Eloquence Skills/PanelContainer2/EloquenceSkills/PanelContainer/VBoxContainer/HBoxContainer7/MarginContainer"]
+layout_mode = 2
+text = "1"
+
+[node name="MarginContainer9" type="MarginContainer" parent="VBoxContainer/CreationMenu/Magic/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_top = 4
+
+[node name="PanelContainer2" type="PanelContainer" parent="VBoxContainer/CreationMenu/Magic/HBoxContainer/MarginContainer9"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_mniyq")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/CreationMenu/Magic/HBoxContainer/MarginContainer9/PanelContainer2"]
+layout_mode = 2
+
+[node name="SelectedSkillLabel" type="Label" parent="VBoxContainer/CreationMenu/Magic/HBoxContainer/MarginContainer9/PanelContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+text = "Currently Selected Magic"
+horizontal_alignment = 1
+
+[node name="SelectedSkillRichTextLabel" type="RichTextLabel" parent="VBoxContainer/CreationMenu/Magic/HBoxContainer/MarginContainer9/PanelContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/normal_font_size = 8
+bbcode_enabled = true
+text = "Description of magic
+Equation determining
+the magic level and test test test test
+
+Total value bold"
+fit_content = true
+scroll_active = false
+autowrap_mode = 2
+
+[node name="Perks" type="VBoxContainer" parent="VBoxContainer/CreationMenu"]
+visible = false
+layout_mode = 2
+
+[node name="StartingGear" type="VBoxContainer" parent="VBoxContainer/CreationMenu"]
+visible = false
+layout_mode = 2
+
+[node name="DeathCalling" type="VBoxContainer" parent="VBoxContainer/CreationMenu"]
+visible = false
+layout_mode = 2
+
+[node name="PanelContainer2" type="PanelContainer" parent="VBoxContainer/CreationMenu/DeathCalling"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_i6lp5")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/CreationMenu/DeathCalling/PanelContainer2"]
+layout_mode = 2
+bbcode_enabled = true
+text = "Plan your next death calling"
+fit_content = true
+autowrap_mode = 2
+
+[node name="PanelContainer4" type="PanelContainer" parent="VBoxContainer/CreationMenu/DeathCalling"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_i6lp5")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/CreationMenu/DeathCalling/PanelContainer4"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/CreationMenu/DeathCalling/PanelContainer4/HBoxContainer"]
+layout_mode = 2
+text = "Who killed you?"
+
+[node name="CheckButton" type="CheckButton" parent="VBoxContainer/CreationMenu/DeathCalling/PanelContainer4/HBoxContainer"]
+layout_mode = 2
+tooltip_text = "Allow player to type in a name (match NPC or mob name)
+dropdown to select vague response"
+text = "Custom vs DropDown"
+
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer/CreationMenu/DeathCalling/PanelContainer4/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "Killer's Name"
+
+[node name="OptionButton" type="OptionButton" parent="VBoxContainer/CreationMenu/DeathCalling/PanelContainer4/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+item_count = 7
+popup/item_0/text = "Monster"
+popup/item_0/id = 0
+popup/item_1/text = "Friend"
+popup/item_1/id = 1
+popup/item_2/text = "Foe"
+popup/item_2/id = 2
+popup/item_3/text = "Trap"
+popup/item_3/id = 3
+popup/item_4/text = "My own hand"
+popup/item_4/id = 4
+popup/item_5/text = "Natural Causes"
+popup/item_5/id = 5
+popup/item_6/text = "Unkown"
+popup/item_6/id = 6
+
+[node name="PanelContainer5" type="PanelContainer" parent="VBoxContainer/CreationMenu/DeathCalling"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_i6lp5")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/CreationMenu/DeathCalling/PanelContainer5"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/CreationMenu/DeathCalling/PanelContainer5/HBoxContainer"]
+layout_mode = 2
+text = "What killed you?"
+
+[node name="CheckButton" type="CheckButton" parent="VBoxContainer/CreationMenu/DeathCalling/PanelContainer5/HBoxContainer"]
+layout_mode = 2
+tooltip_text = "Allow player to type in a name (match NPC or mob name)
+dropdown to select vague response"
+text = "Custom vs DropDown"
+
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer/CreationMenu/DeathCalling/PanelContainer5/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "Item Name"
+
+[node name="OptionButton" type="OptionButton" parent="VBoxContainer/CreationMenu/DeathCalling/PanelContainer5/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+item_count = 6
+fit_to_longest_item = false
+popup/item_0/text = "Physical Weapon"
+popup/item_0/id = 0
+popup/item_1/text = "Ranged Weapon"
+popup/item_1/id = 1
+popup/item_2/text = "Object"
+popup/item_2/id = 2
+popup/item_3/text = "Element"
+popup/item_3/id = 3
+popup/item_4/text = ""
+popup/item_4/id = 4
+popup/item_5/text = "Unkown"
+popup/item_5/id = 5
+
+[node name="PanelContainer6" type="PanelContainer" parent="VBoxContainer/CreationMenu/DeathCalling"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_i6lp5")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/CreationMenu/DeathCalling/PanelContainer6"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/CreationMenu/DeathCalling/PanelContainer6/HBoxContainer"]
+layout_mode = 2
+text = "When did you die?"
+
+[node name="CheckButton" type="CheckButton" parent="VBoxContainer/CreationMenu/DeathCalling/PanelContainer6/HBoxContainer"]
+layout_mode = 2
+tooltip_text = "Allow player to type in a name (match NPC or mob name)
+dropdown to select vague response"
+text = "Custom vs DropDown"
+
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer/CreationMenu/DeathCalling/PanelContainer6/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "Death Date (year/month/day)"
+
+[node name="OptionButton" type="OptionButton" parent="VBoxContainer/CreationMenu/DeathCalling/PanelContainer6/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+item_count = 2
+popup/item_0/text = "In the future"
+popup/item_0/id = 0
+popup/item_1/text = ""
+popup/item_1/id = 1
+
+[node name="PanelContainer7" type="PanelContainer" parent="VBoxContainer/CreationMenu/DeathCalling"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_i6lp5")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/CreationMenu/DeathCalling/PanelContainer7"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/CreationMenu/DeathCalling/PanelContainer7/HBoxContainer"]
+layout_mode = 2
+text = "Where did you die?"
+
+[node name="CheckButton" type="CheckButton" parent="VBoxContainer/CreationMenu/DeathCalling/PanelContainer7/HBoxContainer"]
+layout_mode = 2
+tooltip_text = "Allow player to type in a name (match NPC or mob name)
+dropdown to select vague response"
+text = "Custom vs DropDown"
+
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer/CreationMenu/DeathCalling/PanelContainer7/HBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "Death Date (year/month/day)"
+
+[node name="OptionButton" type="OptionButton" parent="VBoxContainer/CreationMenu/DeathCalling/PanelContainer7/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+item_count = 3
+popup/item_0/text = "Estate"
+popup/item_0/id = 0
+popup/item_1/text = "Dungeon"
+popup/item_1/id = 1
+popup/item_2/text = "Foreign Land"
+popup/item_2/id = 2
+
+[node name="PanelContainer8" type="PanelContainer" parent="VBoxContainer/CreationMenu/DeathCalling"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_i6lp5")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/CreationMenu/DeathCalling/PanelContainer8"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/CreationMenu/DeathCalling/PanelContainer8/HBoxContainer"]
+layout_mode = 2
+text = "Why did you die?"
+
+[node name="Label2" type="Label" parent="VBoxContainer/CreationMenu/DeathCalling/PanelContainer8/HBoxContainer"]
+layout_mode = 2
+text = "Select  a desire that fueled your death. Select more than 1 for a worse reward"
+
+[node name="PanelContainer3" type="PanelContainer" parent="VBoxContainer/CreationMenu/DeathCalling"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_i6lp5")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/CreationMenu/DeathCalling/PanelContainer3"]
+layout_mode = 2
+bbcode_enabled = true
+text = "My current death calling: 
+x"
+fit_content = true
+autowrap_mode = 2
+
+[editable path="VBoxContainer/CreationMenu/Limbs/HBoxContainer/LimbExplanation/VBoxContainer/LimbDiceVBoxContainer/HBoxContainer/PanelContainer2/DicePipsUi"]

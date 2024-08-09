@@ -1,0 +1,38 @@
+[gd_scene load_steps=7 format=3 uid="uid://f2hdfvoa50vx"]
+
+[ext_resource type="Script" path="res://HUD/ActionMenus/ArmorDicePointContainer.gd" id="1_20xr7"]
+[ext_resource type="PackedScene" uid="uid://hmesfapk1dl6" path="res://HUD/Dice/dice_container.tscn" id="2_v5p3i"]
+[ext_resource type="Texture2D" uid="uid://kcqupg56asyn" path="res://assets/customs/arrow_button_unpushed.png" id="3_aflyh"]
+[ext_resource type="Texture2D" uid="uid://hw30xhmfmyhf" path="res://assets/customs/arrow_button_pushed.png" id="4_osuis"]
+[ext_resource type="Texture2D" uid="uid://indwsc0bmd1j" path="res://assets/customs/arrow_button_highlighted.png" id="5_mf5yg"]
+[ext_resource type="Texture2D" uid="uid://jfjackunmr06" path="res://assets/customs/arrow_button_disabled.png" id="6_3dpgw"]
+
+[node name="ArmorDicePointContainer" type="VBoxContainer" node_paths=PackedStringArray("IncreaseDieButton", "DecreaseDieButton", "dice_container")]
+script = ExtResource("1_20xr7")
+IncreaseDieButton = NodePath("IncreaseDieTextureButton")
+DecreaseDieButton = NodePath("DecreaseDieTextureButton")
+dice_container = NodePath("DiceContainer")
+
+[node name="IncreaseDieTextureButton" type="TextureButton" parent="."]
+layout_mode = 2
+texture_normal = ExtResource("3_aflyh")
+texture_pressed = ExtResource("4_osuis")
+texture_hover = ExtResource("5_mf5yg")
+texture_disabled = ExtResource("6_3dpgw")
+stretch_mode = 3
+
+[node name="DiceContainer" parent="." instance=ExtResource("2_v5p3i")]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="DecreaseDieTextureButton" type="TextureButton" parent="."]
+layout_mode = 2
+texture_normal = ExtResource("3_aflyh")
+texture_pressed = ExtResource("4_osuis")
+texture_hover = ExtResource("5_mf5yg")
+texture_disabled = ExtResource("6_3dpgw")
+stretch_mode = 3
+flip_v = true
+
+[connection signal="pressed" from="IncreaseDieTextureButton" to="." method="_on_increase_die_button_pressed"]
+[connection signal="pressed" from="DecreaseDieTextureButton" to="." method="_on_decrease_die_button_pressed"]

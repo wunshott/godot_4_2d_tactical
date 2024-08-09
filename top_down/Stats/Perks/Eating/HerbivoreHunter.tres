@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="PerkResource" load_steps=2 format=3 uid="uid://del72l42rnrvx"]
+
+[ext_resource type="Script" path="res://top_down/Stats/Perks/Eating/PerkResource.gd" id="1_sjl23"]
+
+[resource]
+script = ExtResource("1_sjl23")
+perk_name = "Herbivore Hunter"
+required_desires = Array[String]([])
+required_desire_levels = Array[int]([])

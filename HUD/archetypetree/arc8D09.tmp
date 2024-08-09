@@ -1,0 +1,392 @@
+[gd_scene load_steps=7 format=3 uid="uid://bkewxc8cgeldd"]
+
+[ext_resource type="Texture2D" uid="uid://k6bqv0bstohe" path="res://assets/customs/menu_circle.png" id="1_3iugw"]
+[ext_resource type="Theme" uid="uid://dy51vb6uy42fp" path="res://Themes/HUD_THEME_1.tres" id="1_twbkt"]
+[ext_resource type="Script" path="res://HUD/archetypetree/archetypes.gd" id="2_2jksk"]
+[ext_resource type="Texture2D" uid="uid://dlqcuba8bbq81" path="res://assets/customs/menu_sub_circle.png" id="2_s7gj2"]
+[ext_resource type="PackedScene" uid="uid://clm6r71qdkhkv" path="res://HUD/archetypetree/perk_tree.tscn" id="4_p0m2m"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_klwo1"]
+atlas = ExtResource("2_s7gj2")
+region = Rect2(624, 208, 16, 16)
+
+[node name="Archetypesq" type="Control" node_paths=PackedStringArray("skill_tree_line")]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.5
+offset_top = -124.5
+offset_right = 160.5
+offset_bottom = 124.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.5
+theme = ExtResource("1_twbkt")
+script = ExtResource("2_2jksk")
+skill_tree_line = NodePath("Line2D")
+
+[node name="Line2D" type="Line2D" parent="."]
+z_index = -1
+default_color = Color(0.207843, 1, 1, 1)
+
+[node name="MenuCircle" type="TextureRect" parent="."]
+clip_children = 2
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = -128.0
+offset_right = 128.0
+offset_bottom = 128.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 4
+mouse_filter = 2
+texture = ExtResource("1_3iugw")
+stretch_mode = 3
+
+[node name="PerkTree" parent="." instance=ExtResource("4_p0m2m")]
+layout_mode = 1
+offset_left = -13.0
+offset_top = 0.0
+offset_right = 13.0
+offset_bottom = 0.0
+perk_tree_paths = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 7.5
+offset_top = -22.5
+offset_right = 35.5
+offset_bottom = 7.5
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Status"
+horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_klwo1")
+stretch_mode = 3
+
+[node name="VBoxContainer14" type="VBoxContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 77.5
+offset_top = -103.0
+offset_right = 105.5
+offset_bottom = -73.0
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="VBoxContainer14"]
+layout_mode = 2
+text = "Power"
+horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer14"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_klwo1")
+stretch_mode = 3
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 29.5
+offset_top = -127.0
+offset_right = 86.5
+offset_bottom = -97.0
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="VBoxContainer2"]
+layout_mode = 2
+text = "Independence"
+horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer2"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_klwo1")
+stretch_mode = 3
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 105.5
+offset_top = -43.0
+offset_right = 143.5
+offset_bottom = -13.0
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="VBoxContainer3"]
+layout_mode = 2
+text = "Curiosity"
+horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer3"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_klwo1")
+stretch_mode = 3
+
+[node name="VBoxContainer15" type="VBoxContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 106.5
+offset_top = -9.0
+offset_right = 151.5
+offset_bottom = 21.0
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="VBoxContainer15"]
+layout_mode = 2
+text = "Tranquility"
+horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer15"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_klwo1")
+stretch_mode = 3
+
+[node name="VBoxContainer4" type="VBoxContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 96.5
+offset_top = 28.0
+offset_right = 145.5
+offset_bottom = 58.0
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="VBoxContainer4"]
+layout_mode = 2
+text = "Acceptance"
+horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer4"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_klwo1")
+stretch_mode = 3
+
+[node name="VBoxContainer6" type="VBoxContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -108.5
+offset_top = 66.0
+offset_right = -82.5
+offset_bottom = 96.0
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="VBoxContainer6"]
+layout_mode = 2
+text = "Family"
+horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer6"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_klwo1")
+stretch_mode = 3
+
+[node name="VBoxContainer7" type="VBoxContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 5.5
+offset_top = 112.0
+offset_right = 30.5
+offset_bottom = 142.0
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="VBoxContainer7"]
+layout_mode = 2
+text = "Honor"
+horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer7"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_klwo1")
+stretch_mode = 3
+
+[node name="VBoxContainer8" type="VBoxContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 34.5
+offset_top = 102.0
+offset_right = 67.5
+offset_bottom = 132.0
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="VBoxContainer8"]
+layout_mode = 2
+text = "Idealism"
+horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer8"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_klwo1")
+stretch_mode = 3
+
+[node name="VBoxContainer16" type="VBoxContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 82.0
+offset_top = 63.0
+offset_right = 128.0
+offset_bottom = 93.0
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="VBoxContainer16"]
+layout_mode = 2
+text = "Vengeance"
+horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer16"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_klwo1")
+stretch_mode = 3
+
+[node name="VBoxContainer9" type="VBoxContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 68.5
+offset_top = 88.0
+offset_right = 93.5
+offset_bottom = 118.0
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="VBoxContainer9"]
+layout_mode = 2
+text = "Order"
+horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer9"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_klwo1")
+stretch_mode = 3
+
+[node name="VBoxContainer10" type="VBoxContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -134.5
+offset_top = -91.0
+offset_right = -60.5
+offset_bottom = -61.0
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="VBoxContainer10"]
+layout_mode = 2
+text = "Physical Exercise"
+horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer10"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_klwo1")
+stretch_mode = 3
+
+[node name="VBoxContainer11" type="VBoxContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -150.5
+offset_top = 34.0
+offset_right = -76.5
+offset_bottom = 64.0
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="VBoxContainer11"]
+layout_mode = 2
+text = "Saving"
+horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer11"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_klwo1")
+stretch_mode = 3
+
+[node name="VBoxContainer12" type="VBoxContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -102.5
+offset_top = -120.0
+offset_right = -28.5
+offset_bottom = -90.0
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="VBoxContainer12"]
+layout_mode = 2
+text = "Romance"
+horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer12"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_klwo1")
+stretch_mode = 3
+
+[node name="VBoxContainer13" type="VBoxContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -92.5
+offset_top = 94.0
+offset_right = -32.5
+offset_bottom = 124.0
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="VBoxContainer13"]
+layout_mode = 2
+text = "Social Contact"
+horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer13"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_klwo1")
+stretch_mode = 3
